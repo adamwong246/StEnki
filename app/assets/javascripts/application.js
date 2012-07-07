@@ -15,3 +15,5 @@
 //= require common
 //= require live-comment-preview
 //= require_self
+//= require bootstrap
+//= require_tree .
