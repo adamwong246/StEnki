@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">I failed the turing test</a>
+          <a class="brand" href="/">I failed the turing test</a>
           
           <div class="nav-collapse">
             <ul class="nav">
@@ -53,12 +53,22 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Posts</li>
-              
-              
-              <% Post.all.each do |p| %>
-                <p><%= link_to p.title, p %> </p>
 
-              <%end%>
+<% @months = Post.find_all_grouped_by_month %>
+<% if @months.empty? -%>
+  <p>Once posts are added they will start to appear in this archive.</p>
+<% else -%>
+
+  <% @months.each do |month| -%>
+  <h3><%= format_month(month.date) %></h3>
+  <ul class='archive-month'>
+    <% month.posts.each do |post| -%>
+      <li><%= link_to(post.title, post_path(post)) %><% unless post.tags.empty? %> <span class='tags'>(<%= linked_tag_list(post.tags) %>)</span><% end -%></li>
+    <% end -%>
+  </ul>
+  <% end -%>
+
+<% end -%>
 
             </ul>
           </div><!--/.well -->
@@ -73,6 +83,7 @@
       <footer>
         <p>Adam Wong 2012</p>
         <p>https://github.com/adamwong246/enki</p>
+        <%= image_tag "sig.jpg" %>
       </footer>
 
     </div><!--/.fluid-container-->
