@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
 
+gem 'bootstrap-sass'
+gem 'less-rails-bootstrap'
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -58,6 +62,7 @@ group :test do
   gem 'rspec'
   gem 'nokogiri', '~> 1.5.0'
   gem 'webrat'
+  gem 'sqlite3'
 end
 
 group :development, :test do
