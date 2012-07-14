@@ -1,4 +1,4 @@
-tr{:class => cycle('', 'alt'), :id => "comment-# comment.id}"
+tr
   td.created_at= comment.created_at.strftime('%d %b, %Y')
   td.author= link_to(comment.author, admin_comment_path(comment))
   td= truncate(comment.body, :length => 40)

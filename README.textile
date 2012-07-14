@@ -1,6 +1,12 @@
 h1. StEnki, Enki as forked by adamwong246 for his personal website, <a href="http://growing-mountain-4489.herokuapp.com/">i failed the turing test</a>
 
-h3. I've changed very little to the codebase thus far. -Basically, I replaced the original css with beautiful twitter bootstrap- It's not ready to download right now so hold off till I'm finished. But the majority of the work was not done by me. Thank you <a href="https://github.com/xaviershay">Xavier</a> for all your hard work. 
+h3. I've changed very little to the codebase thus far, but here's a list of things I'm working on, in no particular order. 
+
+* Replace the original css with beautiful twitter bootstrap
+* Replace the erb files with slim. 
+* Implement basic navigation
+
+h3. Almost none of it's tested well but I encourage you to fork this project and hack away. But the majority of the work was not done by me. Thank you <a href="https://github.com/xaviershay">Xavier</a> for all your hard work. 
 
 A Ruby on Rails blogging app for the fashionable developer.
 
