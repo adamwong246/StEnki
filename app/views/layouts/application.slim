@@ -1,66 +1,61 @@
 doctype html
 html dir="ltr" lang="en-US"
-head
-	meta charset="utf-8"
-	meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
-	meta name="viewport" content="width=device-width, initial-scale=1.0"
-	title 
-		= content_for?(:title) ? yield(:title) : "I failed the turing test"
-	meta name="description" content=""
-	meta name="author" content=""
-	= stylesheet_link_tag    "application", :media => "all"
-	= javascript_include_tag "application"
-	= csrf_meta_tags 
+	head
+		meta charset="utf-8"
+		meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
+		meta name="viewport" content="width=device-width, initial-scale=1.0"
+		title = content_for?(:title) ? yield(:title) : "I failed the turing test"
+		meta name="description" content=""
+		meta name="author" content=""
 
+		= stylesheet_link_tag    "application", :media => "all"
+		= javascript_include_tag "application"
+		= csrf_meta_tags 
 
-		     
+	body
+		div class="navbar navbar-fixed-top"
+			div class="navbar-inner"
+				div class="container-fluid"
+					a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
+						span class="icon-barspan
+						span class="icon-bar"
+						span class="icon-bar"
+					
+					a class="brand" href="/" I failed the turing test
 
-	= yield(:head)
+					div class="nav-collapse"
+						ul class="nav"
+							li 
+								a href="#about" About
 
-body
-	div class="navbar navbar-fixed-top"
-		div class="navbar-inner"
-			div class="container-fluid"
-				a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
-					span class="icon-barspan
-					span class="icon-bar"
-					span class="icon-bar"
-				
-				a class="brand" href="/" I failed the turing test
+		div class="container-fluid"
+			div class="row-fluid"
+				div class="span3"
+					div class="well sidebar-nav"
+						ul class="nav nav-list"
+							li class="nav-header"
+								| Posts
+							- @months = Post.find_all_grouped_by_month
+							- if @months.empty? 
+								p
+									| Once posts are added they will start to appear in this archive.
+							- else
+								- @months.each do |month| 
+									h3
+										= format_month(month.date) 
+									ul class='archive-month'
+										- month.posts.each do |post|
+											li
+												= link_to(post.title, post_path(post))
+												- unless post.tags.empty? 
+													span class='tags' 
+														= linked_tag_list(post.tags)
 
-				div class="nav-collapse"
-					ul class="nav"
-						li
-							a href="#about" About
+				div class="span9"
+					= yield       
+		hr
 
-div class="container-fluid"
-	div class="row-fluid"
-		div class="span3"
-			div class="well sidebar-nav"
-				ul class="nav nav-list"
-					li class="nav-header"
-						| Posts
-					- @months = Post.find_all_grouped_by_month
-					- if @months.empty? 
-						p
-							| Once posts are added they will start to appear in this archive.
-					- else
-						- @months.each do |month| 
-							h3
-								= format_month(month.date) 
-							ul class='archive-month'
-								- month.posts.each do |post|
-									li
-										= link_to(post.title, post_path(post))
-										- unless post.tags.empty? 
-											span class='tags' 
-												= linked_tag_list(post.tags)
-
-		div class="span9"
-			= yield       
-hr
-
-footer
-	p Adam Wong 2012
-	a href="https://github.com/adamwong246/enki" source
-	= image_tag "sig.resized.jpg" 
+		footer
+			p Adam Wong 2012
+			a href="https://github.com/adamwong246/enki" source
+			= image_tag "sig.resized.jpg" 
