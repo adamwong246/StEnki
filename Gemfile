@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
 
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 gem 'less-rails-bootstrap'
 
 gem 'slim'
