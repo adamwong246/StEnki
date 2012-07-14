@@ -6,7 +6,7 @@ I've changed very little to the codebase thus far, but here's a list of things I
 * Replace the erb files with slim. 
 * Implement basic navigation
 
-h3. Almost none of it's tested well but I encourage you to fork this project and hack away. But the majority of the work was not done by me. Thank you <a href="https://github.com/xaviershay">Xavier</a> for all your hard work. 
+h3. Almost none of my work is tested well σ_σ but I encourage you to fork this project and hack away. The majority of the work was not done by me. A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> for all his hard work. Thanks Xavier! 
 
 h2. 
 
