@@ -2,8 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
 
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
+gem 'less-rails'
 gem 'less-rails-bootstrap'
+
+gem 'bootstrap-generators', '~> 2.0' # for less to work
+gem 'simple_form', '~> 2.0'
 
 gem 'slim'
 
@@ -13,8 +17,8 @@ gem 'slim'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'therubyracer'
+  #gem 'sass-rails',   '~> 3.2.3'
+  gem 'therubyracer' #heroku says unnesecary but I need it for less to work
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
 end

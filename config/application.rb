@@ -66,6 +66,11 @@ module Enki
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.app_generators.stylesheet_engine :less
+
+    config.less.paths << "#{Rails.root}/app/assets/stylesheets"
+    config.less.compress = false
   end
 end
 
