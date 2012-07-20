@@ -68,6 +68,9 @@ module Enki
     config.assets.version = '1.0'
 
     config.app_generators.stylesheet_engine :less
+
+    config.less.paths << "#{Rails.root}/app/assets/stylesheets"
+    config.less.compress = false
   end
 end
 
