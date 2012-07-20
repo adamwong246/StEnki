@@ -44,7 +44,7 @@ html dir="ltr" lang="en-US"
 									ul class='archive-month'
 										- month.posts.each do |post|
 											li
-												= link_to(post.title, post_path(post))
+												=' link_to(post.title, post_path(post))
 												- unless post.tags.empty? 
 													span class='tags' 
 														= linked_tag_list(post.tags)
