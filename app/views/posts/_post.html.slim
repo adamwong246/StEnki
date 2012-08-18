@@ -1,5 +1,6 @@
 #post
   h2= link_to(post.title, post_path(post))
+   
   .entrybody
     = raw post.body_html
   .meta
@@ -10,3 +11,5 @@
       - unless post.tags.empty?
         li.tags
           | Tagged #{linked_tag_list(post.tags)}
+  
+  

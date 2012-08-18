@@ -13,6 +13,9 @@ html dir="ltr" lang="en-US"
 		= csrf_meta_tags 
 
 	body
+
+		
+
 		div class="navbar navbar-fixed-top"
 			div class="navbar-inner"
 				div class="container-fluid"
@@ -20,13 +23,19 @@ html dir="ltr" lang="en-US"
 						span class="icon-barspan
 						span class="icon-bar"
 						span class="icon-bar"
+
+
 					
 					a class="brand" href="/" I failed the turing test
+
 
 					div class="nav-collapse"
 						ul class="nav"
 							li 
 								a href="/pages/about" About
+							li
+								div#demo1 data-title="share this" data-url="http://#{request.host}:#{request.port.to_s + request.fullpath}"
+								
 
 		div class="container-fluid"
 			div class="row-fluid"
@@ -44,7 +53,8 @@ html dir="ltr" lang="en-US"
 									ul class='archive-month'
 										- month.posts.each do |post|
 											li
-												=' link_to(post.title, post_path(post))
+												h3
+													= link_to(post.title, post_path(post))
 												- unless post.tags.empty? 
 													span class='tags' 
 														= linked_tag_list(post.tags)
@@ -57,6 +67,7 @@ html dir="ltr" lang="en-US"
 			div.span4
 				h1 Adam Wong 2012
 				h1: a href="https://github.com/adamwong246/enki" source
+				h1: a href="http://www.gnu.org/copyleft/gpl.html" GPL
 			= image_tag "sig.resized.jpg", :class => 'span4'
 			
 			

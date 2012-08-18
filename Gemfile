@@ -68,6 +68,7 @@ group :test do
   gem 'nokogiri', '~> 1.5.0'
   gem 'webrat'
   gem 'sqlite3'
+  gem 'mailcatcher'
 end
 
 group :development, :test do
