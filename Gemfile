@@ -2,10 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
 
-gem 'bootstrap-sass'
 #gem 'less-rails-bootstrap'
 
 gem 'slim'
+
+gem 'bootstrap-sass'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -17,6 +18,7 @@ group :assets do
   gem 'therubyracer'
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
+
 end
 
 platforms :ruby do
