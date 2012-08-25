@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ */
+
+
+@import "bootstrap";
+// 
+@import "bootstrap-responsive";
+
+body{
+  padding-top:60px;
+}
+
+
+// table.nav.pull-right.share-buttons{
+//   border: 1px solid white;
+
+//   td{
+//     border: 1px solid red;
+//     vertical-align:middle;
+//   }
+// }
+
+// ul.nav.pull-right.share-buttons li { display: inline; }
+
+// ul.nav.pull-right.share-buttons li a
+// {
+// text-decoration: none;
+// padding: .2em 1em;
+// color: #fff;
+// background-color: #036;
+// }
+
+// .nav-collapse{
+//   display: table;   /* Allow the centering to work */
+//   margin: 0 auto;
+
+//   ul#horizontal-list {
+//   min-width: 696px;
+//   list-style: none;
+//   padding-top: 20px;
+//   }
+//   ul#horizontal-list li {
+//     display: inline;
+//   }
+// }
+
+// ul.nav.pull-right.share-buttons{
+//   margin: 0;
+//   padding: 0;
+//   list-style-type: none;
+//   text-align: center;
+
+//   li { display: inline; }
+// }

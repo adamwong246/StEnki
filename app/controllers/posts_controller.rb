@@ -4,7 +4,7 @@ class PostsController < ApplicationController
     @posts = Post.find_recent(:tag => @tag, :include => :tags)
 
     respond_to do |format|
-      format.html
+      format.html 
       format.atom { render :layout => false }
     end
   end
