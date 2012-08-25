@@ -267,6 +267,7 @@ DEPENDENCIES
   slim
   sqlite3
   therubyracer
+  thin (~> 1.4.1)
   trinidad
   uglifier
   webrat

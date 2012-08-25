@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.0'
 
+gem "thin", "~> 1.4.1"
+
 gem 'bootstrap-generators', '~> 2.0' # for less to work
 gem 'simple_form', '~> 2.0'
 
