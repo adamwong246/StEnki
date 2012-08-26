@@ -4,16 +4,16 @@
 .well
   = render :partial => 'posts/post', :locals => {:post => @post, :short => false}
   
-  .pagination
-    = render :partial => 'kaminari/prev_page', :locals => {:current_page => Post.first, :url => "", :remote => true}
-    = render :partial => 'kaminari/next_page', :locals => {:current_page => @post.next, :url => "", :remote => true}
+  / .pagination
+  /   = render :partial => 'kaminari/prev_page', :locals => {:current_page => Post.first, :url => "", :remote => true}
+  /   = render :partial => 'kaminari/next_page', :locals => {:current_page => @post.next, :url => "", :remote => true}
 
 
-  / - if @post.previous
-  /   = link_to "< Previous", @post.previous
-  /   = "  "
-  / - if @post.next
-  /   = link_to "Next >", @post.next
+  - if @post.previous
+    = link_to "< Previous", @post.previous
+    = "  "
+  - if @post.next
+    = link_to "Next >", @post.next
 
 ol.commentlist
   - @post.approved_comments.each do |comment|
