@@ -126,4 +126,20 @@ class Post < ActiveRecord::Base
     value = value.join(", ") if value.respond_to?(:join)
     super(value)
   end
+
+  def last?
+    self == Post.last
+  end
+
+  def first?
+    self == Post.first
+  end
+
+  def previous
+    Post.where(["id < ?", id]).last
+  end
+
+  def next
+    Post.where(["id > ?", id]).first
+  end
 end

@@ -1,21 +1,21 @@
-- puts 
 - if !defined? short 
   - short = false 
 
-.well
-  h2= link_to(post.title, post_path(post))
 
-  .entrybody.well
-    - if short
-      = raw post.body_html.truncate_html(500, at_end = "...")
-    - else
-      = raw post.body_html
+h2= link_to(post.title, post_path(post))
 
-  .meta
-    ul
-      li.date
-        | Posted on #{format_post_date(post.published_at)}
-      li.comments= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments'))
-      - unless post.tags.empty?
-        li.tags
-          | Tagged #{linked_tag_list(post.tags)}
+.entrybody.well
+  - if short
+    = raw post.body_html.truncate_html(500, at_end = "...")
+  - else
+    = raw post.body_html
+
+.meta
+  ul
+    li.date
+      | Posted on #{format_post_date(post.published_at)}
+    li.comments= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments'))
+    - unless post.tags.empty?
+      li.tags
+        | Tagged #{linked_tag_list(post.tags)}
+
