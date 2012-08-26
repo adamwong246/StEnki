@@ -1,3 +1,4 @@
+- puts 
 - if !defined? short 
   - short = false 
 
@@ -6,7 +7,7 @@
 
   .entrybody.well
     - if short
-      = raw post.body.truncate_html(500, at_end = "...")
+      = raw post.body_html.truncate_html(500, at_end = "...")
     - else
       = raw post.body_html
 

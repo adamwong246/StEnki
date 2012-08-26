@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
     @tag = params[:tag]
-    @posts = Post.find_recent(:tag => @tag, :include => :tags)
+    
+    @posts = Kaminari.paginate_array(Post.find_recent(:tag => @tag, :include => :tags)).page(params[:page]).per(3)
 
     respond_to do |format|
       format.html 

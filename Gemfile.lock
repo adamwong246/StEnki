@@ -99,6 +99,10 @@ GEM
     jruby-rack (1.1.7)
     json (1.7.3)
     json (1.7.3-java)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     launchy (2.1.0)
       addressable (~> 2.2.6)
     launchy (2.1.0-java)
@@ -203,7 +207,6 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
-    will_paginate (3.0.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -226,6 +229,7 @@ DEPENDENCIES
   formtastic
   jquery-rails
   jruby-openssl
+  kaminari
   lesstile
   nokogiri (~> 1.5.0)
   open_id_authentication
@@ -242,4 +246,3 @@ DEPENDENCIES
   trinidad
   uglifier
   webrat
-  will_paginate (~> 3.0.2)
