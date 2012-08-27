@@ -9,6 +9,8 @@ gem 'simple_form', '~> 2.0'
 
 gem 'slim'
 
+gem 'less-rails'
+
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
