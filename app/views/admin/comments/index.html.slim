@@ -17,4 +17,4 @@ table#comments
     - if @comments.total_pages > 1
       tr.pagination
         td colspan="5"
-          = will_paginate(@comments, :previous_label => '« Newer', :next_label => 'Older »')
+          = will_paginate(@comments, :first_label => "first", :previous_label => '« Newer', :next_label => 'Older »', :renderer => WillPaginate::ActionView::LinkRenderer)

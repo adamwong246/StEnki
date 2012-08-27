@@ -50,7 +50,8 @@ gem 'aaronh-chronic', :require => 'chronic' # Fixes for 1.9.2
 gem 'coderay'
 gem 'lesstile'
 gem 'formtastic'
-gem 'kaminari'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'exception_notification', '~> 2.5.2'
 gem 'open_id_authentication'
 
