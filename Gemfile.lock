@@ -40,6 +40,8 @@ GEM
     bootstrap-generators (2.0.4)
       railties (~> 3.1)
     bootstrap-sass (2.0.4.0)
+    bootstrap-will_paginate (0.0.7)
+      will_paginate
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.0)
     capybara (1.1.2)
@@ -243,6 +245,7 @@ DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
   bootstrap-generators (~> 2.0)
   bootstrap-sass
+  bootstrap-will_paginate
   coderay
   coffee-rails (~> 3.2.1)
   cucumber-rails
@@ -271,4 +274,4 @@ DEPENDENCIES
   trinidad
   uglifier
   webrat
-  will_paginate (~> 3.0.2)
+  will_paginate

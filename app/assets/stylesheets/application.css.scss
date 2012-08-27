@@ -20,6 +20,21 @@ body{
   padding-top:60px;
 }
 
+span.tags a{
+  color: gray;
+}
+
+#footer{
+  float:right;
+  display:inline-block;
+
+  div{
+    display: inline-block;
+  }
+  img{
+    display: inline-block;
+  }
+}
 
 // table.nav.pull-right.share-buttons{
 //   border: 1px solid white;

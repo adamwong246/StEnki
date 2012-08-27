@@ -6,6 +6,7 @@ h1= link_to(enki_config[:title], '/')
   p= text_field_tag 'openid_url'
   - if allow_login_bypass?
     p
+      = "bypass security?"
       = check_box_tag 'bypass_login'
       label for="bypass_login"
   p= submit_tag("Login with OpenID")

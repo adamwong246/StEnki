@@ -1,3 +1,5 @@
+require "html_truncator"
+
 class Post < ActiveRecord::Base
   DEFAULT_LIMIT = 15
 
@@ -123,5 +125,21 @@ class Post < ActiveRecord::Base
   def tag_list=(value)
     value = value.join(", ") if value.respond_to?(:join)
     super(value)
+  end
+
+  def last?
+    self == Post.last
+  end
+
+  def first?
+    self == Post.first
+  end
+
+  def previous
+    Post.where(["id < ?", id]).last
+  end
+
+  def next
+    Post.where(["id > ?", id]).first
   end
 end
