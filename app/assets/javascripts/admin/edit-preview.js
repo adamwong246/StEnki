@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  alert("ready");
-  
   var form = $('form.formtastic');
 
   if (form.length > 0 && form.attr('id').match(/^(new_post|edit_post|new_page|edit_page)/)) {
@@ -23,7 +21,6 @@ $(document).ready(function() {
           },
           success: function(r) {
             $('#preview .content').html(r);
-
           }
         });
       }
@@ -34,9 +31,7 @@ $(document).ready(function() {
     }
 
     $(document).keyup(function(e) {
-      alert("success");
       if (e.ctrlKey && (e.which == 69)) { // Works in recent Safari and FF, unsure about IE
-
         toggle_preview();
         e.preventDefault();
       }

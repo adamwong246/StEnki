@@ -10,15 +10,16 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
+//= require bootstrap
 //= require jquery
 //= require jquery_ujs
 //= require common
 //= require live-comment-preview
 //= require_self
-//= require bootstrap
 //= require_tree .
 
 $(document).ready(function() {
       Socialite.load($('#social'));
+
    });
 
