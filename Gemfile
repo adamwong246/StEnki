@@ -9,6 +9,10 @@ gem 'simple_form', '~> 2.0'
 
 gem 'slim'
 
+gem 'fastercsv' # Only required on Ruby 1.8 and below
+gem 'rails_admin'
+gem 'devise'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -76,3 +80,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'aaronh-chronic'
 end
+
+
+gem "devise"

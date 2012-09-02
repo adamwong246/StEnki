@@ -37,6 +37,9 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.2)
+    bbenezech-nested_form (0.0.6)
+    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.0.1-java)
     bootstrap-generators (2.0.4)
       railties (~> 3.1)
     bootstrap-sass (2.0.4.0)
@@ -76,6 +79,11 @@ GEM
       launchy
     daemons (1.1.9)
     database_cleaner (0.8.0)
+    devise (2.1.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
     diff-lcs (1.1.3)
     erubis (2.7.0)
     eventmachine (0.12.10)
@@ -86,6 +94,7 @@ GEM
       multi_json (~> 1.0)
     factory_girl (4.0.0)
       activesupport (>= 3.0.0)
+    fastercsv (1.5.5)
     ffi (1.1.5)
     ffi (1.1.5-java)
     formtastic (2.2.1)
@@ -96,17 +105,26 @@ GEM
       json (>= 1.4.6)
     haml (3.1.7)
     hike (1.2.1)
+    hpricot (0.8.6)
+    hpricot (0.8.6-java)
     i18n (0.6.0)
     jdbc-sqlite3 (3.7.2)
     journey (1.0.4)
     jquery-rails (2.1.1)
       railties (>= 3.1.0, < 5.0)
       thor (~> 0.14)
+    jquery-ui-rails (1.1.1)
+      jquery-rails
+      railties (>= 3.1.0)
     jruby-openssl (0.7.7)
       bouncy-castle-java (>= 1.5.0146.1)
     jruby-rack (1.1.9)
     json (1.7.5)
     json (1.7.5-java)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     launchy (2.1.2)
       addressable (~> 2.3)
     launchy (2.1.2-java)
@@ -136,6 +154,7 @@ GEM
     nokogiri (1.5.5-java)
     open_id_authentication (1.1.0)
       rack-openid (~> 1.3)
+    orm_adapter (0.4.0)
     pg (0.14.0)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -144,6 +163,9 @@ GEM
     rack-openid (1.3.1)
       rack (>= 1.1.0)
       ruby-openid (>= 2.1.8)
+    rack-pjax (0.5.9)
+      hpricot (~> 0.8.6)
+      rack (~> 1.3)
     rack-protection (1.2.0)
       rack
     rack-ssl (1.3.2)
@@ -158,6 +180,19 @@ GEM
       activesupport (= 3.2.0)
       bundler (~> 1.0)
       railties (= 3.2.0)
+    rails_admin (0.0.5)
+      bbenezech-nested_form (~> 0.0.6)
+      bootstrap-sass (~> 2.0, >= 2.0.3)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (>= 1.0.17)
+      jquery-ui-rails (>= 0.5, < 2)
+      kaminari (~> 0.12)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      sass-rails (~> 3.1)
     railties (3.2.0)
       actionpack (= 3.2.0)
       activesupport (= 3.2.0)
@@ -168,6 +203,7 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
+    remotipart (1.0.2)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -232,6 +268,8 @@ GEM
     uglifier (1.2.7)
       execjs (>= 0.3.0)
       multi_json (~> 1.3)
+    warden (1.2.1)
+      rack (>= 1.0)
     webrat (0.7.3)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
@@ -256,8 +294,10 @@ DEPENDENCIES
   cucumber-rails
   cucumber-websteps
   database_cleaner
+  devise
   exception_notification (~> 2.5.2)
   factory_girl
+  fastercsv
   formtastic
   jquery-rails
   jruby-openssl
@@ -268,6 +308,7 @@ DEPENDENCIES
   pg
   rack-openid
   rails (= 3.2.0)
+  rails_admin
   rspec
   rspec-rails
   ruby-openid
