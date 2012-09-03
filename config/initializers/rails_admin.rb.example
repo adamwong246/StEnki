@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on September 01, 2012 22:30
+# RailsAdmin config file. Generated on September 01, 2012 22:40
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -89,8 +89,8 @@ RailsAdmin.config do |config|
   #     configure :author_email, :string 
   #     configure :body, :text 
   #     configure :body_html, :text 
-  #     configure :created_at, :timestamp 
-  #     configure :updated_at, :timestamp   #   # Sections:
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end
   #   show do; end
@@ -103,7 +103,7 @@ RailsAdmin.config do |config|
   #   # Found columns:
   #     configure :id, :integer 
   #     configure :type, :string 
-  #     configure :created_at, :timestamp 
+  #     configure :created_at, :datetime 
   #     configure :data, :text   #   # Sections:
   #   list do; end
   #   export do; end
@@ -117,7 +117,7 @@ RailsAdmin.config do |config|
   #   # Found columns:
   #     configure :id, :integer 
   #     configure :type, :string 
-  #     configure :created_at, :timestamp 
+  #     configure :created_at, :datetime 
   #     configure :data, :text   #   # Sections:
   #   list do; end
   #   export do; end
@@ -131,7 +131,7 @@ RailsAdmin.config do |config|
   #   # Found columns:
   #     configure :id, :integer 
   #     configure :type, :string 
-  #     configure :created_at, :timestamp 
+  #     configure :created_at, :datetime 
   #     configure :data, :text   #   # Sections:
   #   list do; end
   #   export do; end
@@ -148,8 +148,8 @@ RailsAdmin.config do |config|
   #     configure :slug, :string 
   #     configure :body, :text 
   #     configure :body_html, :text 
-  #     configure :created_at, :timestamp 
-  #     configure :updated_at, :timestamp   #   # Sections:
+  #     configure :created_at, :datetime 
+  #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end
   #   show do; end
@@ -207,7 +207,7 @@ RailsAdmin.config do |config|
   #   # Found columns:
   #     configure :id, :integer 
   #     configure :type, :string 
-  #     configure :created_at, :timestamp 
+  #     configure :created_at, :datetime 
   #     configure :data, :text   #   # Sections:
   #   list do; end
   #   export do; end
