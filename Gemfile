@@ -21,6 +21,7 @@ group :assets do
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
 
+
 end
 
 platforms :ruby do

@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require common
 //= require live-comment-preview
+//= require syntaxhighlighter
 //= require_self
 //= require_tree .
 
