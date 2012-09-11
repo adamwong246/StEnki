@@ -9,7 +9,6 @@ gem 'simple_form', '~> 2.0'
 
 gem 'slim'
 
-gem 'fastercsv' # Only required on Ruby 1.8 and below
 gem 'rails_admin'
 gem 'devise'
 
