@@ -7,4 +7,13 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  def admin?
+    self.email == "adamwong246@gmail.com"
+  end
+
+  def guest?
+    self.email == "guest@gmail.com"
+  end
+  
 end

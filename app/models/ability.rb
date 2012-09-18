@@ -22,21 +22,20 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
 
-    # can :access, :rails_admin   # grant access to rails_admin
-    # can :dashboard              # grant access to the dashboard
-    # an :read, :all 
-
-    # if user.admin?
-    #     can :manage, :all
-    # elsif user.guest?
-    #     can :read, :all
-    #     can :index, :all
-    # end
+    can :access, :rails_admin   # grant access to rails_admin
+    can :dashboard, :all          # grant access to the dashboard
+    if user.admin?
+        can :manage, :all
+    elsif user.guest?
+        can :read, :all
+        can :index, :all
+    end
 
 
-    can :read, :all                   # allow everyone to read everything
-    can :access, :rails_admin       # only allow admin users to access Rails Admin
-    can :dashboard, :all
+    #can :read, :all                   # allow everyone to read everything
+    # can :access, :rails_admin       # only allow admin users to access Rails Admin
+    # can :dashboard, :all
+
     # if user 
     #   can :access, :rails_admin       # only allow admin users to access Rails Admin
     #   can :dashboard, :all            # allow access to dashboard
