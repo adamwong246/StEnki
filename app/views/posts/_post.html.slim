@@ -6,7 +6,8 @@ h2= link_to(post.title, post_path(post))
 
 .entrybody.well
   - if short
-    = raw post.body_html.truncate_html(500, at_end = "...")
+    /= raw post.body_html.truncate_html(500, at_end = "...")
+    = raw post.body_html
   - else
     = raw post.body_html
 
