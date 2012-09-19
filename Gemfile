@@ -1,16 +1,26 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
-
-gem "thin", "~> 1.4.1"
-
-gem 'bootstrap-generators', '~> 2.0' # for less to work
-gem 'simple_form', '~> 2.0'
-
-gem 'slim'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+# Use unicorn as the web server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug'
+
+gem 'rails', '3.2.0'
+gem "thin", "~> 1.4.1"
+gem 'bootstrap-generators', '~> 2.0' # for less to work
+gem 'simple_form', '~> 2.0'
+gem 'slim'
+gem 'rails_admin'
+gem 'devise'
+gem "cancan"
+gem 'jquery-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,8 +30,6 @@ group :assets do
   gem 'therubyracer' #heroku says unnesecary but I need it for less to work
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
-
-
 end
 
 platforms :ruby do
@@ -34,17 +42,6 @@ platforms :jruby do
   gem 'jruby-openssl'
 end
 
-gem 'jquery-rails'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
-
 # Bundle the extra gems:
 gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
 gem 'ruby-openid', :require => 'openid'
@@ -56,7 +53,6 @@ gem 'formtastic'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'exception_notification', '~> 2.5.2'
-gem 'open_id_authentication'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

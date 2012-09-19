@@ -18,7 +18,7 @@
 ol.commentlist
   - @post.approved_comments.each do |comment|
     | <li#{raw cycle(' class="alt"', '')} id="comment-#{comment.id}">
-    | \#{render :partial => 'comments/comment', :locals => {:comment => comment}}
+    = render :partial => 'comments/comment', :locals => {:comment => comment}
 .related
   | Looking for more? Head on over to the #{link_to("archives", archives_path)}.
 h2 Post a comment

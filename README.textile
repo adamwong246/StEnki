@@ -3,9 +3,10 @@ StEnki, Enki as forked by adamwong246 for his personal website, <a href="http://
 I've changed very little to the codebase thus far, but here's a list of things I'm working on, in no particular order. 
 
 * -Replace the original css with beautiful twitter bootstrap-
-* Replace the erb files with slim... in progres
+* Replace the erb files with slim... Done
 * -Implement basic navigation- Done
-* -Choose Less or Sass... I'm leaning towards Less- Done. I decided to use Less
+* -Choose Less or Sass... I'm leaning towards Less- Done. I decided to use Sass.
+* -Replace the hand rolled admin with the rails_admin gem. 
 
 h3. Almost none of my work is tested well σ_σ but I encourage you to fork this project and hack away. The majority of the work was not done by me. A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> for all his hard work. Thanks Xavier! 
 

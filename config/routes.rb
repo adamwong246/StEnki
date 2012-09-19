@@ -1,19 +1,8 @@
 Enki::Application.routes.draw do
-  namespace :admin do
-    resource :session
+  
+  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
-    resources :posts, :pages do
-      post 'preview', :on => :collection
-    end
-    resources :comments
-    resources :undo_items do
-      post 'undo', :on => :member
-    end
-
-    match 'health(/:action)' => 'health', :action => 'index', :as => :health
-
-    root :to => 'dashboard#show'
-  end
+  devise_for :users
 
   resources :archives, :only => [:index]
   resources :pages, :only => [:show]

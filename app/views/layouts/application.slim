@@ -29,6 +29,11 @@ html dir="ltr" lang="en-US"
             ul.nav
               li 
                 a href="/pages/about" About
+              li 
+                - if current_user 
+                  a href="/rails_admin" User: #{current_user.email} 
+                - else 
+                  a href="/rails_admin" User: none
 
             ul.nav.pull-right.share-buttons
               li
