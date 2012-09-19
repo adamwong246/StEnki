@@ -19,7 +19,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-      Socialite.load($('#social'));
-
-   });
+  Socialite.load($('#social'));
+});
 
