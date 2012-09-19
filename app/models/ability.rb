@@ -24,6 +24,8 @@ class Ability
 
     can :access, :rails_admin   # grant access to rails_admin
     can :dashboard, :all          # grant access to the dashboard
+    can :show_in_app, :all
+    
     if user.admin?
         can :manage, :all
     elsif user.guest?
