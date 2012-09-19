@@ -1,20 +1,26 @@
 source 'https://rubygems.org'
 
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+# Use unicorn as the web server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'ruby-debug'
+
 gem 'rails', '3.2.0'
-
 gem "thin", "~> 1.4.1"
-
 gem 'bootstrap-generators', '~> 2.0' # for less to work
 gem 'simple_form', '~> 2.0'
-
 gem 'slim'
-
 gem 'rails_admin'
 gem 'devise'
 gem "cancan"
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'jquery-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,7 +30,6 @@ group :assets do
   gem 'therubyracer' #heroku says unnesecary but I need it for less to work
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
-
 end
 
 platforms :ruby do
@@ -36,17 +41,6 @@ platforms :jruby do
   gem 'trinidad'
   gem 'jruby-openssl'
 end
-
-gem 'jquery-rails'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
 
 # Bundle the extra gems:
 gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
@@ -79,6 +73,3 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'aaronh-chronic'
 end
-
-
-gem "devise"
