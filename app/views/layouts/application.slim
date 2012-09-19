@@ -31,9 +31,9 @@ html dir="ltr" lang="en-US"
                 a href="/pages/about" About
               li 
                 - if current_user 
-                  a href="/rails_admin" User: #{current_user.email} 
+                  a href="/rails_admin" Logged in as #{current_user.email} 
                 - else 
-                  a href="/rails_admin" User: none
+                  a href="/rails_admin" Log in
 
             ul.nav.pull-right.share-buttons
               li
