@@ -38,6 +38,15 @@ span.tags a{
     display: inline-block;
   }
 }
+
+$well_color: white;
+
+.well{
+  background-color: darken($well_color, 10);
+  .well{
+    background-color: darken($well_color, 20);
+  }
+}
  
 // table.nav.pull-right.share-buttons{
 //   border: 1px solid white;
