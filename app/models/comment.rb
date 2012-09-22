@@ -5,6 +5,7 @@ class Comment < ActiveRecord::Base
   attr_accessor         :openid_valid
 
   belongs_to            :post
+  acts_as_tree :order => "updated_at"
 
   before_save           :apply_filter
   after_save            :denormalize
@@ -12,6 +13,8 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :author, :body, :post
   validate :open_id_error_should_be_blank
+
+  acts_as_tree :order => "id"
 
   def open_id_error_should_be_blank
     errors.add(:base, openid_error) unless openid_error.blank?

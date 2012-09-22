@@ -15,10 +15,8 @@
 - if @post.next
   = link_to "Next >", @post.next
 
-ol.commentlist
-  - @post.approved_comments.each do |comment|
-    | <li#{raw cycle(' class="alt"', '')} id="comment-#{comment.id}">
-    = render :partial => 'comments/comment', :locals => {:comment => comment}
+= render :partial => 'comments/tree', :locals => {:comments => @root_comments}
+
 .related
   | Looking for more? Head on over to the #{link_to("archives", archives_path)}.
 h2 Post a comment

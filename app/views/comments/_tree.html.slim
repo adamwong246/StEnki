@@ -1,0 +1,12 @@
+.well
+  - comments.each do |comment|
+    | <li#{raw cycle(' class="alt"', '')} id="comment-#{comment.id}">
+    cite= author_link(comment)
+    |' says:
+    br/
+    / small.commentmetadata
+    /   a{:href => "#comment-# comment.id}" title=""
+    p= raw comment.body_html
+    /p= comment.children.inspect
+    /= render :partial => 'comments/tree', :locals => {:comments => comment.children}
+    p= "children: " + comment.children.inspect

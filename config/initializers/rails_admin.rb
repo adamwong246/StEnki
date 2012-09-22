@@ -1,9 +1,13 @@
 # RailsAdmin config file. Generated on September 01, 2012 22:28
 # See github.com/sferik/rails_admin for more informations
 
+require Rails.root.join('lib', 'rails_admin_tree.rb')
+
+
 RailsAdmin.config do |config|
 
   config.authorize_with :cancan
+  config.tree_with :acts_as_tree
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
   # require 'i18n'
@@ -218,4 +222,43 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
+  # Register the class in lib/rails_admin_publish.rb
+# Register the class in lib/rails_admin_publish.rb
+  module RailsAdmin
+    module Config
+      module Actions
+        class Tree < RailsAdmin::Config::Actions::Base
+          RailsAdmin::Config::Actions.register(self)
+
+        end
+      end
+    end
+  end
+   
+  config.actions do
+    # root actions
+    dashboard                     # mandatory
+    # collection actions
+    index                         # mandatory
+    new
+    export
+    history_index
+    bulk_delete
+    # member actions
+    show
+    edit
+    delete
+    history_show
+    show_in_app
+
+   
+    # Set the custom action here
+    tree do
+      # Make it visible only for article model. You can remove this if you don't need.
+      visible do
+        bindings[:abstract_model].model.to_s == "Comment"
+      end
+    end
+  end
+
 end

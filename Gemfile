@@ -17,10 +17,11 @@ gem "thin", "~> 1.4.1"
 gem 'bootstrap-generators', '~> 2.0' # for less to work
 gem 'simple_form', '~> 2.0'
 gem 'slim'
-gem 'rails_admin'
+gem 'rails_admin', :path =>'~/PersonalProgramming/rails_admin'
 gem 'devise'
 gem "cancan"
 gem 'jquery-rails'
+gem "acts_as_tree_rails3", "~> 0.1.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -72,4 +73,5 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'aaronh-chronic'
+  gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
 end

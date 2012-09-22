@@ -1,6 +1,9 @@
-cite= author_link(comment)
-|' says:
-br/
-/ small.commentmetadata
-/   a{:href => "#comment-# comment.id}" title=""
-p= raw comment.body_html
+.well
+  cite= author_link(comment)
+  |' says:
+  br/
+  / small.commentmetadata
+  /   a{:href => "#comment-# comment.id}" title=""
+  p= raw comment.body_html
+  = render :partial => 'comments/tree', :locals => {:comments => comment.children}
+  /p= "children: " + comment.children.inspect

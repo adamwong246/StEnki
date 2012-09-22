@@ -1,0 +1,8 @@
+en:
+  admin:
+    actions:
+      tree:
+        title: "Tree view  for %{model_label} '%{object_label}"
+        bulk_link: "Publish selected  %{model_label} '%{object_label}"
+        menu: "Tree"
+        breadcrumb: "Tree view"
