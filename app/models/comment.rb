@@ -14,7 +14,9 @@ class Comment < ActiveRecord::Base
   validates_presence_of :author, :body, :post
   validate :open_id_error_should_be_blank
 
-  acts_as_tree :order => "id"
+  def create_child
+    return Comment.create({:parent_id => self.id})
+  end
 
   def open_id_error_should_be_blank
     errors.add(:base, openid_error) unless openid_error.blank?

@@ -1,5 +1,6 @@
-PATH
-  remote: ~/PersonalProgramming/rails_admin
+GIT
+  remote: git@github.com:sferik/rails_admin.git
+  revision: fcba1375ed150ebc9635355ef79a1d8f9446ff1f
   specs:
     rails_admin (0.0.5)
       bootstrap-sass (~> 2.0)

@@ -7,7 +7,6 @@ require Rails.root.join('lib', 'rails_admin_tree.rb')
 RailsAdmin.config do |config|
 
   config.authorize_with :cancan
-  config.tree_with :acts_as_tree
 
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
   # require 'i18n'

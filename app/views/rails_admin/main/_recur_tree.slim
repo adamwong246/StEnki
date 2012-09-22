@@ -4,7 +4,9 @@
   -puts "node.children: #{node.children.inspect}"
   .well 
     b = level
-    = node.inspect
-
+    p= node.inspect
+    /p= node.create_child.inspect
+    p= link_to "Create child", new_path(:model_name => @abstract_model.to_param.to_s, @abstract_model.to_param.to_s.to_sym => {:parent_id=> node.id})
+    
     -node.children.each do |child|
         = render :partial => 'rails_admin/main/recur_tree', :locals => {:node =>child, :level => level + 1}

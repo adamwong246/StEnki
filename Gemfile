@@ -17,7 +17,7 @@ gem "thin", "~> 1.4.1"
 gem 'bootstrap-generators', '~> 2.0' # for less to work
 gem 'simple_form', '~> 2.0'
 gem 'slim'
-gem 'rails_admin', :path =>'~/PersonalProgramming/rails_admin'
+gem 'rails_admin', :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
 gem 'devise'
 gem "cancan"
 gem 'jquery-rails'
