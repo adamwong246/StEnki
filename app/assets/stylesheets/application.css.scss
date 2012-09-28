@@ -45,6 +45,9 @@ $well_color: white;
   background-color: darken($well_color, 10);
   .well{
     background-color: darken($well_color, 20);
+    .well{
+      background-color: darken($well_color, 30);
+    }
   }
 }
  

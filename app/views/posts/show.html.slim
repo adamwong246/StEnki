@@ -15,7 +15,8 @@
 - if @post.next
   = link_to "Next >", @post.next
 
-= render :partial => 'comments/tree', :locals => {:comments => @root_comments}
+- @root_comments.each do |comment|
+  = render :partial => 'comments/comment', :locals => {:comment => comment, :level => 0}
 
 .related
   | Looking for more? Head on over to the #{link_to("archives", archives_path)}.

@@ -13,4 +13,4 @@
     p= link_to "Create child", new_path(:model_name => @abstract_model.to_param.to_s, @abstract_model.to_param.to_s.to_sym => {:parent_id=> node.id, :post_id => node.post})
     
     -node.children.each do |child|
-        = render :partial => 'rails_admin/main/recur_tree', :locals => {:node =>child, :level => level + 1}
+      = render :partial => 'rails_admin/main/recur_tree', :locals => {:node =>child, :level => level + 1}

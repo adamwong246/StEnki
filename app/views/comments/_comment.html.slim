@@ -1,9 +1,33 @@
-.well
-  cite= author_link(comment)
-  | says:
-  br/
-  / small.commentmetadata
-  /   a{:href => "#comment-# comment.id}" title=""
-  p= raw comment.body_html
-  = render :partial => 'comments/tree', :locals => {:comments => comment.children}
-  /p= "children: " + comment.children.inspect
+/ .well
+/   cite= author_link(comment)
+/   | says:
+/   br/
+/   / small.commentmetadata
+/   /   a{:href => "#comment-# comment.id}" title=""
+/   p= raw comment.body_html
+/   = render :partial => 'comments/tree', :locals => {:comments => comment.children}
+/   /p= "children: " + comment.children.inspect
+
+- if !comment.nil?
+  .well
+    /-if !comment.parent.nil?
+      /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
+      /p= "show parent"
+    b 
+      cite= author_link(comment)
+      = " said: "
+    /br/
+    / small.commentmetadata
+    / a{:href => "#comment-# comment.id}" title=""
+    = raw comment.body_html
+
+    / p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => comment)
+    
+    /b = "depth of current tree: #{level.to_s}, children: #{comment.children.length.to_s}"
+    
+    - comment.children.each do |comment|
+      = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1}
+
+    / -comment.children.each do |child|
+    /   = child.inspect
+    /   = render :partial => 'comments/comment', :locals => {:node =>child, :level => level + 1}
