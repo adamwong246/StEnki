@@ -23,6 +23,9 @@ gem "cancan"
 gem 'jquery-rails'
 gem "acts_as_tree_rails3", "~> 0.1.0"
 
+gem 'lorem'
+gem 'faker'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

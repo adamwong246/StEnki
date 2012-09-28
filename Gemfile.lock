@@ -96,6 +96,8 @@ GEM
       multi_json (~> 1.0)
     factory_girl (4.1.0)
       activesupport (>= 3.0.0)
+    faker (1.1.2)
+      i18n (~> 0.5)
     ffi (1.1.5)
     ffi (1.1.5-java)
     formtastic (2.2.1)
@@ -133,6 +135,7 @@ GEM
     libv8 (3.3.10.4)
     libwebsocket (0.1.5)
       addressable
+    lorem (0.1.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -297,10 +300,12 @@ DEPENDENCIES
   devise
   exception_notification (~> 2.5.2)
   factory_girl
+  faker
   formtastic
   jquery-rails
   jruby-openssl
   lesstile
+  lorem
   mailcatcher
   nokogiri (~> 1.5.0)
   pg
