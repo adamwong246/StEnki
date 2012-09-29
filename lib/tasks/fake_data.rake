@@ -21,8 +21,6 @@ namespace :db do
       )
 
       create_recur_comments(2 + rand(5), post, nil)
-
-      
     }
   end
 
@@ -50,4 +48,3 @@ namespace :db do
   end
 
 end
-

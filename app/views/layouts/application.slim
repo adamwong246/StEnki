@@ -54,7 +54,8 @@ html dir="ltr" lang="en-US"
         .span3
           .well.sidebar-nav
             ul class="nav nav-list"
-              - @months = Post.find_all_grouped_by_month
+              - @months = Post.find_all_grouped_by_month(6)
+
               - if @months.empty? 
                 p
                   | Once posts are added they will start to appear in this archive.

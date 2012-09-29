@@ -87,11 +87,12 @@ class Post < ActiveRecord::Base
       post || raise(ActiveRecord::RecordNotFound)
     end
 
-    def find_all_grouped_by_month
+    def find_all_grouped_by_month(max = nil)
       posts = find(
         :all,
         :order      => 'posts.published_at DESC',
-        :conditions => ['published_at < ?', Time.now]
+        :conditions => ['published_at < ?', Time.now],
+        :limit => max
       )
       month = Struct.new(:date, :posts)
       posts.group_by(&:month).inject([]) {|a, v| a << month.new(v[0], v[1])}
