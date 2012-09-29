@@ -21,6 +21,8 @@
     / a{:href => "#comment-# comment.id}" title=""
     = raw comment.body_html
 
+    = link_to "Reply?", "/"
+
     / p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => comment)
     
     /b = "depth of current tree: #{level.to_s}, children: #{comment.children.length.to_s}"

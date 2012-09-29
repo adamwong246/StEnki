@@ -8,8 +8,9 @@ namespace :db do
     Post.delete_all
     Comment.delete_all
     Tag.delete_all
+    Tagging.delete_all
 
-    25.times { |i| 
+    15.times { |i| 
 
       puts "creating post #{i}"
 
@@ -32,8 +33,8 @@ namespace :db do
 
       create_params = Hash.new
       create_params[:author] = "#{Faker::Name.first_name} #{Faker::Name.last_name}"
-      create_params[:author_url] = "author url"
-      create_params[:author_email] = "email@gmail.com"
+      create_params[:author_url] = Faker::Internet.domain_name
+      create_params[:author_email] = Faker::Internet.email()
       create_params[:body] = Faker::Lorem.paragraphs(1 + rand(5)).join(" ")
 
       if parent.nil?
