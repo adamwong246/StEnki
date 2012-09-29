@@ -22,7 +22,6 @@ gem 'devise'
 gem "cancan"
 gem 'jquery-rails'
 gem "acts_as_tree_rails3", "~> 0.1.0"
-
 gem 'lorem'
 gem 'faker'
 
