@@ -1,0 +1,93 @@
+
+Header 1 
+<h1> <%= Faker::Lorem.sentence(15) %> </h1>
+Header 2
+<h2>  <%= Faker::Lorem.sentence(15) %> </h2>
+Header 3
+<h3>  <%= Faker::Lorem.sentence(15) %> </h3>
+Header 4
+<h4>  <%= Faker::Lorem.sentence(15) %> </h4>
+Header 5
+<h5>  <%= Faker::Lorem.sentence(15) %> </h5>
+Header 6
+<h6>  <%= Faker::Lorem.sentence(15) %> </h6>
+Plain 
+<p> <%= Faker::Lorem.sentences(15).join(" ") %> </p>
+Bold
+<p><b> <%= Faker::Lorem.sentences(15).join(" ") %> </b></p>
+Italics
+<p><i>  <%= Faker::Lorem.sentences(15).join(" ") %> </i></p>
+Underlined
+<p><u>  <%= Faker::Lorem.sentences(15).join(" ") %> </u></p>
+Emphasized
+<p><em>  <%= Faker::Lorem.sentences(15).join(" ") %> </em></p>
+Pre
+<p><pre> <%= Faker::Lorem.sentences(15).join(" ") %> </pre></p>
+Code
+<p><code> <%= Faker::Lorem.sentences(15).join('\n') %></code></p>
+
+pre > code
+<pre><code>
+#header h1 a { 
+  display: block; 
+  width: 300px; 
+  height: 80px; 
+}
+</code></pre>
+
+Blockquote
+<p><blockquote> <%= Faker::Lorem.sentences(15).join('\n') %> </blockquote></p>
+
+Ul and li's
+<ul>
+  <% rand(3..8).times do %>
+    <li><%= Faker::Lorem.sentence(15) %>)</li>
+  <% end %>
+</ul>
+
+Ol and li's
+<ol>
+   <% rand(3..8).times do %>
+    <li><%= Faker::Lorem.sentence(15) %></li>
+  <% end %>
+</ol>
+
+Table
+<table>
+  <% columns = rand(3..8) %>
+  <% rows = rand(3..8) %>
+  <thead>
+    <tr>
+      <% columns.times do |c| %>
+        <th><%= Faker::Lorem.sentence(rand(5)) %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% rows.times do |r| %>
+      <tr>
+        <% columns.times do |c| %>
+          <td><%= Faker::Lorem.sentence(rand(5)) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% 0.times do %>
+  
+  <% r =rand(5) %>
+    
+  <h3> heading 3, <%= r %> </h3>
+
+   <% case r
+    when 1 %>
+      <h2> Header 2 <% Faker::Lorem.sentence(15) %> </h2>
+   <% when 2 %>
+      <p> <% Faker::Lorem.sentences(15) %></p>
+   <%   else %>
+      something else
+   <% end %>
+
+<% end %>

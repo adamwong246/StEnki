@@ -9,25 +9,49 @@ namespace :db do
     Tag.delete_all
     Tagging.delete_all
 
+    string = File.open(Rails.root + "lib/tasks/lorem.erb").read
+    puts string
+    renderer = ERB.new(string)
+
+    Post.create!(:title => 'lorem.erb', :body => renderer.result())
+
+    template = Slim::Template.new { File.open(Rails.root + "lib/tasks/lorem.slim").read }
+    Post.create!(:title => 'lorem.slim2', :body =>template.render)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     # puts "Rails.root: #{Rails.root}"
 
     # create the dynamic kitchen sink
-    string = File.open(Rails.root + "lib/tasks/kitchenSinkLoremDynamic.xml").read
-    doc = Nokogiri::XML.fragment(string, &:noblanks)
+    # string = File.open(Rails.root + "lib/tasks/kitchenSinkLoremDynamic.xml").read
+    # doc = Nokogiri::XML.fragment(string, &:noblanks)
     
-    puts ""
-    doc.traverse do |node|
-      alpha  = node.content
+    # puts ""
+    # doc.traverse do |node|
+    #   alpha  = node.content
 
-      begin
-        node.content = eval(node.content)
-      rescue Exception => e
-        puts "failed to eval(#{node.content} because #{e.to_s})"
-      end
-      # puts "#{alpha} > #{node.content}"
-    end
+    #   begin
+    #     node.content = node.parent.name.inspect + eval(node.content)
+    #   rescue Exception => e
+    #     puts "failed to eval(#{node.content} because #{e.to_s})"
+    #   end
+    #   # puts "#{alpha} > #{node.content}"
+    # end
 
-    Post.create!(:title => 'kitchen sink, dynamic', :body => doc.to_xml(:indent => 2))
+    # Post.create!(:title => 'kitchen sink, dynamic', :body => doc.to_xml(:indent => 2))
 
     # create the kitchen sink
     Post.create!(:title => 'kitchen sink', :body => File.open(Rails.root + "lib/tasks/kitchenSinkLorem.xml", "rb").read)
@@ -45,6 +69,16 @@ namespace :db do
     }
 
 
+  end
+
+  def render_erb(template_path, params)  
+    view = ActionView::Base.new(ActionController::Base.view_paths, {})  
+    
+    class << view  
+      include EmailHelper, ApplicationHelper  
+    end  
+    
+    view.render(:file => "#{template_path}.html.erb", :locals => params)  
   end
 
   def generate_html_body
