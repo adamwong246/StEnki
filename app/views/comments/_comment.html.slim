@@ -23,6 +23,24 @@
 
     = link_to "Reply?", "/"
 
+    = form_for([@post, @comment]) do |form|
+      #hidden_comment_form
+        p
+          = form.text_field 'author'
+          label for="comment_author"
+            small
+              | Name or
+              a href="http://openidexplained.com/"
+              | (required)
+        p
+          = form.text_area 'body'
+          br/
+          small
+            | (
+            a href="http://lesstile.rubyforge.org"
+            | \- surround code blocks with ---)
+        p= submit_tag "Add Comment"
+
     / p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => comment)
     
     /b = "depth of current tree: #{level.to_s}, children: #{comment.children.length.to_s}"
