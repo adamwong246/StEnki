@@ -1,2 +1,15 @@
-- ['h1', 'h2', 'h3'].each do |e| 
-  e
+- 10.times do |i| 
+  - r = rand(5)
+
+  - if r == 0
+    = Faker::Lorem.sentences(rand(1..15)).join(" ")
+  - elsif r == 1
+    b = Faker::Lorem.sentences(rand(2..4)).join(" ")
+  - elsif r == 2
+    i = Faker::Lorem.sentences(rand(2..4)).join(" ")
+  - elsif r == 3
+    img src="http://lorempixel.com/#{rand(100..400)}/#{rand(100..400)}/" alt=Faker::Lorem.sentence(rand(5)) float="right"
+  - elsif r == 4
+    p
+  - else
+    h6= Faker::Lorem.sentence(15)

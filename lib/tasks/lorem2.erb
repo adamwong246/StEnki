@@ -1,0 +1,17 @@
+<% 10.times do |i| %> 
+  <% r = rand(5) %>
+
+  <% if r == 0 %>
+    <%= Faker::Lorem.paragraphs(rand(1..15)).join(" ") %>
+  <% elsif r == 1 %>
+    <b> <%=Faker::Lorem.sentences(rand(2..4)).join(" ") %> </b>
+  <% elsif r == 2 %>
+    <i> <%= Faker::Lorem.sentences(rand(2..4)).join(" ") %> </i>
+  <% elsif r == 3 %>
+    <img src="http://lorempixel.com/<%=rand(200..400)%>/<%= rand(200..400)%>/" float="right" >
+  <% elsif r == 4 %>
+    <p></p>
+  <% else %>
+    <h6> <%= Faker::Lorem.sentence(15) %> </h6>
+  <%end %>
+<% end %>

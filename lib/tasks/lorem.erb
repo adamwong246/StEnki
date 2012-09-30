@@ -1,4 +1,3 @@
-
 Header 1 
 <h1> <%= Faker::Lorem.sentence(15) %> </h1>
 Header 2
@@ -74,20 +73,13 @@ Table
   </tbody>
 </table>
 
+Definition list
+<dl>
+  <% rand(3..8).times do %>
+    <dt><%= Faker::Lorem.sentence(rand(5)) %></dt>
+    <dd><%= Faker::Lorem.sentence(rand(5)) %></dd>
+  <% end %>
+</dl>
 
-<% 0.times do %>
-  
-  <% r =rand(5) %>
-    
-  <h3> heading 3, <%= r %> </h3>
-
-   <% case r
-    when 1 %>
-      <h2> Header 2 <% Faker::Lorem.sentence(15) %> </h2>
-   <% when 2 %>
-      <p> <% Faker::Lorem.sentences(15) %></p>
-   <%   else %>
-      something else
-   <% end %>
-
-<% end %>
+Image
+<img src="http://lorempixel.com/<%=rand(100..500)%>/<%=rand(100..500)%>/" alt=Faker::Lorem.sentence(rand(5))>
