@@ -13,6 +13,10 @@ namespace :db do
     renderer = ERB.new(string)
     Post.create!(:title => 'lorem.erb', :body => renderer.result())
 
+    # string = File.open(Rails.root + "lib/tasks/lorem2.erb").read
+    # renderer = ERB.new(string)
+    # Post.create!(:title => 'lorem2.erb', :body => renderer.result())
+
     Post.create!(:title => 'kitchen sink', :body => File.open(Rails.root + "lib/tasks/kitchenSinkLorem.xml", "rb").read)
 
     # template = Slim::Template.new { File.open(Rails.root + "lib/tasks/lorem.slim").read }
