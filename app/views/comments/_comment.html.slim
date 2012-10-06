@@ -10,16 +10,15 @@
     /br/
     / small.commentmetadata
     / a{:href => "#comment-# comment.id}" title=""
-    = comment.id
     = raw comment.body_html
 
-    a#click href="#" Reply
+    - new_reply = comment.create_child
+    / = new_reply.inspect
 
-    #div.hidden_comment_form
-      - reply_child = comment.create_child
-      = reply_child.inspect
-    
-      = form_for(reply_child) do |form|
+    a.form_open href="#" Reply
+
+    #div.hidden_comment_form    
+      = form_for(new_reply) do |form|
 
         = form.hidden_field :post_id
         = form.hidden_field :parent_id

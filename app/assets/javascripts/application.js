@@ -19,12 +19,21 @@
 //= require_self
 //= require_tree .
 
+var last_clicked;
+
 $(document).ready(function() {
   Socialite.load($('#social'));
 
-  $('#click').click(function(){
-    //alert("Derp")
-    $(this).next('div.hidden_comment_form').show('blind',{direction: "vertical"},1000);
+  $('.form_open').click(function(){
+    clicked = $(this).next('div.hidden_comment_form');
+
+    if(last_clicked != null){
+      last_clicked.hide('blind',{direction: "vertical"},1000)
+    }
+    
+    clicked.show('blind',{direction: "vertical"},1000);
+    last_clicked = clicked;
+    
     return false;
   });
 });
