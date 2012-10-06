@@ -8,7 +8,6 @@
   /   = render :partial => 'kaminari/prev_page', :locals => {:current_page => Post.first, :url => "", :remote => true}
   /   = render :partial => 'kaminari/next_page', :locals => {:current_page => @post.next, :url => "", :remote => true}
 
-
 - if @post.previous
   = link_to "< Previous", @post.previous
   = "  "
@@ -20,11 +19,11 @@
 
 .related
   | Looking for more? Head on over to the #{link_to("archives", archives_path)}.
-h2 Post a comment
-- unless @comment.errors.empty?
-  .errors
-    h3 Comment not added!
-    ul
-      - @comment.errors.sort_by(&:first).each do |error|
-        li= format_comment_error(error)
+/ h2 Post a comment
+/ - unless @comment.errors.empty?
+/   .errors
+/     h3 Comment not added!
+/     ul
+/       - @comment.errors.sort_by(&:first).each do |error|
+/         li= format_comment_error(error)
 

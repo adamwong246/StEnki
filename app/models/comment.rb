@@ -15,7 +15,8 @@ class Comment < ActiveRecord::Base
   validate :open_id_error_should_be_blank
 
   def create_child
-    return Comment.create({:parent_id => self.id})
+    puts "======== called create_child"
+    return Comment.create({:parent_id => self.id, :post_id => self.post_id})
   end
 
   def open_id_error_should_be_blank
@@ -69,7 +70,7 @@ class Comment < ActiveRecord::Base
 
   class << self
     def protected_attribute?(attribute)
-      [:author, :body].include?(attribute.to_sym)
+      [:author, :body, :parent_id, :post_id].include?(attribute.to_sym)
     end
 
     def new_with_filter(params)

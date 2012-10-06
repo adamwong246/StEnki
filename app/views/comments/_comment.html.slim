@@ -1,14 +1,5 @@
-/ .well
-/   cite= author_link(comment)
-/   | says:
-/   br/
-/   / small.commentmetadata
-/   /   a{:href => "#comment-# comment.id}" title=""
-/   p= raw comment.body_html
-/   = render :partial => 'comments/tree', :locals => {:comments => comment.children}
-/   /p= "children: " + comment.children.inspect
-
 - if !comment.nil?
+  - alpha_children = comment.children.dup
   .well
     /-if !comment.parent.nil?
       /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
@@ -19,18 +10,26 @@
     /br/
     / small.commentmetadata
     / a{:href => "#comment-# comment.id}" title=""
+    = comment.id
     = raw comment.body_html
 
-    = link_to "Reply?", "/"
+    a#click href="#" Reply
 
-    = form_for([@post, @comment]) do |form|
-      #hidden_comment_form
+    #div.hidden_comment_form
+      - reply_child = comment.create_child
+      = reply_child.inspect
+    
+      = form_for(reply_child) do |form|
+
+        = form.hidden_field :post_id
+        = form.hidden_field :parent_id
+
         p
           = form.text_field 'author'
           label for="comment_author"
             small
               | Name or
-              a href="http://openidexplained.com/"
+              a href="http://openidexplained.com/" Open
               | (required)
         p
           = form.text_area 'body'
@@ -40,14 +39,10 @@
             a href="http://lesstile.rubyforge.org"
             | \- surround code blocks with ---)
         p= submit_tag "Add Comment"
-
+      
     / p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => comment)
     
     /b = "depth of current tree: #{level.to_s}, children: #{comment.children.length.to_s}"
     
-    - comment.children.each do |comment|
+    - alpha_children.each do |comment|
       = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1}
-
-    / -comment.children.each do |child|
-    /   = child.inspect
-    /   = render :partial => 'comments/comment', :locals => {:node =>child, :level => level + 1}

@@ -9,7 +9,6 @@
     <% elsif r == 2 %>
       <i> <%= Faker::Lorem.sentences(rand(2..4)).join(" ") %> </i>
     <% elsif r == 3 %>
-      <!-- <img src="http://flickholdr.com/<%=rand(200..400)%>/<%=rand(200..400)%>/corgis,carl sagan, star trek" />  -->
       <% h = rand(200..400) %>
       <% w = rand(200..400) %>
       <img src="http://lorempixel.com/<%=h%>/<%=w%>/" height="<%= h %>" width="<%= w %>" >

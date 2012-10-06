@@ -13,19 +13,14 @@ namespace :db do
     renderer = ERB.new(string)
     Post.create!(:title => 'lorem.erb', :body => renderer.result())
 
-    # string = File.open(Rails.root + "lib/tasks/lorem2.erb").read
-    # renderer = ERB.new(string)
-    # Post.create!(:title => 'lorem2.erb', :body => renderer.result())
-
     Post.create!(:title => 'kitchen sink', :body => File.open(Rails.root + "lib/tasks/kitchenSinkLorem.xml", "rb").read)
 
     # template = Slim::Template.new { File.open(Rails.root + "lib/tasks/lorem.slim").read }
-    erb2 = File.open(Rails.root + "lib/tasks/lorem2.erb").read
+    erb2 = File.open(Rails.root + "lib/tasks/lorem_post.erb").read
     15.times { |i| 
     
       post = Post.create!(
         :title => Faker::Lorem.sentence(3 + rand(5)), 
-        # :body => template.render,
         :body => ERB.new(erb2).result(),
         :tag_list => Faker::Lorem.words(1 + rand(3)).join(", "),
         :published_at => rand(1000).days.ago

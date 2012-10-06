@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     :canceled => "OpenID verification was canceled",
     :failed   => "Sorry, the OpenID verification failed" }
 
-  before_filter :find_post, :except => [:new]
+  before_filter :find_post, :except => [:new, :create]
 
   def index
     redirect_to(post_path(@post))
@@ -26,13 +26,20 @@ class CommentsController < ApplicationController
 
   # TODO: Spec OpenID with cucumber and rack-my-id
   def create
+
+    puts "================= params[:comment]" + params[:comment].inspect
+    puts "================= session[:pending_comment]" + session[:pending_comment].inspect
+
     @comment = Comment.new((session[:pending_comment] || params[:comment] || {}).
       reject {|key, value| !Comment.protected_attribute?(key) })
-    @comment.post = @post
+    
+    puts "================= @comment" + @comment.inspect
 
     session[:pending_comment] = nil
 
     if @comment.requires_openid_authentication?
+      puts "================= comment required openid auth"
+
       session[:pending_comment] = params[:comment]
       authenticate_with_open_id(@comment.author,
         :optional => [:nickname, :fullname, :email]
@@ -58,14 +65,19 @@ class CommentsController < ApplicationController
         end
       end
     else
+      puts "================= comment DID NOT require openid auth"
+
       @comment.blank_openid_fields
     end
 
     # #authenticate_with_open_id may have already provided a response
     unless response.headers[Rack::OpenID::AUTHENTICATE_HEADER]
+
       if @comment.save
-        redirect_to post_path(@post)
+        puts "================= comment saved"
+        redirect_to post_path(@comment.post)
       else
+        puts "================= comment NOT saved"
         render :template => 'posts/show'
       end
     end
@@ -80,6 +92,6 @@ class CommentsController < ApplicationController
   end
 
   def verify_authenticity_token_unless_openid
-    verify_authenticity_token unless using_open_id?
+    verify_authenticity_token #unless using_open_id?
   end
 end

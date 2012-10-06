@@ -13,6 +13,7 @@
 //= require bootstrap
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require common
 //= require live-comment-preview
 //= require_self
@@ -20,5 +21,10 @@
 
 $(document).ready(function() {
   Socialite.load($('#social'));
-});
 
+  $('#click').click(function(){
+    //alert("Derp")
+    $(this).next('div.hidden_comment_form').show('blind',{direction: "vertical"},1000);
+    return false;
+  });
+});
