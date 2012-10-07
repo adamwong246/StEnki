@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       format.js do
-        render :partial => 'comment', :locals => {:comment => @comment}
+        render :partial => 'comment', :locals => {:comment => @comment, :reply_link => false}
       end
     end
   end

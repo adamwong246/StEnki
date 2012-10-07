@@ -1,5 +1,6 @@
 $(function() { // onload
   var comment_form = $('#new_comment')
+  
   var input_elements = comment_form.find(':text, textarea')
   var fetch_comment_preview = function() {
     var dest = window.location.href;
@@ -22,7 +23,7 @@ $(function() { // onload
       },
       success: function(r) {
         if ($('#comment-preview').length == 0) {
-          comment_form.after('<h2>Your comment will look like this:</h2><div id="comment-preview"></div>')
+          comment_form.after('<div class="preview_and_header"><h2>Your comment will look like this:</h2><div id="comment-preview"></div></div>')
         }
         $('#comment-preview').html(r)
       }

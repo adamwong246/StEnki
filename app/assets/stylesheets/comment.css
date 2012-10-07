@@ -1,3 +1,7 @@
 div.hidden_comment_form {
     display:none;
 }
+
+.preview_and_header{
+  border:5px solid red;
+}

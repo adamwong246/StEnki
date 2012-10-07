@@ -10,38 +10,38 @@
     /br/
     / small.commentmetadata
     / a{:href => "#comment-# comment.id}" title=""
-    = raw comment.body_html
 
-    - new_reply = comment.create_child
-    / = new_reply.inspect
+    =' raw comment.body_html
 
-    a.form_open href="#" Reply
+    - if reply_link == true
+      a.form_open href="#" Reply?
 
-    #div.hidden_comment_form    
-      = form_for(new_reply) do |form|
+        
+      .hidden_comment_form    
+        = form_for(comment.create_child) do |form|
 
-        = form.hidden_field :post_id
-        = form.hidden_field :parent_id
+          = form.hidden_field :post_id
+          = form.hidden_field :parent_id
 
-        p
-          = form.text_field 'author'
-          label for="comment_author"
+          p
+            = form.text_field 'author'
+            label for="comment_author"
+              small
+                | Name or
+                a href="http://openidexplained.com/" Open
+                | (required)
+          p
+            = form.text_area 'body'
+            br/
             small
-              | Name or
-              a href="http://openidexplained.com/" Open
-              | (required)
-        p
-          = form.text_area 'body'
-          br/
-          small
-            | (
-            a href="http://lesstile.rubyforge.org"
-            | \- surround code blocks with ---)
-        p= submit_tag "Add Comment"
+              | (
+              a href="http://lesstile.rubyforge.org"
+              | \- surround code blocks with ---)
+          p= submit_tag "Add Comment"
+        
+      / p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => comment)
       
-    / p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => comment)
-    
-    /b = "depth of current tree: #{level.to_s}, children: #{comment.children.length.to_s}"
-    
-    - alpha_children.each do |comment|
-      = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1}
+      /b = "depth of current tree: #{level.to_s}, children: #{comment.children.length.to_s}"
+      
+      - comment.children.each do |comment|
+        = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
