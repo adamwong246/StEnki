@@ -1,7 +1,9 @@
-div.hidden_comment_form {
+div.form_and_preview_container {
     display:none;
 }
-
-.preview_and_header{
+.form_and_preview_container{
+  background-color: blue;
+}
+.comment-preview-container{
   border:5px solid red;
 }

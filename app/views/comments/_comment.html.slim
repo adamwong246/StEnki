@@ -1,6 +1,6 @@
 - if !comment.nil?
   - alpha_children = comment.children.dup
-  .well
+  .post_container.well
     /-if !comment.parent.nil?
       /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
       /p= "show parent"
@@ -16,8 +16,8 @@
     - if reply_link == true
       a.form_open href="#" Reply?
 
-        
-      .hidden_comment_form    
+      .form_and_preview_container
+
         = form_for(comment.create_child) do |form|
 
           = form.hidden_field :post_id
@@ -39,6 +39,7 @@
               | \- surround code blocks with ---)
           p= submit_tag "Add Comment"
         
+
       / p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => comment)
       
       /b = "depth of current tree: #{level.to_s}, children: #{comment.children.length.to_s}"
