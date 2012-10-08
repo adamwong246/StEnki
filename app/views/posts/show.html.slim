@@ -14,6 +14,33 @@
 - if @post.next
   = link_to "Next >", @post.next
 
+= render :partial => 'comments/reply_form', :locals => {:post => @post.comments.create}
+/ a.form_open href="#" Reply?  
+/ .form_and_preview_container
+
+/   h6 Your comment will appear as...
+
+/   = form_for(@post.comments.create) do |form|
+
+/     = form.hidden_field :post_id
+/     = form.hidden_field :parent_id
+
+/     p
+/       = form.text_field 'author'
+/       label for="comment_author"
+/         small
+/           | Name or
+/           a href="http://openidexplained.com/" Open
+/           | (required)
+/     p
+/       = form.text_area 'body'
+/       br/
+/       small
+/         | (
+/         a href="http://lesstile.rubyforge.org"
+/         | \- surround code blocks with ---)
+/     p= submit_tag "Add Comment"
+
 - @root_comments.each do |comment|
   = render :partial => 'comments/comment', :locals => {:comment => comment, :level => 0, :reply_link => true}
 

@@ -39,27 +39,27 @@ $ -> # onload
     console.log($opened_area)
 
     $comment_form = $opened_area.children('.new_comment')
-    console.log("form: ")
-    console.log($comment_form)
+    # console.log("form: ")
+    # console.log($comment_form)
 
-    $preview_container = $comment_form.next(".comment-preview-container")
+    $preview_container = $comment_form.prev(".comment-preview-container")
 
-    console.log("$preview_container: ")
-    console.log($preview_container)
+    # console.log("$preview_container: ")
+    # console.log($preview_container)
 
-    console.log("$preview_container.length: ")
-    console.log($preview_container.length)
+    # console.log("$preview_container.length: ")
+    # console.log($preview_container.length)
 
     if $preview_container.length == 0
-      console.log("no previe container. Creating preview ==================")
-      $comment_form.after "<div class=\"comment-preview-container\"></div>" 
-      $preview_container = $comment_form.next(".comment-preview-container")
+      # console.log("no previe container. Creating preview ==================")
+      $comment_form.before "<div class=\"comment-preview-container\"></div>" 
+      $preview_container = $comment_form.prev(".comment-preview-container")
 
-      console.log("$preview_container: ")
-      console.log($preview_container)
+      # console.log("$preview_container: ")
+      # console.log($preview_container)
 
-      console.log("$preview_container.length: ")
-      console.log($preview_container.length)
+      # console.log("$preview_container.length: ")
+      # console.log($preview_container.length)
 
 
 
