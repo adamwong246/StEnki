@@ -1,5 +1,3 @@
-require "html_truncator"
-
 class Post < ActiveRecord::Base
   DEFAULT_LIMIT = 15
 

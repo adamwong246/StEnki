@@ -27,6 +27,8 @@ $ -> # onload
       fetch_comment_preview($opened_area)  if input_elements.any(->
         $(this).val().length > 0
       )
+
+      fetch_comment_preview($opened_area)
     
     false
   ##########################
@@ -50,10 +52,10 @@ $ -> # onload
     # console.log("$preview_container.length: ")
     # console.log($preview_container.length)
 
-    if $preview_container.length == 0
-      # console.log("no previe container. Creating preview ==================")
-      $comment_form.before "<div class=\"comment-preview-container\"></div>" 
-      $preview_container = $comment_form.prev(".comment-preview-container")
+    # if $preview_container.length == 0
+    #   # console.log("no previe container. Creating preview ==================")
+    #   $comment_form.before "<div class=\"comment-preview-container\"></div>" 
+    #   $preview_container = $comment_form.prev(".comment-preview-container")
 
       # console.log("$preview_container: ")
       # console.log($preview_container)

@@ -14,38 +14,8 @@
     =' raw comment.body_html
 
     - if reply_link == true
-      = render :partial => 'comments/reply_form', :locals => {:post => @post.comments.create}
-      / a.form_open href="#" Reply?
-
-      / .form_and_preview_container
-
-      /   h6 Your comment will appear as...
-
-      /   = form_for(comment.create_child) do |form|
-
-      /     = form.hidden_field :post_id
-      /     = form.hidden_field :parent_id
-
-      /     p
-      /       = form.text_field 'author'
-      /       label for="comment_author"
-      /         small
-      /           | Name or
-      /           a href="http://openidexplained.com/" Open
-      /           | (required)
-      /     p
-      /       = form.text_area 'body'
-      /       br/
-      /       small
-      /         | (
-      /         a href="http://lesstile.rubyforge.org"
-      /         | \- surround code blocks with ---)
-      /     p= submit_tag "Add Comment"
-        
-
-      / p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => comment)
+      = render :partial => 'comments/reply_form', :locals => {:post => comment.create_child}
       
-      /b = "depth of current tree: #{level.to_s}, children: #{comment.children.length.to_s}"
-      
+      /# - if level < 
       - comment.children.each do |comment|
         = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
