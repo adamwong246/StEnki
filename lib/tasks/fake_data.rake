@@ -17,7 +17,7 @@ namespace :db do
 
     # template = Slim::Template.new { File.open(Rails.root + "lib/tasks/lorem.slim").read }
     erb2 = File.open(Rails.root + "lib/tasks/lorem_post.erb").read
-    3.times { |i| 
+    10.times { |i| 
     
       post = Post.create!(
         :title => Faker::Lorem.sentence(3 + rand(5)), 
