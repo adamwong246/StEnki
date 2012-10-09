@@ -70,6 +70,10 @@ html dir="ltr" lang="en-US"
                         - unless post.tags.empty? 
                           span class='tags' 
                             = linked_tag_list(post.tags)
+                h3 All posts
+                ul 
+                  li 
+                    = link_to("Archives", archives_path)
         .span9
           = yield    
     hr
