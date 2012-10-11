@@ -14,7 +14,7 @@ ruby '1.9.3'
 
 gem 'rails', '3.2.0'
 gem "thin", "~> 1.4.1"
-gem 'bootstrap-generators', '~> 2.0' # for less to work
+# gem 'bootstrap-generators', '~> 2.0' # for less to work
 gem 'simple_form', '~> 2.0'
 gem 'slim'
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
@@ -31,7 +31,7 @@ gem 'truncate_html'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'bootstrap-sass'
-  gem 'therubyracer' #heroku says unnesecary but I need it for less to work
+  # gem 'therubyracer' #heroku says unnesecary but I need it for less to work
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
 end
