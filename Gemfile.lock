@@ -90,6 +90,7 @@ GEM
     eventmachine (1.0.0-java)
     exception_notification (2.5.2)
       actionmailer (>= 3.0.4)
+    excon (0.16.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (4.1.0)
@@ -105,6 +106,14 @@ GEM
     gherkin (2.11.2-java)
       json (>= 1.4.6)
     haml (3.1.7)
+    heroku (2.32.11)
+      heroku-api (~> 0.3.5)
+      launchy (>= 0.3.2)
+      netrc (~> 0.7.7)
+      rest-client (~> 1.6.1)
+      rubyzip
+    heroku-api (0.3.5)
+      excon (~> 0.16.1)
     hike (1.2.1)
     i18n (0.6.1)
     jdbc-sqlite3 (3.7.2)
@@ -148,6 +157,7 @@ GEM
       thin
     mime-types (1.19)
     multi_json (1.3.6)
+    netrc (0.7.7)
     nokogiri (1.5.5)
     nokogiri (1.5.5-java)
     orm_adapter (0.4.0)
@@ -202,6 +212,8 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     remotipart (1.0.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -297,6 +309,7 @@ DEPENDENCIES
   factory_girl
   faker
   formtastic
+  heroku
   jquery-rails
   jruby-openssl
   lesstile
