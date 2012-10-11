@@ -11,6 +11,8 @@ namespace :db do
 
     string = File.open(Rails.root + "lib/tasks/lorem.erb").read
     renderer = ERB.new(string)
+    puts "renderer: " + renderer.inspect
+    
     Post.create!(:title => 'lorem.erb', :body => renderer.result())
 
     Post.create!(:title => 'kitchen sink', :body => File.open(Rails.root + "lib/tasks/kitchenSinkLorem.xml", "rb").read)
