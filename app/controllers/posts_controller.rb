@@ -16,9 +16,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def create
+    Post.save(params[:post])
+  end
+
   def show
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {:include => [:approved_comments, :tags]}))
     @root_comments = @post.comments.select { |x| x.parent.nil? }
-    @comment = Comment.new
+    # @comment = Comment.new
   end
 end

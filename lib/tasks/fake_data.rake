@@ -10,65 +10,50 @@ namespace :db do
     Tagging.delete_all
 
     string = File.open(Rails.root + "lib/tasks/lorem.erb").read
-    puts string
     renderer = ERB.new(string)
-
     Post.create!(:title => 'lorem.erb', :body => renderer.result())
 
-    template = Slim::Template.new { File.open(Rails.root + "lib/tasks/lorem.slim").read }
-    Post.create!(:title => 'lorem.slim2', :body =>template.render)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    # puts "Rails.root: #{Rails.root}"
-
-    # create the dynamic kitchen sink
-    # string = File.open(Rails.root + "lib/tasks/kitchenSinkLoremDynamic.xml").read
-    # doc = Nokogiri::XML.fragment(string, &:noblanks)
-    
-    # puts ""
-    # doc.traverse do |node|
-    #   alpha  = node.content
-
-    #   begin
-    #     node.content = node.parent.name.inspect + eval(node.content)
-    #   rescue Exception => e
-    #     puts "failed to eval(#{node.content} because #{e.to_s})"
-    #   end
-    #   # puts "#{alpha} > #{node.content}"
-    # end
-
-    # Post.create!(:title => 'kitchen sink, dynamic', :body => doc.to_xml(:indent => 2))
-
-    # create the kitchen sink
     Post.create!(:title => 'kitchen sink', :body => File.open(Rails.root + "lib/tasks/kitchenSinkLorem.xml", "rb").read)
 
-
-    15.times { |i| 
+    # template = Slim::Template.new { File.open(Rails.root + "lib/tasks/lorem.slim").read }
+    erb2 = File.open(Rails.root + "lib/tasks/lorem_post.erb").read
+    10.times { |i| 
+    
       post = Post.create!(
         :title => Faker::Lorem.sentence(3 + rand(5)), 
-        :body => generate_html_body,
+        :body => ERB.new(erb2).result(),
         :tag_list => Faker::Lorem.words(1 + rand(3)).join(", "),
         :published_at => rand(1000).days.ago
       )
 
-      create_recur_comments(2 + rand(5), post, nil)
+      create_recur_comments_natural(5 + rand(5), post, nil)
     }
 
+    post = Post.create!(
+      :title => "Straight", 
+      :body => ERB.new(erb2).result(),
+      :tag_list => Faker::Lorem.words(1 + rand(3)).join(", "),
+    )
 
+
+    create_recur_comments_straight(50, post, nil)
+
+    post = Post.create!(
+      :title => "Wide", 
+      :body => ERB.new(erb2).result(),
+      :tag_list => Faker::Lorem.words(1 + rand(3)).join(", "),
+    )
+
+    50.times {|j|
+      create_params = Hash.new
+
+      create_params[:author] = "#{Faker::Name.first_name} #{Faker::Name.last_name}"
+      create_params[:author_url] = Faker::Internet.domain_name
+      create_params[:author_email] = Faker::Internet.email()
+      create_params[:body] = Faker::Lorem.paragraphs(1 + rand(5)).join(" ")
+
+      comment = post.comments.create!(create_params)
+    }
   end
 
   def render_erb(template_path, params)  
@@ -81,11 +66,29 @@ namespace :db do
     view.render(:file => "#{template_path}.html.erb", :locals => params)  
   end
 
-  def generate_html_body
-    Faker::Lorem.paragraphs(5 + rand(20)).join(" ")
+  # creates a single straight branch of comments. Single child, no sibblings
+  def create_recur_comments_straight(number_of_comments, post, parent)
+
+    if (number_of_comments > 0)
+      create_params = Hash.new
+      create_params[:author] = "#{Faker::Name.first_name} #{Faker::Name.last_name}"
+      create_params[:author_url] = Faker::Internet.domain_name
+      create_params[:author_email] = Faker::Internet.email()
+      create_params[:body] = Faker::Lorem.paragraphs(1 + rand(5)).join(" ")
+
+      if parent.nil?
+        comment = post.comments.create!(create_params)
+      else
+        create_params[:post] = post
+        comment = parent.children.create!(create_params)      
+      end
+
+      create_recur_comments_straight(number_of_comments - 1, post, comment)
+    end
   end
 
-  def create_recur_comments(number_of_comments, post, parent)
+  # creates a 'natural' but randomized tree of comments
+  def create_recur_comments_natural(number_of_comments, post, parent)
 
     number_of_comments = number_of_comments.to_i
 
@@ -104,7 +107,7 @@ namespace :db do
         comment = parent.children.create!(create_params)      
       end
 
-      create_recur_comments(rand(number_of_comments - 1), post, comment)
+      create_recur_comments_natural(rand(number_of_comments - 1), post, comment)
     }
   end
 

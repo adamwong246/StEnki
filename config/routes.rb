@@ -6,6 +6,7 @@ Enki::Application.routes.draw do
 
   resources :archives, :only => [:index]
   resources :pages, :only => [:show]
+  resources :comments
 
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
     get ':year/:month/:day/:slug/comments'  => 'comments#index'
