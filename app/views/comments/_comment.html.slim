@@ -10,6 +10,9 @@
     /br/
     / small.commentmetadata
     / a{:href => "#comment-# comment.id}" title=""
+    / = raw comment.body_html
+ 
+    / = link_to "Reply?", "#"
 
     =' raw comment.body_html
 
