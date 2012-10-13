@@ -1,0 +1,104 @@
+Header 1 
+<h1> <%= Faker::Lorem.sentence(15) %> </h1>
+<h>
+Header 2
+<h2>  <%= Faker::Lorem.sentence(15) %> </h2>
+<h>
+Header 3
+<h3>  <%= Faker::Lorem.sentence(15) %> </h3>
+<h>
+Header 4
+<h4>  <%= Faker::Lorem.sentence(15) %> </h4>
+<h>
+Header 5
+<h5>  <%= Faker::Lorem.sentence(15) %> </h5>
+<h>
+Header 6
+<h6>  <%= Faker::Lorem.sentence(15) %> </h6>
+<h>
+Plain 
+<p> <%= Faker::Lorem.sentences(15).join(" ") %> </p>
+<h>
+Bold
+<p><b> <%= Faker::Lorem.sentences(15).join(" ") %> </b></p>
+<h>
+Italics
+<p><i>  <%= Faker::Lorem.sentences(15).join(" ") %> </i></p>
+<h>
+Underlined
+<p><u>  <%= Faker::Lorem.sentences(15).join(" ") %> </u></p>
+<h>
+Emphasized
+<p><em>  <%= Faker::Lorem.sentences(15).join(" ") %> </em></p>
+<h>
+Pre
+<p><pre> <%= Faker::Lorem.sentences(15).join(" ") %> </pre></p>
+<h>
+Code
+<p><code> <%= Faker::Lorem.sentences(15).join('\n') %></code></p>
+<h>
+
+pre > code
+<pre><code>
+#header h1 a { 
+  display: block; 
+  width: 300px; 
+  height: 80px; 
+}
+</code></pre>
+<h>
+
+Blockquote
+<p><blockquote> <%= Faker::Lorem.sentences(15).join('\n') %> </blockquote></p>
+<h>
+
+Ul and li's
+<ul>
+  <% rand(3..8).times do %>
+    <li><%= Faker::Lorem.sentence(15) %>)</li>
+  <% end %>
+</ul>
+<h>
+
+Ol and li's
+<ol>
+   <% rand(3..8).times do %>
+    <li><%= Faker::Lorem.sentence(15) %></li>
+  <% end %>
+</ol>
+<h>
+
+Table
+<table>
+  <% columns = rand(3..8) %>
+  <% rows = rand(3..8) %>
+  <thead>
+    <tr>
+      <% columns.times do |c| %>
+        <th><%= Faker::Lorem.sentence(rand(5)) %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% rows.times do |r| %>
+      <tr>
+        <% columns.times do |c| %>
+          <td><%= Faker::Lorem.sentence(rand(5)) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h>
+
+Definition list
+<dl>
+  <% rand(3..8).times do %>
+    <dt><%= Faker::Lorem.sentence(rand(5)) %></dt>
+    <dd><%= Faker::Lorem.sentence(rand(5)) %></dd>
+  <% end %>
+</dl>
+<h>
+
+Image
+<img src="http://lorempixel.com/<%=rand(100..500)%>/<%=rand(100..500)%>/" alt=Faker::Lorem.sentence(rand(5))>

@@ -1,0 +1,20 @@
+<% 5.times do |i| %> 
+  <% r = rand(5) %>
+
+  <p> 
+    <% if r == 0 %>
+       
+    <% elsif r == 1 %>
+      <b> <%=Faker::Lorem.sentences(rand(2..4)).join(" ") %> </b>
+    <% elsif r == 2 %>
+      <i> <%= Faker::Lorem.sentences(rand(2..4)).join(" ") %> </i>
+  
+    <% elsif r == 4 %>
+      <div class="well">
+        <%= Faker::Lorem.paragraphs(rand(1..15)).join(" ") %>
+      </div>
+    <% else %>
+      <%= Faker::Lorem.paragraphs(rand(1..15)).join(" ") %>
+    <%end %>
+  </p>
+<% end %>
