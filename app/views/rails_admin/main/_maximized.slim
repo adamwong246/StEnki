@@ -1,8 +1,10 @@
 =' link_to raw('<i class="icon-resize-small"></i> Minimize'), tree_path(:model_name => @abstract_model.to_param.to_s, :id => node, :maximized => false)
+= "# #{node.id}"
 br
 
-=' link_to raw('<i class="icon-chevron-up"></i> Parent '), tree_path(:model_name => @abstract_model.to_param.to_s, :id => node.parent)
-=' link_to raw('<i class="icon-info-sign"></i> Permalink '), tree_path(:model_name => @abstract_model.to_param.to_s, :id => node)  
+- if node.parent
+  =' link_to raw('<i class="icon-chevron-up"></i> Parent '), tree_path(:model_name => @abstract_model.to_param.to_s, :id => node.parent)
+  =' link_to raw('<i class="icon-info-sign"></i> Permalink '), tree_path(:model_name => @abstract_model.to_param.to_s, :id => node)  
 b = "Depth in local tree: #{depth.to_s}, # of Children: #{node.children.length.to_s}"
 
 br
@@ -30,4 +32,4 @@ br
 p= link_to raw('<i class="icon-plus"></i> New Child '), new_path(:model_name => @abstract_model.to_param.to_s, @abstract_model.to_param.to_s.to_sym => {:parent_id=> node.id})
 
 -node.children.each do |child|
-  = render :partial => 'rails_admin/main/recur_tree', :locals => {:node =>child, :depth => depth + 1, :maximized => maximized}
+  = render :partial => 'rails_admin/main/recur_tree', :locals => {:node =>child, :depth => depth, :maximized => maximized}
