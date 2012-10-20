@@ -55,8 +55,9 @@ gem 'aaronh-chronic', :require => 'chronic' # Fixes for 1.9.2
 gem 'coderay'
 gem 'lesstile'
 gem 'formtastic'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+# gem 'will_paginate'
+# gem 'bootstrap-will_paginate'
+gem 'kaminari'
 gem 'exception_notification', '~> 2.5.2'
 
 # Bundle gems for the local environment. Make sure to

@@ -13,4 +13,5 @@
         .related
           | Looking for more? Head on over to the #{link_to("archives", archives_path)}.
           
-  = will_paginate(@posts, :previous_label => '« Newer', :next_label => 'Older »')
+  / = will_paginate(@posts, :previous_label => '« Newer', :next_label => 'Older »')
+  = paginate @posts

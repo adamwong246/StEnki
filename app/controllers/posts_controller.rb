@@ -1,14 +1,16 @@
 class PostsController < ApplicationController
   def index
     @tag = params[:tag]
+
+    @posts = Post.page(params[:page]).per(3)
     
     # @posts = Kaminari.paginate_array(Post.find_recent(:tag => @tag, :include => :tags)).page(params[:page]).per(3)
 
-    @posts = Post.paginate(
-      :order => "published_at DESC",
-      :page  => params[:page],
-      :per_page => 3
-    )
+    # @posts = Post.paginate(
+    #   :order => "published_at DESC",
+    #   :page  => params[:page],
+    #   :per_page => 3
+    # )
 
 
 
@@ -27,11 +29,11 @@ class PostsController < ApplicationController
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {:include => [:approved_comments, :tags]}))
     @root_comments = @post.comments.select { |x| x.parent.nil? }
 
-    @prev_current_next_posts = Post.paginate(
-      :order => "published_at DESC",
-      :page  => params[:page],
-      :per_page => 2
-    )
+    # @prev_current_next_posts = Post.paginate(
+    #   :order => "published_at DESC",
+    #   :page  => params[:page],
+    #   :per_page => 2
+    # )
 
     # @comment = Comment.new
   end
