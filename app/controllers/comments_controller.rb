@@ -8,10 +8,14 @@ class CommentsController < ApplicationController
     :canceled => "OpenID verification was canceled",
     :failed   => "Sorry, the OpenID verification failed" }
 
-  before_filter :find_post, :except => [:new, :create]
+  before_filter :find_post, :except => [:new, :create, :show]
 
   def index
     redirect_to(post_path(@post))
+  end
+
+  def show
+    @comment = Comment.find_by_id(params[:id])
   end
 
   def new
