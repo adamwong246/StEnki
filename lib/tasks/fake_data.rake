@@ -23,7 +23,7 @@ namespace :db do
     # We could use an xml (or html!) file
     Post.create!(:title => 'kitchen_sink.xml', :body => File.open(fake_posts_path  + "kitchen_sink.xml", "rb").read)
 
-    # TODO these instructions don't work
+    # TODO these instructions don't work yet
     # or even a slim file
     # template = Slim::Template.new { File.open(fake_posts_path  + "lorem.slim").read }
     # post = Post.create!(

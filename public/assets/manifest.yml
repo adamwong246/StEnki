@@ -15,7 +15,7 @@ silk/arrow_undo.png: silk/arrow_undo-a8d150250ea5528eb390535b795766b4.png
 silk/delete.png: silk/delete-d30401242163129b017c98762921905d.png
 silk/pencil.png: silk/pencil-7b50689b565901a8482da705c2caa5c7.png
 admin.js: admin-78e03cd5c211b6a829fc176387ba6f32.js
-application.js: application-bb0dd93ca5fa804b1f27af95380ddfae.js
+application.js: application-b62417921515f0648f9c09d4846f6b03.js
 application.css: application-b996f70932d6ed253fe664e8da6a80ed.css
 rails_admin/aristo/images/bg_fallback.png: rails_admin/aristo/images/bg_fallback-55829c6af9b9af338904d5a0ed9c191d.png
 rails_admin/aristo/images/icon_sprite.png: rails_admin/aristo/images/icon_sprite-555074e93c8d91f9f72d1a211d5a820e.png
