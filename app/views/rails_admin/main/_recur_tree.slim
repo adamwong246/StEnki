@@ -1,14 +1,9 @@
 - if !node.nil?
   .well
-    -if !node.parent.nil?
-      p= link_to "^ Inspect parent", tree_path(:model_name => @abstract_model.to_param.to_s, :id => node.parent_id) 
-    
-
-    b = "depth of current tree: #{level.to_s}, children: #{node.children.length.to_s}"
-    
-    p= link_to "Zoom to ", tree_path(:model_name => @abstract_model.to_param.to_s, :id => node)
-    = node.inspect
-    p= link_to "Create child", new_path(:model_name => @abstract_model.to_param.to_s, @abstract_model.to_param.to_s.to_sym => {:parent_id=> node.id, :post_id => node.post})
-    
-    -node.children.each do |child|
-      = render :partial => 'rails_admin/main/recur_tree', :locals => {:node =>child, :level => level + 1}
+    -if defined?(maximized)
+      -if maximized
+        = render :partial => 'rails_admin/main/maximized', :locals => {:node =>node, :depth => depth + 1, :maximized => true}
+      -else
+        = render :partial => 'rails_admin/main/minimized', :locals => {:node =>node, :depth => depth + 1, :maximized => false}
+    -else 
+      = render :partial => 'rails_admin/main/minimized', :locals => {:node =>node, :depth => depth + 1, :maximized => false}

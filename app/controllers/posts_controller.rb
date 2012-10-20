@@ -10,6 +10,8 @@ class PostsController < ApplicationController
       :per_page => 3
     )
 
+
+
     respond_to do |format|
       format.html 
       format.atom { render :layout => false }
@@ -21,8 +23,16 @@ class PostsController < ApplicationController
   end
 
   def show
+
     @post = Post.find_by_permalink(*([:year, :month, :day, :slug].collect {|x| params[x] } << {:include => [:approved_comments, :tags]}))
     @root_comments = @post.comments.select { |x| x.parent.nil? }
+
+    @prev_current_next_posts = Post.paginate(
+      :order => "published_at DESC",
+      :page  => params[:page],
+      :per_page => 2
+    )
+
     # @comment = Comment.new
   end
 end

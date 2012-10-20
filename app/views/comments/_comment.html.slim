@@ -15,10 +15,16 @@
     / = link_to "Reply?", "#"
 
     =' raw comment.body_html
+    br
+    =' link_to "Permalink", comment_path(comment)
 
     - if reply_link == true
       = render :partial => 'comments/reply_form', :locals => {:post => comment.create_child}
+    
       
+
       /# - if level < 
       - comment.children.each do |comment|
         = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
+
+

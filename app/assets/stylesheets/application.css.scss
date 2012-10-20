@@ -28,6 +28,16 @@ body{
 span.tags a{
   color: gray;
 }
+
+.title_and_date{
+  h2{
+    display:inline-block;
+    padding-right:10px;
+  }
+  h5{
+    display:inline-block;  
+  }
+}
  
 #footer{
   float:right;

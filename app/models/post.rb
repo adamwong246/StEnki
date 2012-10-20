@@ -143,11 +143,17 @@ class Post < ActiveRecord::Base
     self == Post.first
   end
 
-  def previous
-    Post.where(["id < ?", id]).last
+  def next
+    self.class.find(
+      :first, 
+      :conditions => ["created_at > ?", self.created_at], 
+      :order => 'created_at, id')
   end
 
-  def next
-    Post.where(["id > ?", id]).first
+  def previous
+    self.class.find(
+      :first, 
+      :conditions => ["created_at < ?", self.created_at],
+      :order => 'created_at desc, id desc')
   end
 end
