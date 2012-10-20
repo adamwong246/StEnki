@@ -14,7 +14,7 @@ else
           = link_to(post.title, post_path(post))
           - unless post.tags.empty?
             span.tags
-              | #{linked_tag_list(post.tags)}
+              =' linked_tag_list(post.tags)
   / - if show_link_to_archive
   /   / h4 All posts
 
