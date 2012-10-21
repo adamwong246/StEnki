@@ -21,8 +21,17 @@
 
 $last_opened_area = undefined
 $(document).ready ->
+  $(".social-buttons li ").one "mouseenter", ->
+    Socialite.load $(this)[0]
+  
 
-  Socialite.load $("#social")
+  # $("article.text").one "mouseenter", ->
+  #   Socialite.load $(this)[0]
+
+
+
+
+  # Socialite.load $(".social-buttons")
 
   # $("a.form_open").click ->
   #   $opened_area = $(this).next(".form_and_preview_container") #.children('div.hidden_comment_form');
