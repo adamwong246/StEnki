@@ -1,32 +1,18 @@
 StEnki is a Ruby on Rails blog engine and a fork of "Enki":https://github.com/xaviershay/enki. 
 You can find a demonstration of Enki at my personal blog <a href="http://ifailedtheturingtest.herokuapp.com/">i failed the turing test</a>
 
-I decided to re-christen this project under a new name because it has diverged so substantially from the original Enki. Stenki, to me, is my personal programming playground. Think of it as my workshop. Because of this, StEnki has many more dependencies than Enki and prefers to use many wonderful gems. My goal is a self-descriing and self-documenting blog. I'll try to explain in a blog post all the interesting bits an pieces. 
-
-Features:
-- Removed custom authentication and administration in favor of rails_admin.
-- Reddit-style comments ie. tree structured comments
-- Scss for style
-- Slim for layouts. 
-- Bootstrap for base styling
-- Deployable to Heroku's cedar stack. 
-
-Features yet to come:
-- Better authentication via Omniauth or OpenId. 
-- Content!
-
-h3. Almost none of my work is tested well σ_σ but I encourage you to fork this project and hack away. The majority of the work was not done by me. A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> and all the other Enki developers for their hard work.  
+h3. Almost none of my work is tested well σ_σ. It shold be considered to be failing it's tests but I encourage you to fork this project and hack away. The majority of the work was not done by me. A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> and all the other Enki developers for their hard work.  
 
 h2. 
 
-A Ruby on Rails blogging app for the fashionable developer.
+A Ruby on Rails blogging app for the adventurous developer.
 
 Preferences are for the masses. Any real coder knows the easiest and best way to customize something is by *hacking code*. Because you want your blog to be you, not bog standard install #4958 with 20 posts per page instead of 15. For this you need a *clean, simple, easy to understand code base* that stays out of your way. No liquid drops and templates hindering your path, no ugly PHP(Hypertext Preprocessor) stylings burning your eyeballs.
 
 h2. Quick Start
 
-<pre><code>  git clone git://github.com/xaviershay/enki.git enki
-  cd enki
+<pre><code>  git clone git://github.com/adamwong246/StEnki.git StEnki
+  cd StEnki
   git checkout -b myblog # Create a new work branch
   bundle install         # Install all the required gems
 
@@ -39,14 +25,15 @@ h2. Quick Start
 
   rake db:migrate
   rake            # Run tests
+  rake db:populate
   rails server    # Start the server
   # Load http://localhost:3000/admin in your browser</code></pre>
 
-Or for bonus points, fork "enki at github":http://github.com/xaviershay/enki/tree/master and clone that instead.
+Or for bonus points, fork "StEnki at github":https://github.com/adamwong246/StEnki and clone that instead.
 
 h2. More info
 
-Enki is a compact, easily extendable base for your blog. It does this by being highly opinionated, for example:
+StEnki is a compact, easily extendable base for your blog. It does this by being highly opinionated, for example:
 
 * Public facing views should adhere to standards (XHTML(eXtensible Hypertext Markup Language), Atom)
 * /yyyy/mm/dd/post-title is a good URL for your posts
@@ -64,6 +51,22 @@ h2. How it differs from SimpleLog
 
 Enki embodies much of the philosophy of SimpleLog, but does so in a style that is much more consistent with Rails best practices, making it easier to understand and hack the code.
 
+h2. How it differs from Enki
+
+I decided to re-christen this project under a new name because it has diverged so substantially from the original. Stenki, to me, is my personal programming playground. Think of it as my workshop. Because of this, StEnki has many more dependencies than Enki and prefers to use many wonderful gems rather than stay lightweight. StEnki is feature rich and can provide a programmer with a safari  popular gems, such as rails_admin, cancan, devise, and more. 
+
+Features:
+- Removed custom authentication and administration in favor of rails_admin.
+- Reddit-style comments ie. tree structured comments
+- Scss for style
+- Slim for layouts. 
+- Bootstrap for base styling
+- Deployable to Heroku's cedar stack. 
+
+Features yet to come:
+- Better authentication via Omniauth or OpenId. 
+- Content!
+
 h2. Compatibility
 
 Uses rails 3. Runs on MySQL or Postgres. Works on heroku.
@@ -72,10 +75,8 @@ h2. Contributors, these guys rock
 
 <pre><code>git log | grep Author | sort | uniq</code></pre>
 
-If you want to help out, try tackling an "open issue":https://github.com/xaviershay/enki/issues. Please include specs for any fixes. Enki is by design feature light. Unless you feel very strongly your feature should be in core, add a link to your fork in the wiki instead.
+If you want to help out, try tackling an "open issue":https://github.com/adamwong246/StEnki/issues. Please include specs for any fixes. Enki is by design feature light. Unless you feel very strongly your feature should be in core, add a link to your fork in the wiki instead.
 
 h2. License
 
 GPL(General Public License) - See LICENSE
-
-Admin design heavily inspired by "Habari":http://www.habariproject.org/en/
