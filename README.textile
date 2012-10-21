@@ -1,14 +1,21 @@
-StEnki, Enki as forked by adamwong246 for his personal website, <a href="http://growing-mountain-4489.herokuapp.com/">i failed the turing test</a>
+StEnki is a Ruby on Rails blog engine and a fork of "Enki":https://github.com/xaviershay/enki. 
+You can find a demonstration of Enki at my personal blog <a href="http://ifailedtheturingtest.herokuapp.com/">i failed the turing test</a>
 
-I've changed very little to the codebase thus far, but here's a list of things I'm working on, in no particular order. 
+I decided to re-christen this project under a new name because it has diverged so substantially from the original Enki. Stenki, to me, is my personal programming playground. Think of it as my workshop. Because of this, StEnki has many more dependencies than Enki and prefers to use many wonderful gems. My goal is a self-descriing and self-documenting blog. I'll try to explain in a blog post all the interesting bits an pieces. 
 
-* -Replace the original css with beautiful twitter bootstrap-
-* Replace the erb files with slim... Done
-* -Implement basic navigation- Done
-* -Choose Less or Sass... I'm leaning towards Less- Done. I decided to use Sass.
-* -Replace the hand rolled admin with the rails_admin gem. 
+Features:
+- Removed custom authentication and administration in favor of rails_admin.
+- Reddit-style comments ie. tree structured comments
+- Scss for style
+- Slim for layouts. 
+- Bootstrap for base styling
+- Deployable to Heroku's cedar stack. 
 
-h3. Almost none of my work is tested well σ_σ but I encourage you to fork this project and hack away. The majority of the work was not done by me. A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> for all his hard work. Thanks Xavier! 
+Features yet to come:
+- Better authentication via Omniauth or OpenId. 
+- Content!
+
+h3. Almost none of my work is tested well σ_σ but I encourage you to fork this project and hack away. The majority of the work was not done by me. A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> and all the other Enki developers for their hard work.  
 
 h2. 
 
