@@ -21,7 +21,8 @@
 
 $last_opened_area = undefined
 $(document).ready ->
-  $("#social2").one "mouseenter", ->
+  #Socialite.load $("#social2")
+  $("#social2 > li").one "mouseenter", ->
     Socialite.load $(this)[0]
   
 

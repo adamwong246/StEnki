@@ -1,3 +1,6 @@
+/*Originally hosted at
+http://socialitejs.com/socialite.css*/
+
 .cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 * html .cf { zoom: 1; }
 *:first-child+html .cf { zoom: 1; }
@@ -42,13 +45,14 @@ h2 { font-size: 1.25em; line-height: 1.333em; margin: 0.5em 0; }
 
 /*
  * Socialite Custom Default
+ * modified
  */
 
 #social2-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
 
-#social2 { display: block; list-style: none; padding: 10px; margin: 10px; }
-#social2 > li { display: block; margin: 0; }
-#social2 .socialite { display: block; position: relative; width: 150px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
+#social2 { display: block; list-style: none; padding: 0px;}
+#social2 > li { display: block; margin: 0; float:left; margin-left: 30px; margin-right: 30px;}
+#social2 .socialite { display: block; position: relative; width: 50px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
 #social2 .socialite-loaded { background: none; }
 
 #social2 .twitter-share { background-position: 0 0; }
@@ -56,3 +60,30 @@ h2 { font-size: 1.25em; line-height: 1.333em; margin: 0.5em 0; }
 #social2 .facebook-like { background-position: 0 -90px; }
 #social2 .linkedin-share { background-position: 0 -135px; }
 #social2 .pinterest-pinit { background-position: 0 -175px; }
+
+
+/* Adam's custom social buttons*/
+table#social3 {
+  border: 1px solid black;
+  width: 100%;
+   tr{
+    border: 1px solid black;
+    td{
+      border: 1px solid black;
+      align: center;
+    }
+  }
+}
+/*#social3-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
+
+#social3 { display: block; list-style: none; padding: 10px; margin: 10px; }
+#social3 > li { display: block; margin: 0; float:left;}
+#social3 .socialite { display: block; position: relative; width: 50px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
+#social3 .socialite-loaded { background: none; }
+
+#social3 .twitter-share { background-position: 0 0; }
+#social3 .googleplus-one { background-position: 0 -45px; }
+#social3 .facebook-like { background-position: 0 -90px; }
+#social3 .linkedin-share { background-position: 0 -135px; }
+#social3 .pinterest-pinit { background-position: 0 -175px; }*/
+
