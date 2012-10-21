@@ -36,20 +36,6 @@ html dir="ltr" lang="en-US"
                 - else 
                   a href="/rails_admin" Log in
 
-        
-
-            / <ul class="social-buttons cf">
-            /   <li>
-            /     <a href="http://twitter.com/share" class="socialite twitter-share" data-text="Socialite.js" data-url="http://socialitejs.com" data-count="vertical" rel="nofollow" target="_blank"><span class="vhidden">Share on Twitter</span>
-            /     </a></li>
-
-            /   <li>
-            /     <a href="https://plus.google.com/share?url=http://socialitejs.com" class="socialite googleplus-one" data-size="tall" data-href="http://socialitejs.com" rel="nofollow" target="_blank"><span class="vhidden">Share on Google+</span></a></li>
-
-            /   <li><a href="http://www.facebook.com/sharer.php?u=http://www.socialitejs.com&amp;t=Socialite.js" class="socialite facebook-like" data-href="http://socialitejs.com" data-send="false" data-layout="box_count" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden">Share on Facebook</span></a></li>
-
-            /   <li><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://socialitejs.com&amp;title=Socialite.js" class="socialite linkedin-share" data-url="http://socialitejs.com" data-counter="top" rel="nofollow" target="_blank"><span class="vhidden">Share on LinkedIn</span></a></li>
-            / </ul>
                      
     .container-fluid
       .row-fluid
@@ -59,7 +45,7 @@ html dir="ltr" lang="en-US"
             hr
             = link_to("Archives", archives_path)
 
-          ul.social-buttons
+          ul#social2
             li
               a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
                 span.vhidden Share on Twitter
@@ -72,29 +58,9 @@ html dir="ltr" lang="en-US"
             li
               a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
                 span.vhidden Share on LinkedIn
-                
-            = image_tag "your_ad_here.jpg"
-            / ul class="nav nav-list"
-            /   - @months = Post.find_all_grouped_by_month(6)
 
-            /   - if @months.empty? 
-            /     p
-            /       | Once posts are added they will start to appear in this archive.
-            /   - else
-            /     - @months.each do |month| 
-            /       h3
-            /         = format_month(month.date) 
-            /       ul class='archive-month'
-            /         - month.posts.each do |post|
-            /           li
-            /             =' link_to(post.title, post_path(post))
-            /             - unless post.tags.empty? 
-            /               span class='tags' 
-            /                 = linked_tag_list(post.tags)
-            /     h3 All posts
-            /     ul 
-            /       li 
-            /         = link_to("Archives", archives_path)
+            = image_tag "your_ad_here.jpg"
+
         .span9
           = yield    
     hr
