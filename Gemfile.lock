@@ -139,7 +139,6 @@ GEM
     lesstile (1.1.0)
     libwebsocket (0.1.5)
       addressable
-    lorem (0.1.2)
     mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -310,7 +309,6 @@ DEPENDENCIES
   jruby-openssl
   kaminari
   lesstile
-  lorem
   mailcatcher
   nokogiri (~> 1.5.0)
   pg
