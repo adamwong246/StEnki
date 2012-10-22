@@ -43,14 +43,6 @@ StEnki is a compact, easily extendable base for your blog. It does this by being
 * If you're not using OpenID you're a chump
 * Hacking code is the easiest way to customize something
 
-h2. How it differs from Mephisto
-
-Mephisto is feature packed and quite customizable. It can however be daunting trying to find your way around the code, which isn’t so good if you’re trying to hack in your own features. Enki strips out a lot of the features that you probably don’t need (multiple authors and liquid templates, for example), and focuses on keeping a tight code base that is easy to comprehend and extend.
-
-h2. How it differs from SimpleLog
-
-Enki embodies much of the philosophy of SimpleLog, but does so in a style that is much more consistent with Rails best practices, making it easier to understand and hack the code.
-
 h2. How it differs from Enki
 
 I decided to re-christen this project under a new name because it has diverged so substantially from the original. Stenki, to me, is my personal programming playground. Think of it as my workshop. Because of this, StEnki has many more dependencies than Enki and prefers to use many wonderful gems rather than stay lightweight. StEnki is feature rich and can provide a programmer with a safari  popular gems, such as rails_admin, cancan, devise, and more. 
@@ -66,6 +58,14 @@ Features:
 Features yet to come:
 - Better authentication via Omniauth or OpenId. 
 - Content!
+
+h2. How it differs from Mephisto
+
+Mephisto is feature packed and quite customizable. It can however be daunting trying to find your way around the code, which isn’t so good if you’re trying to hack in your own features. Enki strips out a lot of the features that you probably don’t need (multiple authors and liquid templates, for example), and focuses on keeping a tight code base that is easy to comprehend and extend.
+
+h2. How it differs from SimpleLog
+
+Enki embodies much of the philosophy of SimpleLog, but does so in a style that is much more consistent with Rails best practices, making it easier to understand and hack the code.
 
 h2. Compatibility
 
