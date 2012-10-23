@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     @tag = params[:tag]
 
-    @posts = Post.page(params[:page]).per(3)
+    @posts = Post.where(:active => true).page(params[:page]).per(3)
     
     # @posts = Kaminari.paginate_array(Post.find_recent(:tag => @tag, :include => :tags)).page(params[:page]).per(3)
 

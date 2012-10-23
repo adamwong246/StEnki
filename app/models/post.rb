@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
 
-  default_scope order('published_at DESC')
+  default_scope order('published_at DESC') 
+  # default_scope where(:active => true)
+
 
   DEFAULT_LIMIT = 15
 
@@ -159,4 +161,9 @@ class Post < ActiveRecord::Base
       :conditions => ["created_at < ?", self.created_at],
       :order => 'created_at desc, id desc')
   end
+
+  def truncate(length = 500)
+    truncate_html  post.body_html, :length => length
+  end
+
 end
