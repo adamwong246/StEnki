@@ -26,6 +26,7 @@ class Ability
     can :dashboard, :all          # grant access to the dashboard
     can :show_in_app, :all
     can :tree, :all
+    can :nestable, :all
     
     if user.admin?
         can :manage, :all
