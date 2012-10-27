@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/dalpo/rails_admin_nestable.git
-  revision: 2e5e6e9acbedfa9487681e3a5eae191232552e34
+PATH
+  remote: ~/PersonalProgramming/rails_admin_nestable
   specs:
     rails_admin_nestable (0.0.1)
       rails (~> 3.2)

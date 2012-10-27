@@ -273,8 +273,8 @@ RailsAdmin.config do |config|
   end
 
   config.model Comment do
-    # nestable_tree({ position_field: :id, max_depth: 3 })
-    nestable_list position_field: :id 
+    nestable_tree({ preview_field: :author, position_field: :id, max_depth: 3 })
+    # nestable_list position_field: :created_at
   end
 
 end
