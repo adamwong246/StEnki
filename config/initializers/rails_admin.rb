@@ -236,6 +236,8 @@ RailsAdmin.config do |config|
     end
   end
    
+
+
   config.actions do
     # root actions
     dashboard                     # mandatory
@@ -251,8 +253,8 @@ RailsAdmin.config do |config|
     delete
     history_show
     show_in_app
+  
 
-   
     # Set the custom action here
     tree do
       # Make it visible only for article model. You can remove this if you don't need.
@@ -260,6 +262,19 @@ RailsAdmin.config do |config|
         bindings[:abstract_model].model.to_s == "Comment"
       end
     end
+
+    nestable do
+      visible do
+        [Comment].include? bindings[:abstract_model].model
+        # bindings[:abstract_model].model.to_s == "Comment"
+      end
+    end
+
+  end
+
+  config.model Comment do
+    # nestable_tree({ position_field: :id, max_depth: 3 })
+    nestable_list position_field: :id 
   end
 
 end

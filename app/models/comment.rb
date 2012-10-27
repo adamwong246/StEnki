@@ -5,7 +5,9 @@ class Comment < ActiveRecord::Base
   attr_accessor         :openid_valid
 
   belongs_to            :post
-  acts_as_tree :order => "updated_at"
+  
+  # acts_as_tree :order => "updated_at"
+  has_ancestry
 
   before_save           :apply_filter
 
@@ -15,9 +17,9 @@ class Comment < ActiveRecord::Base
   validates_presence_of :author, :body, :post
   validate :open_id_error_should_be_blank
 
-  def create_child
-    return Comment.create({:parent_id => self.id, :post_id => self.post_id})
-  end
+  # def create_child
+  #   return Comment.create({:parent_id => self.id, :post_id => self.post_id})
+  # end
 
   def open_id_error_should_be_blank
     errors.add(:base, openid_error) unless openid_error.blank?

@@ -19,10 +19,14 @@ gem "thin", "~> 1.4.1"
 gem 'simple_form', '~> 2.0'
 gem 'slim'
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
+gem "rails_admin_nestable", git: "git://github.com/dalpo/rails_admin_nestable.git"
+gem 'ancestry'
+# gem "acts_as_tree_rails3", "~> 0.1.0"
+
 gem 'devise'
 gem "cancan"
 gem 'jquery-rails'
-gem "acts_as_tree_rails3", "~> 0.1.0"
+
 # gem 'lorem'
 gem 'faker'
 gem 'truncate_html'

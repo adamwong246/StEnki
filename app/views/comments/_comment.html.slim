@@ -19,7 +19,7 @@
     =' link_to "Permalink", comment_path(comment)
 
     - if reply_link == true
-      = render :partial => 'comments/reply_form', :locals => {:post => comment.create_child}
+      = render :partial => 'comments/reply_form', :locals => {:post => comment.children.create}
     
       
 
