@@ -12,6 +12,20 @@
  *=require_tree
  */
  
+// $navbarBackgroundHighlight:       #ffffff;
+// $navbarBackground:                white;
+// $navbarBorder:                    white;
+
+// $navbarText:                      #777;
+// $navbarLinkColor:                 #777;
+// $navbarLinkColorHover:            red;
+// $navbarLinkColorActive:           gray;
+// $navbarLinkBackgroundHover:       transparent;
+// $navbarLinkBackgroundActive:      white;
+
+// $navbarBrandColor:                $navbarLinkColor;
+
+
  
 @import "bootstrap";
 @import "bootstrap-responsive";
@@ -22,7 +36,7 @@ textarea.full_width{
 }
 
 body{
-  padding-top:60px;
+  padding-top:10px;
 }
  
 span.tags a{

@@ -5,7 +5,7 @@ Enki::Application.routes.draw do
   devise_for :users
 
   resources :archives, :only => [:index]
-  resources :pages, :only => [:show]
+  # resources :pages, :only => [:show]
   resources :comments
 
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
@@ -20,5 +20,7 @@ Enki::Application.routes.draw do
     get '(:tag)', :as => :posts
   end
 
+  # root :to => 'high_voltage/pages#show', :id => 'home'
+  match "/pages/about" => "high_voltage/pages#show", :id => 'about'
   root :to => 'posts#index'
 end
