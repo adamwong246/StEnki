@@ -29,8 +29,14 @@ gem 'jquery-rails'
 
 # gem 'lorem'
 gem 'faker'
-gem 'truncate_html'
 
+# doesn't seem to work
+# gem 'truncate_html'
+# for truncation_html_helper @ "git://github.com/ianwhite/truncate_html.git
+gem "nokogiri"
+gem "htmlentities"
+
+# static pages
 gem 'high_voltage'
 
 # Gems used only for assets and not required
@@ -75,7 +81,7 @@ group :test do
   gem 'cucumber-websteps', :require => false
   gem 'factory_girl'
   gem 'rspec'
-  gem 'nokogiri', '~> 1.5.0'
+  # gem 'nokogiri', '~> 1.5.0'
   gem 'webrat'
   gem 'sqlite3'
   gem 'mailcatcher'

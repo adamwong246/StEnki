@@ -19,6 +19,8 @@ class Post < ActiveRecord::Base
 
   validate                :validate_published_at_natural
 
+  include ActionView::Helpers
+
   def get_root_posts
     return self.approved_comments.select{|x| !x.parent.nil?}
   end
@@ -162,8 +164,8 @@ class Post < ActiveRecord::Base
       :order => 'created_at desc, id desc')
   end
 
-  def truncate(length = 500)
-    truncate_html  post.body_html, :length => length
+  def short_form(length = 500)
+    return raw self.body_html
   end
 
 end

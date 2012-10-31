@@ -26,11 +26,34 @@
 // $navbarBrandColor:                $navbarLinkColor;
 
 
- 
+$bodyBackground: black;
+$textColor: gray;
+
 @import "bootstrap";
 @import "bootstrap-responsive";
  
+img.you_ad_here, img.sig{
+  -webkit-filter: invert(1);
+}
+div.short {
+  text-overflow: "...";
+  display: inline-block;
+  width: 100%;
+  max-height:100px;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top; 
+  
 
+}
+
+
+
+
+pre{
+  background-color: black;
+  color: gray;
+}
 textarea.full_width{
   width: 100%;
 }
@@ -65,16 +88,17 @@ span.tags a{
   }
 }
 
-$well_color: white;
+$well_color: black;
 
 .well{
   background-color: darken($well_color, 10);
-  .well{
-    background-color: darken($well_color, 20);
-    .well{
-      background-color: darken($well_color, 30);
-    }
-  }
+  border: transparent;
+  // .well{
+  //   background-color: darken($well_color, 20);
+  //   .well{
+  //     background-color: darken($well_color, 30);
+  //   }
+  // }
 }
 
 

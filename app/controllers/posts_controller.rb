@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  helper TruncateHtmlHelper
+
   def index
     @tag = params[:tag]
 

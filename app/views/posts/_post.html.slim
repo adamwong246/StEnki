@@ -9,8 +9,10 @@
 
 .entrybody.well
   - if short
-    = raw truncate_html  post.body_html, :length => 500
-    /= raw post.body_html
+    /= raw truncate_html  post.body_html, :length => 500
+    /= raw truncate_html  post.body_html, :length => 500
+    div.short
+      = raw post.body_html
   - else
     = raw post.body_html
 

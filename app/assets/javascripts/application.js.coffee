@@ -26,23 +26,3 @@ $(document).ready ->
     Socialite.load $(this)[0]
   
 
-  # $("article.text").one "mouseenter", ->
-  #   Socialite.load $(this)[0]
-
-
-
-
-  # Socialite.load $(".social-buttons")
-
-  # $("a.form_open").click ->
-  #   $opened_area = $(this).next(".form_and_preview_container") #.children('div.hidden_comment_form');
-
-  #   if ( $opened_area.is(':visible'))
-  #     # alert("visible");
-  #     $opened_area.hide('blind',{direction: "vertical"},1000);
-  #   else
-  #     # alert("invisible");
-  #     $opened_area.show('blind',{direction: "vertical"},1000);
-    
-  #   false
-
