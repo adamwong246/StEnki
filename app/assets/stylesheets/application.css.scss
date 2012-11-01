@@ -28,6 +28,7 @@
 
 $bodyBackground: black;
 $textColor: gray;
+$paginationBackground: black;
 
 @import "bootstrap";
 @import "bootstrap-responsive";
@@ -36,17 +37,20 @@ img.you_ad_here, img.sig{
   -webkit-filter: invert(1);
 }
 div.short {
-  // text-overflow: "...";
-  // display: inline-block;
-  // width: 100%;
-  // max-height:100px;
-  // white-space: nowrap;
-  // overflow: hidden;
-  // vertical-align: top; 
-  
-
+  text-overflow: "...";
+  display: inline-block;
+  width: 100%;
+  max-height:600px;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top; 
 }
 
+.pagination ul > li > a:hover,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  background-color: DimGray;
+}
 
 
 

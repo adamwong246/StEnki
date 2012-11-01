@@ -13,11 +13,13 @@
 }
 
 .CodeRay pre {                                      /* important: overwrite pre from scaffold.css */
-  /*background-color: #232323 !important;*/
-  color:red;
+  background-color: #232323 !important;
+  /*color:red;*/
   margin: 0px !important;
   padding: 0px !important;
 }
+
+div.CodeRay > div.code > pre > span.constant {color: red;}
 
 .CodeRay .an { color:#E7BE69 }                      /* html attribute */
 .CodeRay .c  { color:#BC9358; font-style: italic; } /* comment */
