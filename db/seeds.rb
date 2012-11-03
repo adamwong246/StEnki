@@ -1,7 +1,6 @@
 require 'nokogiri'
 require 'faker'
 
-
 # explain(self) 
 def render_erb(template_path, params)  
   view = ActionView::Base.new(ActionController::Base.view_paths, {})  
@@ -61,10 +60,14 @@ def create_recur_comments_natural(number_of_comments, post, parent)
   }
 end
 
+
+# Create users
+#################################
 User.find_or_create_by_email({:email => "adamwong246@gmail.com", :roles => ["admin"], :password => "password", :password_confirmation => "password" })
 User.find_or_create_by_email({:email => "guest@gmail.com", :roles => ["guest"], :password => "password", :password_confirmation => "password" })
 
-
+# Create test posts
+###########################################
 fake_posts_path = Rails.root + "lib/tasks/fake_posts/"
 
 string = File.open(Rails.root + "lib/tasks/fake_posts/lorem.erb").read

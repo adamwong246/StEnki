@@ -32,7 +32,23 @@ $paginationBackground: black;
 
 @import "bootstrap";
 @import "bootstrap-responsive";
- 
+
+.well{
+  padding: 0px;
+  margin: 0px;
+}
+
+div.post_container.well{
+  margin-left:10px;
+  // border-top: 2px solid white;
+  // border-left: 2px solid white;
+}
+
+p#title.well{
+  font-family: Consolas, monaco, monospace;
+  font-size:xx-large;
+}
+
 img.you_ad_here, img.sig{
   -webkit-filter: invert(1);
 }
@@ -41,7 +57,7 @@ div.short {
   display: inline-block;
   width: 100%;
   max-height:600px;
-  white-space: nowrap;
+  white-space: wrap;
   overflow: hidden;
   vertical-align: top; 
 }
