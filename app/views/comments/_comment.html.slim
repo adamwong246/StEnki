@@ -1,6 +1,8 @@
 - if !comment.nil?
   - alpha_children = comment.children.dup
-  .post_container.well
+
+
+  .post_container.well.even
     /-if !comment.parent.nil?
       /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
       /p= "show parent"

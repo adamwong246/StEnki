@@ -33,13 +33,40 @@ $paginationBackground: black;
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+$well_color: black;
+
+
+// .well{
+//   background-color: darken($well_color, 10);
+//   border: transparent;
+//   // .well{
+//   //   background-color: darken($well_color, 20);
+//   //   .well{
+//   //     background-color: darken($well_color, 30);
+//   //   }
+//   // }
+// }
+
 .well{
+  background-color: black;
   padding: 0px;
   margin: 0px;
+  border: none;
 }
 
 div.post_container.well{
   margin-left:10px;
+  border: 1px solid white;
+  background-color: black;
+
+
+  // & .even{
+  //   background-color: red;
+  // }
+
+  // & .odd{
+  //   background-color: blue;
+  // }
   // border-top: 2px solid white;
   // border-left: 2px solid white;
 }
@@ -108,18 +135,7 @@ span.tags a{
   }
 }
 
-$well_color: black;
 
-.well{
-  background-color: darken($well_color, 10);
-  border: transparent;
-  // .well{
-  //   background-color: darken($well_color, 20);
-  //   .well{
-  //     background-color: darken($well_color, 30);
-  //   }
-  // }
-}
 
 
 // .social-buttons { display: block; list-style: none; padding: 0; margin: 20px; }
