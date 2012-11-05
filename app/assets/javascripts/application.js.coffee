@@ -15,7 +15,6 @@
 # = require jquery-ui
 # = require bootstrap
 # = require common
-# = require live-comment-preview
 # = require_self
 # = require_tree .
 

@@ -1,8 +1,5 @@
 - if !comment.nil?
-  - alpha_children = comment.children.dup
-
-
-  .post_container.well.even
+  .comment_container
     /-if !comment.parent.nil?
       /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
       /p= "show parent"
@@ -18,12 +15,15 @@
 
     =' raw comment.body_html
     br
-    =' link_to "Permalink", comment_path(comment)
+    
 
     - if reply_link == true
-      = render :partial => 'comments/reply_form', :locals => {:post => comment.children.create}
-    
-      
+      =' link_to "Permalink", comment_path(comment)
+
+      - child = comment.children.create
+      - child.post = comment.post
+
+      = render :partial => 'comments/reply_form', :locals => {:comment => child}
 
       /# - if level < 
       - comment.children.each do |comment|

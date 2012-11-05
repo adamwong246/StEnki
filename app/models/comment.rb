@@ -9,9 +9,11 @@ class Comment < ActiveRecord::Base
   # acts_as_tree :order => "updated_at"
   has_ancestry
 
-  before_save           :apply_filter
+  before_save :bc
 
+  before_save           :apply_filter
   after_save            :denormalize
+  
   after_destroy         :denormalize
 
   validates_presence_of :author, :body, :post
@@ -21,12 +23,24 @@ class Comment < ActiveRecord::Base
   #   return Comment.create({:parent_id => self.id, :post_id => self.post_id})
   # end
 
+  def bc
+    puts "Set parent"
+
+    if self.parent
+      self.post = self.parent.post
+    end
+    
+  end
+
   def open_id_error_should_be_blank
     errors.add(:base, openid_error) unless openid_error.blank?
   end
 
   def apply_filter
+    puts "apply_filter"
+
     self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
+    # self.post = self.parent.post
   end
 
   def blank_openid_fields

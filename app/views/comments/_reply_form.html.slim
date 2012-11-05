@@ -1,10 +1,10 @@
 a.form_open href="#" Reply?  
-.form_and_preview_container
+.form_and_preview_container.well
 
   h6 Your comment will appear as...
-  div.comment-preview-container
+  .comment-preview-container
 
-  = form_for(post) do |form|
+  = form_for(comment) do |form|
 
     = form.hidden_field :post_id
     = form.hidden_field :parent_id
@@ -24,3 +24,5 @@ a.form_open href="#" Reply?
         a href="http://lesstile.rubyforge.org"
         | \- surround code blocks with ---)
     p= submit_tag "Add Comment"
+
+  = comment.inspect

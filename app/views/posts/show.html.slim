@@ -4,7 +4,7 @@
 
 hr
 .well
-  = render :partial => 'comments/reply_form', :locals => {:post => @post.comments.create}
+  = render :partial => 'comments/reply_form', :locals => {:comment => @post.comments.create}
 
 - @root_comments.each do |comment|
   = render :partial => 'comments/comment', :locals => {:comment => comment, :level => 0, :reply_link => true}

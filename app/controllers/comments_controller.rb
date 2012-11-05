@@ -21,8 +21,11 @@ class CommentsController < ApplicationController
   def new
     @comment = Comment.build_for_preview(params[:comment])
 
+    puts ">> #{@comment.inspect}"
+
     respond_to do |format|
       format.js do
+        puts " >> format.js"
         render :partial => 'comment', :locals => {:comment => @comment, :reply_link => false}
       end
     end
@@ -77,12 +80,17 @@ class CommentsController < ApplicationController
     # #authenticate_with_open_id may have already provided a response
     unless response.headers[Rack::OpenID::AUTHENTICATE_HEADER]
 
+      # @comment.post = @comment.parent.post
+
       if @comment.save
         puts "================= comment saved"
         redirect_to post_path(@comment.post)
       else
         puts "================= comment NOT saved"
-        render :template => 'posts/show'
+        flash[:notice] = "Failed to save comment"
+        redirect_to(:back)
+        # puts "================= comment NOT saved"
+        # render :template => 'posts/show'
       end
     end
   end
