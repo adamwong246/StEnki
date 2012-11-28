@@ -13,12 +13,14 @@
     /= raw truncate_html  post.body_html, :length => 500
     div.short
       = raw post.body_html
+    h3
+      = link_to("Read more?", post_path(post), :class => 'read_more_link' )
   - else
     = raw post.body_html
 
-.meta
-  ul
-    li.comments= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments'))
-    - unless post.tags.empty?
-      li.tags
-        | Tagged #{linked_tag_list(post.tags)}
+    .meta
+      ul
+        li.comments= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments'))
+        - unless post.tags.empty?
+          li.tags
+            | Tagged #{linked_tag_list(post.tags)}

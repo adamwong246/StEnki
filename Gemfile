@@ -39,6 +39,8 @@ gem "htmlentities"
 # static pages
 gem 'high_voltage'
 
+gem "chunky_png"
+
 # gem "seed-fu", "~> 2.2.0"
 
 # Gems used only for assets and not required

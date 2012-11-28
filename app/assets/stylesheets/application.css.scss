@@ -9,31 +9,13 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *=require_tree
  */
  
-// $navbarBackgroundHighlight:       #ffffff;
-// $navbarBackground:                white;
-// $navbarBorder:                    white;
-
-// $navbarText:                      #777;
-// $navbarLinkColor:                 #777;
-// $navbarLinkColorHover:            red;
-// $navbarLinkColorActive:           gray;
-// $navbarLinkBackgroundHover:       transparent;
-// $navbarLinkBackgroundActive:      white;
-
-// $navbarBrandColor:                $navbarLinkColor;
-
-$formActionsBackground: black;
-$bodyBackground: black;
-$textColor: gray;
-$paginationBackground: black;
-
+// @import "solarized_variables.css.scss"
+@import "bootstrap_variables.css.scss";
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-$well_color: black;
 
 
 // .well{
@@ -48,22 +30,25 @@ $well_color: black;
 // }
 
 .well{
-  background-color: black;
-  padding: 0px;
-  margin: 0px;
+  // background-color: $base02;
+  // padding: 0px;
+  // padding-left: 15px;
+  // margin: 0px;
   border: none;
 }
 
 
 
-p#title.well{
+#title.a{
   font-family: Consolas, monaco, monospace;
   font-size:xx-large;
+  margin-top: 10px;
 }
 
 img.you_ad_here, img.sig{
-  -webkit-filter: invert(1);
+  // -webkit-filter: invert(1);
 }
+
 div.short {
   text-overflow: "...";
   display: inline-block;
@@ -77,14 +62,14 @@ div.short {
 .pagination ul > li > a:hover,
 .pagination ul > .active > a,
 .pagination ul > .active > span {
-  background-color: DimGray;
+  // background-color: #049cdb;
 }
 
 
 
 pre{
-  background-color: black;
-  color: gray;
+  // background-color: black;
+  // color: gray;
 }
 textarea.full_width{
   width: 100%;
@@ -95,7 +80,7 @@ body{
 }
  
 span.tags a{
-  color: gray;
+  // color: gray;
 }
 
 .title_and_date{

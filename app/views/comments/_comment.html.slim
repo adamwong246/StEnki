@@ -1,32 +1,33 @@
-- if !comment.nil?
-  .comment_container
-    /-if !comment.parent.nil?
-      /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
-      /p= "show parent"
-    b 
-      cite= author_link(comment)
-      = " said: "
-    /br/
-    / small.commentmetadata
-    / a{:href => "#comment-# comment.id}" title=""
-    / = raw comment.body_html
- 
-    / = link_to "Reply?", "#"
+.well
+  - if !comment.nil?
+    .comment_container
+      /-if !comment.parent.nil?
+        /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
+        /p= "show parent"
+      b 
+        cite= author_link(comment)
+        = " said: "
+      /br/
+      / small.commentmetadata
+      / a{:href => "#comment-# comment.id}" title=""
+      / = raw comment.body_html
+   
+      / = link_to "Reply?", "#"
 
-    =' raw comment.body_html
-    br
-    
+      =' raw comment.body_html
+      br
+      
 
-    - if reply_link == true
-      =' link_to "Permalink", comment_path(comment)
+      - if reply_link == true
+        =' link_to "Permalink", comment_path(comment)
 
-      - child = comment.children.create
-      - child.post = comment.post
+        - child = comment.children.create
+        - child.post = comment.post
 
-      = render :partial => 'comments/reply_form', :locals => {:comment => child}
+        = render :partial => 'comments/reply_form', :locals => {:comment => child}
 
-      /# - if level < 
-      - comment.children.each do |comment|
-        = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
+        /# - if level < 
+        - comment.children.each do |comment|
+          = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
 
 

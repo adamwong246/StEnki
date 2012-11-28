@@ -19,10 +19,6 @@ a.form_open href="#" Reply?
     p
       = form.text_area 'body'
       br/
-      small
-        | (
-        a href="http://lesstile.rubyforge.org"
-        | \- surround code blocks with ---)
-    p= submit_tag "Add Comment"
+      a href="http://lesstile.rubyforge.org" Learn about lesstile
 
-  = comment.inspect
+    p= submit_tag "Add Comment"

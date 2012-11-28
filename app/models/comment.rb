@@ -6,10 +6,7 @@ class Comment < ActiveRecord::Base
 
   belongs_to            :post
   
-  # acts_as_tree :order => "updated_at"
   has_ancestry
-
-  before_save :bc
 
   before_save           :apply_filter
   after_save            :denormalize
@@ -19,28 +16,13 @@ class Comment < ActiveRecord::Base
   validates_presence_of :author, :body, :post
   validate :open_id_error_should_be_blank
 
-  # def create_child
-  #   return Comment.create({:parent_id => self.id, :post_id => self.post_id})
-  # end
-
-  def bc
-    puts "Set parent"
-
-    if self.parent
-      self.post = self.parent.post
-    end
-    
-  end
 
   def open_id_error_should_be_blank
     errors.add(:base, openid_error) unless openid_error.blank?
   end
 
   def apply_filter
-    puts "apply_filter"
-
     self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
-    # self.post = self.parent.post
   end
 
   def blank_openid_fields
@@ -102,6 +84,11 @@ class Comment < ActiveRecord::Base
         comment.author_url = comment.author
         comment.author     = "Your OpenID Name"
       end
+
+      if comment.author.blank?
+        comment.author = "- - -"
+      end
+
       comment
     end
 

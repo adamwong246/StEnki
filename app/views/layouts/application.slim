@@ -43,38 +43,16 @@ html dir="ltr" lang="en-US"
     .container-fluid
       .row-fluid
         .span12
-          p#title.well
-            a href="/" I failed the turing test
-          hr
-          
-      / .row-fluid
-      /   .span3
-      /     well
-      /       = image_tag "http://lorempixel.com/700/400/", :height => '400'
-      /   .span8
-      /     well
-      /       = image_tag "http://lorempixel.com/1000/400/", :height => '400'
+          #title.a href="/" I failed the turing test
+      hr
       .row-fluid
         .span3
           ul.well.sidebar-nav.nav.nav_list
             = render :partial => 'posts/navigation', :locals => {:limit => 6}
-            hr
-            = link_to("Archives", archives_path)
+          hr
+          = link_to("Archives", archives_path)
 
-          / table#social3
-          /   tr
-          /     td
-          /       a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
-          /         span.vhidden Share on Twitter
-          /     td
-          /       a.socialite.googleplus-one data-href=current_url data-size="wide" href="https://plus.google.com/share?url=#{current_url}" rel="nofollow" target="_blank"
-          /        span.vhidden Share on Google+
-          /     td
-          /       a.socialite.facebook-like data-href=current_url data-layout="button_count" data-send="false" data-show-faces="false" data-width="60" href="http://www.facebook.com/sharer.php?u=#{current_url}&t=Socialite.js" rel="nofollow" target="_blank"
-          /         span.vhidden Share on Facebook
-          /     td
-          /       a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
-          /         span.vhidden Share on LinkedIn
+          hr
           ul#social2
             li
               a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
@@ -89,7 +67,8 @@ html dir="ltr" lang="en-US"
               a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
                 span.vhidden Share on LinkedIn
 
-            = image_tag "your_ad_here.jpg", :class => "you_ad_here"
+
+          = image_tag "your_ad_here.jpg", :class => "you_ad_here"
 
         .span9
           
