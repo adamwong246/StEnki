@@ -1,7 +1,5 @@
 require 'chunky_png'
 
-
-
 def run(file)
   puts "== ZPNG compilation on #{file}"
 
@@ -11,4 +9,5 @@ def run(file)
   png[2,1] = ChunkyPNG::Color('black @ 0.5')
 
   return png
+
 end
