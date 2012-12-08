@@ -6,6 +6,11 @@ Enki::Application.routes.draw do
 
   resources :archives, :only => [:index]
   # resources :pages, :only => [:show]
+
+  # root :to => 'high_voltage/pages#show', :id => 'home'
+  match "/pages/about" => "high_voltage/pages#show", :id => 'about', :as => 'about'
+  match "/pages" => "pages#index"
+
   resources :comments
 
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
@@ -20,7 +25,6 @@ Enki::Application.routes.draw do
     get '(:tag)', :as => :posts
   end
 
-  # root :to => 'high_voltage/pages#show', :id => 'home'
-  match "/pages/about" => "high_voltage/pages#show", :id => 'about'
+
   root :to => 'posts#index'
 end

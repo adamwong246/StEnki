@@ -118,7 +118,7 @@ $inputBackground:               $white !default;
 $inputBorder:                   #ccc !default;
 $inputBorderRadius:             $baseBorderRadius !default;
 $inputDisabledBackground:       $grayLighter !default;
-$formActionsBackground:         #f5f5f5 !default;
+$formActionsBackground:         red !default;
 $inputHeight:                   $baseLineHeight + 10px; // base line-height + 8px vertical padding + 2px top/bottom border
 
 
@@ -221,9 +221,9 @@ $navbarInverseBrandColor:                $navbarInverseLinkColor !default;
 
 // Pagination
 // -------------------------
-$paginationBackground:                #fff !default;
-$paginationBorder:                    #ddd !default;
-$paginationActiveBackground:          #f5f5f5 !default;
+$paginationBackground:                $sol_base03 !default;
+$paginationBorder:                    $sol_base01 !default;
+$paginationActiveBackground:          blue !default;
 
 
 // Hero unit

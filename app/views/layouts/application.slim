@@ -15,35 +15,17 @@ html dir="ltr" lang="en-US"
     = csrf_meta_tags 
 
   body
-    -if current_user
-      div class="navbar navbar-fixed-bottom"
-        div class="navbar-inner"
-          div class="container-fluid"
-            a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
-              span class="icon-barspan"
-              span class="icon-bar"
-              span class="icon-bar"
-            
-            a class="brand" href="/" I failed the turing test
-
-            .nav-collapse
-
-              ul.nav
-                -if current_user
-                  li
-                    a href="/rails_admin" Logged in as #{current_user.email} 
-                  li
-                    a href="/users/sign_out" data-method="delete" rel="nofollow" Log out
-                -else
-                  li 
-                    a href="/rails_admin" Log in
+    
                     
 
                      
     .container-fluid
       .row-fluid
-        .span12
+        .span4
           #title.a href="/" I failed the turing test
+        .span8
+          #title-links
+            = link_to("About", about_path)
       hr
       .row-fluid
         .span3
@@ -67,9 +49,6 @@ html dir="ltr" lang="en-US"
               a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
                 span.vhidden Share on LinkedIn
 
-
-          = image_tag "your_ad_here.jpg", :class => "you_ad_here"
-
         .span9
           
           = yield    
@@ -80,3 +59,27 @@ html dir="ltr" lang="en-US"
         h1 Adam Wong 2012
         h1: a href="https://github.com/adamwong246/enki" source
       = image_tag "sig.resized.jpg", :class =>'sig'
+
+    -if current_user
+      div class="navbar navbar-fixed-bottom"
+        div class="navbar-inner"
+          div class="container-fluid"
+            a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
+              span class="icon-barspan"
+              span class="icon-bar"
+              span class="icon-bar"
+            
+            a class="brand" href="/" I failed the turing test
+
+            .nav-collapse
+
+              ul.nav
+                -if current_user
+                  li
+                    a href="/rails_admin" Logged in as #{current_user.email} 
+                  li
+                    a href="/users/sign_out" data-method="delete" rel="nofollow" Log out
+                -else
+                  li 
+                    a href="/rails_admin" Log in  
+

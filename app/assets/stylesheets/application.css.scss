@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_tree
  */
  
 // @import "solarized_variables.css.scss"
@@ -37,7 +38,9 @@
   border: none;
 }
 
-
+.pagination a:hover, .pagination .active a, .pagination .active span {
+background-color: $sol_base02;
+}
 
 #title.a{
   font-family: Consolas, monaco, monospace;
