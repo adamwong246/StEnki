@@ -38,6 +38,16 @@
   border: none;
 }
 
+#admin-navbar.navbar{
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+
+  &:hover{
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+  }
+}
+
 .pagination a:hover, .pagination .active a, .pagination .active span {
 background-color: $sol_base02;
 }
