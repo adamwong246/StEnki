@@ -10,6 +10,7 @@ Enki::Application.routes.draw do
   # root :to => 'high_voltage/pages#show', :id => 'home'
   match "/pages/about" => "high_voltage/pages#show", :id => 'about', :as => 'about'
   match "/pages" => "pages#index"
+  # match "/pages/:id" => "high_voltage/pages#show#:id"
 
   resources :comments
 

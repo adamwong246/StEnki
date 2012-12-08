@@ -5,7 +5,9 @@ class PagesController < HighVoltage::PagesController
   def index
     # render :text => "index contr"
     # files = Array.new
-    Rails.root.join('app', 'views', 'pages').children.each { |n| puts n if File.file?(n) }
+    @all_files = Rails.root.join('app', 'views', 'pages').children.select { |n| 
+      File.file?(n) && n.basename.to_s[0] != '_' && File.extname(n) == "" 
+    }
     puts "path: " + File.basename(Dir.getwd)
   end
 
