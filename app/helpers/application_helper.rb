@@ -18,12 +18,16 @@ module ApplicationHelper
     }[error.first.to_s]
   end
 
+  def themes
+    return Enki::Application::ALL_THEMES.merge({:vanilla => "application_bootstrap.css"})
+  end
+
   def get_theme
 
     begin
-      toReturn = stylesheet_link_tag "#{Enki::Application::ALL_THEMES[Settings.theme.to_sym]}.css", :media => "all"
+      toReturn = stylesheet_link_tag "#{themes[Settings.theme.to_sym]}.css", :media => "all"
     rescue
-      toReturn = stylesheet_link_tag 'application_bootstrap_amelia.css', :media => "all"
+      toReturn = stylesheet_link_tag "#{themes[:vanilla]}.css", :media => "all"
     end
 
     puts "get Theme => #{toReturn.inspect}"

@@ -27,6 +27,13 @@ html dir="ltr" lang="en-US"
           #user-navbar.navbar
             .navbar-inner
               div class="container-fluid"
+                a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
+                  span class="icon-barspan"
+                  span class="icon-bar"
+                  span class="icon-bar"
+                
+                a class="brand" href="/" I failed the turing test
+
                 .nav-collapse
                   ul.nav.pull-left
                     li
@@ -40,7 +47,7 @@ html dir="ltr" lang="en-US"
                         i.icon-wrench.icon-white.glyphw
                         b.caret
                       ul.dropdown-menu
-                        - Enki::Application::ALL_THEMES.each do |key_name, value_file|
+                        - themes.each do |key_name, value_file|
                           li
                             / = button_to theme, "/settings/", :method => :put, :action=>'update',:theme => theme
                             = button_to key_name, { :controller=>'settings', :action=>'update', :theme => key_name}, :method => :put
@@ -60,11 +67,6 @@ html dir="ltr" lang="en-US"
                     a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
                       span.vhidden Share on LinkedIn
 
-            
-                      
-                
-            
-
       .row-fluid
         .span3
           ul.well.sidebar-nav.nav.nav_list
@@ -75,8 +77,8 @@ html dir="ltr" lang="en-US"
             p = link_to("About StEnki", page_path("about_stenki"))
 
         .span9
-          
           = yield    
+
     hr
 
     #footnotes_holder
@@ -86,8 +88,6 @@ html dir="ltr" lang="en-US"
         h1 Adam Wong 2012
         h1: a href="https://github.com/adamwong246/enki" source
       = image_tag "sig.resized.jpg", :class =>'sig'
-
-
 
     -if current_user
       #admin-navbar.navbar.navbar-fixed-bottom
