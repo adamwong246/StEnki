@@ -51,11 +51,11 @@ h2 { font-size: 1.25em; line-height: 1.333em; margin: 0.5em 0; }
 #social2-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
 
 #social2 { display: block; list-style: none; padding: 0px; float:right; }
-#social2 > li { display: block; margin: 0; float:left; margin-left: 30px; margin-right: 30px;}
-#social2 .socialite { display: block; position: relative; width: 50px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
+#social2 > li { display: block; margin: 0; float:left; margin-left: 30px; margin-right: 30px; }
+#social2 .socialite { display: block; position: relative; width: 50px; height: 20px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
 #social2 .socialite-loaded { background: none; }
 
-#social2 .twitter-share { background-position: 0 0; }
+#social2 .twitter-share { background-position: 0 0 60px -45px; }
 #social2 .googleplus-one { background-position: 0 -45px; }
 #social2 .facebook-like { background-position: 0 -90px; }
 #social2 .linkedin-share { background-position: 0 -135px; }
