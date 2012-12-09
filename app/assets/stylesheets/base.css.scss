@@ -1,0 +1,179 @@
+
+
+// .well{
+//   background-color: darken($well_color, 10);
+//   border: transparent;
+//   // .well{
+//   //   background-color: darken($well_color, 20);
+//   //   .well{
+//   //     background-color: darken($well_color, 30);
+//   //   }
+//   // }
+// }
+
+.well{
+  // background-color: $base02;
+  // padding: 0px;
+  // padding-left: 15px;
+  // margin: 0px;
+  border: none;
+}
+
+.navbar{
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+
+  &:hover{
+    opacity: 0.9;
+    filter: alpha(opacity=90);
+  }
+}
+
+#sticky_navigation_wrapper { width:100%; height:50px; }
+#sticky_navigation { width:100%;}
+
+.glyphw{
+    background-image: url(/assets/glyphicons-halflings-white.png);
+}
+#footnotes_holder{
+  display: none;
+}
+
+.pagination a:hover, .pagination .active a, .pagination .active span {
+// background-color: $sol_base02;
+}
+
+#title a{
+  font-family: Consolas, monaco, monospace;
+  font-size:xx-large;
+  margin-top: 10px;
+}
+
+img.you_ad_here, img.sig{
+  // -webkit-filter: invert(1);
+}
+
+div.short {
+  text-overflow: "...";
+  display: inline-block;
+  width: 100%;
+  max-height:600px;
+  white-space: wrap;
+  overflow: hidden;
+  vertical-align: top; 
+}
+
+.pagination ul > li > a:hover,
+.pagination ul > .active > a,
+.pagination ul > .active > span {
+  // background-color: #049cdb;
+}
+
+
+
+pre{
+  // background-color: black;
+  // color: gray;
+}
+textarea.full_width{
+  width: 100%;
+}
+
+body{
+  padding-top:10px;
+}
+ 
+span.tags a{
+  // color: gray;
+}
+
+.title_and_date{
+  h2{
+    display:inline-block;
+    padding-right:10px;
+  }
+  h5{
+    display:inline-block;  
+  }
+}
+ 
+#footer{
+  float:right;
+  display:inline-block;
+ 
+  div{
+    display: inline-block;
+  }
+  img{
+    display: inline-block;
+  }
+}
+
+
+
+
+// .social-buttons { display: block; list-style: none; padding: 0; margin: 20px; }
+// .social-buttons > li { display: block; margin: 0; padding: 20px; float: left; }
+// .social-buttons .socialite { display: block; position: relative; background:  url(image_path('social-sprite.png')) 0 0 no-repeat; }
+// .social-buttons .socialite-loaded { background: none !important; }
+// .social-buttons .twitter-share { width: 55px; height: 65px; background-position: 0 0; }
+// .social-buttons .googleplus-one { width: 50px; height: 65px; background-position: -75px 0; }
+// .social-buttons .facebook-like { width: 50px; height: 65px; background-position: -145px 0; }
+// .social-buttons .linkedin-share { width: 60px; height: 65px; background-position: -215px 0; }
+// .vhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+
+// #social2-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
+
+// .social-buttons { display: block; list-style: none; padding: 10px; margin: 10px; }
+// .social-buttons > li { display: block; margin: 0; }
+// .social-buttons .socialite { display: block; position: relative; width: 150px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
+// .social-buttons .socialite-loaded { background: none; }
+
+// .social-buttons .twitter-share { background-position: 0 0; }
+// .social-buttons .googleplus-one { background-position: 0 -45px; }
+// .social-buttons .facebook-like { background-position: 0 -90px; }
+// .social-buttons .linkedin-share { background-position: 0 -135px; }
+// .social-buttons .pinterest-pinit { background-position: 0 -175px; }
+
+// table.nav.pull-right.share-buttons{
+//   border: 1px solid white;
+ 
+//   td{
+//     border: 1px solid red;
+//     vertical-align:middle;
+//   }
+// }
+ 
+// ul.nav.pull-right.share-buttons li { display: inline; }
+ 
+// ul.nav.pull-right.share-buttons li a
+// {
+// text-decoration: none;
+// padding: .2em 1em;
+// color: #fff;
+// background-color: #036;
+// }
+ 
+// .nav-collapse{
+//   display: table;   /* Allow the centering to work */
+//   margin: 0 auto;
+ 
+//   ul#horizontal-list {
+//   min-width: 696px;
+//   list-style: none;
+//   padding-top: 20px;
+//   }
+//   ul#horizontal-list li {
+//     display: inline;
+//   }
+// }
+ 
+// ul.nav.pull-right.share-buttons{
+//   margin: 0;
+//   padding: 0;
+//   list-style-type: none;
+//   text-align: center;
+ 
+//   li { display: inline; }
+// }
