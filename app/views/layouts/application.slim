@@ -14,11 +14,7 @@ html dir="ltr" lang="en-US"
     = javascript_include_tag "application"
     = csrf_meta_tags 
 
-  body
-    
-                    
-
-                     
+  body                                
     .container-fluid
       .row-fluid
         .span4
@@ -84,4 +80,13 @@ html dir="ltr" lang="en-US"
                       a href="/rails_admin" admin area 
                     li
                       a href="/users/sign_out" data-method="delete" rel="nofollow" Log out
+                li.dropdown
+                  a.dropdown-toggle data-toggle="dropdown" href="#"
+                    | Links
+                    b.caret
+                  ul.dropdown-menu
+                    li
+                      a href="/pages" Pages 
+                    li
+                      a href="/rails/routes" Routes
               

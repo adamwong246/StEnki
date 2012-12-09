@@ -22,7 +22,7 @@ gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/
 gem "rails_admin_nestable", git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem 'ancestry'
 
-gem 'sextant'
+gem 'sextant'#, :path => "~/PersonalProgramming/sextant"#, :git => "git://github.com/rschwarzkopf/sextant.git"
 # gem "acts_as_tree_rails3", "~> 0.1.0"
 
 gem 'devise'
