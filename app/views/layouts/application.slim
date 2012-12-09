@@ -22,9 +22,15 @@ html dir="ltr" lang="en-US"
             a href="/" I failed the turing test
         .span8
           #title-links
-            = link_to("About", about_path)
-          = link_to("StEnki", page_path("stenki"))
-      hr
+            = link_to("About me", about_me_path)
+          = link_to("About StEnki", page_path("about_stenki"))
+
+      #sticky_navigation
+        #user-navbar.navbar
+          div class="navbar-inner"
+            div class="container-fluid"
+            
+
       .row-fluid
         .span3
           ul.well.sidebar-nav.nav.nav_list
