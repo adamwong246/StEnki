@@ -21,18 +21,13 @@ html dir="ltr" lang="en-US"
           #title 
             a href="/" I failed the turing test
 
-
       #sticky_navigation_wrapper
         #sticky_navigation
           #user-navbar.navbar
             .navbar-inner
-              div class="container-fluid"
-                a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"
-                  span class="icon-barspan"
-                  span class="icon-bar"
-                  span class="icon-bar"
-                
-                a class="brand" href="/" I failed the turing test
+              .container-fluid
+                    
+                a.brand href="/" I failed the turing test
 
                 .nav-collapse
                   ul.nav.pull-left
@@ -50,9 +45,7 @@ html dir="ltr" lang="en-US"
                         - themes.each do |key_name, value_file|
                           li
                             / = button_to theme, "/settings/", :method => :put, :action=>'update',:theme => theme
-                            = button_to key_name, { :controller=>'settings', :action=>'update', :theme => key_name}, :method => :put
-                                                    
-
+                            = button_to key_name, { :controller=>'settings', :action=>'update', :theme => key_name}, :method => :put                                                  
                 ul#social2.nav.pull-right
                   li
                     a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"

@@ -12,8 +12,12 @@
 
   // Example using 'spacelab' bootswatch
   //
+
+
   // First import journal variables
-  @import "bootswatch/spacelab/variables";
+  
+    @import "bootswatch/spacelab/variables";
+  
 
   // Then bootstrap itself
   @import "bootstrap";
@@ -22,8 +26,12 @@
   @import "bootstrap-responsive";
 
   // And finally bootswatch style itself
-  @import "bootswatch/spacelab/bootswatch";
+  
+    @import "bootswatch/spacelab/bootswatch";
+  
+  
 
   // Whatever application styles you have go last
   @import "base";
 
+  @import "socialite"

@@ -12,8 +12,12 @@
 
   // Example using 'cyborg' bootswatch
   //
+
+
   // First import journal variables
-  @import "bootswatch/cyborg/variables";
+  
+    @import "bootswatch/cyborg/variables";
+  
 
   // Then bootstrap itself
   @import "bootstrap";
@@ -22,8 +26,12 @@
   @import "bootstrap-responsive";
 
   // And finally bootswatch style itself
-  @import "bootswatch/cyborg/bootswatch";
+  
+    @import "bootswatch/cyborg/bootswatch";
+  
+  
 
   // Whatever application styles you have go last
   @import "base";
 
+  @import "socialite"

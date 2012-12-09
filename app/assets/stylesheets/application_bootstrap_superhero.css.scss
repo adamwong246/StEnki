@@ -12,8 +12,12 @@
 
   // Example using 'superhero' bootswatch
   //
+
+
   // First import journal variables
-  @import "bootswatch/superhero/variables";
+  
+    @import "bootswatch/superhero/variables";
+  
 
   // Then bootstrap itself
   @import "bootstrap";
@@ -22,8 +26,12 @@
   @import "bootstrap-responsive";
 
   // And finally bootswatch style itself
-  @import "bootswatch/superhero/bootswatch";
+  
+    @import "bootswatch/superhero/bootswatch";
+  
+  
 
   // Whatever application styles you have go last
   @import "base";
 
+  @import "socialite"

@@ -10,10 +10,14 @@
  *
  */
 
-  // Example using '' bootswatch
+  // Example using 'plain' bootswatch
   //
+
+
   // First import journal variables
-  // @import "bootswatch//variables";
+  
+    // @import "bootswatch/plain/variables";
+  
 
   // Then bootstrap itself
   @import "bootstrap";
@@ -22,8 +26,12 @@
   @import "bootstrap-responsive";
 
   // And finally bootswatch style itself
-  // @import "bootswatch//bootswatch";
+  
+    // @import "bootswatch/plain/bootswatch";
+  
+  
 
   // Whatever application styles you have go last
   @import "base";
 
+  @import "socialite"

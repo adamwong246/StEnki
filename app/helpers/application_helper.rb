@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def themes
-    return Enki::Application::ALL_THEMES.merge({:vanilla => "application_bootstrap.css"})
+    return Enki::Application::ALL_THEMES#
   end
 
   def get_theme
@@ -27,7 +27,7 @@ module ApplicationHelper
     begin
       toReturn = stylesheet_link_tag "#{themes[Settings.theme.to_sym]}.css", :media => "all"
     rescue
-      toReturn = stylesheet_link_tag "#{themes[:vanilla]}.css", :media => "all"
+      toReturn = stylesheet_link_tag "#{themes[:plain]}.css", :media => "all"
     end
 
     puts "get Theme => #{toReturn.inspect}"
