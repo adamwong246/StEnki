@@ -11,11 +11,26 @@
  *= require_self
  *= require_tree
  */
- 
-// @import "solarized_variables.css.scss"
-@import "bootstrap_variables.css.scss";
-@import "bootstrap";
-@import "bootstrap-responsive";
+
+  // Example using 'Cerulean' bootswatch
+  //
+  // First import journal variables
+  @import "bootswatch/cyborg/variables";
+
+  // Then bootstrap itself
+  @import "bootstrap";
+
+  // Bootstrap body padding for fixed navbar
+  // body { padding-top: 60px; }
+
+  // Responsive styles go here in case you want them
+  @import "bootstrap-responsive";
+
+  // And finally bootswatch style itself
+  @import "bootswatch/cyborg/bootswatch";
+
+  // Whatever application styles you have go last
+  // @import "base";
 
 
 
@@ -59,7 +74,7 @@
 }
 
 .pagination a:hover, .pagination .active a, .pagination .active span {
-background-color: $sol_base02;
+// background-color: $sol_base02;
 }
 
 #title a{

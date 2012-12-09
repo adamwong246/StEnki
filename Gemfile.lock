@@ -51,6 +51,8 @@ GEM
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-java)
     bootstrap-sass (2.1.0.0)
+    bootswatch-rails (0.1.0)
+      railties (>= 3.1)
     bouncy-castle-java (1.5.0146.1)
     builder (3.0.3)
     cancan (1.6.8)
@@ -307,6 +309,7 @@ DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
   ancestry
   bootstrap-sass
+  bootswatch-rails
   cancan
   chunky_png
   coderay

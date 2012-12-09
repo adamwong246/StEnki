@@ -29,6 +29,8 @@ gem 'devise'
 gem "cancan"
 gem 'jquery-rails'
 
+gem 'bootswatch-rails'
+
 # gem 'lorem'
 gem 'faker'
 
