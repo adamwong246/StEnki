@@ -38,7 +38,7 @@
   border: none;
 }
 
-#admin-navbar.navbar{
+.navbar{
   opacity: 0.2;
   filter: alpha(opacity=20);
 
@@ -46,6 +46,13 @@
     opacity: 0.9;
     filter: alpha(opacity=90);
   }
+}
+
+#sticky_navigation_wrapper { width:100%; height:50px; }
+#sticky_navigation { width:100%;}
+
+#footnotes_holder{
+  display: none;
 }
 
 .pagination a:hover, .pagination .active a, .pagination .active span {

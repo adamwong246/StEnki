@@ -53,3 +53,10 @@ $ ->
   $(window).scroll ->
     sticky_navigation()
 
+$ -> # onload
+
+  ##########################
+  $("a#show_footnotes").click -> 
+    $("#footnotes_holder").toggle()
+    $("#footnotes_holder").scrollTop()
+    return false
