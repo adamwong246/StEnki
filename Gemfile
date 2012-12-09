@@ -34,6 +34,8 @@ gem 'bootswatch-rails'
 # gem 'lorem'
 gem 'faker'
 
+gem "rails-settings-cached"
+
 # doesn't seem to work
 # gem 'truncate_html'
 # for truncation_html_helper @ "git://github.com/ianwhite/truncate_html.git

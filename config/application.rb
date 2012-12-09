@@ -70,6 +70,14 @@ module Enki
     config.assets.version = '1.0'
 
     config.app_generators.stylesheet_engine :sass
+
+    ALL_THEMES = {}
+    # THEMES[:none] = "application_bootstrap.css.scss"
+    ['amelia', 'cerulean', 'cyborg', 'journal', 'readable', 'simplex', 
+    'slate', 'spacelab', 'spruce', 'superhero', 'united'].each do |name|
+        ALL_THEMES[name.to_sym] = "application_bootstrap_#{name}.css"
+    end
+
   end
 end
 

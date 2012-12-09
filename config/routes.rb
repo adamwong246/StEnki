@@ -26,6 +26,7 @@ Enki::Application.routes.draw do
     get '(:tag)', :as => :posts
   end
 
+  put "/settings/" => "settings#update"
 
   root :to => 'posts#index'
 end

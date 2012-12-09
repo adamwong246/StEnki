@@ -10,10 +10,10 @@
  *
  */
 
-  // Example using 'cyborg' bootswatch
+  // Example using '<%= theme_name %>' bootswatch
   //
   // First import journal variables
-  @import "bootswatch/cyborg/variables";
+  @import "bootswatch/<%= theme_name %>/variables";
 
   // Then bootstrap itself
   @import "bootstrap";
@@ -22,7 +22,7 @@
   @import "bootstrap-responsive";
 
   // And finally bootswatch style itself
-  @import "bootswatch/cyborg/bootswatch";
+  @import "bootswatch/<%= theme_name %>/bootswatch";
 
   // Whatever application styles you have go last
   @import "base";

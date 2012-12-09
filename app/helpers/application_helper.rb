@@ -17,4 +17,24 @@ module ApplicationHelper
       'base'   => error.last
     }[error.first.to_s]
   end
+
+  def get_theme
+
+    begin
+      toReturn = stylesheet_link_tag "#{Enki::Application::ALL_THEMES[Settings.theme.to_sym]}.css", :media => "all"
+    rescue
+      toReturn = stylesheet_link_tag 'application_bootstrap_amelia.css', :media => "all"
+    end
+
+    puts "get Theme => #{toReturn.inspect}"
+    return toReturn
+
+    # puts "GET THEME #{Enki::Application::THEMES.inspect}"
+    # if Enki::Application::THEMES[Settings.theme.to_sym]
+    #   return "application_bootstrap_#{Settings.theme}"# if Enki::Application::THEMES[Settings.theme.to_sym]
+    # else
+    #   return 'application_bootstrap'
+    # end
+  end
+
 end
