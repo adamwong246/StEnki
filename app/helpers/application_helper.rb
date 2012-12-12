@@ -18,27 +18,6 @@ module ApplicationHelper
     }[error.first.to_s]
   end
 
-  def themes
-    return Enki::Application::ALL_THEMES#
-  end
-
-  def get_theme
-
-    begin
-      toReturn = stylesheet_link_tag "#{themes[Settings.theme.to_sym]}.css", :media => "all"
-    rescue
-      toReturn = stylesheet_link_tag "#{themes[:plain]}.css", :media => "all"
-    end
-
-    puts "get Theme => #{toReturn.inspect}"
-    return toReturn
-
-    # puts "GET THEME #{Enki::Application::THEMES.inspect}"
-    # if Enki::Application::THEMES[Settings.theme.to_sym]
-    #   return "application_bootstrap_#{Settings.theme}"# if Enki::Application::THEMES[Settings.theme.to_sym]
-    # else
-    #   return 'application_bootstrap'
-    # end
-  end
+  
 
 end

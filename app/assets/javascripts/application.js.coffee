@@ -18,6 +18,7 @@
 # = require_self
 # = require_tree .
 
+
 $last_opened_area = undefined
 $(document).ready ->
   #Socialite.load $("#social2")
@@ -25,8 +26,7 @@ $(document).ready ->
     Socialite.load $(this)[0]
   
 
-$ ->
-  
+$ ->  
   # grab the initial top offset of the navigation 
   sticky_navigation_offset_top = $("#sticky_navigation").offset().top
   
@@ -37,13 +37,20 @@ $ ->
     # if we've scrolled more than the navigation, change its position to fixed to stick to top,
     # otherwise change it back to relative
     if scroll_top > sticky_navigation_offset_top
+      
+      
       $("#sticky_navigation").css
         position: "fixed"
         top: 0
         left: 0
+        opacity: .5
+
+
 
     else
-      $("#sticky_navigation").css position: "relative"
+      $("#sticky_navigation").css 
+        position: "relative"
+        opacity: 1
 
   
   # run our function on load

@@ -8,15 +8,14 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *
  */
 
   // Example using 'plain' bootswatch
-  //
-
 
   // First import journal variables
   
-    // @import "bootswatch/plain/variables";
+  // @import "bootswatch/plain/variables";
   
 
   // Then bootstrap itself
@@ -27,11 +26,11 @@
 
   // And finally bootswatch style itself
   
-    // @import "bootswatch/plain/bootswatch";
-  
+  // @import "bootswatch/plain/bootswatch";
   
 
   // Whatever application styles you have go last
   @import "base";
 
-  @import "socialite"
+  @import "socialite";
+  @import "comment";

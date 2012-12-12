@@ -8,7 +8,8 @@ Enki::Application.routes.draw do
   # resources :pages, :only => [:show]
 
   # root :to => 'high_voltage/pages#show', :id => 'home'
-  match "/pages/about_me" => "high_voltage/pages#show", :id => 'about_me', :as => 'about_me'
+  match "/pages/about_me" => "pages#show", :id => 'about_me', :as => 'about_me'
+  match "/pages/about_stenki" => "pages#show", :id => 'about_stenki', :as => 'about_stenki'
   match "/pages" => "pages#index"
   # match "/pages/:id" => "high_voltage/pages#show#:id"
 
