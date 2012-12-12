@@ -13,7 +13,7 @@ ruby '1.9.3'
 # gem 'ruby-debug'
 
 gem 'rails', '3.2.0'
-gem "heroku"
+# gem "heroku"
 gem "thin", "~> 1.4.1"
 # gem 'bootstrap-generators', '~> 2.0' # for less to work
 gem 'simple_form', '~> 2.0'
