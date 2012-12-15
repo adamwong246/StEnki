@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/100hz/rails-settings.git
-  revision: ba456f2b89c83ee193866f124e502e7bfadac0f2
-  specs:
-    rails-settings (0.1.2)
-      rails (>= 3.0.0)
-
-GIT
   remote: git://github.com/dalpo/rails_admin_nestable.git
   revision: 96d0b2f4de9e56dfa0f05738663719d08cde2fa1
   specs:
@@ -384,7 +377,6 @@ DEPENDENCIES
   rack-openid
   rails (= 3.2.0)
   rails-footnotes (>= 3.7.5.rc4)
-  rails-settings!
   rails_admin
   rails_admin_nestable!
   rspec

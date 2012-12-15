@@ -10,6 +10,19 @@
  *
  */
 
+#social2-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
+
+#social2 { display: block; list-style: none; padding: 0px; float:right; padding-top: 0px;}
+#social2 > li { display: block; margin: 0; float:left; margin-left: 30px; margin-right: 30px; }
+#social2 .socialite { display: block; position: relative; width: 50px; height: 20px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
+#social2 .socialite-loaded { background: none; }
+
+#social2 .twitter-share { background-position: 0 0 60px -45px; }
+#social2 .googleplus-one { background-position: 0 -45px; }
+#social2 .facebook-like { background-position: 0 -90px; }
+#social2 .linkedin-share { background-position: 0 -135px; }
+#social2 .pinterest-pinit { background-position: 0 -175px; }
+
 // .well{
 //   background-color: darken($well_color, 10);
 //   border: transparent;
@@ -23,6 +36,7 @@
 #top_of_page.row-fluid{
   margin-top:$navbarHeight;
 }
+
 .well{
   // background-color: $base02;
   // padding: 0px;
@@ -51,26 +65,6 @@
   }
 }
 
-
-
-#footnotes_holder{
-  display: none;
-}
-
-.pagination a:hover, .pagination .active a, .pagination .active span {
-// background-color: $sol_base02;
-}
-
-#title a{
-  font-family: Consolas, monaco, monospace;
-  font-size:xx-large;
-  margin-top: 10px;
-}
-
-img.you_ad_here, img.sig{
-  // -webkit-filter: invert(1);
-}
-
 div.short {
   text-overflow: "...";
   display: inline-block;
@@ -81,18 +75,6 @@ div.short {
   vertical-align: top; 
 }
 
-.pagination ul > li > a:hover,
-.pagination ul > .active > a,
-.pagination ul > .active > span {
-  // background-color: #049cdb;
-}
-
-
-
-pre{
-  // background-color: black;
-  // color: gray;
-}
 textarea.full_width{
   width: 100%;
 }
@@ -102,7 +84,7 @@ body{
 }
  
 span.tags a{
-  // color: gray;
+  color: gray;
 }
 
 .title_and_date{
@@ -126,72 +108,3 @@ span.tags a{
     display: inline-block;
   }
 }
-
-
-
-
-// .social-buttons { display: block; list-style: none; padding: 0; margin: 20px; }
-// .social-buttons > li { display: block; margin: 0; padding: 20px; float: left; }
-// .social-buttons .socialite { display: block; position: relative; background:  url(image_path('social-sprite.png')) 0 0 no-repeat; }
-// .social-buttons .socialite-loaded { background: none !important; }
-// .social-buttons .twitter-share { width: 55px; height: 65px; background-position: 0 0; }
-// .social-buttons .googleplus-one { width: 50px; height: 65px; background-position: -75px 0; }
-// .social-buttons .facebook-like { width: 50px; height: 65px; background-position: -145px 0; }
-// .social-buttons .linkedin-share { width: 60px; height: 65px; background-position: -215px 0; }
-// .vhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-
-
-// #social2-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
-
-// .social-buttons { display: block; list-style: none; padding: 10px; margin: 10px; }
-// .social-buttons > li { display: block; margin: 0; }
-// .social-buttons .socialite { display: block; position: relative; width: 150px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
-// .social-buttons .socialite-loaded { background: none; }
-
-// .social-buttons .twitter-share { background-position: 0 0; }
-// .social-buttons .googleplus-one { background-position: 0 -45px; }
-// .social-buttons .facebook-like { background-position: 0 -90px; }
-// .social-buttons .linkedin-share { background-position: 0 -135px; }
-// .social-buttons .pinterest-pinit { background-position: 0 -175px; }
-
-// table.nav.pull-right.share-buttons{
-//   border: 1px solid white;
- 
-//   td{
-//     border: 1px solid red;
-//     vertical-align:middle;
-//   }
-// }
- 
-// ul.nav.pull-right.share-buttons li { display: inline; }
- 
-// ul.nav.pull-right.share-buttons li a
-// {
-// text-decoration: none;
-// padding: .2em 1em;
-// color: #fff;
-// background-color: #036;
-// }
- 
-// .nav-collapse{
-//   display: table;   /* Allow the centering to work */
-//   margin: 0 auto;
- 
-//   ul#horizontal-list {
-//   min-width: 696px;
-//   list-style: none;
-//   padding-top: 20px;
-//   }
-//   ul#horizontal-list li {
-//     display: inline;
-//   }
-// }
- 
-// ul.nav.pull-right.share-buttons{
-//   margin: 0;
-//   padding: 0;
-//   list-style-type: none;
-//   text-align: center;
- 
-//   li { display: inline; }
-// }

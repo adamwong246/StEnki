@@ -19,7 +19,7 @@ module ApplicationHelper
   end
 
   def get_theme_stylesheet_link
-    stylesheet_link_tag all_themes[:cyborg], :media => "all"
+    stylesheet_link_tag "application_bootstrap_superhero.css", :media => "all"
   end
 
   
