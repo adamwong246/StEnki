@@ -36,7 +36,7 @@ gem 'faker'
 
 # gem "rails-settings-cached"
 # gem 'ledermann-rails-settings', :require => 'rails-settings'
-gem "rails-settings", :git => "git://github.com/100hz/rails-settings.git"
+# gem "rails-settings", :git => "git://github.com/100hz/rails-settings.git"
 
 gem 'omniauth'
 gem 'omniauth-facebook'

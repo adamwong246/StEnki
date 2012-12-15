@@ -20,7 +20,9 @@
 //   //   }
 //   // }
 // }
-
+#top_of_page.row-fluid{
+  margin-top:$navbarHeight;
+}
 .well{
   // background-color: $base02;
   // padding: 0px;

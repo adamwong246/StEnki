@@ -18,6 +18,10 @@ module ApplicationHelper
     }[error.first.to_s]
   end
 
+  def get_theme_stylesheet_link
+    stylesheet_link_tag all_themes[:cyborg], :media => "all"
+  end
+
   
 
 end
