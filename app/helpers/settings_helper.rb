@@ -1,25 +1,21 @@
 module SettingsHelper
-  def themes
+  def all_themes
     return Enki::Application::ALL_THEMES
   end
 
-  def current_theme
-    Settings.theme
+  def current_theme_name
+    puts "current_user: #{current_or_guest_user}"
+    puts "all_themes: #{all_themes.inspect}"
+    puts "SETTINGS FOR USER: #{current_or_guest_user.settings.inspect}"
+
+    if current_or_guest_user.settings.theme
+      return current_or_guest_user.settings.theme
+    else
+      return "plain"
+    end
   end
 
   def get_theme_stylesheet_link
-
-    begin
-      attempt = themes[current_theme.to_sym]
-      toReturn = stylesheet_link_tag attempt, :media => "all"
-    rescue
-      instead = themes[:plain]
-      puts "instead: #{instead}"
-      toReturn = stylesheet_link_tag instead, :media => "all"
-    end
-
-    puts "get Theme => #{toReturn.inspect}"
-    return toReturn
-
+    stylesheet_link_tag all_themes[:cyborg], :media => "all"
   end
 end

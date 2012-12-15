@@ -27,12 +27,12 @@ class Ability
     can :show_in_app, :all
     can :tree, :all
     can :nestable, :all
+
+    can :read, :all
+    can :index, :all
     
-    if user.admin?
+    if !user.nil? && user.admin?
         can :manage, :all
-    elsif user.guest?
-        can :read, :all
-        can :index, :all
     end
 
 

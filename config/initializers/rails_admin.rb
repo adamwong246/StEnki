@@ -6,7 +6,7 @@ require Rails.root.join('lib', 'rails_admin_tree.rb')
 
 RailsAdmin.config do |config|
 
-  config.authorize_with :cancan
+  
 
   
 
@@ -14,7 +14,12 @@ RailsAdmin.config do |config|
   # require 'i18n'
   # I18n.default_locale = :de
 
-  config.current_user_method { current_user } # auto-generated
+  config.authorize_with :cancan
+  # config.current_user_method { current_user } # auto-generated
+
+  
+  config.authenticate_with {}
+  config.current_user_method {current_user}
 
   # If you want to track changes on your models:
   # config.audit_with :history, User

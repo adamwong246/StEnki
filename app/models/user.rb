@@ -1,21 +1,18 @@
 class User < ActiveRecord::Base
-  include RailsSettings::Extend 
-  
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable, :registerable, :recoverable, 
-  devise :database_authenticatable, 
-         :rememberable, :trackable, :validatable
+  devise :omniauthable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable, :lockable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  has_many :services, :dependent => :destroy
+  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :shortbio, :weburl
 
   def admin?
-    self.email == "adamwong246@gmail.com"
+    self.email == "zephram.cochrane.ncc.1701@gmail.com"
   end
-
+ 
   def guest?
     self.email == "guest@gmail.com"
   end
-  
+
 end

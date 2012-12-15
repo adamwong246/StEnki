@@ -1,8 +1,35 @@
 Enki::Application.routes.draw do
   
-  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
   devise_for :users
+  
+  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
+
+  # vvv Omniauth pure
+  ##################
+  match "/signin" => "services#signin"
+  match "/signout" => "services#signout"
+
+  match '/auth/:service/callback' => 'services#create' 
+  match '/auth/failure' => 'services#failure'
+
+  
+
+  resources :services, :only => [:index, :create, :destroy] do
+    collection do
+      get 'signin'
+      get 'signout'
+      get 'signup'
+      post 'newaccount'
+      get 'failure'
+    end
+  end
+  # ^^^ Omniauth pure
+  ##################
+
+  
+
+  resources :users
 
   resources :archives, :only => [:index]
   # resources :pages, :only => [:show]

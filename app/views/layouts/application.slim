@@ -10,7 +10,7 @@ html dir="ltr" lang="en-US"
     meta name="description" content=""
     meta name="author" content=""
 
-    = get_theme_stylesheet_link 
+    = get_theme_stylesheet_link
     = javascript_include_tag "application"
     = csrf_meta_tags 
 
@@ -34,15 +34,7 @@ html dir="ltr" lang="en-US"
                     li
                       a#scroll_to_top href="#"
                         i.icon-circle-arrow-up.glyph_black_or_white     
-                    li.dropdown
-                      a.dropdown-toggle data-toggle="dropdown" href="#"
-                        = "Theme: " + current_theme
-                        b.caret
-                      ul.dropdown-menu
-                        - themes.each do |key_name, value_file|
-                          li
-                            / = button_to theme, "/settings/", :method => :put, :action=>'update',:theme => theme
-                            = button_to key_name, { :controller=>'settings', :action=>'update', :theme => key_name}, :method => :put                                                  
+                                                                      
                   ul#social2.nav.pull-right
                     li
                       a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
@@ -114,5 +106,23 @@ html dir="ltr" lang="en-US"
                 li
                   a#show_footnotes href="#"
                     | Footnotes
-                    
-              
+
+                li.dropdown
+                  a.dropdown-toggle data-toggle="dropdown" href="#"
+                    | user
+                    b.caret
+                  ul.dropdown-menu
+                    li
+                      p 
+                        = current_user.inspect
+                / li.dropdown
+                /   a.dropdown-toggle data-toggle="dropdown" href="#"
+                /     = "Theme: " + current_theme_name
+                /     b.caret
+                /   ul.dropdown-menu
+                /     - all_themes.each do |key_name, value_file|
+                /       li
+                /         / = key_name
+                /         = button_to key_name, { :controller=>'users', :action=>'edit', :theme => key_name}
+                      
+                

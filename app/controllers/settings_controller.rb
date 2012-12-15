@@ -1,9 +1,11 @@
 class SettingsController < ApplicationController
   def update
     puts "SETTING: #{params[:theme]}"
-
-    Settings.theme = params[:theme] if params[:theme]
-
+    
+    if params[:theme]
+      current_or_guest_user.settings.theme = params[:theme] 
+    end
+  
     flash[:notice] = "You have successfully logged out"
 
                    
