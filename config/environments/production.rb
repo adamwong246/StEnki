@@ -77,7 +77,7 @@ Enki::Application.configure do
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
     provider :facebook, '138980219588077', 'c76b49680b51e03444e8731b67ebeae7'
-    provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
+    provider :twitter, '3db2b8dba0409fd13ee1', '161be84a3f06afee7bc738b3407192c6d761df1d'
     provider :github, 'CLIENT ID', 'SECRET'
     
     # generic openid
