@@ -76,7 +76,7 @@ Enki::Application.configure do
     OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    provider :facebook, 'APP_ID', 'APP_SECRET'
+    provider :facebook, '138980219588077', 'c76b49680b51e03444e8731b67ebeae7'
     provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
     provider :github, 'CLIENT ID', 'SECRET'
     
