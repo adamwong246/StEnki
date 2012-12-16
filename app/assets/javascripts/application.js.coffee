@@ -18,28 +18,52 @@
 # = require_self
 # = require_tree .
 
+(($) ->
+  
+  # VERTICALLY ALIGN FUNCTION
+  $.fn.vAlign = ->
+    @each (i) ->
+      ah = $(this).height()
+      ph = $(this).parent().height()
+      mh = Math.ceil((ph - ah) / 2)
+      $(this).css "margin-top", mh
+
+) $
 
 $last_opened_area = undefined
 $(document).ready ->
   #Socialite.load $("#social2")
+  $('.nav-bar i').vAlign()
+  $('#social2 li a').vAlign()
+
+
   $("#social2 > li").one "mouseenter", ->
     Socialite.load $(this)[0]
 
+    $(this).children(".socialite").css
+      "height": 30
+
+    # $(this).children(".socialite").vAlign()
+
+
+# $ ->
+#   Socialite.load $("#social2 >li")
+
 # http://www.egstudio.biz/sticky-footer-with-jquery/
-$ ->
-  $(window).bind "load", ->
-    footer = $("#footer")
+# $ ->
+#   $(window).bind "load", ->
+#     footer = $("#footer")
 
-    pos = footer.position()
+#     pos = footer.position()
 
-    a = $(window).height()
-    b = pos.top*1.5
-    c = footer.height() 
+#     a = $(window).height()
+#     b = pos.top
+#     c = footer.height() 
     
 
-    # alert("a: " + a + ", b: " + b + ", c: " + c)
-    height = a-b-c-200
-    footer.css "margin-top": height + "px"  if height > 50
+#     alert("a: " + a + ", b: " + b + ", c: " + c)
+#     height = a-b-c
+#     footer.css "margin-top": height + "px"  if height > 0
 
 $ ->  
   # grab the initial top offset of the navigation 
