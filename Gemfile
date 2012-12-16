@@ -60,6 +60,7 @@ gem "chunky_png"
 gem 'dalli', '~>1.0.5'
 
 # gem "seed-fu", "~> 2.2.0"
+gem 'turbolinks'
 
 # Gems used only for assets and not required
 # in production environments by default.

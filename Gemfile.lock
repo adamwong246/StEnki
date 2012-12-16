@@ -323,6 +323,8 @@ GEM
       jruby-rack (>= 1.1.10)
       trinidad_jars (>= 1.1.0)
     trinidad_jars (1.1.1)
+    turbolinks (0.6.1)
+      coffee-rails
     tzinfo (0.3.35)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -391,5 +393,6 @@ DEPENDENCIES
   sqlite3
   thin (~> 1.4.1)
   trinidad
+  turbolinks
   uglifier
   webrat
