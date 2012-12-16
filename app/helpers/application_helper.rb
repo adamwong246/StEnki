@@ -18,8 +18,16 @@ module ApplicationHelper
     }[error.first.to_s]
   end
 
+  def get_all_themes
+    Enki::Application::ALL_THEMES
+  end
+
   def get_theme_stylesheet_link
-    stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
+    begin
+      stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
+    rescue
+      stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
+    end
   end
 
   

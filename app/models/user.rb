@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :services, :dependent => :destroy
   has_many :comments
   
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :fullname, :shortbio, :weburl
+  attr_accessible :email, :remember_me, :fullname, :shortbio, :weburl, :bootswatch_theme
 
   def admin?
     self.email == "adamwong246@gmail.com@gmail.com" || self.services.any?{|e| e.uid == "http://adamwong246.myopenid.com/"}

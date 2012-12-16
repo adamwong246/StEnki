@@ -1,0 +1,8 @@
+| users show page
+
+= simple_form_for @user do |f| 
+  = f.input :name, :label => 'Your username please' 
+  = f.input :email, :placeholder => 'user@domain.com' 
+  = f.input :remember_me, :inline_label => 'Yes, remember me' 
+  = f.input :bootswatch_theme, :as => :select, :collection => get_all_themes
+  = f.button :submit 

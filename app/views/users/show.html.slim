@@ -1,0 +1,24 @@
+
+h2 User info
+-for attribute in @user.attributes.keys 
+  p
+    = attribute.humanize 
+    | : 
+    = @user.attributes[attribute].to_s 
+
+= link_to "Edit my user information", edit_user_path(@user)
+
+h2 Services connected with this account
+- for service in @user.services
+  -for attribute in service.attributes.keys 
+    p
+      = attribute.humanize
+      | : 
+      = service.attributes[attribute].to_s 
+
+p
+  = link_to "My services", services_path
+p
+  = link_to "Services signup", signup_services_path
+p
+  = link_to "Services signout", signout_services_path

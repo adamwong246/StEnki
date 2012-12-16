@@ -72,6 +72,8 @@ html dir="ltr" lang="en-US"
     
     footer#footer.row-fuid
       hr
+      .span.4
+        #footnotes_holder
       .span4.offset10 
         h1 Adam Wong 2012
         h1: a href="https://github.com/adamwong246/enki" source
@@ -109,6 +111,8 @@ html dir="ltr" lang="en-US"
                       a href="/pages" Pages 
                     li
                       a href="/rails/routes" Routes
+                    li
+                      = link_to "Home", user_path(current_user)
                 li.dropdown
                   a.dropdown-toggle data-toggle="dropdown" href="#"
                     = current_user.identify
