@@ -58,6 +58,11 @@ html dir="ltr" lang="en-US"
             p = link_to("About me", about_me_path)
             p = link_to("About StEnki", about_stenki_path)
 
+            -if !current_user
+              a href="/signin" data-method="delete" rel="nofollow" Sign in
+            -else
+              a href="/signout" data-method="delete" rel="nofollow" Sign out
+
         .span9
           = yield    
 
@@ -93,16 +98,16 @@ html dir="ltr" lang="en-US"
                     li
                       a href="/rails_admin" admin area 
                     li
-                      a href="/users/signin" data-method="delete" rel="nofollow" Sign in
+                      a href="/signin" data-method="delete" rel="nofollow" Sign in
                     li
-                      a href="/users/signout" data-method="delete" rel="nofollow" Sign out
+                      a href="/signout" data-method="delete" rel="nofollow" Sign out
                     li
                       a href="/pages" Pages 
                     li
                       a href="/rails/routes" Routes
                 li.dropdown
                   a.dropdown-toggle data-toggle="dropdown" href="#"
-                    | user
+                    = current_user.identify
                     b.caret
                   ul.dropdown-menu
                     li
@@ -117,9 +122,7 @@ html dir="ltr" lang="en-US"
                       li
                         a
                           p 
-                            = service.provider
-                          p
-                            = service.uid
+                            = service.inspect
                 / li.dropdown
                 /   a.dropdown-toggle data-toggle="dropdown" href="#"
                 /     = "Theme: " + current_theme_name

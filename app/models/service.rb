@@ -4,6 +4,7 @@ class Service < ActiveRecord::Base
   attr_accessible :provider, :uid, :uname, :uemail
 
   def identify
-    return self.provider + self.uid + self.uname + self.uemail
+    return "some serivce"
+    
   end
 end

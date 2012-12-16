@@ -12,11 +12,11 @@ class User < ActiveRecord::Base
 
   def identify
     if self.email?
-      return self.email?
+      return self.email
     elsif self.fullname?
       return self.fullname
     else
-      return self.services.first.identify
+      return self.services[0].identify
     end
 
   end
