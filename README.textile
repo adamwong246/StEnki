@@ -1,6 +1,7 @@
 StEnki is a Ruby on Rails blog engine and a fork of "Enki":https://github.com/xaviershay/enki. 
 You can find a demonstration of Enki at my personal blog <a href="http://ifailedtheturingtest.herokuapp.com/">i failed the turing test</a>
 
+
 h3. Almost none of my work is tested well σ_σ. It shold be considered to be failing it's tests but I encourage you to fork this project and hack away. The majority of the work was not done by me. A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> and all the other Enki developers for their hard work.  
 
 h2. 
