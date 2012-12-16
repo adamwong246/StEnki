@@ -24,7 +24,8 @@ $(document).ready ->
   #Socialite.load $("#social2")
   $("#social2 > li").one "mouseenter", ->
     Socialite.load $(this)[0]
-  
+
+# http://www.egstudio.biz/sticky-footer-with-jquery/
 $ ->
   $(window).bind "load", ->
     footer = $("#footer")
@@ -37,8 +38,8 @@ $ ->
     
 
     # alert("a: " + a + ", b: " + b + ", c: " + c)
-    height = a-b-c
-    footer.css "margin-top": height + "px"  if height > 0
+    height = a-b-c-200
+    footer.css "margin-top": height + "px"  if height > 50
 
 $ ->  
   # grab the initial top offset of the navigation 
