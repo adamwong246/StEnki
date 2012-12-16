@@ -23,19 +23,11 @@ module ApplicationHelper
   end
 
   def get_theme_stylesheet_link
-    if current_user.bootswatch_theme
-      begin
-        stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
-      rescue
-        stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
-      end
-
-    else
+    begin
+      stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
+    rescue
       stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
     end
-
   end
-
-  
 
 end
