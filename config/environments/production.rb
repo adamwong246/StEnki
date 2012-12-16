@@ -76,9 +76,9 @@ Enki::Application.configure do
     OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    provider :facebook, '138980219588077', 'c76b49680b51e03444e8731b67ebeae7'
-    provider :twitter, '3db2b8dba0409fd13ee1', '161be84a3f06afee7bc738b3407192c6d761df1d'
-    provider :github, '3db2b8dba0409fd13ee1', '161be84a3f06afee7bc738b3407192c6d761df1d'
+    provider :facebook, ENV['FB_ID'], ENV['FB_SECRET']
+    provider :twitter, ENV['TWITTER_ID'], ENV['TWITTER_SECRET']
+    provider :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
     
     # generic openid
     provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'openid'
