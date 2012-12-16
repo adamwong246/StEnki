@@ -25,6 +25,20 @@ $(document).ready ->
   $("#social2 > li").one "mouseenter", ->
     Socialite.load $(this)[0]
   
+$ ->
+  $(window).bind "load", ->
+    footer = $("#footer")
+
+    pos = footer.position()
+
+    a = $(window).height()
+    b = pos.top*1.5
+    c = footer.height() 
+    
+
+    # alert("a: " + a + ", b: " + b + ", c: " + c)
+    height = a-b-c
+    footer.css "margin-top": height + "px"  if height > 0
 
 $ ->  
   # grab the initial top offset of the navigation 

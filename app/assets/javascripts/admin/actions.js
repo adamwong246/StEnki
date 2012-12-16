@@ -3,10 +3,10 @@ $(document).ready(function () {
     asyncDeleteForm($(this), {
       type: "POST",
       success: function (msg) {
-        humanMsg.displayMsg( msg.message );
+        // humanMsg.displayMsg( msg.message );
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
-        humanMsg.displayMsg( 'Could not undo action' );
+        // humanMsg.displayMsg( 'Could not undo action' );
       }
     });
 
