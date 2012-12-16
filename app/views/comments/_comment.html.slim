@@ -5,8 +5,12 @@
         /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
         /p= "show parent"
       b 
-        cite= author_link(comment)
-        = " said: "
+        -if comment.user
+          cite= comment.user.identify
+        -else
+          cite
+            | I don't know
+        = " replied: "
       /br/
       / small.commentmetadata
       / a{:href => "#comment-# comment.id}" title=""
@@ -18,13 +22,18 @@
       br
       
 
-      - if reply_link == true
+      - if reply_link == true 
         =' link_to "Permalink", comment_path(comment)
 
-        - child = comment.children.create
-        - child.post = comment.post
+        - if current_user
 
-        = render :partial => 'comments/reply_form', :locals => {:comment => child}
+          - child_comment = comment.children.create 
+          - child_comment.user = current_user
+          - child_comment.post = comment.post
+
+          = render :partial => 'comments/reply_form', :locals => {:comment => child_comment}
+        - else
+          | you need to log in
 
         /# - if level < 
         - comment.children.each do |comment|

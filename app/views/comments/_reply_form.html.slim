@@ -1,16 +1,21 @@
 a.form_open href="#" Reply?  
 .form_and_preview_container.well
 
+  = "the comment: " + comment.inspect
+
   h6 Your comment will appear as...
   .comment-preview-container
+
+  
 
   = form_for(comment) do |form|
 
     = form.hidden_field :post_id
     = form.hidden_field :parent_id
+    = form.hidden_field :user_id
 
     p
-      = form.text_field 'author'
+      / = form.text_field 'author'
       label for="comment_author"
         small
           | Name or

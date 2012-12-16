@@ -4,7 +4,8 @@ class Comment < ActiveRecord::Base
   attr_accessor         :openid_error
   attr_accessor         :openid_valid
 
-  belongs_to            :post
+  belongs_to :post
+  belongs_to :user
   
   has_ancestry
 
@@ -13,7 +14,7 @@ class Comment < ActiveRecord::Base
   
   after_destroy         :denormalize
 
-  validates_presence_of :author, :body, :post
+  validates_presence_of :body, :post
   validate :open_id_error_should_be_blank
 
 
@@ -25,16 +26,25 @@ class Comment < ActiveRecord::Base
     self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
   end
 
-  def blank_openid_fields
-    self.author_url = ""
-    self.author_email = ""
-  end
+  # def get_user
+  #   if self.user
+  #     return self.user
+  #   else
+  #     return User.name({:author => 'deprecated'})
+  #   end
+  # end
 
-  def requires_openid_authentication?
-    return false unless author
 
-    !!(author =~ %r{^https?://} || author.index('.'))
-  end
+  # def blank_openid_fields
+  #   self.author_url = ""
+  #   self.author_email = ""
+  # end
+
+  # def requires_openid_authentication?
+  #   return false unless author
+
+  #   !!(author =~ %r{^https?://} || author.index('.'))
+  # end
 
   def trusted_user?
     false
@@ -68,7 +78,8 @@ class Comment < ActiveRecord::Base
 
   class << self
     def protected_attribute?(attribute)
-      [:author, :body, :parent_id, :post_id].include?(attribute.to_sym)
+      [:user_id, :body, :parent_id, :post_id].include?(attribute.to_sym)
+
     end
 
     def new_with_filter(params)
@@ -80,14 +91,14 @@ class Comment < ActiveRecord::Base
 
     def build_for_preview(params)
       comment = Comment.new_with_filter(params)
-      if comment.requires_openid_authentication?
-        comment.author_url = comment.author
-        comment.author     = "Your OpenID Name"
-      end
+      # if comment.requires_openid_authentication?
+      #   comment.author_url = comment.author
+      #   comment.author     = "Your OpenID Name"
+      # end
 
-      if comment.author.blank?
-        comment.author = "- - -"
-      end
+      # if comment.author.blank?
+      #   comment.author = "- - -"
+      # end
 
       comment
     end

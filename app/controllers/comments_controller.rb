@@ -19,6 +19,7 @@ class CommentsController < ApplicationController
   end
 
   def new
+    puts "CommentsController.new params: #{params.to_yaml}"
     @comment = Comment.build_for_preview(params[:comment])
 
     puts ">> #{@comment.inspect}"
@@ -33,6 +34,7 @@ class CommentsController < ApplicationController
 
   # TODO: Spec OpenID with cucumber and rack-my-id
   def create
+    puts 
 
     puts "================= params[:comment]" + params[:comment].inspect
     puts "================= session[:pending_comment]" + session[:pending_comment].inspect
@@ -44,38 +46,38 @@ class CommentsController < ApplicationController
 
     session[:pending_comment] = nil
 
-    if @comment.requires_openid_authentication?
-      puts "================= comment required openid auth"
+    # if @comment.requires_openid_authentication?
+    #   puts "================= comment required openid auth"
 
-      session[:pending_comment] = params[:comment]
-      authenticate_with_open_id(@comment.author,
-        :optional => [:nickname, :fullname, :email]
-      ) do |result, identity_url, registration|
-        if result.status == :successful
-          @comment.post = @post
+    #   session[:pending_comment] = params[:comment]
+    #   authenticate_with_open_id(@comment.author,
+    #     :optional => [:nickname, :fullname, :email]
+    #   ) do |result, identity_url, registration|
+    #     if result.status == :successful
+    #       @comment.post = @post
 
-          @comment.author_url = @comment.author
-          @comment.author = (
-            registration["fullname"] ||
-            registration["nickname"] ||
-            @comment.author_url
-          ).to_s
-          @comment.author_email = (
-            registration["email"] ||
-            @comment.author_url
-          ).to_s
+    #       # @comment.author_url = @comment.author
+    #       # @comment.author = (
+    #       #   registration["fullname"] ||
+    #       #   registration["nickname"] ||
+    #       #   @comment.author_url
+    #       # ).to_s
+    #       # @comment.author_email = (
+    #       #   registration["email"] ||
+    #       #   @comment.author_url
+    #       # ).to_s
 
-          @comment.openid_error = ""
-          session[:pending_comment] = nil
-        else
-          @comment.openid_error = OPEN_ID_ERRORS[ result.status ]
-        end
-      end
-    else
-      puts "================= comment DID NOT require openid auth"
+    #       # @comment.openid_error = ""
+    #       session[:pending_comment] = nil
+    #     else
+    #       @comment.openid_error = OPEN_ID_ERRORS[ result.status ]
+    #     end
+    #   end
+    # else
+    #   puts "================= comment DID NOT require openid auth"
 
-      @comment.blank_openid_fields
-    end
+    #   @comment.blank_openid_fields
+    # end
 
     # #authenticate_with_open_id may have already provided a response
     unless response.headers[Rack::OpenID::AUTHENTICATE_HEADER]
