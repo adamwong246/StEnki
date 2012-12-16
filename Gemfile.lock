@@ -88,6 +88,7 @@ GEM
       cucumber (>= 1.1.1)
       launchy
     daemons (1.1.9)
+    dalli (1.0.5)
     database_cleaner (0.9.1)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
@@ -353,6 +354,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   cucumber-rails
   cucumber-websteps
+  dalli (~> 1.0.5)
   database_cleaner
   devise
   exception_notification (~> 2.5.2)

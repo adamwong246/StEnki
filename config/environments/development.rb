@@ -29,6 +29,8 @@ Enki::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.cache_store = :dalli_store
+
   # openauth_pure
   Rails.application.config.middleware.use OmniAuth::Builder do
     # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!
