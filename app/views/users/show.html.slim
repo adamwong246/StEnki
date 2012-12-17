@@ -1,26 +1,26 @@
 
-h2 User info
--for attribute in @user.attributes.keys 
-  p
-    = attribute.humanize 
-    | : 
-    = @user.attributes[attribute].to_s 
+h2 User profile
 
-= link_to "Edit my user information", edit_user_path(@user)
+h4 
+  =@user.identify
 
-h2 Services connected with this account
-- for service in @user.services
-  -for attribute in service.attributes.keys 
+.well
+  -for attribute in @user.attributes.keys 
     p
-      = attribute.humanize
+      = attribute.humanize 
       | : 
-      = service.attributes[attribute].to_s 
+      = @user.attributes[attribute].to_s 
+  = link_to "Edit my user information", edit_user_path(@user)
 
-p
-  = link_to "Services", services_path
-p
-  = link_to "Services signin", signin_services_path
-p
-  = link_to "Services signup", signup_services_path
-p
-  = link_to "Services signout", signout_services_path
+
+
+= render :partial => 'services/index', :locals => {:services => @user.services}
+
+/ p
+/   = link_to "Services", services_path
+/ p
+/   = link_to "Services signin", signin_services_path
+/ p
+/   = link_to "Services signup", signup_services_path
+/ p
+/   = link_to "Services signout", signout_services_path

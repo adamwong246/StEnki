@@ -19,6 +19,10 @@
 # = require_self
 # = require_tree .
 
+$(window).load ->
+    $('#myModal').modal
+        keyboard: false
+
 (($) ->
   
   # VERTICALLY ALIGN FUNCTION

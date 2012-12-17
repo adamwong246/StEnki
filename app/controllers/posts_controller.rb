@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   helper TruncateHtmlHelper
 
+  authorize_resource
+
   def index
     @tag = params[:tag]
 
@@ -14,7 +16,10 @@ class PostsController < ApplicationController
     #   :per_page => 3
     # )
 
-
+    flash.now[:notice] = "Welcome back #{current_user.email}"
+    flash.now[:alert] = "Welcome back #{current_user.email}"
+    flash.now[:error] = "Welcome back #{current_user.email}"
+    flash.now[:success] = "Welcome back #{current_user.email}"
 
     respond_to do |format|
       format.html 

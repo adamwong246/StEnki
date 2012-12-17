@@ -48,7 +48,7 @@ html dir="ltr" lang="en-US"
                     li
                       a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
                         span.vhidden Share on LinkedIn
-
+         
       #top_of_page.row-fluid
         .span3
           ul.well.sidebar-nav.nav.nav_list
@@ -64,6 +64,7 @@ html dir="ltr" lang="en-US"
               a href="/signout" data-method="delete" rel="nofollow" Sign out
 
         .span9
+          =render :partial => "shared/flash_messages", :locals => {:flash => flash}
           = yield    
 
     
