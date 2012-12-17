@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  rolify
   # devise :omniauthable, :rememberable, :trackable, :lockable
 
   has_many :services, :dependent => :destroy

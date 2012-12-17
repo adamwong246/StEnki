@@ -1,4 +1,8 @@
 class PagesController < HighVoltage::PagesController
+  # authorize_resource
+  skip_authorization_check
+  skip_load_and_authorize_resource
+
   # before_filter :authenticate
   # layout :layout_for_page
 

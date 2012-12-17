@@ -20,8 +20,8 @@
 # = require_tree .
 
 $(window).load ->
-    $('#myModal').modal
-        keyboard: false
+    # $('#myModal').modal
+    #     keyboard: false
 
 (($) ->
   

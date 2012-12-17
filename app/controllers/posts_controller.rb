@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   helper TruncateHtmlHelper
 
-  authorize_resource
+  load_and_authorize_resource
 
   def index
     @tag = params[:tag]

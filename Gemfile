@@ -1,42 +1,36 @@
 source 'https://rubygems.org'
 ruby '1.9.3'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug'
 
 gem 'rails', '3.2.0'
-# gem "heroku"
 gem "thin", "~> 1.4.1"
-# gem 'bootstrap-generators', '~> 2.0' # for less to work
-gem 'simple_form', '~> 2.0'
+
+gem 'dalli', '~>1.0.5' # memcaching on heroku
+
 gem 'slim'
+gem 'simple_form', '~> 2.0'
+
+gem 'turbolinks'
+
+gem "nokogiri"
+gem "htmlentities"
+
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
 gem "rails_admin_nestable", git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem 'ancestry'
 
-gem 'sextant'#, :path => "~/PersonalProgramming/sextant"#, :git => "git://github.com/rschwarzkopf/sextant.git"
-# gem "acts_as_tree_rails3", "~> 0.1.0"
+gem 'sextant'
 
 gem 'devise'
 gem "cancan"
-gem 'jquery-rails'
+gem 'rolify'
 
+gem 'jquery-rails'
 gem 'bootswatch-rails'
 
-# gem 'lorem'
 gem 'faker'
-
-# gem "rails-settings-cached"
-# gem 'ledermann-rails-settings', :require => 'rails-settings'
-# gem "rails-settings", :git => "git://github.com/100hz/rails-settings.git"
 
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -45,22 +39,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-openid'
 gem 'omniauth-google-apps'
 
-
-# doesn't seem to work
-# gem 'truncate_html'
-# for truncation_html_helper @ "git://github.com/ianwhite/truncate_html.git
-gem "nokogiri"
-gem "htmlentities"
-
-# static pages
 gem 'high_voltage'
-
-gem "chunky_png"
-
-gem 'dalli', '~>1.0.5'
-
-# gem "seed-fu", "~> 2.2.0"
-gem 'turbolinks'
 
 # Gems used only for assets and not required
 # in production environments by default.
