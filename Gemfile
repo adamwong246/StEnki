@@ -32,12 +32,19 @@ gem 'bootswatch-rails'
 
 gem 'faker'
 
+# gem 'oa-oauth', :require => 'omniauth/oauth'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-facebook-access-token'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'omniauth-openid'
 gem 'omniauth-google-apps'
+
+gem 'uuidtools'
+
+gem 'dynamic_form'
 
 gem 'high_voltage'
 

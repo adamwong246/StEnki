@@ -122,6 +122,11 @@ html dir="ltr" lang="en-US"
                     li
                       p 
                         = current_user.inspect
+                li
+                  = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+                li
+                  = link_to "Sign in with OPenid", user_omniauth_authorize_path(:openid)
+
 
                 / li.dropdown
                 /   a.dropdown-toggle data-toggle="dropdown" href="#"
