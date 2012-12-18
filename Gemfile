@@ -1,10 +1,16 @@
-source 'https://rubygems.org'
-ruby '1.9.3'
+source "http://rubygems.org"
+#gem 'rake', '10.0.2'
 
 # To use debugger
 # gem 'ruby-debug'
 
-gem 'rails', '3.2.0'
+#gem 'rails', '3.2.0'
+gem 'libv8', '~> 3.11.8'
+
+gem 'execjs'
+
+gem 'therubyracer'
+
 gem "thin", "~> 1.4.1"
 
 gem 'dalli', '~>1.0.5' # memcaching on heroku

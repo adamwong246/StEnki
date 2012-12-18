@@ -14,6 +14,8 @@ end
 
 # explain(self) 
 def make_a_lorem_comment(post, parent)
+  return
+
   create_params = Hash.new
   create_params[:author] = "#{Faker::Name.first_name} #{Faker::Name.last_name}"
   create_params[:author_url] = Faker::Internet.domain_name
