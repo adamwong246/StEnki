@@ -26,7 +26,7 @@ h2. Quick Start
 
   rake db:migrate
   rake            # Run tests
-  rake db:populate
+  rake db:seed
   rails server    # Start the server
   # Load http://localhost:3000/admin in your browser</code></pre>
 
