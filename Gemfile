@@ -5,11 +5,15 @@ source "http://rubygems.org"
 # gem 'ruby-debug'
 
 #gem 'rails', '3.2.0'
-gem 'libv8', '~> 3.11.8'
+if RUBY_PLATFORM=~ /darwin/i
+  # Mac gems go here
+else
+  # Non mac gem s go here 
+  gem 'libv8', '~> 3.11.8'
+  gem 'execjs'
+  gem 'therubyracer'
+end
 
-gem 'execjs'
-
-gem 'therubyracer'
 
 gem "thin", "~> 1.4.1"
 
@@ -29,28 +33,12 @@ gem 'ancestry'
 
 gem 'sextant'
 
-gem 'devise'
-gem "cancan"
-gem 'rolify'
 
 gem 'jquery-rails'
 gem 'bootswatch-rails'
 
 gem 'faker'
 
-# gem 'oa-oauth', :require => 'omniauth/oauth'
-
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-facebook-access-token'
-gem 'omniauth-github'
-gem 'omniauth-twitter'
-gem 'omniauth-openid'
-gem 'omniauth-google-apps'
-
-gem 'uuidtools'
-
-gem 'dynamic_form'
 
 gem 'high_voltage'
 
