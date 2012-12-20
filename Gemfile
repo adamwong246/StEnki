@@ -32,7 +32,7 @@ gem "rails_admin_nestable", git: "git://github.com/dalpo/rails_admin_nestable.gi
 gem 'ancestry'
 
 gem 'sextant'
-
+gem 'cancan'
 
 gem 'jquery-rails'
 gem 'bootswatch-rails'
