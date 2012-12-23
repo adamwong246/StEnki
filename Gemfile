@@ -19,7 +19,7 @@ gem "nokogiri"
 gem "htmlentities"
 
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
-gem "rails_admin_nestable", git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
+gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem 'ancestry'
 gem 'sextant'
 
@@ -90,13 +90,13 @@ group :development, :test do
   gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
 end
 
-group :development do
-  if RUBY_PLATFORM=~ /darwin/i
-    # Mac gems go here
-  else
-    # Non mac gem s go here 
-    gem 'libv8', '~> 3.11.8'
-    gem 'execjs'
-    gem 'therubyracer'
-  end
-end
+# group :development do
+#   if RUBY_PLATFORM=~ /darwin/i
+#     # Mac gems go here
+#   else
+#     # Non mac gem s go here 
+#     gem 'libv8', '~> 3.11.8'
+#     gem 'execjs'
+#     gem 'therubyracer'
+#   end
+# end
