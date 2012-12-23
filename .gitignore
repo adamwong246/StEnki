@@ -3,6 +3,7 @@ log
 tmp/**/*
 tmp
 config/database.yml
+config/secret_configurations.yml
 db/schema.rb
 .bundle
 *.log
