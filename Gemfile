@@ -5,14 +5,7 @@ source "http://rubygems.org"
 # gem 'ruby-debug'
 
 #gem 'rails', '3.2.0'
-if RUBY_PLATFORM=~ /darwin/i
-  # Mac gems go here
-else
-  # Non mac gem s go here 
-  gem 'libv8', '~> 3.11.8'
-  gem 'execjs'
-  gem 'therubyracer'
-end
+
 
 
 gem "thin", "~> 1.4.1"
@@ -95,4 +88,15 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'aaronh-chronic'
   gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
+end
+
+group :development do
+  if RUBY_PLATFORM=~ /darwin/i
+    # Mac gems go here
+  else
+    # Non mac gem s go here 
+    gem 'libv8', '~> 3.11.8'
+    gem 'execjs'
+    gem 'therubyracer'
+  end
 end
