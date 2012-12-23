@@ -121,11 +121,7 @@ html dir="ltr" lang="en-US"
                   ul.dropdown-menu
                     li
                       p 
-                        = current_user.inspect
-                li
-                  | Delete these!
-                  = ENV['FB_ID']
-                  = ENV['FB_SECRET']
+                        = current_user.identify
           
 
 

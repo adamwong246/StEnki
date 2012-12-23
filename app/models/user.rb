@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
     elsif self.email?
       self.email
     else
-      self.inspect
+      "User # #{self.id}"
     end
     
   end
