@@ -20,6 +20,11 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+SECRET_CONFIG = YAML.load(File.read(File.expand_path('../secret_configurations.yml', __FILE__)))
+SECRET_CONFIG.merge! SECRET_CONFIG.fetch(Rails.env, {})
+SECRET_CONFIG.symbolize_keys!
+
+
 module Enki
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.

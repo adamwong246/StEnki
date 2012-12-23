@@ -2,6 +2,19 @@ Enki::Application.routes.draw do
   
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
+  match '/auth/:service/callback' => 'services#create' 
+  match '/auth/failure' => 'services#failure'
+
+  resources :services, :only => [:index, :create, :destroy] do
+    collection do
+      get 'signin'
+      get 'signout'
+      get 'signup'
+      post 'newaccount'
+      get 'failure'
+    end
+  end
+
   resources :users
 
   resources :archives, :only => [:index]

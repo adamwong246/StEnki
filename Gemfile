@@ -22,24 +22,25 @@ gem 'dalli', '~>1.0.5' # memcaching on heroku
 gem 'slim'
 gem 'simple_form', '~> 2.0'
 
-gem 'turbolinks'
-
 gem "nokogiri"
 gem "htmlentities"
 
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
 gem "rails_admin_nestable", git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem 'ancestry'
-
 gem 'sextant'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-twitter'
+gem 'omniauth-openid'
+gem 'omniauth-google-apps'
 gem 'cancan'
 
 gem 'jquery-rails'
 gem 'bootswatch-rails'
-
 gem 'faker'
-
-
 gem 'high_voltage'
 
 # Gems used only for assets and not required
