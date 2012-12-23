@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :services
 
   def admin?
-    self.email == "adamwong246@gmail.com@gmail.com" 
+    self.email == "adamwong246@gmail.com" 
   end
 
   def identify

@@ -24,16 +24,16 @@ module ApplicationHelper
 
   def get_theme_stylesheet_link
 
-    if current_user?
-      if current_user.bootswatch_theme?
+    if !current_user.nil? && !current_user.bootswatch_theme.nil?
+      begin
         stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
-      else
+      rescue
         stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
       end
     else
       stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
     end
-    
+
   end
 
   def twitterized_type(type)
