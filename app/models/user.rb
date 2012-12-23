@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :remember_me, :name
+  attr_accessible :email, :remember_me, :name, :bootswatch_theme
 
   has_many :comments
   has_many :services

@@ -10,8 +10,8 @@ h4
       = attribute.humanize 
       | : 
       = @user.attributes[attribute].to_s 
-  = link_to "Edit my user information", edit_user_path(@user)
-
+      
+  = link_to edit_user_path(@user), edit_user_path(@user)
 
 
 = render :partial => 'services/index', :locals => {:services => @user.services}
