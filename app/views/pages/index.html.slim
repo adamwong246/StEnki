@@ -4,4 +4,12 @@ p
 ul
   -@all_files.each do |f|
     li
-      = link_to f.basename.to_s, page_path(f.basename.to_s)
+      / = link_to f, f.slice!('app/views/pages/')
+      / # - a = f
+      / - b = f.slice!('app/views/pages/')
+      - f.slice!('app/views/pages/')
+      - a = f
+      - f.slice!('files/')
+      - b = f
+      p
+        = link_to a, b

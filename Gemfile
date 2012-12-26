@@ -36,6 +36,8 @@ gem 'bootswatch-rails'
 gem 'faker'
 gem 'high_voltage'
 
+gem 'simple-navigation'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

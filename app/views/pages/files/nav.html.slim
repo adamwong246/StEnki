@@ -1,0 +1,17 @@
+= render_navigation
+
+/ = Rails.application.routes.routes.inspect
+- Rails.application.routes.routes.each do |r|
+  - if 'GET' =~ r.verb
+      .well
+        p
+          = "Route: " + r.inspect
+        p
+          = "Name: " + r.name.to_s
+        p
+          = "Verb: " + r.verb.inspect
+        p
+          = "Constraints: " + r.constraints.inspect
+        p
+          = "Defaults: " + r.defaults.inspect
+

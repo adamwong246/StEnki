@@ -1,4 +1,6 @@
 Enki::Application.routes.draw do
+
+  get "foo" => "bar", :label => "baz", :something => "else"
   
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
@@ -21,10 +23,11 @@ Enki::Application.routes.draw do
   # resources :pages, :only => [:show]
 
   # root :to => 'high_voltage/pages#show', :id => 'home'
-  match "/pages/about_me" => "pages#show", :id => 'about_me', :as => 'about_me'
-  match "/pages/about_stenki" => "pages#show", :id => 'about_stenki', :as => 'about_stenki'
+  match "/pages/about_me" => "pages#show", :id => 'files/about_me', :as => 'about_me'
+  match "/pages/about_stenki" => "pages#show", :id => 'files/about_stenki', :as => 'about_stenki'
   match "/pages" => "pages#index"
-  # match "/pages/:id" => "high_voltage/pages#show#:id"
+  match "/pages/:id" => "high_voltage/pages#show#:id"
+  # match '/pages/*page'       => 'pages#display',     :as => :static,        :via => :get
 
   resources :comments
 

@@ -77,6 +77,12 @@
   }
 }
 
+#admin-navbar.navbar.navbar-fixed-bottom{
+  opacity: 0.3  !important;
+  &:hover{
+    opacity:1.0 !important;
+  }
+}
 div.short {
   text-overflow: "...";
   display: inline-block;

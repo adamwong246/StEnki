@@ -28,10 +28,14 @@ module ApplicationHelper
       begin
         stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
       rescue
+        flash.now[:alert] = "Failed"
         stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
+        
       end
     else
+      flash.now[:alert] = "Failed"
       stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
+      
     end
 
   end
