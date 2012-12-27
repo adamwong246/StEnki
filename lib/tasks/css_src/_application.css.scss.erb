@@ -12,8 +12,8 @@
 
   // Example using '<%= theme_name %>' bootswatch
 
-  // First import journal variables
-  <% if theme_name != "plain" %>
+  // First import variables
+  <% if !(theme_name == 'plain') %>
   <%= "@import \"bootswatch/#{theme_name}/variables\";" %>
   <% end %>
 

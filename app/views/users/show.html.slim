@@ -1,8 +1,9 @@
 
-h2 User profile
-
-h4 
-  =@user.identify
+.title_and_sub_title
+  h2 User profile
+  h5= @user.identify
+  = " "
+  h5= link_to "Edit", edit_user_path(@user)
 
 .well
   -for attribute in @user.attributes.keys 
