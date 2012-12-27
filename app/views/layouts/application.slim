@@ -27,9 +27,22 @@ html dir="ltr" lang="en-US"
                 li
                   a#scroll_to_top href="#"
                     i.icon-circle-arrow-up.glyph_black_or_white 
+                                  
                 - if current_user
+                  li.dropdown
+                    a.dropdown-toggle data-toggle="dropdown" href="#"
+                      | Signed in as #{current_user.identify}
+                      b.caret
+                    ul.dropdown-menu
+                      li
+                        = link_to "My profile", user_path(current_user)                         
+                      li
+                        = link_to "Sign out", signout_services_path
+                - else
                   li
-                    = link_to "Signed in as #{current_user.identify}", user_path(current_user)             
+                    = link_to "Sign in", signin_services_path
+
+                     
               ul#social2.nav.pull-right
                 li
                   a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
@@ -52,8 +65,6 @@ html dir="ltr" lang="en-US"
             p = link_to("Archives", archives_path)
             p = link_to("About me", about_me_path)
             p = link_to("About StEnki", about_stenki_path)
-
-            p = link_to "Sign into a service", signin_services_path
 
         .span9
           =render :partial => "shared/flash_messages", :locals => {:flash => flash}
