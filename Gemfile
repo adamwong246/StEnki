@@ -22,6 +22,7 @@ gem 'bootswatch-rails'
 gem 'faker'
 gem 'high_voltage'
 gem 'simple-navigation'
+gem "best_in_place"
 # gem 'turbolinks'
 
 # Gems used only for assets and not required

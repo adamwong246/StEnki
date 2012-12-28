@@ -15,12 +15,15 @@
 # = require jquery-ui
 # = require bootstrap
 # = require common
+#= require jquery.purr
+#= require best_in_place
 # = require_self
 # = require_tree .
 
+# Launches the modal window containing flash messages.
 $(window).load ->
-    # $('#myModal').modal
-    #     keyboard: false
+    $('#myModal').modal
+        keyboard: false
 
 (($) ->
   

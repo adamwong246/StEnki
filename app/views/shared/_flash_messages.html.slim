@@ -3,13 +3,12 @@
     .modal-header
       button.close aria-hidden="true" data-dismiss="modal" type="button"
       h3#myModalLabel 
-       | Flash messages
+       | Attention!
     .modal-body
+      / =flash.inspect
       - flash.each do |type, message|
         div.alert-message.fade.in data-alert="alert" class=twitterized_type(type) 
-          p
-            = type
-            = ": " 
+          p             
             = message 
       
 

@@ -31,11 +31,12 @@ section#services_manage.services
         /   br/
 
 
-        - if session[:service_id] == service.id
-          span Signed in
-        - else
-          = link_to "Remove this service", service, :confirm => 'Are you sure you want to remove this authentication?', :method => :delete, :class => "remove"
-  #services_available
+          - if session[:service_id] == service.id
+            span Signed in
+          - else
+            = link_to "Remove this service", service, :confirm => 'Are you sure you want to remove this authentication?', :method => :delete, :class => "remove"
+  
+  #services_available.well
     h2 You can connect more accounts to sign in
     / = render 'services_list'
     = render :partial => 'services/services_list'

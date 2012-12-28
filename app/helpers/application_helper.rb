@@ -22,18 +22,22 @@ module ApplicationHelper
     Enki::Application::ALL_THEMES
   end
 
+  def get_theme(theme)
+    get_all_themes[theme.to_sym]
+  end
+
   def get_theme_stylesheet_link
 
     if !current_user.nil? && !current_user.bootswatch_theme.nil?
       begin
         stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
       rescue
-        flash.now[:alert] = "Failed"
+        flash[:alert] = "Could not find user's preferred theme. Defaulting to cyborg"
         stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
         
       end
     else
-      flash.now[:alert] = "Failed"
+      # flash[:alert] = "No user or user has no preffered them. Defaulting to cyborg"
       stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
       
     end

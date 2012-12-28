@@ -1,27 +1,40 @@
-
-.title_and_sub_title
-  h2 User profile
-  h5= @user.identify
-  = " "
-  h5= link_to "Edit", edit_user_path(@user)
-
 .well
-  -for attribute in @user.attributes.keys 
-    p
-      = attribute.humanize 
-      | : 
-      = @user.attributes[attribute].to_s 
-      
-  = link_to "Edit user", edit_user_path(@user)
+  .title_and_sub_title
+    h2 User profile
+    h4= @user.identify
 
+    -for attribute in @user.attributes.keys
+      p
+        = attribute.humanize 
+        | : 
+        = @user.attributes[attribute].to_s 
+  = link_to "Edit", edit_user_path(@user)
+        
+  
+
+/ .well
+/   .title_and_sub_title
+/     h2 Edit user settings
+/     h4 Just click to edit!
+
+/     br
+
+/     b
+/       =' "Name"
+/     = best_in_place @user, :name
+/     br
+/     b
+/       =' "Email"
+/     = best_in_place @user, :email 
+/     br
+/     b
+/       =' "Yes, remember me"
+/     = best_in_place @user, :remember_me, type: :checkbox, collection: %w[No Yes] 
+/     br
+/     b
+/       =' "Preferred bootswatch theme"
+/     = best_in_place @user, :bootswatch_theme, type: :select, :collection => [*get_all_themes]
+/     br
+/     = link_to "or Edit user settings the old fashioned way", edit_user_path(@user)
 
 = render :partial => 'services/index', :locals => {:services => @user.services}
-
-/ p
-/   = link_to "Services", services_path
-/ p
-/   = link_to "Services signin", signin_services_path
-/ p
-/   = link_to "Services signup", signup_services_path
-/ p
-/   = link_to "Services signout", signout_services_path

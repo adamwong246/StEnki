@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
+  respond_to :html, :json
+  
   # before_filter :authenticate_user!, :except => [:index]
   # load_and_authorize_resource
 
 
   def show
     @user = User.find(params[:id])
+
+    flash.now[:notice] = "Welcome back #{current_user.email}"
    
     respond_to do |format|
       format.html  # show.html.erb
@@ -18,8 +22,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-
-    puts "update with params #{params.to_yaml}"
    
     respond_to do |format|
       if @user.update_attributes(params[:user])

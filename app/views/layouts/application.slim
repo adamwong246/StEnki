@@ -16,8 +16,6 @@ html dir="ltr" lang="en-US"
 
   body                           
     .container-fluid
-      
-
       #sticky_navigation
         #user-navbar.navbar
           .navbar-inner
@@ -41,6 +39,11 @@ html dir="ltr" lang="en-US"
                 - else
                   li
                     = link_to "Sign in", signin_services_path
+
+                li
+                  h3
+                    span aria-hidden="true" data-icon="⇝"
+                    | Stats
 
                      
               ul#social2.nav.pull-right
@@ -67,7 +70,7 @@ html dir="ltr" lang="en-US"
             p = link_to("About StEnki", about_stenki_path)
 
         .span9
-          =render :partial => "shared/flash_messages", :locals => {:flash => flash}
+          = render :partial => "shared/flash_messages", :locals => {:flash => flash}
           = yield    
 
     footer#footer.row-fuid
@@ -96,9 +99,9 @@ html dir="ltr" lang="en-US"
                   ul.dropdown-menu
                     
                     li
-                      a href="/signin" data-method="delete" rel="nofollow" sign in
+                      = link_to "Sign in", signin_services_path
                     li
-                      a href="/signout" data-method="delete" rel="nofollow" sign out
+                      = link_to "Sign out", signout_services_path
                     li
                       a href="/pages" all pages 
                     li

@@ -39,7 +39,7 @@ class ServicesController < ApplicationController
         session[:user_id] = @newuser.id
         session[:service_id] = @newuser.services.first.id
         
-        flash[:notice] = 'Your account has been created and you have been signed in!'
+        flash.now[:notice] = 'Your account has been created and you have been signed in!'
         redirect_to root_url
       else
         flash[:error] = 'This is embarrassing! There was an error while creating your account from which we were not able to recover.'

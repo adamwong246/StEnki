@@ -1,8 +1,11 @@
-| users show page
+.title_and_sub_title
+  h2 Edit your user profile
+  h4= @user.identify
 
-= simple_form_for @user do |f| 
-  = f.input :name, :label => 'Your username please' 
-  = f.input :email, :placeholder => 'user@domain.com' 
-  = f.input :remember_me, :inline_label => 'Yes, remember me' 
-  = f.input :bootswatch_theme, :as => :select, :collection => get_all_themes
-  = f.button :submit 
+.well
+  = simple_form_for @user do |f| 
+    = f.input :name, :label => 'Your username please' 
+    = f.input :email, :placeholder => 'user@domain.com' 
+    = f.input :remember_me, :inline_label => 'Yes, remember me' 
+    = f.input :bootswatch_theme, :as => :select, :collection => [*get_all_themes]
+    = f.button :submit 
