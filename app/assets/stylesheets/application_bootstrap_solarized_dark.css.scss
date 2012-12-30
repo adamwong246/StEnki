@@ -10,9 +10,11 @@
  *
  */
 
-  // Example using 'plain' bootswatch
+  // Example using 'solarized_dark' bootswatch
 
   // First import variables
+  
+  @import "bootswatch/solarized_dark/variables";
   
 
   // Then bootstrap itself
@@ -22,6 +24,8 @@
   @import "bootstrap-responsive";
 
   // And finally bootswatch style itself
+  
+  @import "bootswatch/solarized_dark/bootswatch";
   
 
   // Whatever application styles you have go last

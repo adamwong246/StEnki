@@ -7,8 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-
-    flash.now[:notice] = "Welcome back #{current_user.email}"
    
     respond_to do |format|
       format.html  # show.html.erb

@@ -1,4 +1,4 @@
-namespace :bootstrap do
+namespace :bootswatch do
   desc "Create bootswatch themes"
 
   task :generate => :environment do

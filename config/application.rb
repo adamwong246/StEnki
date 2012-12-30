@@ -79,8 +79,8 @@ module Enki
     ALL_THEMES = {}
     # THEMES[:none] = "application_bootstrap.css.scss"
     ['amelia', 'cerulean', 'cyborg', 'journal', 'readable', 'simplex', 
-    'slate', 'spacelab', 'spruce', 'superhero', 'united', 'plain'].each do |name|
-        ALL_THEMES[name.to_sym] = "application_bootstrap_#{name}.css"
+    'slate', 'spacelab', 'spruce', 'superhero', 'united', 'solarized_dark', 'solarized_light', 'plain'].each do |name|
+        ALL_THEMES[name] = "application_bootstrap_#{name}.css"
     end
 
   end
