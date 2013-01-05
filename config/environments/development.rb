@@ -33,6 +33,8 @@ Enki::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  config.reload_plugins = true
+
   # openauth_pure
   Rails.application.config.middleware.use OmniAuth::Builder do
     # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!
@@ -52,11 +54,11 @@ Enki::Application.configure do
     provider :github, '3db2b8dba0409fd13ee1', '161be84a3f06afee7bc738b3407192c6d761df1d'
     
     # generic openid
-    # provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'openid'
+    provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'openid'
     
     # dedicated openid
-    # provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
-    # provider :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google_apps'
+    provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
+    provider :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google_apps'
     # /auth/google_apps; you can bypass the prompt for the domain with /auth/google_apps?domain=somedomain.com
     
     provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'yahoo', :identifier => 'yahoo.com' 

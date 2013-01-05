@@ -5,7 +5,7 @@ gem 'dalli', '~>1.0.5' # memcaching on heroku
 gem 'slim'
 gem 'simple_form', '~> 2.0'
 gem "nokogiri"
-gem "htmlentities"
+gem "htmlentities" # A module for encoding and decoding (X)HTML entities.
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
 gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem 'ancestry'
@@ -21,8 +21,21 @@ gem 'jquery-rails'
 gem 'bootswatch-rails'
 gem 'faker'
 gem 'high_voltage'
+
 gem 'simple-navigation'
-gem "best_in_place"
+# gem 'simple-navigation', :path => "~/git/simple-navigation/"
+
+gem "best_in_place" 
+gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
+gem 'ruby-openid', :require => 'openid'
+gem 'rack-openid', :require => 'rack/openid'
+gem 'aaronh-chronic', :require => 'chronic' # Fixes for 1.9.2
+gem 'coderay'
+gem 'lesstile'
+gem 'formtastic'
+gem 'kaminari'
+gem 'exception_notification', '~> 2.5.2'
+
 # gem 'turbolinks'
 
 # Gems used only for assets and not required
@@ -45,19 +58,6 @@ platforms :jruby do
   gem 'jruby-openssl'
 end
 
-# Bundle the extra gems:
-gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
-gem 'ruby-openid', :require => 'openid'
-gem 'rack-openid', :require => 'rack/openid'
-gem 'aaronh-chronic', :require => 'chronic' # Fixes for 1.9.2
-gem 'coderay'
-gem 'lesstile'
-gem 'formtastic'
-# gem 'will_paginate'
-# gem 'bootstrap-will_paginate'
-gem 'kaminari'
-gem 'exception_notification', '~> 2.5.2'
-
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
@@ -75,8 +75,25 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'aaronh-chronic'
+  gem 'aaronh-chronic' # A natural language date parser with timezone support
   gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
+end
+
+group :development do
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-test'
+  gem 'guard-cucumber'
+  gem 'guard-livereload'
+  gem 'guard-bundler'
+  # guard dependencies, they silently fail to install (FYI, that's a good thing)
+  gem 'rb-inotify', :require => false # for linux
+  gem 'rb-fsevent', :require => false # for OS X
+  gem 'rb-fchange', :require => false # for windows
+  #######
+
+  gem 'ruby-prof' # method benchmarking
+
 end
 
 # group :development do

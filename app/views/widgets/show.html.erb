@@ -1,0 +1,17 @@
+<div class="page-header">
+  <%= link_to widgets_path, :class => 'btn' do %>
+    <i class="icon-list-alt"></i>
+    Back
+  <% end %>
+  <%= link_to edit_widget_path(@widget), :class => 'btn btn-primary' do %>
+    <i class="icon-pencil icon-white"></i>
+    Edit
+  <% end %>
+  <h1>Listing widgets</h1>
+</div>
+
+<dl>
+  <dt>Name:</dt>
+  <dd><%= @widget.name %></dd>
+
+</dl>

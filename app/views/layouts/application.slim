@@ -103,4 +103,7 @@ html dir="ltr" lang="en-US"
                       = link_to "all routes", "/rails/routes"
                     li
                       = link_to "rails_admin", rails_admin_path
+                li
+                  p
+                    = render_navigation :renderer => :breadcrumbs, :join_with => " &gt; ", &my_menu_items
                     

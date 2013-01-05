@@ -6,15 +6,15 @@ module UrlHelper
     path
   end
 
-  def post_comments_path(post, comment)
-    post_path(post) + "/comments"
-  end
+  # def post_comments_path(post, comment)
+  #   post_path(post) + "/comments"
+  # end
 
-  def author_link(comment)
-    if comment.author_url.blank?
-     comment.author
-    else
-      link_to(comment.author, comment.author_url, :class => 'openid')
-    end
-  end
+  # def author_link(comment)
+  #   if comment.author_url.blank?
+  #    comment.author
+  #   else
+  #     link_to(comment.author, comment.author_url, :class => 'openid')
+  #   end
+  # end
 end

@@ -1,6 +1,13 @@
 Enki::Application.routes.draw do
 
+  
+
+  resources :widgets
+
   get "foo" => "bar", :label => "baz", :something => "else"
+
+  get 'widgets/custom'
+
   
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 

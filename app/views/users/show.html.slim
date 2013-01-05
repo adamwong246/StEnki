@@ -2,13 +2,14 @@
   .title_and_sub_title
     h2 User profile
     h4= @user.identify
+    = link_to "Edit", edit_user_path(@user)
 
     -for attribute in @user.attributes.keys
       p
         = attribute.humanize 
         | : 
         = @user.attributes[attribute].to_s 
-  = link_to "Edit", edit_user_path(@user)
+  
         
   
 

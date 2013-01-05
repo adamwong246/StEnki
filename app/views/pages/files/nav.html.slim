@@ -1,8 +1,10 @@
-= render_navigation
+/ = render_navigation :renderer => :breadcrumbs, :join_with => " &gt; ", &my_menu_items
+= render_navigation :expand_all => true, &my_menu_items
 
 / = Rails.application.routes.routes.inspect
-- Rails.application.routes.routes.each do |r|
-  - if 'GET' =~ r.verb
+- routes = Rails.application.routes.routes.select {|r| r.usable?}
+- routes.each do |r|
+  - if /^GET$/ == r.verb
       .well
         p
           = "Route: " + r.inspect
@@ -14,4 +16,22 @@
           = "Constraints: " + r.constraints.inspect
         p
           = "Defaults: " + r.defaults.inspect
+        p
+          = "Label: " + r.get_label
+        p
+
+          - s = r.path.spec.to_s
+          = "s: " + s
+        p
+          - s.slice! "(.:format)"
+          = "Url: " + s
+
+        p
+          - constant = !s.include?(":")
+          = "Contains :?" + constant.to_s
+        - if constant
+          = link_to r.name.to_s, s
+
+        p
+          = "Children " + r.get_children.inspect
 
