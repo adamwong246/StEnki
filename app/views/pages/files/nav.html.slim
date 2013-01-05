@@ -2,36 +2,36 @@
 = render_navigation :expand_all => true, &my_menu_items
 
 / = Rails.application.routes.routes.inspect
-- routes = Rails.application.routes.routes.select {|r| r.usable?}
-- routes.each do |r|
-  - if /^GET$/ == r.verb
-      .well
-        p
-          = "Route: " + r.inspect
-        p
-          = "Name: " + r.name.to_s
-        p
-          = "Verb: " + r.verb.inspect
-        p
-          = "Constraints: " + r.constraints.inspect
-        p
-          = "Defaults: " + r.defaults.inspect
-        p
-          = "Label: " + r.get_label
-        p
+/ - routes = Rails.application.routes.routes.select {|r| r.usable?}
+/ - routes.each do |r|
+/   - if /^GET$/ == r.verb
+/       .well
+/         p
+/           = "Route: " + r.inspect
+/         p
+/           = "Name: " + r.name.to_s
+/         p
+/           = "Verb: " + r.verb.inspect
+/         p
+/           = "Constraints: " + r.constraints.inspect
+/         p
+/           = "Defaults: " + r.defaults.inspect
+/         p
+/           = "Label: " + r.get_label
+/         p
 
-          - s = r.path.spec.to_s
-          = "s: " + s
-        p
-          - s.slice! "(.:format)"
-          = "Url: " + s
+/           - s = r.path.spec.to_s
+/           = "s: " + s
+/         p
+/           - s.slice! "(.:format)"
+/           = "Url: " + s
 
-        p
-          - constant = !s.include?(":")
-          = "Contains :?" + constant.to_s
-        - if constant
-          = link_to r.name.to_s, s
+/         p
+/           - constant = !s.include?(":")
+/           = "Contains :?" + constant.to_s
+/         - if constant
+/           = link_to r.name.to_s, s
 
-        p
-          = "Children " + r.get_children.inspect
+/         p
+/           = "Children " + r.get_children.inspect
 
