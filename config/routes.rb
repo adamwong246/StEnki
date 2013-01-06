@@ -1,14 +1,11 @@
 Enki::Application.routes.draw do
 
-  
-
-  resources :widgets
-
-  get "foo" => "bar", :label => "baz", :something => "else"
+  resources :widgets, :ids => 1
 
   get 'widgets/custom'
 
-  
+  get "foo" => "bar", :label => "baz", :something => "else"
+
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
   match '/auth/:service/callback' => 'services#create' 

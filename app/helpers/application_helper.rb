@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def get_theme_stylesheet_link
 
-    if !current_user.nil? && !current_user.bootswatch_theme.nil?
+    if current_user && current_user.bootswatch_theme
       begin
         stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
       rescue
@@ -40,26 +40,44 @@ module ApplicationHelper
 
   def my_menu_items
 
-    Proc.new do |level_0|
+    root = Rails.application.routes.routes.select{|r| r.name == "root" }.first
 
-      routes = Rails.application.routes.routes.select {|r| r.usable?}
-      process_recursivly(routes, level_0)
-    end
-
-  end
-
-  def process_recursivly(list, level)
-    list.each do |route|
-
-      if !route.get_children.empty?
-        level.item route.get_nav_item, route.get_label, route.get_url do |child_level|
-          process_recursivly(route.get_children, child_level)
-        end
-      else
-        level.item route.get_nav_item, route.get_label, route.get_url
+    if root
+      Proc.new do |level_0|
+        root.recursive_nav_items(level_0)
+        # process_recursivly2(root, level_0)
       end
-
+    else
+      raise "Couldn't find a root route. Add a route like < root :to => 'some_controller#some_action' > to your routes.rb"
     end
+
   end
 
+  # def process_recursivly(list, level)
+  #   list.each do |route|
+
+  #     if route.usable?
+
+  #       if !route.get_children.empty?
+  #         level.item route.get_nav_item, route.get_label, route.get_url do |child_level|
+  #           process_recursivly(route.get_children, child_level)
+  #         end
+  #       else
+  #         level.item route.get_nav_item, route.get_label, route.get_url
+  #       end
+  #     end
+  #   end
+  # end
+
+  # def process_recursivly2(route, level)
+  #   if route.usable?
+  #     if !route.get_children.empty?
+  #       level.item route.get_nav_item, route.get_label, route.get_url do |child_level|
+  #         process_recursivly(route.get_children, child_level)
+  #       end
+  #     else
+  #       level.item route.get_nav_item, route.get_label, route.get_url
+  #     end      
+  #   end
+  # end
 end
