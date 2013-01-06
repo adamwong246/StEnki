@@ -1,6 +1,6 @@
 Enki::Application.routes.draw do
 
-  resources :widgets, :ids => 1
+  resources :widgets, :id => [1,99, 5]
 
   get 'widgets/custom'
 
