@@ -40,16 +40,25 @@ module ApplicationHelper
 
   def my_menu_items
 
-    root = Rails.application.routes.routes.select{|r| r.name == "root" }.first
+    Proc.new do |level_0|
 
-    if root
-      Proc.new do |level_0|
-        level_0.item :test_regex_nav_item, "regex test", "/widgets/1"[/\A\/(widgets)\/[^\/]+{1}$/]
-        root.recursive_nav_items(level_0)
+      Rails.application.routes.routes.each do |route|
+        route.nav_item(level_0)
       end
-    else
-      raise "Couldn't find a root route. Add a route like < root :to => 'some_controller#some_action' > to your routes.rb"
+
+      # root.recursive_nav_items(level_0)
     end
+
+    # root = Rails.application.routes.routes.select{|r| r.name == "root" }.first
+
+    # if root
+    #   Proc.new do |level_0|
+    #     level_0.item :test_regex_nav_item, "regex test", "/widgets/1"[/\A\/(widgets)\/[^\/]+{1}$/]
+    #     root.recursive_nav_items(level_0)
+    #   end
+    # else
+    #   raise "Couldn't find a root route. Add a route like < root :to => 'some_controller#some_action' > to your routes.rb"
+    # end
 
   end
 

@@ -1,5 +1,9 @@
 module Navigable
 
+  def nav_item(level)
+    level.item get_nav_item, get_label, get_url if usable?
+  end
+
   def recursive_nav_items(level, opts = {})
 
     puts "== RECURSING ON level: #{level}"

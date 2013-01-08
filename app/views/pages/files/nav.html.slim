@@ -8,6 +8,9 @@
       = r.get_label
     p
       = r.inspect
+    - r.get_children.each do |c|
+      p 
+        = "child: " + c.get_url + c.verb.to_s
 /     / p
 /       / # = "required_names: " + r.required_names
 /     p
@@ -21,11 +24,9 @@
 /       = "regex: " + r.get_regex.inspect
 
 
-/     - r.get_children.each do |c|
-/       p 
-/         = "child: " + c.get_url
-/     / p
-/     /   = "Label: " + r.get_label
+    
+    / p
+    /   = "Label: " + r.get_label
 /     / p
 
 /     /   - s = r.path.spec.to_s
@@ -40,6 +41,6 @@
 /     / - if constant
 /     /   = link_to r.name.to_s, s
 
-/     / p
-/     /   = "Children " + r.get_children.inspect
+    / p
+    /   = "Children " + r.get_children.inspect
 
