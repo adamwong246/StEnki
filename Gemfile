@@ -18,7 +18,7 @@ gem 'omniauth-openid'
 gem 'omniauth-google-apps'
 gem 'cancan'
 gem 'jquery-rails'
-gem 'bootswatch-rails'
+# gem 'bootswatch-rails'
 gem 'faker'
 gem 'high_voltage'
 

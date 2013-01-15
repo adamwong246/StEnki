@@ -12,7 +12,7 @@ namespace :bootswatch do
     end
 
 
-    Enki::Application::ALL_THEMES.each do |key_name, value_file|
+    StEnki::Application::ALL_THEMES.each do |key_name, value_file|
 
       et = ErbalT.new({ :theme_name => key_name})
       string = File.open(Rails.root + "lib/tasks/css_src/_application.css.scss.erb").read

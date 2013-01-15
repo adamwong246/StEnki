@@ -25,7 +25,7 @@ SECRET_CONFIG.merge! SECRET_CONFIG.fetch(Rails.env, {})
 SECRET_CONFIG.symbolize_keys!
 
 
-module Enki
+module StEnki
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

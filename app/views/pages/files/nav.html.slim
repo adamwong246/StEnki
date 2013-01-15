@@ -1,7 +1,7 @@
 / = render_navigation :renderer => :breadcrumbs, :join_with => " &gt; ", &my_menu_items
 = render_navigation :expand_all => true, &my_menu_items
 
-= Enki::Application.routes.inspect
+= StEnki::Application.routes.inspect
 / = Rails.application.routes.routes.inspect
 / - Rails.application.routes.routes.select {|r| r.usable?}.each do |r|
 /   .well

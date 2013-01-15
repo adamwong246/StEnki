@@ -1,4 +1,4 @@
-Enki::Application.configure do
+StEnki::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -45,9 +45,13 @@ Enki::Application.configure do
     # load certificates
     require "openid/fetchers"
     OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
-    
+
+    if SECRET_CONFIG[:active_services].include?("facebook")
+      provider :facebook, SECRET_CONFIG[:facebook_secret_id], SECRET_CONFIG[:facebook_secret_key]
+    end
+
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    provider :facebook, SECRET_CONFIG[:facebook_secret_id], SECRET_CONFIG[:facebook_secret_key]
+    # provider :facebook, SECRET_CONFIG[:facebook_secret_id], SECRET_CONFIG[:facebook_secret_key]
     # provider :facebook, "297644757023528", "794dc42b53a3c7172dd6848ff1808b5b"
 
     provider :twitter, '3db2b8dba0409fd13ee1', '161be84a3f06afee7bc738b3407192c6d761df1d'

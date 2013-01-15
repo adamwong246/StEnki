@@ -24,6 +24,9 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html 
       format.atom { render :layout => false }
+      format.json{
+      render :json => @posts.to_json
+    }
     end
   end
 

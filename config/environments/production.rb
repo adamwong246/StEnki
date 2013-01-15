@@ -1,4 +1,4 @@
-Enki::Application.configure do
+StEnki::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -76,7 +76,10 @@ Enki::Application.configure do
     OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    provider :facebook, ENV['FB_ID'], ENV['FB_SECRET']
+    if StEnki::APPLICATION::ACTIVE_SERVICES[:facebook]
+      provider :facebook, ENV['FB_ID'], ENV['FB_SECRET']
+    end
+    # provider :facebook, ENV['FB_ID'], ENV['FB_SECRET']
     provider :twitter, ENV['TWITTER_ID'], ENV['TWITTER_SECRET']
     provider :github, ENV['GITHUB_ID'], ENV['GITHUB_SECRET']
     

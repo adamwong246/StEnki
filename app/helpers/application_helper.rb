@@ -1,6 +1,6 @@
 module ApplicationHelper
   def get_all_themes
-    Enki::Application::ALL_THEMES
+    StEnki::Application::ALL_THEMES
   end
 
   def get_theme(theme)

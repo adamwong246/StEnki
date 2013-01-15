@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Enki::Application.load_tasks
+StEnki::Application.load_tasks
