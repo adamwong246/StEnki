@@ -20,9 +20,9 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-SECRET_CONFIG = YAML.load(File.read(File.expand_path('../secret_configurations.yml', __FILE__)))
-SECRET_CONFIG.merge! SECRET_CONFIG.fetch(Rails.env, {})
-SECRET_CONFIG.symbolize_keys!
+CONFIG = YAML.load(File.read(File.expand_path('../configurations.yml', __FILE__)))
+CONFIG.merge! CONFIG.fetch(Rails.env, {})
+CONFIG.symbolize_keys!
 
 
 module StEnki

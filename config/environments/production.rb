@@ -76,7 +76,7 @@ StEnki::Application.configure do
     OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
     
     # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    if SECRET_CONFIG[:active_services].include?("facebook")
+    if CONFIG[:active_services].include?("facebook")
       provider :facebook, ENV['FB_ID'], ENV['FB_SECRET']
     end
     # provider :facebook, ENV['FB_ID'], ENV['FB_SECRET']

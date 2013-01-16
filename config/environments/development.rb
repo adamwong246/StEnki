@@ -1,4 +1,11 @@
 StEnki::Application.configure do
+
+  SECRET_CONFIG = YAML.load(File.read(File.expand_path('../../secret_configurations.yml', __FILE__)))
+  SECRET_CONFIG.merge! SECRET_CONFIG.fetch(Rails.env, {})
+  SECRET_CONFIG.symbolize_keys!
+
+  puts "SECRET: #{SECRET_CONFIG.inspect}"
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -46,7 +53,7 @@ StEnki::Application.configure do
     require "openid/fetchers"
     OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
 
-    if SECRET_CONFIG[:active_services].include?("facebook")
+    if StEnki::Application::CONFIG[:active_services].include?("facebook")
       provider :facebook, SECRET_CONFIG[:facebook_secret_id], SECRET_CONFIG[:facebook_secret_key]
     end
 

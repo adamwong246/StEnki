@@ -1,5 +1,5 @@
 ul#services_list
-  - SECRET_CONFIG[:active_services].each do |s|
+  - StEnki::Application::CONFIG[:active_services].each do |s|
     li
       = link_to "/auth/#{s}" do
         = image_tag "#{s}_64.png", :size => "64x64", :alt => "s"
