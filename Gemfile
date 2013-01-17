@@ -86,6 +86,7 @@ group :development do
   gem 'guard-cucumber'
   gem 'guard-livereload'
   gem 'guard-bundler'
+  gem 'guard-coffeescript'
   # guard dependencies, they silently fail to install (FYI, that's a good thing)
   gem 'rb-inotify', :require => false # for linux
   gem 'rb-fsevent', :require => false # for OS X

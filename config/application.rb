@@ -24,6 +24,10 @@ CONFIG = YAML.load(File.read(File.expand_path('../configurations.yml', __FILE__)
 CONFIG.merge! CONFIG.fetch(Rails.env, {})
 CONFIG.symbolize_keys!
 
+SECRET_CONFIG = YAML.load(File.read(File.expand_path('../secret_configurations.yml', __FILE__)))
+SECRET_CONFIG.merge! SECRET_CONFIG.fetch(Rails.env, {})
+SECRET_CONFIG.symbolize_keys!
+
 
 module StEnki
   class Application < Rails::Application

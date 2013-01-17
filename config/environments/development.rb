@@ -1,8 +1,6 @@
 StEnki::Application.configure do
 
-  SECRET_CONFIG = YAML.load(File.read(File.expand_path('../../secret_configurations.yml', __FILE__)))
-  SECRET_CONFIG.merge! SECRET_CONFIG.fetch(Rails.env, {})
-  SECRET_CONFIG.symbolize_keys!
+
 
   puts "SECRET: #{SECRET_CONFIG.inspect}"
 
