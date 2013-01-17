@@ -1,9 +1,8 @@
 # Configuration options for your blog - customise to taste
 # This file contains no secret information, so can be stored in source control (unlike database.yml)
 title: Adam Wong's blog
-url:   http://enkiblog.com
+url:   http://ifailedtheturingtest.herokuapp.com/
 author:
   name:    Adam Wong        # For copyright notice and ATOM feeds
   email:   adamwong246@gmail.com # Exception emails will go here, and it is used in ATOM feeds
-  open_id:                  # These are used to login to the admin area
-      - http://adamwong246.myopenid.com/
+  

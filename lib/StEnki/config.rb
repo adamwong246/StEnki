@@ -1,6 +1,6 @@
 require 'delegate'
 
-module Enki
+module StEnki
   class Config < SimpleDelegator
     def initialize(file_name)
       super(symbolize_keys(YAML::load(IO.read(file_name))))
