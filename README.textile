@@ -1,9 +1,6 @@
 h2. A Ruby on Rails blogging app for the adventurous developer.
 
-StEnki is a Ruby on Rails blog engine and a fork of "Enki":https://github.com/xaviershay/enki. 
-You can find a demonstration of Enki at my personal blog <a href="http://ifailedtheturingtest.herokuapp.com/">i failed the turing test</a>
-
-h3. The majority of the work was not done by me. A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> and all the other Enki developers for their hard work.  
+StEnki is a Ruby on Rails blog engine and a fork of "Enki":https://github.com/xaviershay/enki. You can find a demonstration of Enki at my personal blog <a href="http://ifailedtheturingtest.herokuapp.com/">ifailedtheturingtest.herokuapp.com.</a> A tip of my hat to <a href="https://github.com/xaviershay">Xavier</a> and all the other Enki developers for their hard work.  Thanks guys!
 
 Preferences are for the masses. Any real coder knows the easiest and best way to customize something is by *hacking code*. Because you want your blog to be you, not bog standard install #4958 with 20 posts per page instead of 15. For this you need a *clean, simple, easy to understand code base* that stays out of your way. No liquid drops and templates hindering your path, no ugly PHP(Hypertext Preprocessor) stylings burning your eyeballs.
 
@@ -38,19 +35,19 @@ StEnki is a compact, easily extendable base for your blog. It does this by being
 * Live comment preview should be provided by default
 * Google does search better than you or I
 * You don't need a plugin system when you've got decent source control
-* If you're not using OpenID you're a chump. But StEnki actually uses multiple service providers! Chump like a *fox*...
+* If you're not using OpenID you're a chump. But StEnki actually uses multiple service providers for authentication! Chump like a *fox*...
 * Hacking code is the easiest way to customize something
 
 h2. How it differs from Enki
 
-I decided to re-christen this project under a new name because it has diverged so substantially from the original. StEnki, to me, is my personal programming playground. Think of it as my workshop. Because of this, StEnki has many more dependencies than Enki and prefers to use many wonderful gems rather than stay lightweight. StEnki is feature rich and can provide a programmer with a safari  popular gems, such as rails_admin, cancan, devise, and more. 
+I decided to re-christen this project under a new name because it has diverged so substantially from the original. StEnki, to me, is my personal programming playground. Think of it as my workshop. Because of this, StEnki has many more dependencies than Enki and prefers to use many wonderful gems rather than stay lightweight. StEnki is feature rich and can provide a programmer with a safari  popular gems, such as rails_admin, cancan, devise, and more. In many ways, StEnki is more of a generic base for a RoR app- I just so happened to need a blog. But with so may features, StEnki can be much much more than a blog. 
 
 Features:
 - Removed custom authentication and administration in favor of rails_admin.
 - Reddit-style comments ie. tree structured comments
 - Scss for style
 - Slim for layouts. 
-- Bootstrap for base styling
+- Bootstrap for base styling, with multiple themes! 
 - User login using many different social networks. 
 - Deployable to Heroku's cedar stack. 
 
