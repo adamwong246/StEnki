@@ -17,15 +17,10 @@ StEnki::Application.routes.draw do
 
   resources :users
 
-  resources :archives, :only => [:index]
-  # resources :pages, :only => [:show]
-
-  # root :to => 'high_voltage/pages#show', :id => 'home'
   match "/pages/about_me" => "pages#show", :id => 'files/about_me', :as => 'about_me'
   match "/pages/about_stenki" => "pages#show", :id => 'files/about_stenki', :as => 'about_stenki'
   match "/pages" => "pages#index"
   match "/pages/:id" => "high_voltage/pages#show#:id"
-  # match '/pages/*page'       => 'pages#display',     :as => :static,        :via => :get
 
   resources :comments
 
@@ -36,12 +31,14 @@ StEnki::Application.routes.draw do
     get ':year/:month/:day/:slug' => 'posts#show'
   end
 
+  match "/archive" => 'posts#archive'
+
   scope :to => 'posts#index' do
     get 'posts.:format', :as => :formatted_posts
     get '(:tag)', :as => :posts
   end
 
-  # put "/settings/" => "settings#update"
+
 
   root :to => 'posts#index'
 end

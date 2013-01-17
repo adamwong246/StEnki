@@ -14,7 +14,8 @@ class Comment < ActiveRecord::Base
   
   after_destroy         :denormalize
 
-  validates_presence_of :body, :post
+  validates_presence_of :body, :post, :user
+  
   validate :open_id_error_should_be_blank
 
 

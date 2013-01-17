@@ -3,7 +3,8 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Comment do
   def valid_comment_attributes(extra = {})
     {
-      :author => 'Don Alias',
+      # :author => 'Don Alias',
+      :user => User.new,
       :body   => 'This is a comment',
       :post   => Post.new
     }.merge(extra)
@@ -31,8 +32,8 @@ describe Comment do
     @comment.errors.should_not be_empty
   end
 
-  it "is invalid with no author" do
-    set_comment_attributes(@comment, :author => '')
+  it "is invalid with no user" do
+    set_comment_attributes(@comment, :user => nil)
     @comment.should_not be_valid
     @comment.errors.should_not be_empty
   end
@@ -42,23 +43,23 @@ describe Comment do
     @comment.should be_valid
   end
 
-  it "requires OpenID authentication when the author's name contains a period" do
-    @comment.author = "Don Alias"
-    @comment.requires_openid_authentication?.should == false
-    @comment.author = "enkiblog.com"
-    @comment.requires_openid_authentication?.should == true
-  end
+  # it "requires OpenID authentication when the author's name contains a period" do
+  #   @comment.author = "Don Alias"
+  #   @comment.requires_openid_authentication?.should == false
+  #   @comment.author = "enkiblog.com"
+  #   @comment.requires_openid_authentication?.should == true
+  # end
 
-  it "requires OpenID authentication when the author's name starts with http" do
-    @comment.author = "http://localhost:9294"
-    @comment.requires_openid_authentication?.should == true
-    @comment.author = "https://localhost:9294"
-    @comment.requires_openid_authentication?.should == true
-  end
+  # it "requires OpenID authentication when the author's name starts with http" do
+  #   @comment.author = "http://localhost:9294"
+  #   @comment.requires_openid_authentication?.should == true
+  #   @comment.author = "https://localhost:9294"
+  #   @comment.requires_openid_authentication?.should == true
+  # end
 
   it "asks post to update it's comment counter after save" do
     set_comment_attributes(@comment)
-    @comment.blank_openid_fields
+    # @comment.blank_openid_fields
     @comment.post.update_attributes(:title => 'My Post', :body => "body")
     @comment.post.save
     @comment.save
@@ -67,7 +68,7 @@ describe Comment do
 
   it "asks post to update it's comment counter after destroy" do
     set_comment_attributes(@comment)
-    @comment.blank_openid_fields
+    # @comment.blank_openid_fields
     @comment.post.update_attributes(:title => 'My Post', :body => "body")
     @comment.post.save
     @comment.save
@@ -77,7 +78,7 @@ describe Comment do
 
   it "applies a Lesstile filter to body and store it in body_html before save" do
     set_comment_attributes(@comment)
-    @comment.blank_openid_fields
+    # @comment.blank_openid_fields
     @comment.post.update_attributes(:title => 'My Post', :body => "body")
     @comment.post.save
     @comment.save
@@ -102,15 +103,15 @@ describe Comment do
   # TODO: OpenID error model
 end
 
-describe Comment, '#blank_openid_fields_if_unused' do
-  before(:each) do
-    @comment = Comment.new
-    @comment.blank_openid_fields
-  end
+# describe Comment, '#blank_openid_fields_if_unused' do
+#   before(:each) do
+#     @comment = Comment.new
+#     @comment.blank_openid_fields
+#   end
 
-  it('blanks out author_url')              { @comment.author_url.should == '' }
-  it('blanks out author_email')            { @comment.author_email.should == '' }
-end
+#   it('blanks out author_url')              { @comment.author_url.should == '' }
+#   it('blanks out author_email')            { @comment.author_email.should == '' }
+# end
 
 describe Comment, '.find_recent' do
   it 'finds the most recent comments that were posted before now' do
@@ -131,7 +132,7 @@ end
 
 describe Comment, '.build_for_preview' do
   before(:each) do
-    @comment = Comment.build_for_preview(:author => 'Don Alias', :body => 'A Comment')
+    @comment = Comment.build_for_preview(:user => User.new, :body => 'A Comment')
   end
 
   it 'returns a new comment' do
@@ -147,48 +148,48 @@ describe Comment, '.build_for_preview' do
   end
 end
 
-describe Comment, '.build_for_preview with OpenID author' do
-  before(:each) do
-    @comment = Comment.build_for_preview(:author => 'http://enkiblog.com', :body => 'A Comment')
-  end
+# describe Comment, '.build_for_preview with OpenID author' do
+#   before(:each) do
+#     @comment = Comment.build_for_preview(:author => 'http://enkiblog.com', :body => 'A Comment')
+#   end
 
-  it 'returns a new comment' do
-    @comment.should be_new_record
-  end
+#   it 'returns a new comment' do
+#     @comment.should be_new_record
+#   end
 
-  it 'sets created_at' do
-    @comment.created_at.should_not be_nil
-  end
+#   it 'sets created_at' do
+#     @comment.created_at.should_not be_nil
+#   end
 
-  it 'applies filter to body' do
-    @comment.body_html.should == 'A Comment'
-  end
+#   it 'applies filter to body' do
+#     @comment.body_html.should == 'A Comment'
+#   end
 
-  it 'sets author_url to OpenID identity' do
-    @comment.author_url.should == 'http://enkiblog.com'
-  end
+#   it 'sets author_url to OpenID identity' do
+#     @comment.author_url.should == 'http://enkiblog.com'
+#   end
 
-  it 'sets author to "Your OpenID Name"' do
-    @comment.author.should == "Your OpenID Name"
-  end
-end
+#   it 'sets author to "Your OpenID Name"' do
+#     @comment.author.should == "Your OpenID Name"
+#   end
+# end
 
-describe Comment, '#requires_openid_authentication?' do
-  describe 'with an author containing a .' do
-    subject { Comment.new(:author => 'example.com').requires_openid_authentication? }
+# describe Comment, '#requires_openid_authentication?' do
+#   describe 'with an author containing a .' do
+#     subject { Comment.new(:author => 'example.com').requires_openid_authentication? }
 
-      it { should be }
-  end
+#       it { should be }
+#   end
 
-  describe 'with a normal author' do
-    subject { Comment.new(:author => 'Don Alias').requires_openid_authentication? }
+#   describe 'with a normal author' do
+#     subject { Comment.new(:author => 'Don Alias').requires_openid_authentication? }
 
-    it { should_not be }
-  end
+#     it { should_not be }
+#   end
 
-  describe 'with a nil author' do
-    subject { Comment.new.requires_openid_authentication? }
+#   describe 'with a nil author' do
+#     subject { Comment.new.requires_openid_authentication? }
 
-    it { should_not be }
-  end
-end
+#     it { should_not be }
+#   end
+# end

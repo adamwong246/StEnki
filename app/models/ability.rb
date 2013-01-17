@@ -30,6 +30,7 @@ class Ability
 
     can :read, :all
     can :index, :all
+    can :archive, Post
     
     if !user.nil? && user.admin?
         can :manage, :all
