@@ -15,18 +15,20 @@
 # = require jquery-ui
 # = require bootstrap
 # = require common
-#= require jquery.purr
-#= require best_in_place
+# = require jquery.purr
+# = require best_in_place
 # = require_self
 # = require_tree .
 
+$ ->
+  $('.best_in_place').best_in_place()
+
 # Launches the modal window containing flash messages.
 $(window).load ->
-    $('#myModal').modal
+    $('#modal-flash').modal
         keyboard: false
 
-(($) ->
-  
+(($) ->  
   # VERTICALLY ALIGN FUNCTION
   $.fn.vAlign = ->
     @each (i) ->
@@ -37,9 +39,9 @@ $(window).load ->
 
 ) $
 
-$last_opened_area = undefined
+# Verticaly aligns social buttons
+# load on mouse enter
 $(document).ready ->
-  #Socialite.load $("#social2")
   $('.nav-bar i').vAlign()
   $('#social2 li a').vAlign()
 
@@ -50,28 +52,7 @@ $(document).ready ->
     $(this).children(".socialite").css
       "height": 30
 
-    # $(this).children(".socialite").vAlign()
-
-
-# $ ->
-#   Socialite.load $("#social2 >li")
-
-# http://www.egstudio.biz/sticky-footer-with-jquery/
-# $ ->
-#   $(window).bind "load", ->
-#     footer = $("#footer")
-
-#     pos = footer.position()
-
-#     a = $(window).height()
-#     b = pos.top
-#     c = footer.height() 
-    
-
-#     alert("a: " + a + ", b: " + b + ", c: " + c)
-#     height = a-b-c
-#     footer.css "margin-top": height + "px"  if height > 0
-
+# sticky navigation bar
 $ ->  
   # grab the initial top offset of the navigation 
   sticky_navigation_offset_top = $("#sticky_navigation").offset().top
@@ -106,15 +87,9 @@ $ ->
   $(window).scroll ->
     sticky_navigation()
 
-$ -> 
-  $("a#show_footnotes").click -> 
-    $("#footnotes_holder").toggle()
-    $("#footnotes_holder").scrollTop()
-    return false
-
+# scroll to top button
 $ -> 
   $("a#scroll_to_top").click -> 
-    # $("#footnotes_holder").scrollTop()
     $("html, body").animate({ scrollTop: 0 }, "slow");
     return false;
 

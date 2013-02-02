@@ -10,20 +10,25 @@ gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/
 gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem 'ancestry'
 gem 'sextant'
+gem 'cancan'
+gem 'jquery-rails'
+# gem 'bootswatch-rails'
+gem 'faker'
+gem 'high_voltage'
+gem 'builder' # for building xml/html, it's better than content_tag
+
+gem 'simple-navigation'
+# gem 'simple-navigation', :path => "~/git/simple-navigation/"
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 gem 'omniauth-openid'
 gem 'omniauth-google-apps'
-gem 'cancan'
-gem 'jquery-rails'
-# gem 'bootswatch-rails'
-gem 'faker'
-gem 'high_voltage'
-
-gem 'simple-navigation'
-# gem 'simple-navigation', :path => "~/git/simple-navigation/"
+gem 'omniauth-identity'
+gem 'oauth2'
+gem 'devise'
 
 gem "best_in_place" 
 gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
@@ -34,7 +39,7 @@ gem 'coderay'
 gem 'lesstile'
 gem 'formtastic'
 gem 'kaminari'
-gem 'exception_notification', '~> 2.5.2'
+# gem 'exception_notification', '~> 2.5.2'
 
 # gem 'turbolinks'
 
@@ -56,6 +61,10 @@ platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter'
   gem 'trinidad'
   gem 'jruby-openssl'
+end
+
+group :production do
+  gem 'exception_notification', '~> 2.5.2'
 end
 
 # Bundle gems for the local environment. Make sure to

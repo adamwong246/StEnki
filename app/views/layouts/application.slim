@@ -35,10 +35,10 @@ html dir="ltr" lang="en-US"
                       li
                         = link_to "My profile", user_path(current_user)                         
                       li
-                        = link_to "Sign out", signout_services_path
+                        / = link_to "Sign out", signout_services_path
                 - else
                   li
-                    = link_to "Sign in", signin_services_path
+                    = link_to "Sign in", user_session_path
 
                      
               ul#social2.nav.pull-right
@@ -94,13 +94,14 @@ html dir="ltr" lang="en-US"
                   ul.dropdown-menu
                     
                     li
-                      = link_to "Sign in", signin_services_path
+                      /= link_to "Sign in", signin_services_path
                     li
-                      = link_to "Sign out", signout_services_path
+                      /= link_to "Sign out", signout_services_path
                     li
                       a href="/pages" all pages 
                     li
                       = link_to "all routes", "/rails/routes"
                     li
                       = link_to "rails_admin", rails_admin_path
+  #footnotes_holder
                 

@@ -1,0 +1,13 @@
+.page-header
+  = link_to identities_path, :class => 'btn' do
+    i.icon-list-alt
+    | Back
+  = link_to edit_identity_path(@identity), :class => 'btn btn-primary' do
+    i.icon-pencil.icon-white
+    | Edit
+  h1 Show an identity
+
+  = ultrahumanize(@identity).html_safe
+
+
+dl

@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   load_and_authorize_resource
 
   def archive
-    puts "POSTS#ARCHIVE"
     @months = Post.find_grouped_by_month
 
     respond_to do |format|
@@ -14,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def index
+
     @tag = params[:tag]
 
     @posts = Post.where(:active => true).page(params[:page]).per(3)

@@ -1,9 +1,9 @@
 - unless flash.empty?
-  #myModal.modal.hide.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
-    .modal-header
-      button.close aria-hidden="true" data-dismiss="modal" type="button"
-      h3#myModalLabel 
-       | Attention!
+  #modal-flash.modal.hide.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+    / .modal-header
+      / button.close aria-hidden="true" data-dismiss="modal" type="button"
+      / h3#myModalLabel 
+       / | Attention!
     .modal-body
       / =flash.inspect
       - flash.each do |type, message|
@@ -12,5 +12,5 @@
             = message 
       
 
-    / button.btn aria-hidden="true" data-dismiss="modal" Ok 
+      button.btn aria-hidden="true" data-dismiss="modal" Ok 
     / button.btn.btn-primary Save changes

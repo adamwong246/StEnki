@@ -22,35 +22,38 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
 
-    can :access, :rails_admin   # grant access to rails_admin
-    can :dashboard, :all          # grant access to the dashboard
-    can :show_in_app, :all
-    can :tree, :all
-    can :nestable, :all
+    # can :access, :rails_admin   # grant access to rails_admin
+    # can :dashboard, :all          # grant access to the dashboard
+    # can :show_in_app, :all
+    # can :tree, :all
+    # can :nestable, :all
 
-    can :read, :all
-    can :index, :all
-    can :archive, Post
+    # can :read, :all
+    # can :index, :all
+    # can :archive, Post
     
-    if !user.nil? && user.admin?
-        can :manage, :all
-    end
-
-
-    #can :read, :all                   # allow everyone to read everything
-    # can :access, :rails_admin       # only allow admin users to access Rails Admin
-    # can :dashboard, :all
-
-    # if user 
-    #   can :access, :rails_admin       # only allow admin users to access Rails Admin
-    #   can :dashboard, :all            # allow access to dashboard
-    #   if user.admin?
-    #     can :manage, :all             # allow superadmins to do anything
-    #     can :access, :all
-    #   elsif user.guest?
-    #     can :manage, :all  # allow managers to do anything to products and users
-    #   end
+    # if !user.nil? && user.admin?
+    #     can :manage, :all
     # end
+
+
+    can :read, :all                   # allow everyone to read everything
+    can :access, :rails_admin       # only allow admin users to access Rails Admin
+    can :dashboard, :all
+
+    can :flashecho, :utilities
+    
+    if user 
+      can :access, :rails_admin       # only allow admin users to access Rails Admin
+      can :dashboard, :all            # allow access to dashboard
+      if user.admin?
+        can :manage, :all             # allow superadmins to do anything
+        can :access, :all
+
+      elsif user.guest?
+        can :manage, :all  # allow managers to do anything to products and users
+      end
+    end
 
   end
 end
