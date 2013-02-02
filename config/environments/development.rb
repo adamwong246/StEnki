@@ -1,9 +1,4 @@
 StEnki::Application.configure do
-
-
-
-  puts "SECRET: #{SECRET_CONFIG.inspect}"
-
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -60,7 +55,7 @@ StEnki::Application.configure do
     # provider :facebook, "297644757023528", "794dc42b53a3c7172dd6848ff1808b5b"
 
     provider :twitter, '3db2b8dba0409fd13ee1', '161be84a3f06afee7bc738b3407192c6d761df1d'
-    provider :github, '3db2b8dba0409fd13ee1', '161be84a3f06afee7bc738b3407192c6d761df1d'
+    provider :github, 'b9dde0bd04ae3a7d9400', '490c2c4ee64f0fcee2037b06db7bf3950530e942'
     
     # generic openid
     provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'openid'

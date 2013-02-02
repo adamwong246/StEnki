@@ -7,7 +7,7 @@ class UtilitiesController < ApplicationController
     authorize! :flashecho, @user
 
 
-
+    flash[:title] = "Meditate on this"
     flash[:notice] = "Cogito ergo"
     flash[:success] = "sum. But I worry about"
     flash[:error] = "user. Click OK."

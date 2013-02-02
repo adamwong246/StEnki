@@ -64,6 +64,15 @@ StEnki::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  require 'action_controller/metal/request_forgery_protection'
+
+  StEnki::Application.config.middleware.use ExceptionNotifier,
+    :ignore_exceptions    => [ActionController::InvalidAuthenticityToken],
+    :email_prefix         => "[Enki] ",
+    :sender_address       => [Enki::Config.default[:author, :email]],
+    :exception_recipients => [Enki::Config.default[:author, :email]]
+
+
   # openauth_pure
   Rails.application.config.middleware.use OmniAuth::Builder do
     # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!

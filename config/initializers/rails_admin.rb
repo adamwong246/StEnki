@@ -5,20 +5,15 @@ require Rails.root.join('lib', 'rails_admin_tree.rb')
 
 
 RailsAdmin.config do |config|
-
-  
-
-  
-
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
   # require 'i18n'
   # I18n.default_locale = :de
 
   config.authorize_with :cancan
-  # config.current_user_method { current_user } # auto-generated
+  config.current_user_method { current_user } # auto-generated
 
   
-  config.authenticate_with {}
+  config.authenticate_with { :devise }
   config.current_user_method {current_user}
 
   # If you want to track changes on your models:

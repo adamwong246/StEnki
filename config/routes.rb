@@ -1,19 +1,32 @@
 StEnki::Application.routes.draw do
   
+  resources :identities
+
+  match '/users/auth/:provider/callback', to: 'sessions#create'
+  match '/logout', to: 'sessions#destroy'
+
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
-  match '/auth/:service/callback' => 'services#create' 
-  match '/auth/failure' => 'services#failure'
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
 
-  resources :services, :only => [:index, :create, :destroy] do
-    collection do
-      get 'signin'
-      get 'signout'
-      get 'signup'
-      post 'newaccount'
-      get 'failure'
-    end
-  end
+  # get 'sign_in', :to => 'users/sessions#new', :as => :new_session
+
+  # # match '/auth/:service/callback' => 'services#create' 
+  # # resources :services, :only => [:index, :create, :destroy]
+
+
+  # match '/auth/:service/callback' => 'services#create' 
+  # match '/auth/failure' => 'services#failure'
+
+  # resources :services, :only => [:index, :create, :destroy] do
+  #   collection do
+  #     get 'signin'
+  #     get 'signout'
+  #     get 'signup'
+  #     post 'newaccount'
+  #     get 'failure'
+  #   end
+  # end
 
   resources :users
 
@@ -37,6 +50,8 @@ StEnki::Application.routes.draw do
     get 'posts.:format', :as => :formatted_posts
     get '(:tag)', :as => :posts
   end
+
+  match "utility/flashecho" => 'utilities#flashecho'
 
 
 
