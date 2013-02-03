@@ -1,8 +1,10 @@
 StEnki::Application.routes.draw do
 
+  devise_for :users
+  
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
-  devise_for :users
+  #, :path => '', :path_names => { :sign_in => "login", :sign_out => "signout", :sign_up => "register" }
 
   resources :users
 

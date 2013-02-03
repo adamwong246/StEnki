@@ -83,7 +83,7 @@ module StEnki
     ALL_THEMES = {}
     # THEMES[:none] = "application_bootstrap.css.scss"
     ['amelia', 'cerulean', 'cyborg', 'journal', 'readable', 'simplex', 
-    'slate', 'spacelab', 'spruce', 'superhero', 'united', 'solarized_dark', 'solarized_light', 'plain'].each do |name|
+    'slate', 'spacelab', 'spruce', 'superhero', 'united', 'solarized_dark', 'solarized_light', 'plain', 'terminal'].each do |name|
         ALL_THEMES[name] = "application_bootstrap_#{name}.css"
     end
 

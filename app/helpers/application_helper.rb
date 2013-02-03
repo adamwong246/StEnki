@@ -1,4 +1,6 @@
 module ApplicationHelper
+
+  DEFAULT_THEME = "application_bootstrap_terminal.css"
   
   def get_all_themes
     StEnki::Application::ALL_THEMES
@@ -14,12 +16,12 @@ module ApplicationHelper
       begin
         stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
       rescue
-        flash[:alert] = "Could not find user's preferred theme. Defaulting to cyborg"
-        stylesheet_link_tag "application_bootstrap_cyborg.css", :media => "all"
+        flash[:alert] = "Could not find user's preferred theme. Defaulting to #{DEFAULT_THEME}"
+        stylesheet_link_tag DEFAULT_THEME, :media => "all"
         
       end
     else
-      stylesheet_link_tag "application_bootstrap_plain.css", :media => "all"
+      stylesheet_link_tag DEFAULT_THEME, :media => "all"
     end
 
   end

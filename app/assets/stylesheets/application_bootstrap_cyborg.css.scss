@@ -15,6 +15,9 @@
   // First import variables
   
   @import "bootswatch/cyborg/variables";
+  
+
+  @import "common_bootstrap_variables";
 
   // Then bootstrap itself
   @import "bootstrap";

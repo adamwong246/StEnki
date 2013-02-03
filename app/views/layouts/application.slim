@@ -14,7 +14,10 @@ html dir="ltr" lang="en-US"
     = javascript_include_tag "application"
     = csrf_meta_tags 
 
-  body                           
+  body
+    / #header
+    /   = image_tag "bike.JPG"
+
     .container-fluid
       #sticky_navigation
         #user-navbar.navbar
@@ -30,15 +33,29 @@ html dir="ltr" lang="en-US"
                   li.dropdown
                     a.dropdown-toggle data-toggle="dropdown" href="#"
                       | Signed in as #{current_user.identify}
-                      b.caret
+
                     ul.dropdown-menu
                       li
                         = link_to "My profile", user_path(current_user)                         
                       li
-                        = link_to "Sign out", destroy_user_session_path
+                        = link_to "Sign out", destroy_user_session_path, :method => :delete
                 - else
                   li
                     = link_to "Sign in", user_session_path
+
+                  - if current_user && current_user.admin?
+                    li.dropdown
+                      a.dropdown-toggle data-toggle="dropdown" href="#"
+                        | Admin
+
+                      ul.dropdown-menu
+                        
+                        li
+                          a href="/pages" all pages 
+                        li
+                          = link_to "all routes", "/rails/routes"
+                        li
+                          = link_to "rails_admin", rails_admin_path
 
                      
               ul#social2.nav.pull-right
@@ -70,38 +87,36 @@ html dir="ltr" lang="en-US"
 
     footer#footer.row-fuid
       hr
-      .span.4
-        #footnotes_holder
       .span4.offset10 
         h1 Adam Wong 2012
         h1: a href="https://github.com/adamwong246/StEnki" source
       .span3
         = image_tag "sig.resized.jpg", :class =>'sig'
 
-    #footnotes_holder
+#footnotes_holder
 
-    -if current_user
-      #admin-navbar.navbar.navbar-fixed-bottom
-        div class="navbar-inner"
-          div class="container-fluid"
-            .nav-collapse
+/     -if current_user.admin?
+/       #admin-navbar.navbar.navbar-fixed-bottom
+/         div class="navbar-inner"
+/           div class="container-fluid"
+/             .nav-collapse
 
-              ul.nav                
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#"
-                    | Links
-                    b.caret
-                  ul.dropdown-menu
+/               ul.nav                
+/                 li.dropdown
+/                   a.dropdown-toggle data-toggle="dropdown" href="#"
+/                     | Links
+/                     b.caret
+/                   ul.dropdown-menu
                     
-                    li
-                      /= link_to "Sign in", signin_services_path
-                    li
-                      /= link_to "Sign out", signout_services_path
-                    li
-                      a href="/pages" all pages 
-                    li
-                      = link_to "all routes", "/rails/routes"
-                    li
-                      = link_to "rails_admin", rails_admin_path
-  #footnotes_holder
+/                     li
+/                       /= link_to "Sign in", signin_services_path
+/                     li
+/                       /= link_to "Sign out", signout_services_path
+/                     li
+/                       a href="/pages" all pages 
+/                     li
+/                       = link_to "all routes", "/rails/routes"
+/                     li
+/                       = link_to "rails_admin", rails_admin_path
+/ / #footnotes_holder
                 
