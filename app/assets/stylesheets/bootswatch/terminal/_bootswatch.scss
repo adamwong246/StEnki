@@ -6,9 +6,18 @@
 // -----------------------------------------------------
 
 @import url("https://fonts.googleapis.com/css?family=Droid+Sans:400,700");
+@import url("http://fonts.googleapis.com/css?family=VT323");
+@import url("http://fonts.googleapis.com/css?family=Advent+Pro");
 
 body{
-	text-shadow: 0 0 5px fade_out($_tronish, 0.3);
+	text-shadow: 0 0 30px fade_out($_tronish, 0.3);
+	font-family: 'Advent Pro', sans-serif;
+}
+
+a:hover{
+	color: $_tronish;
+	text-shadow: 0 0 60px white;	
+	text-decoration: none;
 }
 
 .navbar {
@@ -60,6 +69,13 @@ body {
 // NAVBAR
 // -----------------------------------------------------
 
+.navbar{
+	margin-bottom: 0px;
+}
+
+:hover{
+
+}
 .navbar-inner {
   @include border-radius(0);
   $shadow: none;
