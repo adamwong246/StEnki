@@ -6,7 +6,7 @@ StEnki::Application.routes.draw do
 
   #, :path => '', :path_names => { :sign_in => "login", :sign_out => "signout", :sign_up => "register" }
 
-  resources :users
+  resources :users, :except =>['index', 'create', 'new', 'destroy']
 
   match "/pages/about_me" => "pages#show", :id => 'files/about_me', :as => 'about_me'
   match "/pages/about_stenki" => "pages#show", :id => 'files/about_stenki', :as => 'about_stenki'

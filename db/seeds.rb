@@ -92,7 +92,7 @@ Post.find_or_create_by_title(:title => 'kitchen_sink.xml', :body => File.open(fa
 # For images, use File.open(Rails.root + "lib/tasks/lorem_post_with_images.erb").read
 # erb2 = File.open(fake_posts_path  + "lorem_post_with_images.erb").read
 # For no image
-erb2 = File.open(fake_posts_path  + "lorem_post_with_images.erb").read
+erb2 = File.open(fake_posts_path  + "lorem_post_without_images.erb").read
 
 # We want to test the limits of the depth of trees
 # Let's make a post with long deep tree with no branches

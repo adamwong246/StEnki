@@ -17,6 +17,7 @@
 # = require common
 # = require jquery.purr
 # = require best_in_place
+# = require turbolinks
 # = require_self
 # = require_tree .
 

@@ -15,9 +15,6 @@ html dir="ltr" lang="en-US"
     = csrf_meta_tags 
 
   body
-    / #header
-    /   = image_tag "bike.JPG"
-
     .container-fluid
       #sticky_navigation
         #user-navbar.navbar
@@ -43,19 +40,19 @@ html dir="ltr" lang="en-US"
                   li
                     = link_to "Sign in", user_session_path
 
-                  - if current_user && current_user.admin?
-                    li.dropdown
-                      a.dropdown-toggle data-toggle="dropdown" href="#"
-                        | Admin
+                - if current_user && current_user.admin?
+                  li.dropdown
+                    a.dropdown-toggle data-toggle="dropdown" href="#"
+                      | Admin
 
-                      ul.dropdown-menu
-                        
-                        li
-                          a href="/pages" all pages 
-                        li
-                          = link_to "all routes", "/rails/routes"
-                        li
-                          = link_to "rails_admin", rails_admin_path
+                    ul.dropdown-menu
+                      
+                      li
+                        a href="/pages" all pages 
+                      li
+                        = link_to "all routes", "/rails/routes"
+                      li
+                        = link_to "rails_admin", rails_admin_path
 
                      
               ul#social2.nav.pull-right

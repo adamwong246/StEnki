@@ -35,15 +35,41 @@ Pre
 <p><pre> <%= Faker::Lorem.sentences(15).join(" ") %> </pre></p>
 <h>
 Code
-<p><code> <%= Faker::Lorem.sentences(15).join('\n') %></code></p>
+<p><code> <%= Faker::Lorem.sentences(5).join(" ") %></code></p>
 <h>
 
 pre > code
 <pre><code>
-#header h1 a { 
-  display: block; 
-  width: 300px; 
-  height: 80px; 
+
+#modal-flash{
+  .alert-message{
+    padding-left: 5px;
+  }
+
+  button.btn{
+    float:right;
+  }
+}
+
+#footnotes_holder{
+  position: absolute;
+}
+
+.well{
+  border:none;
+}
+.modal h3, .modal h5{
+  color: black;
+}
+
+#sticky_navigation_wrapper { width:100%; height:50px; }
+
+#sticky_navigation {
+  width:100%;
+
+  &:hover{
+    opacity:1.0 !important;
+  }
 }
 </code></pre>
 <h>

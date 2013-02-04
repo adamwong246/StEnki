@@ -1,5 +1,16 @@
 class ApplicationController < ActionController::Base
 
+  layout :user_layout
+
+  protected
+  def user_layout
+    if current_user && current_user.experimental_mode
+      "fluid-functional"
+    else
+      "fixed-nonfunctional"
+    end
+  end
+
   # helper_method :current_user
   # helper_method :user_signed_in?
 

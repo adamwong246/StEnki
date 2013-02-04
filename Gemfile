@@ -41,7 +41,7 @@ gem 'formtastic'
 gem 'kaminari'
 # gem 'exception_notification', '~> 2.5.2'
 
-# gem 'turbolinks'
+gem 'turbolinks'
 
 # Gems used only for assets and not required
 # in production environments by default.

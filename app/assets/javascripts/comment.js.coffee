@@ -1,18 +1,12 @@
-$open_area = null
-
 $ -> # onload
-
-  ##########################
   $("a.form_open").click -> 
     $opened_area = $(this).next(".form_and_preview_container")#.children('div.hidden_comment_form');
 
     if ( $opened_area.is(':visible'))
-      # alert("visible");
       $opened_area.hide('blind',{direction: "vertical"},1000);
+
     else
-      # alert("invisible");
       $opened_area.show('blind',{direction: "vertical"},1000);
-      # $open_area = $opened_area
 
       $comment_form = $opened_area.children('.new_comment') #$(".new_comment")
       input_elements = $comment_form.find(":text, textarea")
@@ -31,39 +25,12 @@ $ -> # onload
       fetch_comment_preview($opened_area)
     
     false
-  ##########################
-
-
-
+  # end of $("a.form_open").click
 
   fetch_comment_preview = ($opened_area) ->
-    console.log("fetching preview on: ")
-    console.log($opened_area)
-
     $comment_form = $opened_area.children('.new_comment')
-    # console.log("form: ")
-    # console.log($comment_form)
 
     $preview_container = $comment_form.prev(".comment-preview-container")
-
-    # console.log("$preview_container: ")
-    # console.log($preview_container)
-
-    # console.log("$preview_container.length: ")
-    # console.log($preview_container.length)
-
-    # if $preview_container.length == 0
-    #   # console.log("no previe container. Creating preview ==================")
-    #   $comment_form.before "<div class=\"comment-preview-container\"></div>" 
-    #   $preview_container = $comment_form.prev(".comment-preview-container")
-
-      # console.log("$preview_container: ")
-      # console.log($preview_container)
-
-      # console.log("$preview_container.length: ")
-      # console.log($preview_container.length)
-
-
 
     dest = window.location.href
     dest = dest.split("#")[0]

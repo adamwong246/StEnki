@@ -4,7 +4,16 @@ class PagesController < HighVoltage::PagesController
   skip_load_and_authorize_resource
 
   # before_filter :authenticate
-  # layout :layout_for_page
+  layout :user_layout
+
+  protected
+  def user_layout
+    if false
+      "fluid-functional"
+    else
+      "fixed-nonfunctional"
+    end
+  end
 
   # def index
   #   @all_files = Dir['app/views/pages/files/**/*']
@@ -34,13 +43,4 @@ class PagesController < HighVoltage::PagesController
 
   # end
 
-  # protected
-  #   def layout_for_page
-  #     case params[:id]
-  #     when 'home'
-  #       'home'
-  #     else
-  #       'application'
-  #     end
-  #   end
 end

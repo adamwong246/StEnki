@@ -35,45 +35,5 @@ StEnki::Application.configure do
 
   config.reload_plugins = true
 
-  # openauth_pure
-  Rails.application.config.middleware.use OmniAuth::Builder do
-    # ALWAYS RESTART YOUR SERVER IF YOU MAKE CHANGES TO THESE SETTINGS!
-    
-    # you need a store for OpenID; (if you deploy on heroku you need Filesystem.new('./tmp') instead of Filesystem.new('/tmp'))
-    require 'openid/store/filesystem'
-    
-    # load certificates
-    require "openid/fetchers"
-    OpenID.fetcher.ca_file = "#{Rails.root}/config/ca-bundle.crt"
-
-    if StEnki::Application::CONFIG[:active_services].include?("facebook")
-      provider :facebook, SECRET_CONFIG[:facebook_secret_id], SECRET_CONFIG[:facebook_secret_key]
-    end
-
-    # providers with id/secret, you need to sign up for their services (see below) and enter the parameters here
-    # provider :facebook, SECRET_CONFIG[:facebook_secret_id], SECRET_CONFIG[:facebook_secret_key]
-    # provider :facebook, "297644757023528", "794dc42b53a3c7172dd6848ff1808b5b"
-
-    provider :twitter, '3db2b8dba0409fd13ee1', '161be84a3f06afee7bc738b3407192c6d761df1d'
-    provider :github, 'b9dde0bd04ae3a7d9400', '490c2c4ee64f0fcee2037b06db7bf3950530e942'
-    
-    # generic openid
-    provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'openid'
-    
-    # dedicated openid
-    provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
-    provider :google_apps, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'google_apps'
-    # /auth/google_apps; you can bypass the prompt for the domain with /auth/google_apps?domain=somedomain.com
-    
-    provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'yahoo', :identifier => 'yahoo.com' 
-    provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'aol', :identifier => 'openid.aol.com'
-    provider :openid, :store => OpenID::Store::Filesystem.new('/tmp'), :name => 'myopenid', :identifier => 'myopenid.com'
-    
-    # Sign-up urls for Facebook, Twitter, and Github
-    # https://developers.facebook.com/setup
-    # https://github.com/account/applications/new
-    # https://developer.twitter.com/apps/new
-  end
-
 end
 
