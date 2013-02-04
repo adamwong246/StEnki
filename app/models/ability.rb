@@ -38,8 +38,8 @@ class Ability
 
 
     can :read, :all                   # allow everyone to read everything
-    can :access, :rails_admin       # only allow admin users to access Rails Admin
-    can :dashboard, :all
+    # can :access, :rails_admin     
+    # can :dashboard, :all
 
     can :flashecho, :utilities
     
