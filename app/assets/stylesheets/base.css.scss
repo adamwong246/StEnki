@@ -18,6 +18,8 @@
 //   }
 // }
 
+// html{@include background-image(linear-gradient(white, #cccccc, #aaaaaa));}
+
 #modal-flash{
   .alert-message{
     padding-left: 5px;
@@ -27,6 +29,10 @@
     float:right;
   }
 }
+
+// a.brand{
+//   text-size: 30
+// }
 
 code{
   white-space: normal;

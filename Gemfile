@@ -51,6 +51,7 @@ group :assets do
   # gem 'therubyracer' #heroku says unnesecary but I need it for less to work
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
+  gem 'compass-rails'
 end
 
 platforms :ruby do
