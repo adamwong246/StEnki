@@ -62,7 +62,9 @@ StEnki::Application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners
-  config.active_support.deprecation = :notify
+  config.active_support.deprecation = :
+
+  config.action_mailer.default_url_options = { :host => 'ifailedtheturingtest.herokuapp.com' 
 
   require 'action_controller/metal/request_forgery_protection'
 
