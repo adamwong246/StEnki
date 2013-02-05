@@ -16,7 +16,9 @@
 html{
 	background-color: black;
 }
-
+.navbar .brand:hover{
+	border-bottom: none !important;
+}
 .brand, h3{
 	font-size: $fontSizeLarge !important;
 }
@@ -28,9 +30,9 @@ body{
 }
 
 a:hover{
-	color: $_tronish;
-	text-shadow: 0 0 60px $_tronish;	
-	text-decoration: none;
+	color: $_tronish !important;
+	text-shadow: 0 0 60px $_tronish !important;
+	text-decoration: none !important;
 }
 
 hr{
