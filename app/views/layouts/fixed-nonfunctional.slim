@@ -61,7 +61,13 @@ html dir="ltr" lang="en-US"
             p = link_to("Archive", archive_path)
             p = link_to("About me", about_me_path)
             p = link_to("About StEnki", about_stenki_path)
-            p = link_to "Sign in", user_session_path
+
+            - if current_user
+              p = link_to "My profile", user_path(current_user)
+              p = link_to "Sign out", destroy_user_session_path, :method => :delete
+            - else
+              p = link_to "Sign in", user_session_path
+
 
         .span9
           = render :partial => "shared/flash_messages", :locals => {:flash => flash}
