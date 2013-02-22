@@ -1,0 +1,27 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ */
+
+@import "comment.css.scss";
+
+#social-buttons { 
+  display: block; list-style: none; padding: 10px; margin: 10px;
+
+  > li { display: block; margin: 0; }
+  .socialite { display: block; position: relative; width: 150px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
+  .socialite-loaded { background: none; }
+
+  .twitter-share { background-position: 0 0; }
+  .googleplus-one { background-position: 0 -45px; }
+  .facebook-like { background-position: 0 -90px; }
+  .linkedin-share { background-position: 0 -135px; }
+  .pinterest-pinit { background-position: 0 -175px; }
+}

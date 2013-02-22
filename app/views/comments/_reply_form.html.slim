@@ -1,18 +1,19 @@
-a.form_open href="#" data-no-turbolink="true" Reply? 
-.form_and_preview_container.well
+.reply_form
+  a.form_open href="#" data-no-turbolink="true" Reply? 
+  .form_and_preview_container
 
-  h6 Your comment will appear as...
-  .comment-preview-container
+    h6 Your comment will appear as...
+    .comment-preview-container
 
-  = form_for(comment) do |form|
+    = form_for(comment) do |form|
 
-    = form.hidden_field :post_id
-    = form.hidden_field :parent_id
-    = form.hidden_field :user_id
+      = form.hidden_field :post_id
+      = form.hidden_field :parent_id
+      = form.hidden_field :user_id
 
-    p
-      = form.text_area 'body'
-      br/
-      a href="http://lesstile.rubyforge.org" Learn about lesstile
+      p
+        = form.text_area 'body'
+        br/
+        a href="http://lesstile.rubyforge.org" Learn about lesstile
 
-    p= submit_tag "Add Comment"
+      p= submit_tag "Add Comment"

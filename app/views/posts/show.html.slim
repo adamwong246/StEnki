@@ -1,15 +1,11 @@
+= render :partial => 'posts/post', :locals => {:post => @post, :short => false}
 
-.well
-  = render :partial => 'posts/post', :locals => {:post => @post, :short => false}
-
-hr
-.well
-  -if current_user
-    - child_comment= @post.comments.create
-    - child_comment.user = current_user
-    = render :partial => 'comments/reply_form', :locals => {:comment => child_comment}
-  -else
-    | You need to sign in to reply
+-if current_user
+  - child_comment= @post.comments.create
+  - child_comment.user = current_user
+  = render :partial => 'comments/reply_form', :locals => {:comment => child_comment} 
+-else
+  | You need to sign in to reply
 
 - @root_comments.each do |comment|
   = render :partial => 'comments/comment', :locals => {:comment => comment, :level => 0, :reply_link => true}

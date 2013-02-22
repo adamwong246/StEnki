@@ -7,7 +7,7 @@
   h5 
     = format_post_date(post.published_at)
 
-.entrybody.well
+.entrybody
   - if short
     /= raw truncate_html  post.body_html, :length => 500
     /= raw truncate_html  post.body_html, :length => 500

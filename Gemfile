@@ -10,9 +10,8 @@ gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/
 gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem 'ancestry'
 gem 'sextant'
-gem 'cancan'
+
 gem 'jquery-rails'
-# gem 'bootswatch-rails'
 gem 'faker'
 gem 'high_voltage'
 gem 'builder' # for building xml/html, it's better than content_tag
@@ -29,6 +28,8 @@ gem 'omniauth-google-apps'
 gem 'omniauth-identity'
 gem 'oauth2'
 gem 'devise'
+gem 'cancan'
+gem 'rolify'
 
 gem "best_in_place" 
 gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
@@ -42,16 +43,15 @@ gem 'kaminari'
 # gem 'exception_notification', '~> 2.5.2'
 
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'bootstrap-sass'
   # gem 'therubyracer' #heroku says unnesecary but I need it for less to work
   gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
-  gem 'compass-rails'
 end
 
 platforms :ruby do

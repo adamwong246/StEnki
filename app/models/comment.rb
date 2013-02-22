@@ -1,8 +1,8 @@
 class Comment < ActiveRecord::Base
   DEFAULT_LIMIT = 15
 
-  attr_accessor         :openid_error
-  attr_accessor         :openid_valid
+  # attr_accessor         :openid_error
+  # attr_accessor         :openid_valid
 
   belongs_to :post
   belongs_to :user
@@ -16,12 +16,12 @@ class Comment < ActiveRecord::Base
 
   validates_presence_of :body, :post, :user
   
-  validate :open_id_error_should_be_blank
+  # validate :open_id_error_should_be_blank
 
 
-  def open_id_error_should_be_blank
-    errors.add(:base, openid_error) unless openid_error.blank?
-  end
+  # def open_id_error_should_be_blank
+  #   errors.add(:base, openid_error) unless openid_error.blank?
+  # end
 
   def apply_filter
     self.body_html = Lesstile.format_as_xhtml(self.body, :code_formatter => Lesstile::CodeRayFormatter)
@@ -47,30 +47,30 @@ class Comment < ActiveRecord::Base
   #   !!(author =~ %r{^https?://} || author.index('.'))
   # end
 
-  def trusted_user?
-    false
-  end
+  # def trusted_user?
+  #   false
+  # end
 
-  def user_logged_in?
-    false
-  end
+  # def user_logged_in?
+  #   false
+  # end
 
-  def approved?
-    true
-  end
+  # def approved?
+  #   true
+  # end
 
   def denormalize
     self.post.denormalize_comments_count!
   end
 
-  def destroy_with_undo
-    undo_item = nil
-    transaction do
-      self.destroy
-      undo_item = DeleteCommentUndo.create_undo(self)
-    end
-    undo_item
-  end
+  # def destroy_with_undo
+  #   undo_item = nil
+  #   transaction do
+  #     self.destroy
+  #     undo_item = DeleteCommentUndo.create_undo(self)
+  #   end
+  #   undo_item
+  # end
 
   # Delegates
   def post_title

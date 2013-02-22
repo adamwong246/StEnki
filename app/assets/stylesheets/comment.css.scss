@@ -1,26 +1,10 @@
+/*
+ * This is a manifest file that'll be compiled into apps.css, which will include all the files
+ * listed below.
+ *
+ *= require_self
+*/
 
-div.comment_container{
-  // border: 1px solid white;
-  // background-color: $base02;
-  padding:5px;
-  padding-left: 10px;
-  margin-bottom: 5px;
-  
-}
-
-div.form_and_preview_container {
-    display:none;
-    // border: 1px solid red;
-    padding:10px;
-    margin:0px;
-}
-
-
-
-
-.form_and_preview_container{
-  // background-color: blue;
-}
-.comment-preview-container{
-  // border:5px solid red;
+.reply_form .form_and_preview_container{
+  display:none;
 }
