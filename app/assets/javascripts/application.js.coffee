@@ -30,6 +30,14 @@ $ ->
   $("#social-buttons > li").one "mouseenter", ->
     Socialite.load $(this)[0]
 
+# scroll to top button
+$ -> 
+  $("a#scroll_to_top").click -> 
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
+
+    
+
     # $(this).children(".socialite").css
     #   "height": 30
 

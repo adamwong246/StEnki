@@ -35,11 +35,14 @@ html dir="ltr" lang="en-US"
 
       - if current_user
         li= link_to "Rails_admin", rails_admin_path, :'data-no-turbolink' => true
-        
+
         li= link_to "Logged in as #{current_user.identify}", user_path(current_user)
         li= link_to "Sign out", destroy_user_session_path, :method => :delete
       - else
         li= link_to "Sign in", user_session_path
+
+      
+    a#scroll_to_top href="#" Scroll to top
 
     = render :partial => "shared/flash_messages", :locals => {:flash => flash}
     = yield    
