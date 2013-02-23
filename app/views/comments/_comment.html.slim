@@ -1,5 +1,5 @@
 - if !comment.nil?
-  .comment_container
+  li.comment_container
     /-if !comment.parent.nil?
       /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
       /p= "show parent"
@@ -35,7 +35,9 @@
         | you need to log in
 
       /# - if level < 
-      - comment.children.each do |comment|
-        = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
+      -if comment.children
+        ol
+          - comment.children.each do |comment|
+            = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
 
 
