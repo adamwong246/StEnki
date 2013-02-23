@@ -81,6 +81,7 @@ group :test do
   gem 'webrat'
   gem 'sqlite3'
   gem 'mailcatcher'
+  gem 'steak'
 end
 
 group :development, :test do
