@@ -8,6 +8,7 @@ gem "nokogiri"
 gem "htmlentities" # A module for encoding and decoding (X)HTML entities.
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
 gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
+gem "paper_trail"
 gem 'ancestry'
 gem 'sextant'
 

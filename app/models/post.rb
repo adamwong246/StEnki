@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  has_paper_trail
 
   default_scope order('published_at DESC') 
   # default_scope where(:active => true)

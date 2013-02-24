@@ -20,7 +20,7 @@ RailsAdmin.config do |config|
   # config.audit_with :history, User
 
   # Or with a PaperTrail: (you need to install it first)
-  # config.audit_with :paper_trail, User
+  config.audit_with :paper_trail, User
 
   # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
   config.main_app_name = ['StEnki', 'Admin']
@@ -236,6 +236,16 @@ RailsAdmin.config do |config|
     end
   end
    
+  module RailsAdmin
+    module Config
+      module Actions
+        class Documentation < RailsAdmin::Config::Actions::Base
+          RailsAdmin::Config::Actions.register(self)
+
+        end
+      end
+    end
+  end
 
 
   config.actions do
