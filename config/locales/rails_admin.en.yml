@@ -6,3 +6,8 @@ en:
         bulk_link: "Publish selected  %{model_label} '%{object_label}"
         menu: "Tree"
         breadcrumb: "Tree view"
+      documentation:
+        title: "Documentation"
+        bulk_link: "Publish selected  %{model_label} '%{object_label}"
+        menu: "Documentation"
+        breadcrumb: "Documentation"

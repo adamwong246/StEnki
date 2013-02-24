@@ -240,7 +240,12 @@ RailsAdmin.config do |config|
 
   config.actions do
     # root actions
-    dashboard                     # mandatory
+    dashboard # do # mandatory
+    #   statistics false
+    # end         
+
+    root :documentation
+
     # collection actions
     index                         # mandatory
     new
@@ -263,18 +268,22 @@ RailsAdmin.config do |config|
       end
     end
 
-    nestable do
-      visible do
-        [Comment].include? bindings[:abstract_model].model
-        # bindings[:abstract_model].model.to_s == "Comment"
-      end
-    end
+
+
+    # nestable do
+    #   visible do
+    #     [Comment].include? bindings[:abstract_model].model
+    #     # bindings[:abstract_model].model.to_s == "Comment"
+    #   end
+    # end
+
+    
 
   end
 
-  config.model Comment do
-    nestable_tree({ preview_field: :author, position_field: :id, max_depth: 3 })
-    # nestable_list position_field: :created_at
-  end
+  # config.model Comment do
+  #   nestable_tree({ preview_field: :author, position_field: :id, max_depth: 3 })
+  #   # nestable_list position_field: :created_at
+  # end
 
 end
