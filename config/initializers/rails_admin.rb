@@ -235,11 +235,22 @@ RailsAdmin.config do |config|
       end
     end
   end
-   
+  
   module RailsAdmin
     module Config
       module Actions
         class Documentation < RailsAdmin::Config::Actions::Base
+          RailsAdmin::Config::Actions.register(self)
+
+        end
+      end
+    end
+  end
+
+  module RailsAdmin
+    module Config
+      module Actions
+        class AllRoutes < RailsAdmin::Config::Actions::Base
           RailsAdmin::Config::Actions.register(self)
 
         end
@@ -254,7 +265,8 @@ RailsAdmin.config do |config|
     #   statistics false
     # end         
 
-    root :documentation
+    root :documentation, :documentation
+    root :all_routes, :all_routes
 
     # collection actions
     index                         # mandatory
@@ -274,7 +286,9 @@ RailsAdmin.config do |config|
     tree do
       # Make it visible only for article model. You can remove this if you don't need.
       visible do
-        bindings[:abstract_model].model.to_s == "Comment"
+        %w(Comment).include? bindings[:abstract_model].model_name
+        # bindings[:abstract_model].model.to_s == "Comment"
+
       end
     end
 

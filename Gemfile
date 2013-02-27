@@ -1,5 +1,7 @@
 source "http://rubygems.org"
 
+gem 'debugger'
+
 gem "thin", "~> 1.4.1"
 gem 'dalli', '~>1.0.5' # memcaching on heroku
 gem 'slim'
@@ -10,7 +12,7 @@ gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/
 gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 gem "paper_trail"
 gem 'ancestry'
-gem 'sextant'
+# gem 'sextant'
 
 gem 'jquery-rails'
 gem 'faker'
@@ -32,7 +34,7 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 
-# gem 'gollum'
+gem 'gollum'
 
 gem "best_in_place" 
 gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'

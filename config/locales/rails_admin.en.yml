@@ -11,3 +11,8 @@ en:
         bulk_link: "Publish selected  %{model_label} '%{object_label}"
         menu: "Documentation"
         breadcrumb: "Documentation"
+      all_routes:
+        title: "Routes"
+        bulk_link: "Publish selected  %{model_label} '%{object_label}"
+        menu: "Routes"
+        breadcrumb: "Routes"

@@ -1,8 +1,18 @@
+require 'gollum/frontend/app'
+
 StEnki::Application.routes.draw do
 
   devise_for :users
   
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
+
+  require 'gollum/frontend/app'
+
+  Precious::App.set(:gollum_path, "git@github.com:adamwong246/StEnki.wiki.git")
+  Precious::App.set(:default_markup, :markdown) # set your favorite markup language
+  Precious::App.set(:wiki_options, {:universal_toc => false})
+  mount Precious::App, at: 'wiki'
+
 
   #, :path => '', :path_names => { :sign_in => "login", :sign_out => "signout", :sign_up => "register" }
 
