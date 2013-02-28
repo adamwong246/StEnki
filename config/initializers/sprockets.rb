@@ -1,1 +1,2 @@
-# Rails.application.assets.register_preprocessor('application/javascript', RootUrlPreprocessor)
+# Rails.application.assets.register_preprocessor('application/zpng', ZpngPreprocessor)
+

@@ -4,7 +4,7 @@
 # Mime::Type.register "text/richtext", :rtf
 # Mime::Type.register_alias "text/html", :iphone
 
-Mime::Type.register "application/zpng", :zpng
+Mime::Type.register "image/zpng", :zpng
 puts "mime type added"
 
 puts "mime for .zpng: " + Mime::Type.lookup_by_extension('zpng')

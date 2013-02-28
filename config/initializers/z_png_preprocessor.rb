@@ -5,14 +5,12 @@ class ZpngPreprocessor < Sprockets::Processor
 
     puts "ZpngPreprocessor called"
 
-    png = ChunkyPNG::Image.new(16, 16, ChunkyPNG::Color::TRANSPARENT)
-    png[1,1] = ChunkyPNG::Color.rgba(10, 20, 30, 128)
-    png[2,1] = ChunkyPNG::Color('black @ 0.5')
+    image = ChunkyPNG::Image.from_file('_zpng_test.png')
 
-    # return data.gsub(%r"\bpng\b", "HERP DA DERP")
-    data = png
+    new_image = image.flip_horizontally.rotate_right
+    data = new_image
     return data
   end
 end
 
-Rails.application.assets.register_processor('application/zpng', ZpngPreprocessor)
+Rails.application.assets.register_preprocessor('application/zpng', ZpngPreprocessor)

@@ -1,0 +1,7 @@
+require 'chunky_png'
+
+image = ChunkyPNG::Image.from_file('_zpng_test.png')
+
+new_image = image.flip_horizontally.rotate_right
+
+new_image.save('zpng_test.png') # Overwrite file

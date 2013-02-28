@@ -70,6 +70,8 @@ module Enki
     config.assets.version = '1.0'
 
     config.app_generators.stylesheet_engine :sass
+
+    
   end
 end
 
