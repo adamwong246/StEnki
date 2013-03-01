@@ -1,3 +1,5 @@
+- current_url = "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
+
 doctype html
 html dir="ltr" lang="en-US"
   head
@@ -8,49 +10,84 @@ html dir="ltr" lang="en-US"
     meta name="description" content=""
     meta name="author" content=""
 
-    = stylesheet_link_tag "application", :media => "all"
+    = get_theme_stylesheet_link
     = javascript_include_tag "application"
     = csrf_meta_tags 
 
   body
-    
-    = link_to "I failed the turing test", :root           
-            
-    ul#social-buttons
-      li
-        a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
-      li
-        a.socialite.googleplus-one data-href=current_url data-size="wide" href="https://plus.google.com/share?url=#{current_url}" rel="nofollow" target="_blank"
-      li
-        a.socialite.facebook-like data-href=current_url data-layout="button_count" data-send="false" data-show-faces="false" data-width="60" href="http://www.facebook.com/sharer.php?u=#{current_url}&t=Socialite.js" rel="nofollow" target="_blank"
-      li
-        a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
+    .container-fluid
+      / #sticky_navigation
+      #user-navbar.navbar
+        .navbar-inner
+          a.brand href="/" I failed the turing test
+          .nav-collapse
+            ul.nav.pull-left
+              li
+                a#scroll_to_top href="#"
+                  i.icon-circle-arrow-up.glyph_black_or_white 
+                                
+              - if current_user
+                li.dropdown
+                  a.dropdown-toggle data-toggle="dropdown" href="#"
+                    | Signed in as #{current_user.identify}
+
+                  ul.dropdown-menu
+                    li
+                      = link_to "My profile", user_path(current_user)                         
+                    li
+                      = link_to "Sign out", destroy_user_session_path, :method => :delete
+              - else
+                li
+                  = link_to "Sign in", user_session_path
+
+              - if current_user && current_user.admin?
+                li.dropdown
+                  a.dropdown-toggle data-toggle="dropdown" href="#"
+                    | Admin
+
+                  ul.dropdown-menu
+                    
+                    li
+                      a href="/pages" all pages 
+                    li
+                      = link_to "all routes", "/rails/routes"
+                    li
+                      = link_to "rails_admin", rails_admin_path
+
+                   
+            ul#social2.nav.pull-right
+              li
+                a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
+                  span.vhidden Share on Twitter
+              li
+                a.socialite.googleplus-one data-href=current_url data-size="wide" href="https://plus.google.com/share?url=#{current_url}" rel="nofollow" target="_blank"
+                 span.vhidden Share on Google+
+              li
+                a.socialite.facebook-like data-href=current_url data-layout="button_count" data-send="false" data-show-faces="false" data-width="60" href="http://www.facebook.com/sharer.php?u=#{current_url}&t=Socialite.js" rel="nofollow" target="_blank"
+                  span.vhidden Share on Facebook
+              li
+                a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
+                  span.vhidden Share on LinkedIn
          
-    = render :partial => 'posts/navigation', :locals => {:limit => 6}
+      #top_of_page.row-fluid
+        .span3
+          ul.well.sidebar-nav.nav.nav_list
+            = render :partial => 'posts/navigation', :locals => {:limit => 6}
+            hr
+            p = link_to("Archive", archive_path)
+            p = link_to("About me", about_me_path)
+            p = link_to("About StEnki", about_stenki_path)
 
-    ul
-      li= link_to("Archive", archive_path)
-      li= link_to("About me", about_me_path)
-      li= link_to("About StEnki", about_stenki_path)
+        .span9
+          = render :partial => "shared/flash_messages", :locals => {:flash => flash}
+          = yield    
 
-      - if current_user
-        li= link_to "Rails_admin", rails_admin_path, :'data-no-turbolink' => true
-
-        li= link_to "Logged in as #{current_user.identify}", user_path(current_user)
-        li= link_to "Sign out", destroy_user_session_path, :method => :delete
-      - else
-        li= link_to "Sign in", user_session_path
-
-      
-    a#scroll_to_top href="#" Scroll to top
-
-    = render :partial => "shared/flash_messages", :locals => {:flash => flash}
-    = yield    
-
-    footer#footer
-      h1 Adam Wong 2012
-      h1: a href="https://github.com/adamwong246/StEnki" source
-      = image_tag "sig.resized.jpg", :class =>'sig'
+    footer#footer.row-fuid
+      hr
+      .span4.offset10 
+        h1 Adam Wong 2012
+        h1: a href="https://github.com/adamwong246/StEnki" source
+      .span3
+        = image_tag "sig.resized.jpg", :class =>'sig'
 
 #footnotes_holder
-                

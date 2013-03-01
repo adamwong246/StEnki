@@ -1,5 +1,18 @@
 - unless flash.empty?
-  - flash.each do |type, message|
-        div data-alert="alert" class=type
+  #modal-flash.modal.hide.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+    - if flash[:title]
+      .modal-header
+        / button.close aria-hidden="true" data-dismiss="modal" type="button"
+        h3#myModalLabel 
+          = flash[:title]
+
+    .modal-body
+      / =flash.inspect
+      - flash.reject {|type, message| type == :title}.each do |type, message|
+        div.alert-message.fade.in data-alert="alert" class=twitterized_type(type) 
           p             
-            = message
+            = message 
+      
+
+      button.btn aria-hidden="true" data-dismiss="modal" Ok 
+    / button.btn.btn-primary Save changes

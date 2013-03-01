@@ -10,14 +10,14 @@
  *
  */
 
-  // Example using '<%= theme_name %>' bootswatch
+  // Example using 'amelia' bootswatch
 
   // First import variables
-  <% if !(theme_name == 'plain') %>
-  <%= "@import \"bootswatch/#{theme_name}/variables\";" %>
-  <% end %>
+  
+  @import "bootswatch/amelia/variables";
+  
 
-  <%= "@import \"common_bootstrap_variables\";" %>
+  @import "common_bootstrap_variables";
 
   // Then bootstrap itself
   @import "bootstrap";
@@ -26,9 +26,9 @@
   @import "bootstrap-responsive";
 
   // And finally bootswatch style itself
-  <% if theme_name != "plain" %>
-  <%= "@import \"bootswatch/#{theme_name}/bootswatch\";" %>
-  <% end %>
+  
+  @import "bootswatch/amelia/bootswatch";
+  
 
   // Whatever application styles you have go last
   @import "base";

@@ -413,6 +413,7 @@ DEPENDENCIES
   activerecord-jdbcsqlite3-adapter
   ancestry
   best_in_place
+  bootstrap-sass
   builder
   cancan
   coderay
