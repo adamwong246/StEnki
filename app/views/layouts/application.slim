@@ -36,23 +36,26 @@ html dir="ltr" lang="en-US"
                       = link_to "My profile", user_path(current_user)                         
                     li
                       = link_to "Sign out", destroy_user_session_path, :method => :delete
+                    li
+                      = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
+
               - else
                 li
                   = link_to "Sign in", user_session_path
 
-              - if current_user && current_user.admin?
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#"
-                    | Admin
+              / - if current_user && current_user.admin?
+              /   li.dropdown
+              /     a.dropdown-toggle data-toggle="dropdown" href="#"
+              /       | Admin
 
-                  ul.dropdown-menu
+              /     ul.dropdown-menu
                     
-                    li
-                      a href="/pages" all pages 
-                    li
-                      = link_to "all routes", "/rails/routes"
-                    li
-                      = link_to "rails_admin", rails_admin_path
+              /       li
+              /         a href="/pages" all pages 
+              /       li
+              /         = link_to "all routes", "/rails/routes"
+              /       li
+              /         = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
 
                    
             ul#social2.nav.pull-right

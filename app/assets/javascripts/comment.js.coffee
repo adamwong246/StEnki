@@ -1,5 +1,7 @@
 $ -> # onload
+
   $("a.form_open").click -> 
+
     $opened_area = $(this).next(".form_and_preview_container")#.children('div.hidden_comment_form');
 
     if ( $opened_area.is(':visible'))
