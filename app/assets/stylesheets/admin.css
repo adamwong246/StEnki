@@ -1,7 +1,0 @@
-/* Keep me! This file prevents rails_admin from using our application styling.*/
-
-// Then bootstrap itself
-@import "bootstrap";
-
-// Responsive styles go here in case you want them
-@import "bootstrap-responsive";
