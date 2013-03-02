@@ -4,7 +4,6 @@ class Post < ActiveRecord::Base
   default_scope order('published_at DESC') 
   # default_scope where(:active => true)
 
-
   DEFAULT_LIMIT = 15
 
   acts_as_taggable

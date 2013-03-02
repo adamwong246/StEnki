@@ -22,6 +22,8 @@ gem 'builder' # for building xml/html, it's better than content_tag
 gem 'simple-navigation'
 # gem 'simple-navigation', :path => "~/git/simple-navigation/"
 
+gem 'feedzirra'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
