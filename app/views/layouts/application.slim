@@ -16,32 +16,32 @@ html dir="ltr" lang="en-US"
 
   body
     .container-fluid
-      / #sticky_navigation
-      #user-navbar.navbar
-        .navbar-inner
-          a.brand href="/" I failed the turing test
-          .nav-collapse
-            ul.nav.pull-left
-              li
-                a#scroll_to_top href="#"
-                  i.icon-circle-arrow-up.glyph_black_or_white 
-                                
-              - if current_user
-                li.dropdown
-                  a.dropdown-toggle data-toggle="dropdown" href="#"
-                    | Signed in as #{current_user.identify}
-
-                  ul.dropdown-menu
-                    li
-                      = link_to "My profile", user_path(current_user)                         
-                    li
-                      = link_to "Sign out", destroy_user_session_path, :method => :delete
-                    li
-                      = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
-
-              - else
+      #sticky_navigation
+        #user-navbar.navbar
+          .navbar-inner
+            a.brand href="/" I failed the turing test
+            .nav-collapse
+              ul.nav.pull-left
                 li
-                  = link_to "Sign in", user_session_path
+                  a#scroll_to_top href="#"
+                    i.icon-circle-arrow-up.glyph_black_or_white 
+                                  
+                - if current_user
+                  li.dropdown
+                    a.dropdown-toggle data-toggle="dropdown" href="#"
+                      | Signed in as #{current_user.identify}
+
+                    ul.dropdown-menu
+                      li
+                        = link_to "My profile", user_path(current_user)                         
+                      li
+                        = link_to "Sign out", destroy_user_session_path, :method => :delete
+                      li
+                        = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
+
+                - else
+                  li
+                    = link_to "Sign in", user_session_path
 
               / - if current_user && current_user.admin?
               /   li.dropdown

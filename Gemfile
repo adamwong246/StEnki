@@ -34,8 +34,6 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 
-gem 'gollum'
-
 gem "best_in_place" 
 gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
 gem 'ruby-openid', :require => 'openid'
