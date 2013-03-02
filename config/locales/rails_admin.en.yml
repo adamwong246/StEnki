@@ -6,6 +6,11 @@ en:
         bulk_link: "Publish selected  %{model_label} '%{object_label}"
         menu: "Tree"
         breadcrumb: "Tree view"
+      tumblr:
+        title: "Tumblr title"
+        bulk_link: "Tumblr bulk link"
+        menu: "Tumblr meny"
+        breadcrumb: "Tumblr breadcrumb"
       documentation:
         title: "Documentation"
         bulk_link: "Publish selected  %{model_label} '%{object_label}"

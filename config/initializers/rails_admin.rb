@@ -2,6 +2,9 @@
 # See github.com/sferik/rails_admin for more informations
 
 require Rails.root.join('lib', 'rails_admin_tree.rb')
+require Rails.root.join('lib', 'rails_admin_tumblr.rb')
+require Rails.root.join('lib', 'rails_admin_documentation.rb')
+require Rails.root.join('lib', 'rails_admin_all_routes.rb')
 
 
 RailsAdmin.config do |config|
@@ -235,7 +238,16 @@ RailsAdmin.config do |config|
       end
     end
   end
-  
+  module RailsAdmin
+    module Config
+      module Actions
+        class Tumblr < RailsAdmin::Config::Actions::Base
+          RailsAdmin::Config::Actions.register(self)
+
+        end
+      end
+    end
+  end
   module RailsAdmin
     module Config
       module Actions
@@ -289,6 +301,12 @@ RailsAdmin.config do |config|
         %w(Comment).include? bindings[:abstract_model].model_name
         # bindings[:abstract_model].model.to_s == "Comment"
 
+      end
+    end
+
+    tumblr do
+      visible do
+        %w(Post).include? bindings[:abstract_model].model_name
       end
     end
 
