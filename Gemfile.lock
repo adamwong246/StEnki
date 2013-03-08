@@ -1,3 +1,8 @@
+PATH
+  remote: ~/Programming/rails_admin_import
+  specs:
+    rails_admin_import (0.2.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -101,6 +106,9 @@ GEM
       multi_json (~> 1.0)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.2.1)
+      factory_girl (~> 4.2.0)
+      railties (>= 3.0.0)
     faker (1.1.2)
       i18n (~> 0.5)
     faraday (0.8.5)
@@ -409,7 +417,7 @@ DEPENDENCIES
   debugger
   devise
   exception_notification (~> 2.5.2)
-  factory_girl
+  factory_girl_rails
   faker
   feedzirra
   formtastic
@@ -442,6 +450,7 @@ DEPENDENCIES
   rack-openid
   rails-footnotes (>= 3.7.5.rc4)
   rails_admin
+  rails_admin_import!
   rails_admin_nestable
   rb-fchange
   rb-fsevent

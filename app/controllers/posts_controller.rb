@@ -18,8 +18,7 @@ class PostsController < ApplicationController
 
     @posts = Post.where(:active => true).page(params[:page]).per(3)
 
-    feed = Feedzirra::Feed.fetch_and_parse("http://adamwong246.tumblr.com/rss")
-    @tumblrs = feed.entries
+    
 
     respond_to do |format|
       format.html 

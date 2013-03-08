@@ -23,6 +23,10 @@ gem 'simple-navigation'
 # gem 'simple-navigation', :path => "~/git/simple-navigation/"
 
 gem 'feedzirra'
+# gem "rails_admin_import", :git => "git://github.com/stephskardal/rails_admin_import.git"
+# gem "rails_admin_import", :git => "git://github.com/joelvh/rails_admin_import.git"
+gem "rails_admin_import", :path => "~/Programming/rails_admin_import"
+
 
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -81,7 +85,7 @@ group :test do
   gem 'database_cleaner'
   gem 'cucumber-rails',    :require => false
   gem 'cucumber-websteps', :require => false
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'rspec'
   # gem 'nokogiri', '~> 1.5.0'
   gem 'webrat'

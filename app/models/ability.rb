@@ -36,6 +36,7 @@ class Ability
     #     can :manage, :all
     # end
 
+    can :import, [Post]
 
     can :read, :all                   # allow everyone to read everything
     # can :access, :rails_admin     
@@ -47,13 +48,8 @@ class Ability
       can :access, :rails_admin       # only allow admin users to access Rails Admin
       can :dashboard, :all            # allow access to dashboard
       can :my_dashboard, :all
-      if user.admin?
-        can :manage, :all             # allow superadmins to do anything
-        can :access, :all
-
-      elsif user.guest?
-        can :manage, :all  # allow managers to do anything to products and users
-      end
+      can :manage, :all             # allow superadmins to do anything
+      can :access, :all
     end
 
   end

@@ -2,10 +2,58 @@
 # See github.com/sferik/rails_admin for more informations
 
 require Rails.root.join('lib', 'rails_admin_tree.rb')
-require Rails.root.join('lib', 'rails_admin_tumblr.rb')
 require Rails.root.join('lib', 'rails_admin_documentation.rb')
 require Rails.root.join('lib', 'rails_admin_all_routes.rb')
 
+RailsAdminImport.config do |config| 
+  config.model Post do
+
+    # # Fields to make available for import (whitelist)
+    # included_fields do
+    #   [:id, :title, :slug]
+    # end
+
+    # # Fields to skip (blacklist)
+    # excluded_fields do
+    #   [:field1, :field2, :field3]
+    # end
+
+    # # Custom methods to get/set the values on? (Not in use?)
+    # extra_fields do
+    #   [:field3, :field4, :field5]
+    # end
+
+    # # Name of the method on the model to use in alert messages indicating success/failure of import
+    label :title
+
+    # # Specifies the field to use to find existing records (when nil, admin page shows dropdown with options)
+
+    update_lookup_field do
+      :title
+    end
+
+    rss_mapping do
+      {
+        :title => Proc.new{ |item| item.title  + item.published.to_s },
+        :body => Proc.new{ |item| item.summary },
+        :published_at => Proc.new{ |item| item.published }
+      }
+    end
+
+    # rss_map[:title] = Proc.new{ |item| item.title  + item.published.to_s }
+    # rss_map[:body] = Proc.new{ |item| item.summary }
+    # rss_map[:published_at] = Proc.new{ |item| item.published }
+
+    # Define instance methods to be hooked into the import process, if special/additional processing is required on the data
+    # before_import_save do
+    #   # block must return an object that responds to the "call" method
+    #   lambda do |model, row, map|
+    #     # skip confirmation email when importing Devise User model
+    #     model.skip_confirmation!
+    #   end
+    # end
+  end
+end
 
 RailsAdmin.config do |config|
   # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
@@ -226,22 +274,11 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-  # Register the class in lib/rails_admin_publish.rb
-# Register the class in lib/rails_admin_publish.rb
+
   module RailsAdmin
     module Config
       module Actions
         class Tree < RailsAdmin::Config::Actions::Base
-          RailsAdmin::Config::Actions.register(self)
-
-        end
-      end
-    end
-  end
-  module RailsAdmin
-    module Config
-      module Actions
-        class Tumblr < RailsAdmin::Config::Actions::Base
           RailsAdmin::Config::Actions.register(self)
 
         end
@@ -304,11 +341,7 @@ RailsAdmin.config do |config|
       end
     end
 
-    tumblr do
-      visible do
-        %w(Post).include? bindings[:abstract_model].model_name
-      end
-    end
+    import
 
 
 
