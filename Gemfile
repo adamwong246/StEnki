@@ -96,8 +96,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'aaronh-chronic' # A natural language date parser with timezone support
   gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
-  gem "rails_admin_import", :path => "~/Programming/rails_admin_import"
+  
 end
+
+gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
 
 group :development do
   gem 'guard'
@@ -118,7 +120,7 @@ group :development do
 end
 
 group :production do 
-  gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
+  # gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
 end
 
 # group :development do
