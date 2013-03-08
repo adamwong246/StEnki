@@ -23,9 +23,7 @@ gem 'simple-navigation'
 # gem 'simple-navigation', :path => "~/git/simple-navigation/"
 
 gem 'feedzirra'
-# gem "rails_admin_import", :git => "git://github.com/stephskardal/rails_admin_import.git"
-# gem "rails_admin_import", :git => "git://github.com/joelvh/rails_admin_import.git"
-gem "rails_admin_import", :path => "~/Programming/rails_admin_import"
+
 
 
 gem 'omniauth'
@@ -98,6 +96,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'aaronh-chronic' # A natural language date parser with timezone support
   gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
+  gem "rails_admin_import", :path => "~/Programming/rails_admin_import"
 end
 
 group :development do
@@ -116,6 +115,10 @@ group :development do
 
   gem 'ruby-prof' # method benchmarking
 
+end
+
+group :production do 
+  gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
 end
 
 # group :development do
