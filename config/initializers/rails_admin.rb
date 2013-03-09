@@ -32,17 +32,23 @@ RailsAdminImport.config do |config|
       :title
     end
 
+    # This maps record fields to RSS item attributes. 'item' is an RSS item
     rss_mapping do
       {
         :title => Proc.new{ |item| "From my tumblr: " + item.title + ", " + item.published.strftime('%b %e, %l:%M %p') },
+
+        # Inserts a link to the original content in the body of the html
         :body => Proc.new{ |item| item.summary + "<p><a href=\"#{item.url}\">#{item.url}</a></p>"},
-        :published_at => Proc.new{ |item| item.published }
+        :published_at => Proc.new{ |item| item.published },
+
+        # This mapping is also usefull for setting defaults
+        :active => Proc.new{|item| false}
+        
+        # TODO: rewrite overload rss mapping to allow non-Procs data types
+        # :active => false
+
       }
     end
-
-    # rss_map[:title] = Proc.new{ |item| item.title  + item.published.to_s }
-    # rss_map[:body] = Proc.new{ |item| item.summary }
-    # rss_map[:published_at] = Proc.new{ |item| item.published }
 
     # Define instance methods to be hooked into the import process, if special/additional processing is required on the data
     # before_import_save do
