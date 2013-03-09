@@ -12,12 +12,8 @@
 # 
 # = require jquery
 # = require jquery_ujs
-# = require jquery-ui
 # = require bootstrap
-# = require jquery.turbolinks
-# = require turbolinks
 # = require common
-# = require best_in_place
 # = require_self
 # = require_tree .
 
