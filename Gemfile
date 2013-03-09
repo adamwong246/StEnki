@@ -51,6 +51,7 @@ gem 'kaminari'
 
 gem 'turbolinks'
 gem 'jquery-turbolinks'
+gem 'coffee-rails', "~> 3.2.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -58,7 +59,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'bootstrap-sass'
   # gem 'therubyracer' #heroku says unnesecary but I need it for less to work
-  gem 'coffee-rails', "~> 3.2.1"
+  # gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
 end
 
