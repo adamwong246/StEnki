@@ -16,9 +16,7 @@
 html{
 	background-color: black;
 }
-.navbar .brand:hover{
-	border-bottom: none !important;
-}
+
 .brand, h3{
 	font-size: $fontSizeLarge !important;
 }
@@ -110,6 +108,9 @@ body {
 	border-bottom: 3px solid rgba(0, 0, 0, 0);
 }
 
+// .navbar .nav li > a.socialite:hover{
+// 	border: none;
+// }
 // .navbar .nav .active > a,
 // .navbar .nav li > a:hover,
 // .navbar .brand:hover {
