@@ -34,8 +34,8 @@ RailsAdminImport.config do |config|
 
     rss_mapping do
       {
-        :title => Proc.new{ |item| item.title  + item.published.to_s },
-        :body => Proc.new{ |item| item.summary },
+        :title => Proc.new{ |item| "From my tumblr: " + item.title + ", " + item.published.strftime('%b %e, %l:%M %p') },
+        :body => Proc.new{ |item| item.summary + "<p><a href=\"#{item.url}\">#{item.url}</a></p>"},
         :published_at => Proc.new{ |item| item.published }
       }
     end
