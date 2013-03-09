@@ -41,11 +41,14 @@ RailsAdminImport.config do |config|
         :body => Proc.new{ |item| item.summary + "<p><a href=\"#{item.url}\">#{item.url}</a></p>"},
         :published_at => Proc.new{ |item| item.published },
 
-        # This mapping is also usefull for setting defaults
-        :active => Proc.new{|item| false}
+        # This mapping is also usefull for setting defaults.
+        # Insures that imported posts are reviewed first
+        :active => Proc.new{|item| false },
         
         # TODO: rewrite overload rss mapping to allow non-Procs data types
         # :active => false
+
+        :tag_list => Proc.new{|item| "from tumblr"}
 
       }
     end

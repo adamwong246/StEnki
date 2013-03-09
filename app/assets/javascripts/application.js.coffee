@@ -22,14 +22,14 @@
 # = require_tree .
 
 # For editning object 'in place'
-$ ->
-  $('.best_in_place').best_in_place()
+# $ ->
+#   $('.best_in_place').best_in_place()
 
 # Load the socialite button when you mouseover of it
-$ ->
+# $ ->
+#   $("#social2 > li").one "mouseenter", ->
+#     Socialite.load $(this)[0]
 
-  $("#social2 > li").one "mouseenter", ->
-    Socialite.load $(this)[0]
 
 # scroll to top button
 $ -> 
@@ -46,12 +46,6 @@ $ ->
 $(window).load ->
     $('#modal-flash').modal
         keyboard: false
-
-# scroll to top button
-$ -> 
-  $("a#scroll_to_top").click -> 
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-    return false;
 
 (($) ->  
   # VERTICALLY ALIGN FUNCTION
