@@ -29,9 +29,11 @@ body{
 
 a:hover{
 	// color: red !important;
-	text-shadow: 0 0 0.2em  !important;
+	text-shadow: 0 0 0.6em  !important;
 	text-decoration: none !important;
 }
+
+a:visted { color: darken($_tronish, 0.5); } 
 
 hr{
 	border-top:    none;
