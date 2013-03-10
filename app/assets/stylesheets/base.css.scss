@@ -31,7 +31,7 @@
 #social2 { display: block; list-style: none; padding: 0px; float:right; padding-top: 0px;  height: 100%}
 #social2 span{display: none;}
 #social2 > li { display: block; margin: 0; float:left; width: 100px}
-#social2 .socialite { display: block; position: relative; width: 50px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
+#social2 .socialite { display: block; position: relative; top: 10px; width: 50px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
 #social2 .socialite-loaded { background: none; }
 
 #social2 .twitter-share { background-position: 0 0 60px -45px; }

@@ -2,17 +2,16 @@
 
 - if months.empty?
   p Once posts are added they will start to appear in this archive.
-- else
-  h3 = "Most recent posts"
+- else  
   - months.each do |month|
     h4= format_month(month.date)
     ul.archive-month
       - month.posts.each do |post|
         li
           = link_to(post.title, post_path(post))
-          - unless post.tags.empty?
-            span.tags
-              =' linked_tag_list(post.tags)
+          / - unless post.tags.empty?
+          /   span.tags
+          /     =' linked_tag_list(post.tags)
   / - if show_link_to_archive
   /   / h4 All posts
 
