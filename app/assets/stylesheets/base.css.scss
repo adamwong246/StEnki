@@ -143,20 +143,14 @@
   }
 }
 
-// #sticky_navigation 
-
-// #social2-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
-
-// #social2 { display: block; list-style: none; padding: 0px; float:right; padding-top: 0px;  height: 100%}
-// #social2 span{display: none;}
-// #social2 > li { display: block; margin: 0; float:left; width: 100px}
-
 
 .stuck{position: fixed; top: 0; opacity: 0.5;
   &:hover{ opacity: 1;}
 }
 
-// html{@include background-image(linear-gradient(white, #cccccc, #aaaaaa));}
+#footer h1{
+  text-align:right;
+}
 
 #modal-flash{
   .alert-message{
