@@ -38,6 +38,7 @@ $wellBackground:        #333  ;
 
 // Whatever application styles you have go last
 @import "base";
+@import "page";
 @import "comment";
 
 // li.section {
