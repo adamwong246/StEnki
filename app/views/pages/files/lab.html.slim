@@ -1,16 +1,27 @@
 h1
-  | Welcome to the laboratory
+  | the lab
 
-- if current_user
-  | Signed in as #{current_user.identify}
+h4
+  | This is where all my little experiments live. 
 
-  ul
-    li
-      = link_to "My profile", user_path(current_user)                         
-    li
-      = link_to "Sign out", destroy_user_session_path, :method => :delete
-    li
-      = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
+.well
 
-- else
-  = link_to "Sign in", user_session_path
+  h4
+    | Here are some nice links. Click on one.
+
+  .user_links
+    - if current_user
+      | You are currentlly igned in as #{current_user.identify}
+
+      ul
+        li
+          = link_to "My profile", user_path(current_user)                         
+        li
+          = link_to "Sign out", destroy_user_session_path, :method => :delete
+        li
+          = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
+
+    - else
+      = link_to "Sign in", user_session_path
+  .other
+    = link_to "Flash tester", :flash_test

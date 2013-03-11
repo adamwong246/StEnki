@@ -13,7 +13,7 @@ class UtilitiesController < ApplicationController
     flash[:error] = "user. Click OK."
     # flash[:success] = "Success:"
 
-    redirect_to :root
+    redirect_to :lab
   end
 
 end

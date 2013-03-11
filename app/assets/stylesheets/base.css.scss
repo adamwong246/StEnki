@@ -19,7 +19,7 @@
   color: $blog_color;
 
   a {
-    color: lighten($blog_color, 10);
+    color: lighten($blog_color, 20%);
   }
 
   hr{
@@ -28,11 +28,15 @@
   }
 }
 
-.blog_color_override{
+.blog_color_important{
   color: $blog_color !important;
 
   a {
-    color: lighten($blog_color, 10) !important;
+    color: lighten($blog_color, 20%) !important;
+  }
+  hr{
+    border-top: 1px solid $blog_color !important;
+    border-bottom: 1px solid $blog_color !important;
   }
 }
 
@@ -40,32 +44,44 @@
   color: $lab_color;
 
   a {
-    color: lighten($lab_color, 10);
+    color: lighten($lab_color, 20%);
+  }
+  hr{
+    border-top: 1px solid $lab_color !important;
+    border-bottom: 1px solid $lab_color !important;
   }
 }
-.lab_colors_override{
+.lab_colors_important{
   color: $lab_color !important;
 
   a {
-    color: lighten($lab_color, 10) !important;
+    color: lighten($lab_color, 20%) !important;
+  }
+  hr{
+    border-top: 1px solid $lab_color !important;
+    border-bottom: 1px solid $lab_color !important;
   }
 }
 .about_colors{
   color: $about_color;
 
   a {
-    color: lighten($about_color, 10);
+    color: lighten($about_color, 20%);
   }
   hr{
     border-top: 1px solid $about_color;
     border-bottom: 1px solid $about_color;
   }
 }
-.about_color_override{
+.about_color_important{
   color: $about_color !important;
 
   a {
-    color: lighten($about_color, 10) !important;
+    color: lighten($about_color, 20%) !important;
+  }
+  hr {
+    border-top: 1px solid $about_color !important;
+    border-bottom: 1px solid $about_color !important;
   }
 }
 
