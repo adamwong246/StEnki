@@ -20,6 +20,10 @@ StEnki::Application.routes.draw do
 
   match "/pages/about_me" => "pages#show", :id => 'files/about_me', :as => 'about_me'
   match "/pages/about_stenki" => "pages#show", :id => 'files/about_stenki', :as => 'about_stenki'
+
+  match "/about" => "pages#show", :id => 'files/about', :as => 'about'
+  match "/lab" => "pages#show", :id => 'files/lab', :as => 'lab'
+
   match "/pages" => "pages#index"
   match "/pages/:id" => "high_voltage/pages#show#:id"
 

@@ -14,76 +14,78 @@ html dir="ltr" lang="en-US"
     = javascript_include_tag "application"
     = csrf_meta_tags 
 
-  body
+  body(class=@highlight_color)
+    = render :partial => "shared/flash_messages", :locals => {:flash => flash}
+
     .container-fluid
+      .row-fluid
+        .span1
+          a.text-right href="/"
+            h1
+              | i
+            h1
+              | failed
+            h1
+              | the
+            h1
+              | turing
+            h1
+              | test
+
+        .span3
+          = image_tag "headshot.jpg"
+
       #sticky_navigation
-        #user-navbar.navbar
-          .navbar-inner
-            a.brand href="/" I failed the turing test
-            .nav-collapse
-              ul.nav.pull-left
-                li
-                  a#scroll_to_top href="#"
-                    i.icon-circle-arrow-up.glyph_black_or_white 
-                                  
-                - if current_user
-                  li.dropdown
-                    a.dropdown-toggle data-toggle="dropdown" href="#"
-                      | Signed in as #{current_user.identify}
+        .lightbar.row-fluid
+        .row-fluid
+          .span1.center_content
+            a#scroll_to_top href="#"
+              i.icon-circle-arrow-up.glyph_black_or_white 
 
-                    ul.dropdown-menu
-                      li
-                        = link_to "My profile", user_path(current_user)                         
-                      li
-                        = link_to "Sign out", destroy_user_session_path, :method => :delete
-                      li
-                        = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
+          .span3.center_content
+            h4.blog_color_override
+              = link_to "blog", "/"
+          .span3.center_content
+            h4.lab_colors_override
+              = link_to "lab", :lab
+          .span3.center_content
+            h4.about_color_override
+              = link_to "about", :about
 
-                - else
-                  li
-                    = link_to "Sign in", user_session_path
-
-              / - if current_user && current_user.admin?
-              /   li.dropdown
-              /     a.dropdown-toggle data-toggle="dropdown" href="#"
-              /       | Admin
-
-              /     ul.dropdown-menu
-                    
-              /       li
-              /         a href="/pages" all pages 
-              /       li
-              /         = link_to "all routes", "/rails/routes"
-              /       li
-              /         = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
-
-                   
-            ul#social2.nav.pull-right
-              li
+          .span2
+            #social.row-fluid
+              .span3
                 a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
-                  span.vhidden Share on Twitter
-              li
+                    span.vhidden Share on Twitter
+              .span3
                 a.socialite.googleplus-one data-href=current_url data-size="wide" href="https://plus.google.com/share?url=#{current_url}" rel="nofollow" target="_blank"
-                 span.vhidden Share on Google+
-              li
+                   span.vhidden Share on Google+
+              .span3
                 a.socialite.facebook-like data-href=current_url data-layout="button_count" data-send="false" data-show-faces="false" data-width="60" href="http://www.facebook.com/sharer.php?u=#{current_url}&t=Socialite.js" rel="nofollow" target="_blank"
-                  span.vhidden Share on Facebook
-              li
+                    span.vhidden Share on Facebook
+              .span3
                 a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
-                  span.vhidden Share on LinkedIn
-         
+                    span.vhidden Share on LinkedIn
+        .lightbar.row-fluid
+      
+
+      / 12
+      / 1, 10, 1
+      / 2, 8, 2
+      / 3, 6, 3
+      / 4, 4, 4
       #top_of_page.row-fluid
         .span3
-          ul.well.sidebar-nav.nav.nav_list
-            = render :partial => 'posts/navigation', :locals => {:limit => 6}
-            hr
-            p = link_to("Archive", archive_path)
-            p = link_to("About me", about_me_path)
-            p = link_to("About StEnki", about_stenki_path)
+          = yield :secondary_left
+          / ul.well.sidebar-nav.nav.nav_list
+          /   = render :partial => 'posts/navigation', :locals => {:limit => 6}
+          /   hr
+          /   p = link_to("Archive", archive_path)
+          /   p = link_to("About me", about_me_path)
+          /   p = link_to("About StEnki", about_stenki_path)
 
-        .span8
-          = render :partial => "shared/flash_messages", :locals => {:flash => flash}
-          = yield    
+        .span7
+          = yield 
 
     footer#footer.row-fuid
       hr

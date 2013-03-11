@@ -10,18 +10,33 @@
  *
  */
 
-@import "comment.css.scss";
+@import url("http://fonts.googleapis.com/css?family=Tauri");
 
-#social-buttons { 
-  display: block; list-style: none; padding: 10px; margin: 10px;
-
-  > li { display: block; margin: 0; }
-  .socialite { display: block; position: relative; width: 150px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
-  .socialite-loaded { background: none; }
-
-  .twitter-share { background-position: 0 0; }
-  .googleplus-one { background-position: 0 -45px; }
-  .facebook-like { background-position: 0 -90px; }
-  .linkedin-share { background-position: 0 -135px; }
-  .pinterest-pinit { background-position: 0 -175px; }
+body{
+  font-family: 'Tauri', sans-serif !important;
 }
+
+$bodyBackground:        #060606;
+$textColor:             #fff;
+$wellBackground:        #333  ;
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// Responsive styles go here in case you want them
+@import "bootstrap-responsive";
+
+// And finally bootswatch style itself
+
+// @import "bootswatch/terminal/bootswatch";
+
+
+// Whatever application styles you have go last
+@import "base";
+@import "comment";
+
+// li.section {
+//   padding-left: 100px;
+//   padding-right: 100px;
+//   border-left: black 1px solid;
+// }

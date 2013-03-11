@@ -15,10 +15,7 @@ class PostsController < ApplicationController
   def index
 
     @tag = params[:tag]
-
     @posts = Post.where(:active => true).page(params[:page]).per(3)
-
-    
 
     respond_to do |format|
       format.html 

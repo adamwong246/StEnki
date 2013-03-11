@@ -12,17 +12,21 @@ module ApplicationHelper
 
   def get_theme_stylesheet_link
 
-    if current_user && current_user.bootswatch_theme
-      begin
-        stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
-      rescue
-        flash[:alert] = "Could not find user's preferred theme. Defaulting to #{DEFAULT_THEME}"
-        stylesheet_link_tag DEFAULT_THEME, :media => "all"
+    stylesheet_link_tag "application", :media => "all"
+
+    # if current_user && current_user.bootswatch_theme
+    #   begin
+    #     stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
+    #   rescue
+    #     flash[:alert] = "Could not find user's preferred theme. Defaulting to #{DEFAULT_THEME}"
+    #     stylesheet_link_tag DEFAULT_THEME, :media => "all"
         
-      end
-    else
-      stylesheet_link_tag DEFAULT_THEME, :media => "all"
-    end
+    #   end
+    # else
+    #   stylesheet_link_tag DEFAULT_THEME, :media => "all"
+    # end
+
+
 
   end
 

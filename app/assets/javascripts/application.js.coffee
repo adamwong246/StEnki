@@ -12,8 +12,11 @@
 # 
 # = require jquery
 # = require jquery_ujs
+# = require jquery-ui
 # = require bootstrap
 # = require common
+# = require waypoints
+# = require waypoints-sticky
 # = require_self
 # = require_tree .
 
@@ -30,8 +33,8 @@
 # scroll to top button
 $ -> 
   $("a#scroll_to_top").click -> 
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-    return false;
+    $("html, body").animate({ scrollTop: 0 }, "slow")
+    return false
 
     
 
@@ -54,82 +57,86 @@ $(window).load ->
 
 ) $
 
-# sticky navigation bar
-$ ->  
-  # grab the initial top offset of the navigation 
-  sticky_navigation_offset_top = $("#sticky_navigation").offset().top
+$ ->
+  $('#sticky_navigation').waypoint('sticky')
+
+
+# # sticky navigation bar
+# $ ->  
+#   # grab the initial top offset of the navigation 
+#   sticky_navigation_offset_top = $("#sticky_navigation").offset().top
   
-  # our function that decides weather the navigation bar should have "fixed" css position or not.
-  sticky_navigation = ->
-    scroll_top = $(window).scrollTop() # our current vertical position from the top
+#   # our function that decides weather the navigation bar should have "fixed" css position or not.
+#   sticky_navigation = ->
+#     scroll_top = $(window).scrollTop() # our current vertical position from the top
     
-    # if we've scrolled more than the navigation, change its position to fixed to stick to top,
-    # otherwise change it back to relative
-    if scroll_top > sticky_navigation_offset_top
+#     # if we've scrolled more than the navigation, change its position to fixed to stick to top,
+#     # otherwise change it back to relative
+#     if scroll_top > sticky_navigation_offset_top
       
       
-      $("#sticky_navigation").css
-        position: "fixed"
-        top: 0
-        left: 0
-        opacity: .5
+#       $("#sticky_navigation").css
+#         position: "fixed"
+#         top: 0
+#         left: 0
+#         opacity: .5
 
 
 
-    else
-      $("#sticky_navigation").css 
-        position: "relative"
-        opacity: 1
+#     else
+#       $("#sticky_navigation").css 
+#         position: "relative"
+#         opacity: 1
 
   
-  # run our function on load
-  sticky_navigation()
+#   # run our function on load
+#   sticky_navigation()
   
-  # and run it again every time you scroll
-  $(window).scroll ->
-    sticky_navigation()
+#   # and run it again every time you scroll
+#   $(window).scroll ->
+#     sticky_navigation()
 
-# http://james.padolsey.com/javascript/special-scroll-events-for-jquery/
-(->
-  special = jQuery.event.special
-  uid1 = "D" + (+new Date())
-  uid2 = "D" + (+new Date() + 1)
-  special.scrollstart =
-    setup: ->
-      timer = undefined
-      handler = (evt) ->
-        _self = this
-        _args = arguments_
-        if timer
-          clearTimeout timer
-        else
-          evt.type = "scrollstart"
-          jQuery.event.handle.apply _self, _args
-        timer = setTimeout(->
-          timer = null
-        , special.scrollstop.latency)
+# # http://james.padolsey.com/javascript/special-scroll-events-for-jquery/
+# (->
+#   special = jQuery.event.special
+#   uid1 = "D" + (+new Date())
+#   uid2 = "D" + (+new Date() + 1)
+#   special.scrollstart =
+#     setup: ->
+#       timer = undefined
+#       handler = (evt) ->
+#         _self = this
+#         _args = arguments_
+#         if timer
+#           clearTimeout timer
+#         else
+#           evt.type = "scrollstart"
+#           jQuery.event.handle.apply _self, _args
+#         timer = setTimeout(->
+#           timer = null
+#         , special.scrollstop.latency)
 
-      jQuery(this).bind("scroll", handler).data uid1, handler
+#       jQuery(this).bind("scroll", handler).data uid1, handler
 
-    teardown: ->
-      jQuery(this).unbind "scroll", jQuery(this).data(uid1)
+#     teardown: ->
+#       jQuery(this).unbind "scroll", jQuery(this).data(uid1)
 
-  special.scrollstop =
-    latency: 100
-    setup: ->
-      timer = undefined
-      handler = (evt) ->
-        _self = this
-        _args = arguments_
-        clearTimeout timer  if timer
-        timer = setTimeout(->
-          timer = null
-          evt.type = "scrollstop"
-          jQuery.event.handle.apply _self, _args
-        , special.scrollstop.latency)
+#   special.scrollstop =
+#     latency: 100
+#     setup: ->
+#       timer = undefined
+#       handler = (evt) ->
+#         _self = this
+#         _args = arguments_
+#         clearTimeout timer  if timer
+#         timer = setTimeout(->
+#           timer = null
+#           evt.type = "scrollstop"
+#           jQuery.event.handle.apply _self, _args
+#         , special.scrollstop.latency)
 
-      jQuery(this).bind("scroll", handler).data uid2, handler
+#       jQuery(this).bind("scroll", handler).data uid2, handler
 
-    teardown: ->
-      jQuery(this).unbind "scroll", jQuery(this).data(uid2)
-)()
+#     teardown: ->
+#       jQuery(this).unbind "scroll", jQuery(this).data(uid2)
+# )()

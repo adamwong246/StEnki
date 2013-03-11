@@ -1,0 +1,16 @@
+p
+  | the laboratory
+
+- if current_user
+  | Signed in as #{current_user.identify}
+
+  ul
+    li
+      = link_to "My profile", user_path(current_user)                         
+    li
+      = link_to "Sign out", destroy_user_session_path, :method => :delete
+    li
+      = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
+
+- else
+  = link_to "Sign in", user_session_path

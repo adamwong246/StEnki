@@ -1,3 +1,6 @@
+- content_for(:secondary_left) do
+  = render :partial => 'posts/navigation'
+  
 = render :partial => 'posts/post', :locals => {:post => @post, :short => false}
 
 -if current_user

@@ -10,36 +10,133 @@
  *
  */
 
-// #social-buttons { 
-//   // span{display: none;}
 
-//   display: block; list-style: none; padding: 10px; margin: 10px;
+ $blog_color:  #4395FF;
+ $lab_color:   #B611FF;
+ $about_color: #F921B9;
 
-//   > li { display: block; margin: 0; }
-//   .socialite { display: block; position: relative; width: 150px; height: 30px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
-//   .socialite-loaded { background: none; }
+.blog_colors{
+  color: $blog_color;
 
-//   .twitter-share { background-position: 0 0; }
-//   .googleplus-one { background-position: 0 -45px; }
-//   .facebook-like { background-position: 0 -90px; }
-//   .linkedin-share { background-position: 0 -135px; }
-//   .pinterest-pinit { background-position: 0 -175px; }
+  a {
+    color: lighten($blog_color, 10);
+  }
+
+  hr{
+    border-top: 1px solid $blog_color;
+    border-bottom: 1px solid $blog_color;
+  }
+}
+
+.blog_color_override{
+  color: $blog_color !important;
+
+  a {
+    color: lighten($blog_color, 10) !important;
+  }
+}
+
+.lab_colors{
+  color: $lab_color;
+
+  a {
+    color: lighten($lab_color, 10);
+  }
+}
+.lab_colors_override{
+  color: $lab_color !important;
+
+  a {
+    color: lighten($lab_color, 10) !important;
+  }
+}
+.about_colors{
+  color: $about_color;
+
+  a {
+    color: lighten($about_color, 10);
+  }
+  hr{
+    border-top: 1px solid $about_color;
+    border-bottom: 1px solid $about_color;
+  }
+}
+.about_color_override{
+  color: $about_color !important;
+
+  a {
+    color: lighten($about_color, 10) !important;
+  }
+}
+
+// #home{
+//   text-align:right
 // }
 
-#social2-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
+.lightbar.row-fluid{
+  height: 4px;
 
-#social2 { display: block; list-style: none; padding: 0px; float:right; padding-top: 0px;  height: 100%}
-#social2 span{display: none;}
-#social2 > li { display: block; margin: 0; float:left; width: 100px}
-#social2 .socialite { display: block; position: relative; top: 10px; width: 50px; background: url(image_path('custom-default.png')) 0 0 no-repeat; }
-#social2 .socialite-loaded { background: none; }
+  background: #03ffff; /* Old browsers */
+  background: -moz-linear-gradient(left, #03ffff 0%, #ff00ff 50%, #ffff00 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#03ffff), color-stop(50%,#ff00ff), color-stop(100%,#ffff00)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%); /* IE10+ */
+  background: linear-gradient(to right, #03ffff 0%,#ff00ff 50%,#ffff00 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03ffff', endColorstr='#ffff00',GradientType=1 ); /* IE6-9 */
+}
 
-#social2 .twitter-share { background-position: 0 0 60px -45px; }
-#social2 .googleplus-one { background-position: 0 -45px; }
-#social2 .facebook-like { background-position: 0 -90px; }
-#social2 .linkedin-share { background-position: 0 -135px; }
-#social2 .pinterest-pinit { background-position: 0 -175px; }
+#sticky_navigation {
 
+  width: 100%;
+  float: left;
+  margin: 0 0 0 0;
+  padding: 0;
+
+  background: #333;
+   
+  // border:1px solid red;
+
+  .center_content{
+    // border:1px solid blue;
+    margin: 0 auto; 
+    text-align: center; 
+  }
+
+  .row-fluid {
+  
+    span{display: none;}
+
+    .socialite { 
+      display: block; 
+      position: relative; 
+      margin-top: 6px;
+      height: 25px; 
+      width: 50px; 
+      background: url(image_path('custom-default.png')) 0 0 no-repeat; 
+    }
+
+    .socialite-loaded { background: none; }
+
+    .twitter-share { background-position: 0 0 60px -45px; }
+    .googleplus-one { background-position: 0 -45px; }
+    .facebook-like { background-position: 0 -90px; }
+    .linkedin-share { background-position: 0 -135px; }
+    .pinterest-pinit { background-position: 0 -175px; }
+
+  }
+}
+
+// #sticky_navigation 
+
+// #social2-load { margin: 0 0 0.625em 0; font-weight: bold; padding: 5px; }
+
+// #social2 { display: block; list-style: none; padding: 0px; float:right; padding-top: 0px;  height: 100%}
+// #social2 span{display: none;}
+// #social2 > li { display: block; margin: 0; float:left; width: 100px}
+
+
+.stuck{position: fixed; top: 0;}
 
 // html{@include background-image(linear-gradient(white, #cccccc, #aaaaaa));}
 
@@ -72,15 +169,15 @@ code{
   color: black;
 }
 
-#sticky_navigation_wrapper { width:100%; height:50px; }
+// #sticky_navigation_wrapper { width:100%; height:50px; }
 
-#sticky_navigation {
-  width:100%;
+// #sticky_navigation {
+//   width:100%;
 
-  &:hover{
-    opacity:1.0 !important;
-  }
-}
+//   &:hover{
+//     opacity:1.0 !important;
+//   }
+// }
 
 short {
   text-overflow: "...";

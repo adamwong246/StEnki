@@ -1,4 +1,18 @@
 class ApplicationController < ActionController::Base
+
+  before_filter :pick_highlight_color
+
+private
+  def pick_highlight_color
+    if request.fullpath == "/about"
+      @highlight_color = "about_colors"
+    elsif request.fullpath == "/lab"
+      @highlight_color = "lab_colors"
+    else
+      @highlight_color = "blog_colors"
+    end
+    
+  end
   
   # Automatically reload rails_admin configuration when in development mode
   ########################
