@@ -18,13 +18,17 @@ body{
 }
 
 #logo{
-  font-family: 'Codystar', sans-serif !important;
+  // font-family: 'Codystar', sans-serif !important;
   text-align:right;
 }
 
 $bodyBackground:        #060606;
 $textColor:             #fff;
 $wellBackground:        #222  ;
+
+$paginationBackground:                $bodyBackground;
+$paginationBorder:                    #ddd;
+$paginationActiveBackground:          $wellBackground;
 
 // Then bootstrap itself
 @import "bootstrap";
