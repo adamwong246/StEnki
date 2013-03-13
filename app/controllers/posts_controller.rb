@@ -3,6 +3,11 @@ class PostsController < ApplicationController
 
   load_and_authorize_resource
 
+  before_filter :get_navigation_posts_grouped_by_month
+  def get_navigation_posts_grouped_by_month
+    @posts_grouped_by_months = Post.find_grouped_by_month(15)
+  end
+
   def archive
     @months = Post.find_grouped_by_month
 

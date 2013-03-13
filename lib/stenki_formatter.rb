@@ -1,4 +1,4 @@
-class EnkiFormatter
+class StenkiFormatter
   class << self
     def format_as_xhtml(text)
       Lesstile.format_as_xhtml(

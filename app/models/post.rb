@@ -69,8 +69,9 @@ class Post < ActiveRecord::Base
       options = {
         :order      => 'posts.published_at DESC',
         :conditions => ['published_at < ?', Time.zone.now],
-        :limit      => DEFAULT_LIMIT
+        :limit      => DEFAULT_LIMIT,
       }.merge(options)
+
       if tag
         find_tagged_with(tag, options)
       else
@@ -97,14 +98,14 @@ class Post < ActiveRecord::Base
         posts = find(
           :all,
           :order      => 'posts.published_at DESC',
-          :conditions => ['published_at < ?', Time.now],
+          :conditions => ['published_at < ? and active = ?', Time.now, true],
           :limit => max
         )
       else
         posts = find(
           :all,
           :order      => 'posts.published_at DESC',
-          :conditions => ['published_at < ?', Time.now]
+          :conditions => ['published_at < ? and active = ?', Time.now, true]
         )
       end
       
@@ -113,20 +114,20 @@ class Post < ActiveRecord::Base
     end
   end
 
-  def destroy_with_undo
-    transaction do
-      undo = DeletePostUndo.create_undo(self)
-      self.destroy
-      return undo
-    end
-  end
+  # def destroy_with_undo
+  #   transaction do
+  #     undo = DeletePostUndo.create_undo(self)
+  #     self.destroy
+  #     return undo
+  #   end
+  # end
 
   def month
     published_at.beginning_of_month
   end
 
   def apply_filter
-    self.body_html = EnkiFormatter.format_as_xhtml(self.body)
+    self.body_html = StenkiFormatter.format_as_xhtml(self.body)
   end
 
   def set_dates
@@ -162,14 +163,14 @@ class Post < ActiveRecord::Base
   def next
     self.class.find(
       :first, 
-      :conditions => ["created_at > ?", self.created_at], 
+      :conditions => ["created_at > ? and active = ?", self.created_at, true], 
       :order => 'created_at, id')
   end
 
   def previous
     self.class.find(
       :first, 
-      :conditions => ["created_at < ?", self.created_at],
+      :conditions => ["created_at < ? and active = ?", self.created_at, true],
       :order => 'created_at desc, id desc')
   end
 

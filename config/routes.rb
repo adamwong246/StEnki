@@ -36,7 +36,7 @@ StEnki::Application.routes.draw do
     get ':year/:month/:day/:slug' => 'posts#show'
   end
 
-  match "/archive" => 'posts#archive'
+  match "/archive" => 'posts#archive', :as => "posts_archive"
 
   scope :to => 'posts#index' do
     get 'posts.:format', :as => :formatted_posts

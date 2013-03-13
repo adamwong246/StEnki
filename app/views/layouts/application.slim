@@ -15,6 +15,10 @@ html dir="ltr" lang="en-US"
     = csrf_meta_tags 
 
   body(class=@highlight_color)
+    / .ribbon
+    /   a href="https://github.com/adamwong246/StEnki"
+    /     | Fork me on GitHub
+
     = render :partial => "shared/flash_messages", :locals => {:flash => flash}
 
     .container-fluid
