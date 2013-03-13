@@ -37,6 +37,7 @@ class Ability
     # end
 
     can :import, [Post]
+    can :flashecho
 
     can :read, :all                   # allow everyone to read everything
     # can :access, :rails_admin     

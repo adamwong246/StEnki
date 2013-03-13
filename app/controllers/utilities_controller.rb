@@ -7,10 +7,10 @@ class UtilitiesController < ApplicationController
     authorize! :flashecho, @user
 
 
-    flash[:title] = "Meditate on this"
-    flash[:notice] = "Cogito ergo"
-    flash[:success] = "sum. But I worry about"
-    flash[:error] = "user. Click OK."
+    flash[:title] = "Title: Meditate on this"
+    flash[:notice] = "Notice: Cogito ergo"
+    flash[:success] = "Successs: . But I worry about"
+    flash[:error] = "Error: . Click OK."
     # flash[:success] = "Success:"
 
     redirect_to :lab
