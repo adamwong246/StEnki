@@ -6,6 +6,12 @@ require Rails.root.join('lib', 'rails_admin_documentation.rb')
 require Rails.root.join('lib', 'rails_admin_all_routes.rb')
 require Rails.root.join('lib', 'rails_admin_preview.rb')
 
+# rails_admin do
+#   list do
+#     field :active, :toggle
+#   end
+# end
+
 RailsAdminImport.config do |config| 
   config.model Post do
 
@@ -92,17 +98,11 @@ RailsAdmin.config do |config|
   # or for a dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
-  config.model Post do
-    edit do
-      configure :body do
-        html_attributes rows: 20, cols: 170
-      end
-    end
-  end
+
 
   #  ==> Global show view settings
   # Display empty fields in show views
-  # config.compact_show_view = false
+  config.compact_show_view = false
 
   #  ==> Global list view settings
   # Number of default rows per-page:
@@ -130,7 +130,7 @@ RailsAdmin.config do |config|
   #     end
   #   end
   # end
-  #
+
   #  ==> Model specific configuration
   # Keep in mind that *all* configuration blocks are optional.
   # RailsAdmin will try his best to provide the best defaults for each section, for each field.
@@ -153,6 +153,15 @@ RailsAdmin.config do |config|
   #     # Here goes the fields configuration for the list view
   #   end
   # end
+
+  config.model Post do
+
+    edit do
+      configure :body do
+        html_attributes rows: 20, cols: 170
+      end
+    end
+  end
 
   # Your model's configuration, to help you get started:
 
@@ -327,7 +336,7 @@ RailsAdmin.config do |config|
       end
     end
   end
-    module RailsAdmin
+  module RailsAdmin
     module Config
       module Actions
         class Preview < RailsAdmin::Config::Actions::Base

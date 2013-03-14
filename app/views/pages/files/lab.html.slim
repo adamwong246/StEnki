@@ -26,4 +26,13 @@ h4
   .other
     p= link_to "Flash tester", :flash_test
     p= link_to "Archive", :posts_archive
-    p= link_to "View all posts", blog_path(:paginate => "false")
+    p= link_to "View all posts without pagination", blog_path(:paginate => "false")
+    p
+      = link_to "View all posts without pagination and without filtering", blog_path(:paginate => "false")
+
+      span.label.label-warning
+        | Warning
+
+      | This *might* expose you to NSFW content. I guess that depends on you and where you work. 
+
+      
