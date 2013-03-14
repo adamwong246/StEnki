@@ -270,6 +270,17 @@ background-color: black;
   text-align:right;
 }
 
+.modal-backdrop {
+  // background-color: black ;
+  &.fade { opacity: 0.5; }
+}
+
+// .modal{
+//   background-color: #333;
+
+//   h1, h2, h3, h4, h5, h6{color: red;}
+// }
+
 #modal-flash{
   .alert-message{
     padding-left: 5px;

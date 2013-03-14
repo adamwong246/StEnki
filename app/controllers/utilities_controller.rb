@@ -10,7 +10,7 @@ class UtilitiesController < ApplicationController
     flash[:title] = "Title: Meditate on this"
     flash[:notice] = "Notice: Cogito ergo"
     flash[:success] = "Successs: . But I worry about"
-    flash[:error] = "Error: . Click OK."
+    flash[:error] = "Error: the user. Click OK."
     # flash[:success] = "Success:"
 
     redirect_to :lab

@@ -92,6 +92,13 @@ RailsAdmin.config do |config|
   # or for a dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
+  config.model Post do
+    edit do
+      configure :body do
+        html_attributes rows: 20, cols: 170
+      end
+    end
+  end
 
   #  ==> Global show view settings
   # Display empty fields in show views
