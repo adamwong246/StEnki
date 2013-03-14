@@ -45,5 +45,5 @@ StEnki::Application.routes.draw do
 
   match "utility/flashecho" => 'utilities#flashecho', :as => 'flash_test'
 
-  root :to => 'posts#index'
+  root :to => 'posts#index', :as => "blog"
 end

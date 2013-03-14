@@ -18,9 +18,14 @@ class PostsController < ApplicationController
   end
 
   def index
-
+    @paginate = params[:paginate] != "false"
     @tag = params[:tag]
-    @posts = Post.where(:active => true).page(params[:page]).per(3)
+
+    if @paginate
+      @posts = Post.where(:active => true).page(params[:page]).per(3)
+    else
+      @posts = Post.where(:active => true)
+    end
 
     respond_to do |format|
       format.html 
