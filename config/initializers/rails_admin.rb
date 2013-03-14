@@ -4,6 +4,7 @@
 require Rails.root.join('lib', 'rails_admin_tree.rb')
 require Rails.root.join('lib', 'rails_admin_documentation.rb')
 require Rails.root.join('lib', 'rails_admin_all_routes.rb')
+require Rails.root.join('lib', 'rails_admin_preview.rb')
 
 RailsAdminImport.config do |config| 
   config.model Post do
@@ -31,6 +32,10 @@ RailsAdminImport.config do |config|
     update_lookup_field do
       :title
     end
+
+    # preview_field do
+    #   :body_html
+    # end
 
     # This maps record fields to RSS item attributes. 'item' is an RSS item
     rss_mapping do
@@ -315,6 +320,17 @@ RailsAdmin.config do |config|
       end
     end
   end
+    module RailsAdmin
+    module Config
+      module Actions
+        class Preview < RailsAdmin::Config::Actions::Base
+          RailsAdmin::Config::Actions.register(self)
+
+        end
+      end
+    end
+  end
+
 
 
   config.actions do
@@ -351,6 +367,12 @@ RailsAdmin.config do |config|
     end
 
     import
+
+    preview do
+      visible do
+        %w(Post).include? bindings[:abstract_model].model_name
+      end
+    end
 
 
 

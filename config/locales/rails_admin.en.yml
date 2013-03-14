@@ -16,3 +16,7 @@ en:
         bulk_link: "Publish selected  %{model_label} '%{object_label}"
         menu: "Routes"
         breadcrumb: "Routes"
+      preview:
+        title: "Preview"
+        menu: "Preview"
+        breadcrumb: "Preview"
