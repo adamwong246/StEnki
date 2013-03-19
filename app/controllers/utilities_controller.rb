@@ -1,6 +1,6 @@
 class UtilitiesController < ApplicationController
   protect_from_forgery
-  check_authorization
+  # check_authorization
   
   # returns the params in a flash message. 
   def flashecho

@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     if @paginate
       # debugger
 
-      @posts = @posts.page(params[:page]).per(3)
+      @posts = @posts.page(params[:page]).per(10)
     end
 
     respond_to do |format|

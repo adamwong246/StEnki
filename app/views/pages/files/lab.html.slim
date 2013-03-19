@@ -28,7 +28,7 @@ h4
     p= link_to "Archive", :posts_archive
     p= link_to "View all posts without pagination", blog_path(:paginate => "false")
     p
-      = link_to "View all posts without pagination and without filtering", blog_path(:paginate => "false")
+      = link_to "View all posts without pagination and without filtering", blog_path(:paginate => "false", :filter => "false")
 
       span.label.label-warning
         | Warning

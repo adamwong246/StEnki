@@ -35,12 +35,15 @@ private
   end
   ###################
 
-  # check_authorization # Lock down every controller. Every action must be authorized through cancan
+  check_authorization :unless => :devise_controller? # Lock down every controller. Every action must be authorized through cancan
 
-  # rescue_from CanCan::AccessDenied do |exception|
-  #   flash[:error] = "Access denied."
-  #   redirect_to root_url
-  # end
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:title] = "Access denied."
+    flash[:notice] = "You have insuffecient priveleges to #{exception.action} #{exception.subject}"
+    flash[:error] = exception.message
+
+    redirect_to main_app.blog_path
+  end
 
 
 end
