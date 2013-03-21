@@ -35,7 +35,7 @@ private
   end
   ###################
 
-  check_authorization :unless => :devise_controller? # Lock down every controller. Every action must be authorized through cancan
+  # check_authorization :unless => :devise_controller? # Lock down every controller. Every action must be authorized through cancan
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:title] = "Access denied."

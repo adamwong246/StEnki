@@ -14,6 +14,7 @@ require Rails.root.join('lib', 'rails_admin_preview.rb')
 
 RailsAdminImport.config do |config| 
   config.model Post do
+    logging = true
 
     # # Fields to make available for import (whitelist)
     # included_fields do

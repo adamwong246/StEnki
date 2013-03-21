@@ -12,7 +12,7 @@
   = link_to "sign in", user_session_path
   |  to reply
 
-ol.existing_comments
+ol#existing_comments
   - @root_comments.each do |comment|
     = render :partial => 'comments/comment', :locals => {:comment => comment, :level => 0, :reply_link => true}
   

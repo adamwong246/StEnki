@@ -11,11 +11,12 @@ gem "htmlentities" # A module for encoding and decoding (X)HTML entities.
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
 gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 # gem 'rails_admin_toggleable'
-gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
+# gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
+gem "rails_admin_import", :path => "~/Programming/rails_admin_import"
 
 gem "paper_trail"
 gem 'ancestry'
-# gem 'sextant'
+gem 'sextant'
 
 gem 'jquery-rails'
 gem 'faker'

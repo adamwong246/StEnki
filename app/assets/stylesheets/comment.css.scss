@@ -8,3 +8,11 @@
 .reply_form .form_and_preview_container{
   display:none;
 }
+
+.comment_container{
+  border: 1px white solid
+}
+
+ol#existing_comments, ol#existing_comments ol{
+  list-style-type:none;
+}

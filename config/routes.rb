@@ -6,6 +6,8 @@ StEnki::Application.routes.draw do
   
   mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
+  # post "/rails_admin/post/import" => 'rails_admin/main#import'
+
   # require 'gollum/frontend/app'
 
   # Precious::App.set(:gollum_path, "git@github.com:adamwong246/StEnki.wiki.git")

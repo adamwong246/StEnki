@@ -9,7 +9,8 @@ describe RailsAdmin::MainController do
       @user = FactoryGirl.create(:user)
       # session[:user_id] = user.id # log in user however you like, alternatively stub `current_user` method
       sign_in @user
-      # post"/rails_admin/post/import", :file => {}
+      
+      post :import, :file => {}
       # post "/widgets", :widget => {:name => "My Widget"}
 
 
