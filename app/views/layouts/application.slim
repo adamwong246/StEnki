@@ -23,7 +23,7 @@ html dir="ltr" lang="en-US"
 
     .container-fluid
       .row-fluid
-        #logo.span1
+        #logo
           a href="/"
             h1
               | i
@@ -36,15 +36,14 @@ html dir="ltr" lang="en-US"
             h1
               | test
 
-        .span3
-          = image_tag "headshot.jpg", id: "headshot"
+        = image_tag "headshot.jpg", id: "headshot"
 
       #sticky_navigation
         .lightbar.row-fluid
         .row-fluid
-          .span1.center_content
-            a#scroll_to_top href="#"
-              i.icon-circle-arrow-up.glyph_black_or_white 
+          
+          a#scroll_to_top href="#"
+            i.icon-circle-arrow-up.icon-white 
 
           .span3.center_content
             h4.blog_color_important
