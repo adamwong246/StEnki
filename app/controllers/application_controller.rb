@@ -4,9 +4,11 @@ class ApplicationController < ActionController::Base
 
 private
   def pick_highlight_color
-    if request.fullpath == "/about"
+
+    case (StEnki::Application.routes.recognize_path request.path)[:theme_color]
+    when :about
       @highlight_color = "about_colors"
-    elsif request.fullpath == "/lab"
+    when :lab
       @highlight_color = "lab_colors"
     else
       @highlight_color = "blog_colors"

@@ -1,10 +1,11 @@
 - content_for(:secondary_left) do
-  .lab_colors
-    h1 the lab
-    hr
-    h4 This is where all my little experiments live. 
+  ul.sidebar-nav.nav.nav_list
+    li
+      h1 the lab
+    li
+      h4 This is where all my little experiments live. 
 
-.lab_colors.well
+.well
   .user_links
     - if current_user
       | You are currentlly igned in as #{current_user.identify}
@@ -32,4 +33,4 @@
       | This *might* expose you to NSFW content. I guess that depends on you and where you work. 
 
     p
-      = link_to "Style guide - Every possible html tag in every possible configuration", style_guide_path
+      = link_to "HTML sampler - Every possible html tag in every possible configuration", html_sampler_path

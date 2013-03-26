@@ -61,8 +61,20 @@ $(window).load ->
 
 ) $
 
+$ -> 
+  # side bar
+  setTimeout (->
+    $(".bs-docs-sidenav").affix offset:
+      top: ->
+        (if $window.width() <= 980 then 290 else 210)
+
+      bottom: 270
+
+  ), 100
+  
 $ ->
   $('#sticky_navigation').waypoint('sticky')
+  # $('#secondary_yeld').waypoint('sticky')
 
 
 # # sticky navigation bar

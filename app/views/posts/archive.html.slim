@@ -1,8 +1,7 @@
 - content_for(:page_title) do
   = archives_title
 - content_for(:secondary_left) do
-  .blog_colors
-    h1 archives
+  h1 archives
 
-.blog_colors.well
+.well
   = render :partial => 'posts/navigation', :locals => {:limit => nil}

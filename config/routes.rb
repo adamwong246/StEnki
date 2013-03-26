@@ -5,29 +5,12 @@ StEnki::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users
-  
-  
-
-  # post "/rails_admin/post/import" => 'rails_admin/main#import'
-
-  # require 'gollum/frontend/app'
-
-  # Precious::App.set(:gollum_path, "git@github.com:adamwong246/StEnki.wiki.git")
-  # Precious::App.set(:default_markup, :markdown) # set your favorite markup language
-  # Precious::App.set(:wiki_options, {:universal_toc => false})
-  # mount Precious::App, at: 'wiki'
-
-
-  #, :path => '', :path_names => { :sign_in => "login", :sign_out => "signout", :sign_up => "register" }
 
   resources :users, :except =>['index', 'create', 'new', 'destroy']
 
-  match "/pages/about_me" => "pages#show", :id => 'files/about_me', :as => 'about_me'
-  match "/pages/about_stenki" => "pages#show", :id => 'files/about_stenki', :as => 'about_stenki'
-
-  match "/about"           => "pages#show", :id => 'files/about', :as => 'about'
-  match "/lab"             => "pages#show", :id => 'files/lab', :as => 'lab'
-  match "/lab/style_guide" => "pages#show", :id => 'files/lab/style_guide', :as => 'style_guide'
+  match "/about"           => "pages#show", :id => 'files/about',       :as => 'about',       :theme_color => :about
+  match "/lab"             => "pages#show", :id => 'files/lab',         :as => 'lab',          :theme_color => :lab
+  match "/lab/sampler"     => "pages#show", :id => 'files/lab/sampler', :as => 'html_sampler', :theme_color => :lab
 
   match "/pages" => "pages#index"
   match "/pages/:id" => "high_voltage/pages#show#:id"

@@ -4,10 +4,9 @@
   = auto_discovery_link_tag(:atom, @tag.nil? ? formatted_posts_path(:format => 'atom') : posts_path(:tag => @tag, :format => 'atom'))
 
 - content_for(:secondary_left) do
-  .blog_colors
-    = render :partial => 'posts/navigation'
+  = render :partial => 'posts/navigation'
     
-.blog_colors.well
+.well
   - if @posts.empty?
     p There are no posts yet.
 

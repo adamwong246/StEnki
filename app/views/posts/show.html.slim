@@ -1,15 +1,15 @@
 - content_for(:secondary_left) do
-  .blog_colors
-    .title_and_sub_title
+  ul.sidebar-nav.nav.nav_list
+    li
       h1= link_to(@post.title, post_path(@post))
-      hr
+    li
       h4= format_post_date(@post.published_at)
 
-      - if current_user
-        = link_to "Admin", "/rails_admin/post/#{@post.id}"
+    - if current_user
+      li= link_to "Admin", "/rails_admin/post/#{@post.id}"
 
 
-.blog_colors.well  
+.well  
   = render :partial => 'posts/post', :locals => {:post => @post, :short => false, :title => false}
 
   -if current_user
