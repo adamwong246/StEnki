@@ -19,8 +19,7 @@
 # = require common
 # = require waypoints
 # = require waypoints-sticky
-# = require_self
-# = require_tree .
+# = require comment
 
 # For editning object 'in place'
 # $ ->
@@ -31,6 +30,9 @@
 #   $("#social2 > li").one "mouseenter", ->
 #     Socialite.load $(this)[0]
 
+# add zen mode to every form
+$ -> 
+  $("form").addClass("zen-mode")
 
 # scroll to top button
 $ -> 

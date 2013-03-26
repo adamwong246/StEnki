@@ -144,6 +144,9 @@ background-color: black;
   margin-top:10px;
 }
 
+#top_of_page{
+  padding-top:20px;
+}
 
 
 .blog_colors{
@@ -247,9 +250,9 @@ span.label{
 #sticky_navigation {
 
   width: 100%;
-  float: left;
-  margin: 0 0 0 0;
-  padding: 0;
+  // float: left;
+  // margin: 0 0 0 0;
+  // padding: 0;
 
   background: #333;
    
@@ -286,8 +289,11 @@ span.label{
 }
 
 
-.stuck{position: fixed; top: 0; opacity: 0.5;
+.stuck{
+  position: fixed;
+  top: 0; opacity: 0.5;
   &:hover{ opacity: 1;}
+  padding-right: 20px;
 }
 
 #footer h1{

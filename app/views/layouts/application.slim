@@ -14,11 +14,11 @@ html dir="ltr" lang="en-US"
     = javascript_include_tag "application"
     = csrf_meta_tags 
 
-  body(class=@highlight_color)
+  / body(class=@highlight_color)
     / .ribbon
     /   a href="https://github.com/adamwong246/StEnki"
     /     | Fork me on GitHub
-
+  body
     = render :partial => "shared/flash_messages", :locals => {:flash => flash}
 
     .container-fluid

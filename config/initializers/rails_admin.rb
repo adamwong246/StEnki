@@ -52,10 +52,6 @@ RailsAdminImport.config do |config|
         # Inserts a link to the original content in the body of the html
         :body => Proc.new{ |item| item.summary + "<p><a href=\"#{item.url}\">#{item.url}</a></p>"},
         :published_at => Proc.new{ |item| item.published },
-
-        # This mapping is also usefull for setting defaults.
-        # Insures that imported posts are reviewed first
-        :active => Proc.new{|item| false },
         
         # TODO: rewrite overload rss mapping to allow non-Procs data types
         # :active => false
@@ -86,7 +82,7 @@ RailsAdmin.config do |config|
 
   
   config.authenticate_with { :devise }
-  config.current_user_method {current_user}
+  config.current_user_method { current_user }
 
   # If you want to track changes on your models:
   # config.audit_with :history, User
@@ -352,9 +348,9 @@ RailsAdmin.config do |config|
 
   config.actions do
     # root actions
-    dashboard # do # mandatory
-    #   statistics false
-    # end         
+    dashboard do
+      statistics false
+    end        
 
     root :documentation, :documentation
     root :all_routes, :all_routes
@@ -363,13 +359,13 @@ RailsAdmin.config do |config|
     index                         # mandatory
     new
     export
-    history_index
+    
     bulk_delete
     # member actions
     show
     edit
     delete
-    history_show
+    
     show_in_app
   
 
@@ -391,6 +387,8 @@ RailsAdmin.config do |config|
       end
     end
 
+    history_show
+    history_index
 
 
     # nestable do

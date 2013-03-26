@@ -1,112 +1,115 @@
-h1 about
+- content_for(:secondary_left) do
+  .about_colors
+    h1 about 
+    hr
+    h4 Everything you need know about Adam Wong and StEnki
 
-hr
+.about_colors.well
+  #about_me.row-fluid
+    .span8
+      h4
+        | About me
+      p
+        | This is the personal blog of Adam Wong, RoR developer <i>par excellence.</i>
 
-#about_me.row-fluid
-  .span8
-    h4
-      | About me
-    p
-      | This is the personal blog of Adam Wong, RoR developer <i>par excellence.</i>
-
-    p
-      | When I'm not coding, I practice muy thai kickboxing and brazillian jiu jitsu. I have two dogs, a cat, burning love for Ubuntu and a wonderful boyfriend. I live in Portland, Oregon. 
-
-
-    = link_to "Perhaps you'd like to see my résumé?", 'https://docs.google.com/document/d/1I1-ggWF3eYrVbSYdA5EwPBlVIrHvoWPdDujyIjvtEsA/pub'
-
-    h4
-      | My work
-    p
-      | I worked on this really cool website, 
-      = link_to "spaceport.io", 'http://spaceport.io/'
-    p
-      | I'm always working on some rail_admin plugins
-    p= link_to "Rails_admin_import can import data from an upload csv file or an rss feed", 'https://github.com/adamwong246/rails_admin_import'
+      p
+        | When I'm not coding, I practice muy thai kickboxing and brazillian jiu jitsu. I have two dogs, a cat, burning love for Ubuntu and a wonderful boyfriend. I live in Portland, Oregon. 
 
 
+      = link_to "Perhaps you'd like to see my résumé?", 'https://docs.google.com/document/d/1I1-ggWF3eYrVbSYdA5EwPBlVIrHvoWPdDujyIjvtEsA/pub'
 
-  .span4
-    iframe#github_badge frameBorder="0" src="http://githubbadge.appspot.com/badge/adamwong246?s=1&a=0" style="border: 0;height: 142px;width: 200px;overflow: hidden;"
-
-    a href="http://stackoverflow.com/users/614612/adamwong246"
-      img alt="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" height="58" src="http://stackoverflow.com/users/flair/614612.png" title="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" width="208"
-      
-    / a href="http://stackexchange.com/users/304854"
-    /   img alt="profile for adamwong246 on Stack Exchange, a network of free, community-driven Q&A sites" height="58" src="http://stackexchange.com/users/flair/304854.png" title="profile for adamwong246 on Stack Exchange, a network of free, community-driven Q&A sites" width="208"
-
-hr
-
-h4
-  | About StEnki
-
-p
-  span.label.label-warning
-    | Warning
-
-  u
-    | StEnki is a work in progress. Things will break, please don't abuse StEnki, etc.
-
-  span.label.label-warning
-    | Warning
-
-p 
-  | StEnki is a Ruby on Rails blog engine. Forked from Enki, it features many differences and a cornucopia of gems. It is not made to run on older browsers.
-
-ul
-  li
-    = link_to "Rails_admin", rails_admin_path 
-    |  instead of a custom admin section.
-  li
-    | CanCan and Devise
-  li
-    | Bootstrap
-  li
-    | Reddit-style tree comments
-  li
-    | Synchronization with Tumblr via RSS 
-  li
-    | Some nifty rails_admin plugins that I should promote as seperate repos.
-
-h3
-  | To do list
-ul
-  li
-    | Lock down Cancan permissions
-  li
-    | Write some content!
-  li
-    | Oh so many tests to write...
+      h4
+        | My work
+      p
+        | I worked on this really cool website, 
+        = link_to "spaceport.io", 'http://spaceport.io/'
+      p
+        | I'm always working on some rail_admin plugins
+      p= link_to "Rails_admin_import can import data from an upload csv file or an rss feed", 'https://github.com/adamwong246/rails_admin_import'
 
 
-hr
 
-h4
-  | FAQ
-ul
-  li
-    h5
-      | Why is StEnki?
-    | Because I wanted to learn more about rails and the many gems. Also, I need a place to jot down ideas.
-  li
-    h5
-      | For whom is StEnki?
-    | RoR hackers who want to make a blog the hard way. 
-  li
-    h5
-      | I found a bug.
-    = link_to "https://github.com/adamwong246/StEnki/issues"
-  li
-    h5
-      | I'm bored already.
-    | Why don't you 
-    = link_to "login", rails_admin_path 
-    |  as a guest user? You'll have read access to the backend administration area, as well an admin toolbar at the bottom every page.
+    .span4
+      iframe#github_badge frameBorder="0" src="http://githubbadge.appspot.com/badge/adamwong246?s=1&a=0" style="border: 0;height: 142px;width: 200px;overflow: hidden;"
 
-hr
+      a href="http://stackoverflow.com/users/614612/adamwong246"
+        img alt="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" height="58" src="http://stackoverflow.com/users/flair/614612.png" title="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" width="208"
+        
+      / a href="http://stackexchange.com/users/304854"
+      /   img alt="profile for adamwong246 on Stack Exchange, a network of free, community-driven Q&A sites" height="58" src="http://stackexchange.com/users/flair/304854.png" title="profile for adamwong246 on Stack Exchange, a network of free, community-driven Q&A sites" width="208"
 
-h4
-  | Links
-ul 
-  li = link_to "Github repo", "https://github.com/adamwong246/StEnki"
-  li = link_to "Pivotal tracker", "https://www.pivotaltracker.com/projects/656611/overview"
+  hr
+
+  h4
+    | About StEnki
+
+  p
+    span.label.label-warning
+      | Warning
+
+    u
+      | StEnki is a work in progress. Things will break, please don't abuse StEnki, etc.
+
+    span.label.label-warning
+      | Warning
+
+  p 
+    | StEnki is a Ruby on Rails blog engine. Forked from Enki, it features many differences and a cornucopia of gems. It is not made to run on older browsers.
+
+  ul
+    li
+      = link_to "Rails_admin", rails_admin_path 
+      |  instead of a custom admin section.
+    li
+      | CanCan and Devise
+    li
+      | Bootstrap
+    li
+      | Reddit-style tree comments
+    li
+      | Synchronization with Tumblr via RSS 
+    li
+      | Some nifty rails_admin plugins that I should promote as seperate repos.
+
+  h3
+    | To do list
+  ul
+    li
+      | Lock down Cancan permissions
+    li
+      | Write some content!
+    li
+      | Oh so many tests to write...
+
+
+  hr
+
+  h4
+    | FAQ
+  ul
+    li
+      h5
+        | Why is StEnki?
+      | Because I wanted to learn more about rails and the many gems. Also, I need a place to jot down ideas.
+    li
+      h5
+        | For whom is StEnki?
+      | RoR hackers who want to make a blog the hard way. 
+    li
+      h5
+        | I found a bug.
+      = link_to "https://github.com/adamwong246/StEnki/issues"
+    li
+      h5
+        | I'm bored already.
+      | Why don't you 
+      = link_to "login", rails_admin_path 
+      |  as a guest user? You'll have read access to the backend administration area, as well an admin toolbar at the bottom every page.
+
+  hr
+
+  h4
+    | Links
+  ul 
+    li = link_to "Github repo", "https://github.com/adamwong246/StEnki"
+    li = link_to "Pivotal tracker", "https://www.pivotaltracker.com/projects/656611/overview"

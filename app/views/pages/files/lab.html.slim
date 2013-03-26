@@ -1,14 +1,10 @@
-h1
-  | the lab
+- content_for(:secondary_left) do
+  .lab_colors
+    h1 the lab
+    hr
+    h4 This is where all my little experiments live. 
 
-h4
-  | This is where all my little experiments live. 
-
-.well
-
-  h4
-    | Here are some nice links. Click on one.
-
+.lab_colors.well
   .user_links
     - if current_user
       | You are currentlly igned in as #{current_user.identify}
@@ -35,4 +31,5 @@ h4
 
       | This *might* expose you to NSFW content. I guess that depends on you and where you work. 
 
-      
+    p
+      = link_to "Style guide - Every possible html tag in every possible configuration", style_guide_path
