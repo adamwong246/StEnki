@@ -34,6 +34,10 @@
 $ -> 
   $("form").addClass("zen-mode")
 
+# start carousel
+$ ->
+  $('.carousel').carousel()
+  
 # scroll to top button
 $ -> 
   $("a#scroll_to_top").click -> 

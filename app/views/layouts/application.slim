@@ -23,7 +23,29 @@ html dir="ltr" lang="en-US"
 
     .container-fluid
       .row-fluid
-        #logo
+        
+
+        #myCarousel.carousel.slide.span3
+          ol.carousel-indicators
+            / li.active data-slide-to="0" data-target="#myCarousel"
+            / li data-slide-to="1" data-target="#myCarousel"
+            / li data-slide-to="2" data-target="#myCarousel"
+          .carousel-inner
+            .item.active
+              = image_tag "spam.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "bike.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "love.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "alaska.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "beach.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "feather.JPG", class: 'carousel_pic'
+          / a.left.carousel-control data-slide="prev" href="#myCarousel"
+          / a.right.carousel-control data-slide="next" href="#myCarousel"
+        #logo.span1
           a href="/"
             h1
               | i
@@ -35,8 +57,6 @@ html dir="ltr" lang="en-US"
               | turing
             h1
               | test
-
-        = image_tag "headshot.jpg", id: "headshot"
 
       #sticky_navigation
         .lightbar.row-fluid
