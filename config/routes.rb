@@ -15,7 +15,7 @@ StEnki::Application.routes.draw do
   match "/pages" => "pages#index"
   match "/pages/:id" => "high_voltage/pages#show#:id"
 
-  resources :comments
+  resources :comments, :theme_color => :lab
 
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
     get ':year/:month/:day/:slug/comments'  => 'comments#index'
@@ -24,14 +24,14 @@ StEnki::Application.routes.draw do
     get ':year/:month/:day/:slug' => 'posts#show'
   end
 
-  match "/archive" => 'posts#archive', :as => "posts_archive"
+  match "/archive" => 'posts#archive', :as => "posts_archive", :theme_color => :blog
 
   scope :to => 'posts#index' do
-    get 'posts.:format', :as => :formatted_posts
-    get '(:tag)', :as => :posts
+    get 'posts.:format', :as => :formatted_posts, :theme_color => :blog
+    get '(:tag)', :as => :posts, :theme_color => :blog
   end
 
   match "utility/flashecho" => 'utilities#flashecho', :as => 'flash_test'
 
-  root :to => 'posts#index', :as => "blog"
+  root :to => 'posts#index', :as => "blog", :theme_color => :blog
 end

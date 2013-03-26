@@ -5,13 +5,19 @@ class ApplicationController < ActionController::Base
 private
   def pick_highlight_color
 
-    case (StEnki::Application.routes.recognize_path request.path)[:theme_color]
-    when :about
-      @highlight_color = "about_colors"
-    when :lab
-      @highlight_color = "lab_colors"
-    else
-      @highlight_color = "blog_colors"
+    # debugger
+
+    begin
+      case (StEnki::Application.routes.recognize_path request.path)[:theme_color]
+      when :about
+        @highlight_color = "about_colors"
+      when :lab
+        @highlight_color = "lab_colors"
+      when :blog
+        @highlight_color = "blog_colors"
+      end
+    rescue
+      # do nothing
     end
     
   end
