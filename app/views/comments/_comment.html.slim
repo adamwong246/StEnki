@@ -1,42 +1,43 @@
-.well
-  - if !comment.nil?
-    .comment_container
-      /-if !comment.parent.nil?
-        /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
-        /p= "show parent"
-      b 
-        -if comment.user
-          cite= comment.user.identify
-        -else
-          cite
-            | I don't know
-        = " replied: "
-      /br/
-      / small.commentmetadata
-      / a{:href => "#comment-# comment.id}" title=""
-      / = raw comment.body_html
-   
-      / = link_to "Reply?", "#"
+- if !comment.nil?
+  li.comment_container
+    /-if !comment.parent.nil?
+      /p= link_to "^ Inspect parent", show_comment_path(:id => comment.parent_id)
+      /p= "show parent"
+    b 
+      -if comment.user
+        cite= comment.user.identify
+      -else
+        cite
+          | I don't know
+      = " replied: "
+    /br/
+    / small.commentmetadata
+    / a{:href => "#comment-# comment.id}" title=""
+    / = raw comment.body_html
+ 
+    / = link_to "Reply?", "#"
 
-      =' raw comment.body_html
-      br
-      
+    =' raw comment.body_html
+    br
+    
 
-      - if reply_link == true 
-        =' link_to "Permalink", comment_path(comment)
+    - if reply_link == true 
+      =' link_to "Permalink", comment_path(comment)
 
-        - if current_user
+      - if current_user
 
-          - child_comment = comment.children.create 
-          - child_comment.user = current_user
-          - child_comment.post = comment.post
+        - child_comment = comment.children.create 
+        - child_comment.user = current_user
+        - child_comment.post = comment.post
 
-          = render :partial => 'comments/reply_form', :locals => {:comment => child_comment}
-        - else
-          | you need to log in
+        = render :partial => 'comments/reply_form', :locals => {:comment => child_comment}
+      - else
+        | you need to log in
 
-        /# - if level < 
-        - comment.children.each do |comment|
-          = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
+      /# - if level < 
+      -if comment.children
+        ol
+          - comment.children.each do |comment|
+            = render :partial => 'comments/comment', :locals => {:comment => comment, :level => level + 1, :reply_link => true}
 
 

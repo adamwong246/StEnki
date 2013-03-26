@@ -1,0 +1,36 @@
+- content_for(:secondary_left) do
+  ul.sidebar-nav.nav.nav_list
+    li
+      h1 the lab
+    li
+      h4 This is where all my little experiments live. 
+
+.well
+  .user_links
+    - if current_user
+      | You are currentlly igned in as #{current_user.identify}
+
+      ul
+        li
+          = link_to "My profile", user_path(current_user)                         
+        li
+          = link_to "Sign out", destroy_user_session_path, :method => :delete
+        li
+          = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
+
+    - else
+      = link_to "Sign in", user_session_path
+  .other
+    p= link_to "Flash tester", :flash_test
+    p= link_to "Archive", :posts_archive
+    p= link_to "View all posts without pagination", blog_path(:paginate => "false")
+    p
+      = link_to "View all posts without pagination and without filtering", blog_path(:paginate => "false", :filter => "false")
+
+      span.label.label-warning
+        | Warning
+
+      | This *might* expose you to NSFW content. I guess that depends on you and where you work. 
+
+    p
+      = link_to "HTML sampler - Every possible html tag in every possible configuration", html_sampler_path

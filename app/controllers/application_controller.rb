@@ -1,63 +1,51 @@
 class ApplicationController < ActionController::Base
 
-  layout :user_layout
+  before_filter :pick_highlight_color
 
-  protected
-  def user_layout
-    if current_user && current_user.experimental_mode
-      "fluid-functional"
+private
+  def pick_highlight_color
+
+    case (StEnki::Application.routes.recognize_path request.path)[:theme_color]
+    when :about
+      @highlight_color = "about_colors"
+    when :lab
+      @highlight_color = "lab_colors"
     else
-      "fixed-nonfunctional"
+      @highlight_color = "blog_colors"
     end
+    
+  end
+  
+  # Automatically reload rails_admin configuration when in development mode
+  ########################
+  before_filter :reload_rails_admin if :rails_admin_path?
+
+private
+
+  def reload_rails_admin
+    models = %W(User UserProfile)
+    models.each do |m|
+      RailsAdmin::Config.reset_model(m)
+    end
+    RailsAdmin::Config::Actions.reset
+
+    load("#{Rails.root}/config/initializers/rails_admin.rb")
   end
 
-  # helper_method :current_user
-  # helper_method :user_signed_in?
+  def rails_admin_path?
+    controller_path =~ /rails_admin/ && Rails.env == "development"
+  end
+  ###################
+
+  # check_authorization :unless => :devise_controller? # Lock down every controller. Every action must be authorized through cancan
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Access denied."
-    redirect_to root_url
+    flash[:title] = "Access denied."
+    flash[:notice] = "You have insuffecient priveleges to #{exception.action} #{exception.subject}"
+    flash[:error] = exception.message
+
+    redirect_to main_app.blog_path
   end
 
-protected
-  def enki_config
-    @@enki_config = Enki::Config.default
-  end
-  helper_method :enki_config
 
-
-  
-
-  # def current_user
-  #   @current_user ||= User.find_by_id(session[:user_id])
-  # end
-
-  # def signed_in?
-  #   !!current_user
-  # end
-  # helper_method :current_user, :signed_in?
-
-  # def current_user=(user)
-  #   @current_user = user
-  #   session[:user_id] = user.nil? ? user : user.id
-  # end
-
-  # private  
-  #   def current_user  
-  #     @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]  
-  #   end
-    
-    # def user_signed_in?
-    #   return current_user.nil?
-    # end
-      
-  #   def authenticate_user!
-  #     if !current_user
-  #       flash[:error] = 'You need to sign in before accessing this page!'
-  #       redirect_to signin_services_path
-  #     end
-  #   end
-
-
-  
 end

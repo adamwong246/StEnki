@@ -13,16 +13,37 @@
 # = require jquery
 # = require jquery_ujs
 # = require jquery-ui
+# = require jquery.turbolinks
+# = require turbolinks
 # = require bootstrap
 # = require common
-# = require jquery.purr
-# = require best_in_place
-# = require turbolinks
-# = require_self
-# = require_tree .
+# = require waypoints
+# = require waypoints-sticky
+# = require comment
 
-$ ->
-  $('.best_in_place').best_in_place()
+# For editning object 'in place'
+# $ ->
+#   $('.best_in_place').best_in_place()
+
+# Load the socialite button when you mouseover of it
+# $ ->
+#   $("#social2 > li").one "mouseenter", ->
+#     Socialite.load $(this)[0]
+
+# add zen mode to every form
+$ -> 
+  $("form").addClass("zen-mode")
+
+# scroll to top button
+$ -> 
+  $("a#scroll_to_top").click -> 
+    $("html, body").animate({ scrollTop: 0 }, "slow")
+    return false
+
+    
+
+    # $(this).children(".socialite").css
+    #   "height": 30
 
 # Launches the modal window containing flash messages.
 $(window).load ->
@@ -40,101 +61,98 @@ $(window).load ->
 
 ) $
 
-# Verticaly aligns social buttons
-# load on mouse enter
-$(document).ready ->
-  $('.nav-bar i').vAlign()
-  $('#social2 li a').vAlign()
-
-
-  $("#social2 > li").one "mouseenter", ->
-    Socialite.load $(this)[0]
-
-    $(this).children(".socialite").css
-      "height": 30
-
-# sticky navigation bar
-$ ->  
-  # grab the initial top offset of the navigation 
-  sticky_navigation_offset_top = $("#sticky_navigation").offset().top
-  
-  # our function that decides weather the navigation bar should have "fixed" css position or not.
-  sticky_navigation = ->
-    scroll_top = $(window).scrollTop() # our current vertical position from the top
-    
-    # if we've scrolled more than the navigation, change its position to fixed to stick to top,
-    # otherwise change it back to relative
-    if scroll_top > sticky_navigation_offset_top
-      
-      
-      $("#sticky_navigation").css
-        position: "fixed"
-        top: 0
-        left: 0
-        opacity: .5
-
-
-
-    else
-      $("#sticky_navigation").css 
-        position: "relative"
-        opacity: 1
-
-  
-  # run our function on load
-  sticky_navigation()
-  
-  # and run it again every time you scroll
-  $(window).scroll ->
-    sticky_navigation()
-
-# scroll to top button
 $ -> 
-  $("a#scroll_to_top").click -> 
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-    return false;
+  # side bar
+  setTimeout (->
+    $(".bs-docs-sidenav").affix offset:
+      top: ->
+        (if $window.width() <= 980 then 290 else 210)
 
-# http://james.padolsey.com/javascript/special-scroll-events-for-jquery/
-(->
-  special = jQuery.event.special
-  uid1 = "D" + (+new Date())
-  uid2 = "D" + (+new Date() + 1)
-  special.scrollstart =
-    setup: ->
-      timer = undefined
-      handler = (evt) ->
-        _self = this
-        _args = arguments_
-        if timer
-          clearTimeout timer
-        else
-          evt.type = "scrollstart"
-          jQuery.event.handle.apply _self, _args
-        timer = setTimeout(->
-          timer = null
-        , special.scrollstop.latency)
+      bottom: 270
 
-      jQuery(this).bind("scroll", handler).data uid1, handler
+  ), 100
+  
+$ ->
+  $('#sticky_navigation').waypoint('sticky')
+  # $('#secondary_yeld').waypoint('sticky')
 
-    teardown: ->
-      jQuery(this).unbind "scroll", jQuery(this).data(uid1)
 
-  special.scrollstop =
-    latency: 100
-    setup: ->
-      timer = undefined
-      handler = (evt) ->
-        _self = this
-        _args = arguments_
-        clearTimeout timer  if timer
-        timer = setTimeout(->
-          timer = null
-          evt.type = "scrollstop"
-          jQuery.event.handle.apply _self, _args
-        , special.scrollstop.latency)
+# # sticky navigation bar
+# $ ->  
+#   # grab the initial top offset of the navigation 
+#   sticky_navigation_offset_top = $("#sticky_navigation").offset().top
+  
+#   # our function that decides weather the navigation bar should have "fixed" css position or not.
+#   sticky_navigation = ->
+#     scroll_top = $(window).scrollTop() # our current vertical position from the top
+    
+#     # if we've scrolled more than the navigation, change its position to fixed to stick to top,
+#     # otherwise change it back to relative
+#     if scroll_top > sticky_navigation_offset_top
+      
+      
+#       $("#sticky_navigation").css
+#         position: "fixed"
+#         top: 0
+#         left: 0
+#         opacity: .5
 
-      jQuery(this).bind("scroll", handler).data uid2, handler
 
-    teardown: ->
-      jQuery(this).unbind "scroll", jQuery(this).data(uid2)
-)()
+
+#     else
+#       $("#sticky_navigation").css 
+#         position: "relative"
+#         opacity: 1
+
+  
+#   # run our function on load
+#   sticky_navigation()
+  
+#   # and run it again every time you scroll
+#   $(window).scroll ->
+#     sticky_navigation()
+
+# # http://james.padolsey.com/javascript/special-scroll-events-for-jquery/
+# (->
+#   special = jQuery.event.special
+#   uid1 = "D" + (+new Date())
+#   uid2 = "D" + (+new Date() + 1)
+#   special.scrollstart =
+#     setup: ->
+#       timer = undefined
+#       handler = (evt) ->
+#         _self = this
+#         _args = arguments_
+#         if timer
+#           clearTimeout timer
+#         else
+#           evt.type = "scrollstart"
+#           jQuery.event.handle.apply _self, _args
+#         timer = setTimeout(->
+#           timer = null
+#         , special.scrollstop.latency)
+
+#       jQuery(this).bind("scroll", handler).data uid1, handler
+
+#     teardown: ->
+#       jQuery(this).unbind "scroll", jQuery(this).data(uid1)
+
+#   special.scrollstop =
+#     latency: 100
+#     setup: ->
+#       timer = undefined
+#       handler = (evt) ->
+#         _self = this
+#         _args = arguments_
+#         clearTimeout timer  if timer
+#         timer = setTimeout(->
+#           timer = null
+#           evt.type = "scrollstop"
+#           jQuery.event.handle.apply _self, _args
+#         , special.scrollstop.latency)
+
+#       jQuery(this).bind("scroll", handler).data uid2, handler
+
+#     teardown: ->
+#       jQuery(this).unbind "scroll", jQuery(this).data(uid2)
+# )()

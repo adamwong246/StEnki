@@ -1,8 +1,14 @@
-.post.well
-  = render :partial => 'posts/post', :locals => {:post => @comment.post, :short => true}
+- content_for(:secondary_left) do
+  ul.well.sidebar-nav.nav.nav_list
+    = render :partial => 'posts/navigation', :locals => {:limit => 6}
+    
+li.comment_controller_container
+  .post
+    = render :partial => 'posts/post', :locals => {:post => @comment.post, :short => true}
 
-.well
-  | You are viewing a single comment's thread.
-  = link_to("View the full comment tree?", post_path(@comment.post))
+  div
+    | You are viewing a single comment's thread.
+    = link_to("View the full comment tree?", post_path(@comment.post))
 
-= render :partial => 'comments/comment', :locals => {:comment => @comment, :level => 0, :reply_link => true}
+  ul 
+    = render :partial => 'comments/comment', :locals => {:comment => @comment, :level => 0, :reply_link => true}

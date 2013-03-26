@@ -16,9 +16,7 @@
 html{
 	background-color: black;
 }
-.navbar .brand:hover{
-	border-bottom: none !important;
-}
+
 .brand, h3{
 	font-size: $fontSizeLarge !important;
 }
@@ -30,10 +28,12 @@ body{
 }
 
 a:hover{
-	color: $_tronish !important;
-	text-shadow: 0 0 60px $_tronish !important;
+	// color: red !important;
+	text-shadow: 0 0 0.6em  !important;
 	text-decoration: none !important;
 }
+
+a:visted { color: darken($_tronish, 0.5); } 
 
 hr{
 	border-top:    none;
@@ -110,11 +110,14 @@ body {
 	border-bottom: 3px solid rgba(0, 0, 0, 0);
 }
 
-.navbar .nav .active > a,
-.navbar .nav li > a:hover,
-.navbar .brand:hover {
-	border-bottom: 3px solid $blue
-}
+// .navbar .nav li > a.socialite:hover{
+// 	border: none;
+// }
+// .navbar .nav .active > a,
+// .navbar .nav li > a:hover,
+// .navbar .brand:hover {
+// 	border-bottom: 3px solid $blue
+// }
 
 .navbar .search-query,
 .navbar .search-query:focus,

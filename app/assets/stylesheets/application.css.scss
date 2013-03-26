@@ -1,0 +1,383 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ */
+
+// my colors
+$blog_color:  #4395FF;
+$lab_color:   #B611FF;
+$about_color: #F921B9;
+$light_blog_color: lighten($blog_color, 20%);
+$light_lab_color: lighten($lab_color, 20%);
+$light_about_color: lighten($about_color, 20%);
+
+@import url("http://fonts.googleapis.com/css?family=Tauri");
+@import url("http://fonts.googleapis.com/css?family=Codystar");
+
+// bootrap customized vars
+$bodyBackground:        #060606;
+$textColor:             #fff;
+$wellBackground:        #222  ;
+$paginationBackground:                $bodyBackground;
+$paginationBorder:                    #ddd;
+$paginationActiveBackground:          $wellBackground;
+
+// Form states and alerts
+// -------------------------
+$warningText:             $light_blog_color !default;
+$warningBackground:       black;//$blog_color !default;
+$warningBorder:           red;//darken(adjust-hue($warningBackground, -10), 3%) !default;
+
+$errorText:               $light_lab_color !default;
+$errorBackground:         $lab_color !default;
+$errorBorder:             darken(adjust-hue($errorBackground, -10), 3%) !default;
+
+$successText:             $light_about_color !default;
+$successBackground:       $about_color !default;
+$successBorder:           darken(adjust-hue($successBackground, -10), 5%) !default;
+
+$infoText:                #3a87ad !default;
+$infoBackground:          #d9edf7 !default;
+$infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
+
+$baseBorderRadius: 0;
+
+
+// Core variables and mixins
+@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
+@import "bootstrap/mixins";
+
+// CSS Reset
+@import "bootstrap/reset";
+
+// Grid system and page structure
+@import "bootstrap/scaffolding";
+@import "bootstrap/grid";
+@import "bootstrap/layouts";
+
+// // Base CSS
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/forms";
+// @import "bootstrap/tables";
+
+// // Components: common
+@import "bootstrap/sprites";
+@import "bootstrap/dropdowns";
+@import "bootstrap/wells";
+@import "bootstrap/component-animations";
+@import "bootstrap/close";
+
+// // Components: Buttons & Alerts
+@import "bootstrap/buttons";
+@import "bootstrap/button-groups";
+@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
+
+// // Components: Nav
+@import "bootstrap/navs";
+// @import "bootstrap/navbar";
+// @import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+// @import "bootstrap/pager";
+
+// // Components: Popovers
+@import "bootstrap/modals";
+// @import "bootstrap/tooltip";
+// @import "bootstrap/popovers";
+
+// // Components: Misc
+// @import "bootstrap/thumbnails";
+// @import "bootstrap/media";
+@import "bootstrap/labels-badges";
+// @import "bootstrap/progress-bars";
+// @import "bootstrap/accordion";
+// @import "bootstrap/carousel";
+// @import "bootstrap/hero-unit";
+
+// Utility classes
+@import "bootstrap/utilities"; // Has to be last to override when necessary
+
+// // Then bootstrap itself
+// @import "bootstrap";
+
+// // Responsive styles go here in case you want them
+// @import "bootstrap-responsive";
+
+// Whatever application styles you have go last
+@import "page";
+@import "comment";
+
+body{
+  font-family: 'Tauri', sans-serif !important;
+}
+
+
+
+li > a:hover, li > a:focus {
+text-decoration: none;
+background-color: black;
+}
+
+#logo{
+  font-family: 'Codystar', sans-serif !important;
+  text-align:right;
+  float:left;
+  margin-right: 15px;
+}
+
+#headshot{
+  width: 380px;
+  // height: 210 px;
+  height: auto;
+}
+
+#scroll_to_top{
+  float: left;
+  margin-left:10px;
+  margin-top:10px;
+}
+
+#top_of_page{
+  padding-top:20px;
+}
+
+
+.blog_colors{
+  color: $blog_color;
+
+  a {
+    color: lighten($blog_color, 20%);
+  }
+
+  hr{
+    border-top: 1px solid $blog_color;
+    border-bottom: 1px solid $blog_color;
+  }
+
+  .pagination ul li a{
+    border: 1px solid $blog_color;
+  }
+}
+
+.blog_color_important{
+  color: $blog_color !important;
+
+  a {
+    color: lighten($blog_color, 20%) !important;
+  }
+  hr{
+    border-top: 1px solid $blog_color !important;
+    border-bottom: 1px solid $blog_color !important;
+  }
+}
+
+.lab_colors{
+  color: $lab_color;
+
+  a {
+    color: lighten($lab_color, 20%);
+  }
+  hr{
+    border-top: 1px solid $lab_color !important;
+    border-bottom: 1px solid $lab_color !important;
+  }
+}
+.lab_colors_important{
+  color: $lab_color !important;
+
+  a {
+    color: lighten($lab_color, 20%) !important;
+  }
+  hr{
+    border-top: 1px solid $lab_color !important;
+    border-bottom: 1px solid $lab_color !important;
+  }
+}
+.about_colors{
+  color: $about_color;
+
+  a {
+    color: lighten($about_color, 20%);
+  }
+  hr{
+    border-top: 1px solid $about_color;
+    border-bottom: 1px solid $about_color;
+  }
+}
+.about_color_important{
+  color: $about_color !important;
+
+  a {
+    color: lighten($about_color, 20%) !important;
+  }
+  hr {
+    border-top: 1px solid $about_color !important;
+    border-bottom: 1px solid $about_color !important;
+  }
+}
+
+
+
+// #home{
+//   text-align:right
+// }
+
+span.label{
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.lightbar.row-fluid{
+  height: 2px;
+
+  background: #03ffff; /* Old browsers */
+  background: -moz-linear-gradient(left, #03ffff 0%, #ff00ff 50%, #ffff00 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#03ffff), color-stop(50%,#ff00ff), color-stop(100%,#ffff00)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%); /* IE10+ */
+  background: linear-gradient(to right, #03ffff 0%,#ff00ff 50%,#ffff00 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03ffff', endColorstr='#ffff00',GradientType=1 ); /* IE6-9 */
+}
+
+#sticky_navigation {
+
+  width: 100%;
+  // float: left;
+  // margin: 0 0 0 0;
+  // padding: 0;
+
+  background: #333;
+   
+  // border:1px solid red;
+
+  .center_content{
+    // border:1px solid blue;
+    margin: 0 auto; 
+    text-align: center; 
+  }
+
+  .row-fluid {
+  
+    span{display: none;}
+
+    .socialite { 
+      display: block; 
+      position: relative; 
+      margin-top: 6px;
+      height: 25px; 
+      width: 50px; 
+      background: url(image_path('custom-default.png')) 0 0 no-repeat; 
+    }
+
+    .socialite-loaded { background: none; }
+
+    .twitter-share { background-position: 0 0 60px -45px; }
+    .googleplus-one { background-position: 0 -45px; }
+    .facebook-like { background-position: 0 -90px; }
+    .linkedin-share { background-position: 0 -135px; }
+    .pinterest-pinit { background-position: 0 -175px; }
+
+  }
+}
+
+#secondary_yield{
+
+}
+
+.stuck{
+  position: fixed;
+  top: 0; opacity: 0.5;
+  &:hover{ opacity: 1;}
+  padding-right: 20px;
+}
+
+#footer h1{
+  text-align:right;
+}
+
+.modal-backdrop {
+  // background-color: black ;
+  &.fade { opacity: 0.5; }
+}
+
+// .modal{
+//   background-color: #333;
+
+//   h1, h2, h3, h4, h5, h6{color: red;}
+// }
+
+#modal-flash{
+  .alert-message{
+    padding-left: 5px;
+  }
+
+  button.btn{
+    float:right;
+  }
+}
+
+// a.brand{
+//   text-size: 30
+// }
+
+code{
+  white-space: normal;
+}
+
+// #footnotes_holder{
+//   position: absolute;
+// }
+
+.well{
+  border:none;
+}
+.modal h3, .modal h5{
+  color: black;
+}
+
+// #sticky_navigation_wrapper { width:100%; height:50px; }
+
+// #sticky_navigation {
+//   width:100%;
+
+//   &:hover{
+//     opacity:1.0 !important;
+//   }
+// }
+
+short {
+  text-overflow: "...";
+  display: inline-block;
+  width: 100%;
+  max-height:600px;
+  white-space: wrap;
+  overflow: hidden;
+  vertical-align: top; 
+}
+
+textarea.full_width{
+  width: 100%;
+}
+
+body{
+  padding-top:10px;
+}
+ 
+span.tags a{
+  color: gray;
+}
+
+.title_and_sub_title{
+  h1, h2, h3, h4, h5, h6{
+    display:inline-block;
+    padding-right: 10px;  
+  }
+}

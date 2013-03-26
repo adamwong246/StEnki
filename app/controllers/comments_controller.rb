@@ -3,10 +3,10 @@ class CommentsController < ApplicationController
   before_filter :verify_authenticity_token_unless_openid, :only => :create
 
   include UrlHelper
-  OPEN_ID_ERRORS = {
-    :missing  => "Sorry, the OpenID server couldn't be found",
-    :canceled => "OpenID verification was canceled",
-    :failed   => "Sorry, the OpenID verification failed" }
+  # OPEN_ID_ERRORS = {
+  #   :missing  => "Sorry, the OpenID server couldn't be found",
+  #   :canceled => "OpenID verification was canceled",
+  #   :failed   => "Sorry, the OpenID verification failed" }
 
   before_filter :find_post, :except => [:new, :create, :show]
 
@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    puts "CommentsController.new params: #{params.to_yaml}"
+    authorize! :new, @user
     @comment = Comment.build_for_preview(params[:comment])
 
     puts ">> #{@comment.inspect}"
@@ -34,16 +34,12 @@ class CommentsController < ApplicationController
 
   # TODO: Spec OpenID with cucumber and rack-my-id
   def create
-    puts 
+    authorize! :create, @user 
 
-    puts "================= params[:comment]" + params[:comment].inspect
-    puts "================= session[:pending_comment]" + session[:pending_comment].inspect
 
     @comment = Comment.new((session[:pending_comment] || params[:comment] || {}).
       reject {|key, value| !Comment.protected_attribute?(key) })
     
-    puts "================= @comment" + @comment.inspect
-
     session[:pending_comment] = nil
 
     # if @comment.requires_openid_authentication?

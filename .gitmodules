@@ -1,0 +1,3 @@
+[submodule "git_wiki"]
+	path = git_wiki
+	url = git@github.com:adamwong246/StEnki.wiki.git

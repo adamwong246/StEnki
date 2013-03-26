@@ -1,13 +1,17 @@
 - if !defined? short 
   - short = false 
 
-.title_and_sub_title
-  h2
-    = link_to(post.title, post_path(post))
-  h5 
-    = format_post_date(post.published_at)
+- if title
+  .title_and_sub_title
+    h2
+      = link_to(post.title, post_path(post))
+    h5 
+      = format_post_date(post.published_at)
 
-.entrybody.well
+    - if current_user
+      = link_to "Admin", "/rails_admin/post/#{post.id}"
+
+.entrybody
   - if short
     /= raw truncate_html  post.body_html, :length => 500
     /= raw truncate_html  post.body_html, :length => 500
@@ -20,7 +24,7 @@
 
     .meta
       ul
-        li.comments= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments'))
+        / li.comments= link_to(pluralize(post.approved_comments.size, "comment"), post_path(post, :anchor => 'comments'))
         - unless post.tags.empty?
           li.tags
             | Tagged #{linked_tag_list(post.tags)}

@@ -3,6 +3,11 @@ class PostsController < ApplicationController
 
   load_and_authorize_resource
 
+  before_filter :get_navigation_posts_grouped_by_month
+  def get_navigation_posts_grouped_by_month
+    @posts_grouped_by_months = Post.find_grouped_by_month(15)
+  end
+
   def archive
     @months = Post.find_grouped_by_month
 
@@ -13,10 +18,22 @@ class PostsController < ApplicationController
   end
 
   def index
-
     @tag = params[:tag]
 
-    @posts = Post.where(:active => true).page(params[:page]).per(3)
+    @paginate = params[:paginate] != "false"
+    @filter = params[:filter] != "false"
+
+    if @filter
+      @posts = Post.where(:active => true)
+    else
+      @posts = Post.all
+    end
+
+    if @paginate
+      # debugger
+
+      @posts = @posts.page(params[:page]).per(10)
+    end
 
     respond_to do |format|
       format.html 

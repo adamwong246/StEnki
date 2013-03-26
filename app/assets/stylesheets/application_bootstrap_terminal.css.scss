@@ -23,13 +23,13 @@
   @import "bootstrap";
 
   // Responsive styles go here in case you want them
-  // @import "bootstrap-responsive";
+  @import "bootstrap-responsive";
 
   // And finally bootswatch style itself
   
   @import "bootswatch/terminal/bootswatch";
   
+
   // Whatever application styles you have go last
   @import "base";
-  @import "socialite";
   @import "comment";

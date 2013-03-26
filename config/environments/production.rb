@@ -71,7 +71,7 @@ StEnki::Application.configure do
   StEnki::Application.config.middleware.use ExceptionNotifier,
     :ignore_exceptions    => [ActionController::InvalidAuthenticityToken],
     :email_prefix         => "[Enki] ",
-    :sender_address       => [Enki::Config.default[:author, :email]],
-    :exception_recipients => [Enki::Config.default[:author, :email]]
+    :sender_address       => "adamwong246@gmail.com",
+    :exception_recipients => "adamwong246@gmail.com"
     
 end

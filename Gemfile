@@ -1,5 +1,7 @@
 source "http://rubygems.org"
 
+gem 'debugger'
+
 gem "thin", "~> 1.4.1"
 gem 'dalli', '~>1.0.5' # memcaching on heroku
 gem 'slim'
@@ -8,17 +10,25 @@ gem "nokogiri"
 gem "htmlentities" # A module for encoding and decoding (X)HTML entities.
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
 gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
+# gem 'rails_admin_toggleable'
+gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
+# gem "rails_admin_import", :path => "~/Programming/rails_admin_import"
+
+gem "paper_trail"
 gem 'ancestry'
 gem 'sextant'
-gem 'cancan'
+
 gem 'jquery-rails'
-# gem 'bootswatch-rails'
 gem 'faker'
 gem 'high_voltage'
 gem 'builder' # for building xml/html, it's better than content_tag
 
 gem 'simple-navigation'
 # gem 'simple-navigation', :path => "~/git/simple-navigation/"
+
+gem 'feedzirra'
+
+
 
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -29,6 +39,8 @@ gem 'omniauth-google-apps'
 gem 'omniauth-identity'
 gem 'oauth2'
 gem 'devise'
+gem 'cancan'
+gem 'rolify'
 
 gem "best_in_place" 
 gem 'RedCloth', '~> 4.2.9', :require => 'redcloth'
@@ -42,6 +54,8 @@ gem 'kaminari'
 # gem 'exception_notification', '~> 2.5.2'
 
 gem 'turbolinks'
+gem 'jquery-turbolinks'
+gem 'coffee-rails', "~> 3.2.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -49,9 +63,8 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'bootstrap-sass'
   # gem 'therubyracer' #heroku says unnesecary but I need it for less to work
-  gem 'coffee-rails', "~> 3.2.1"
+  # gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
-  gem 'compass-rails'
 end
 
 platforms :ruby do
@@ -75,19 +88,23 @@ group :test do
   gem 'database_cleaner'
   gem 'cucumber-rails',    :require => false
   gem 'cucumber-websteps', :require => false
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'rspec'
   # gem 'nokogiri', '~> 1.5.0'
   gem 'webrat'
   gem 'sqlite3'
   gem 'mailcatcher'
+  gem 'steak'
 end
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'aaronh-chronic' # A natural language date parser with timezone support
   gem 'rails-footnotes', '>= 3.7.5.rc4', :group => :development
+  
 end
+
+
 
 group :development do
   gem 'guard'
@@ -105,6 +122,10 @@ group :development do
 
   gem 'ruby-prof' # method benchmarking
 
+end
+
+group :production do 
+  # gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
 end
 
 # group :development do

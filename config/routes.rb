@@ -1,15 +1,17 @@
+# require 'gollum/frontend/app'
+
 StEnki::Application.routes.draw do
 
-  devise_for :users
-  
-  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  #, :path => '', :path_names => { :sign_in => "login", :sign_out => "signout", :sign_up => "register" }
+  devise_for :users
 
   resources :users, :except =>['index', 'create', 'new', 'destroy']
 
-  match "/pages/about_me" => "pages#show", :id => 'files/about_me', :as => 'about_me'
-  match "/pages/about_stenki" => "pages#show", :id => 'files/about_stenki', :as => 'about_stenki'
+  match "/about"           => "pages#show", :id => 'files/about',       :as => 'about',       :theme_color => :about
+  match "/lab"             => "pages#show", :id => 'files/lab',         :as => 'lab',          :theme_color => :lab
+  match "/lab/sampler"     => "pages#show", :id => 'files/lab/sampler', :as => 'html_sampler', :theme_color => :lab
+
   match "/pages" => "pages#index"
   match "/pages/:id" => "high_voltage/pages#show#:id"
 
@@ -22,14 +24,14 @@ StEnki::Application.routes.draw do
     get ':year/:month/:day/:slug' => 'posts#show'
   end
 
-  match "/archive" => 'posts#archive'
+  match "/archive" => 'posts#archive', :as => "posts_archive"
 
   scope :to => 'posts#index' do
     get 'posts.:format', :as => :formatted_posts
     get '(:tag)', :as => :posts
   end
 
-  match "utility/flashecho" => 'utilities#flashecho'
+  match "utility/flashecho" => 'utilities#flashecho', :as => 'flash_test'
 
-  root :to => 'posts#index'
+  root :to => 'posts#index', :as => "blog"
 end

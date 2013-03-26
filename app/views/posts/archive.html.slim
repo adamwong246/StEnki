@@ -1,5 +1,7 @@
 - content_for(:page_title) do
   = archives_title
-h2 Archives
+- content_for(:secondary_left) do
+  h1 archives
 
-= render :partial => 'posts/navigation', :locals => {:limit => nil}
+.well
+  = render :partial => 'posts/navigation', :locals => {:limit => nil}

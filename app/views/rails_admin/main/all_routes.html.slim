@@ -1,0 +1,101 @@
+p
+  | Routes match in priority from top to bottom
+css:
+  th {border: 1px black solid;}
+  tr:nth-child(even) {background-color: lightgray;}
+  /#route_table td  padding: 0 30px;
+  /#route_table     margin:  0 auto 0;
+
+javascript:
+  var input1 = null;
+  var input2 = null;
+  function InitInputs() {
+    if (input1 == null) {
+      input1 = document.getElementById("input1");
+    }
+    if (input2 == null) {
+      input2 = document.getElementById("input2");
+    }
+
+    if (input1 == null) {
+      alert("input1 missing");
+    }
+    if (input2 == null) {
+      alert("input2 missing");
+    }
+  }
+  function myMethod1() {
+    InitInputs();
+    alert(input1.value + " " + input2.value);
+  }
+  function myMethod2() {
+    InitInputs();
+    alert(input1.value);
+  }
+  setupRouteToggleHelperLinks();
+
+  function each(elems, func) {
+    if (!elems instanceof Array) { elems = [elems]; }
+    for (var i = elems.length; i--; ) {
+      func(elems[i]);
+    }
+  }
+
+  function setValOn(elems, val) {
+    each(elems, function(elem) {
+      elem.innerHTML = val;
+    });
+  }
+
+  function onClick(elems, func) {
+    each(elems, function(elem) {
+      elem.onclick = func;
+    });
+  }
+
+  // Enables functionality to toggle between `_path` and `_url` helper suffixes
+  function setupRouteToggleHelperLinks() {
+    var toggleLinks = document.querySelectorAll('#route_table [data-route-helper]');
+    onClick(toggleLinks, function(){
+      alert( "toggle links");
+
+      var helperTxt   = this.getAttribute("data-route-helper");
+      var helperElems = document.querySelectorAll('[data-route-name] span.helper');
+      setValOn(helperElems, helperTxt);
+    });
+  }
+
+table#route_table.route_table
+  thead
+    tr
+      th
+        | Helper
+        br/
+        = link_to "Path", "#", 'data-route-helper' => '_path',          \
+          title: "Returns a relative path (without the http or domain)" \
+       
+       
+      th HTTP Verb
+      th Path
+      th Controller#Action
+      th Link
+  tbody
+    - @routes.each do |route|
+      tr.route_row data-helper="path"
+        td data-route-name=(route[:name])
+          - if route[:name].present?
+            = route[:name]
+            / = link_to route[:name], route[:path]
+            / span.helper _path
+        td data-route-verb=(route[:verb])
+          = route[:verb]
+        td data-route-path=(route[:path])
+          = route[:path]
+        td data-route-reqs=(route[:reqs])
+          = route[:reqs]
+        td 
+          form action="javascript:myMethod1();"
+            input#input1 type="text"
+            input#input2 type="text"
+            input onclick="myMethod2()" type="button" value="myMethod2"
+            input type="submit" value="myMethod1"

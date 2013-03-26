@@ -1,19 +1,30 @@
+- content_for(:secondary_left) do
+  ul.sidebar-nav.nav.nav_list
+    li
+      h1= link_to(@post.title, post_path(@post))
+    li
+      h4= format_post_date(@post.published_at)
 
-.well
-  = render :partial => 'posts/post', :locals => {:post => @post, :short => false}
+    - if current_user
+      li= link_to "Admin", "/rails_admin/post/#{@post.id}"
 
-hr
-.well
+
+.well  
+  = render :partial => 'posts/post', :locals => {:post => @post, :short => false, :title => false}
+
   -if current_user
     - child_comment= @post.comments.create
     - child_comment.user = current_user
-    = render :partial => 'comments/reply_form', :locals => {:comment => child_comment}
+    = render :partial => 'comments/reply_form', :locals => {:comment => child_comment} 
   -else
-    | You need to sign in to reply
+    | You need to 
+    = link_to "sign in", user_session_path
+    |  to reply
 
-- @root_comments.each do |comment|
-  = render :partial => 'comments/comment', :locals => {:comment => comment, :level => 0, :reply_link => true}
-  
-.related
-  | Looking for more? Head on over to the #{link_to("archives", archive_path)}.
+  ol#existing_comments
+    - @root_comments.each do |comment|
+      = render :partial => 'comments/comment', :locals => {:comment => comment, :level => 0, :reply_link => true}
+    
+  .related
+    | Looking for more? Head on over to the #{link_to("archives", :posts_archive)}.
 

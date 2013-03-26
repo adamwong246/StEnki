@@ -1,5 +1,5 @@
 module ApplicationHelper
-
+  
   DEFAULT_THEME = "application_bootstrap_terminal.css"
   
   def get_all_themes
@@ -12,17 +12,21 @@ module ApplicationHelper
 
   def get_theme_stylesheet_link
 
-    if current_user && current_user.bootswatch_theme
-      begin
-        stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
-      rescue
-        flash[:alert] = "Could not find user's preferred theme. Defaulting to #{DEFAULT_THEME}"
-        stylesheet_link_tag DEFAULT_THEME, :media => "all"
+    stylesheet_link_tag "application", :media => "all"
+
+    # if current_user && current_user.bootswatch_theme
+    #   begin
+    #     stylesheet_link_tag current_user.bootswatch_theme, :media => "all"
+    #   rescue
+    #     flash[:alert] = "Could not find user's preferred theme. Defaulting to #{DEFAULT_THEME}"
+    #     stylesheet_link_tag DEFAULT_THEME, :media => "all"
         
-      end
-    else
-      stylesheet_link_tag DEFAULT_THEME, :media => "all"
-    end
+    #   end
+    # else
+    #   stylesheet_link_tag DEFAULT_THEME, :media => "all"
+    # end
+
+
 
   end
 
@@ -42,30 +46,11 @@ module ApplicationHelper
     end
   end
 
-  def my_menu_items
-
-    Proc.new do |level_0|
-
-      Rails.application.routes.routes.each do |route|
-        route.nav_item(level_0)
-      end
-
-      # root.recursive_nav_items(level_0)
-    end
-
-    # root = Rails.application.routes.routes.select{|r| r.name == "root" }.first
-
-    # if root
-    #   Proc.new do |level_0|
-    #     level_0.item :test_regex_nav_item, "regex test", "/widgets/1"[/\A\/(widgets)\/[^\/]+{1}$/]
-    #     root.recursive_nav_items(level_0)
-    #   end
-    # else
-    #   raise "Couldn't find a root route. Add a route like < root :to => 'some_controller#some_action' > to your routes.rb"
-    # end
-
+  def current_url
+    "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
   end
 
+  # Turn a collection into html
   def ultrahumanize(collection)
   xhtml = Builder::XmlMarkup.new :target => out=(''), :indent => 2
 

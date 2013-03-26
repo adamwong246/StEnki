@@ -19,13 +19,13 @@ module PageTitleHelper
     if content.present?
       content
     else
-      enki_config[:title]
+      CONFIG[:title]
     end
   end
 
   private
 
   def compose_title(*parts)
-    (parts << enki_config[:title]).reject(&:blank?).join(" - ")
+    (parts << CONFIG[:title]).reject(&:blank?).join(" - ")
   end
 end
