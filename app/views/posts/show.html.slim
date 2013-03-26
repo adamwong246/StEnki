@@ -12,6 +12,8 @@
 .well  
   = render :partial => 'posts/post', :locals => {:post => @post, :short => false, :title => false}
 
+  hr
+
   -if current_user
     - child_comment= @post.comments.create
     - child_comment.user = current_user
