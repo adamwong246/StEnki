@@ -18,10 +18,10 @@ StEnki::Application.routes.draw do
   resources :comments, :theme_color => :lab
 
   constraints :year => /\d{4}/, :month => /\d{2}/, :day => /\d{2}/ do
-    get ':year/:month/:day/:slug/comments'  => 'comments#index'
+    get ':year/:month/:day/:slug/comments'  => 'comments#index', :theme_color => :blog
     post ':year/:month/:day/:slug/comments' => 'comments#create'
-    get ':year/:month/:day/:slug/comments/new' => 'comments#new'
-    get ':year/:month/:day/:slug' => 'posts#show'
+    get ':year/:month/:day/:slug/comments/new' => 'comments#new', :theme_color => :blog
+    get ':year/:month/:day/:slug' => 'posts#show',  :theme_color => :blog
   end
 
   match "/archive" => 'posts#archive', :as => "posts_archive", :theme_color => :blog
