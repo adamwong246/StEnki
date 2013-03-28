@@ -1,4 +1,4 @@
-/*
+ /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -20,6 +20,9 @@ $light_about_color: lighten($about_color, 20%);
 
 @import url("http://fonts.googleapis.com/css?family=Tauri");
 @import url("http://fonts.googleapis.com/css?family=Codystar");
+@import url("http://fonts.googleapis.com/css?family=Raleway+Dots");
+@import url("http://fonts.googleapis.com/css?family=Questrial");
+
 
 // bootrap customized vars
 $bodyBackground:        #060606;
@@ -48,77 +51,91 @@ $infoBackground:          #d9edf7 !default;
 $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 
 $baseBorderRadius: 0;
+$baseFontSize: 18px;
+$baseLineHeight:        24px;
 
 
-// Core variables and mixins
-@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
-@import "bootstrap/mixins";
+// // Core variables and mixins
+// @import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
+// @import "bootstrap/mixins";
 
-// CSS Reset
-@import "bootstrap/reset";
+// // CSS Reset
+// @import "bootstrap/reset";
 
-// Grid system and page structure
-@import "bootstrap/scaffolding";
-@import "bootstrap/grid";
-@import "bootstrap/layouts";
+// // Grid system and page structure
+// @import "bootstrap/scaffolding";
+// @import "bootstrap/grid";
+// @import "bootstrap/layouts";
 
-// // Base CSS
-@import "bootstrap/type";
-@import "bootstrap/code";
-@import "bootstrap/forms";
-// @import "bootstrap/tables";
+// // // Base CSS
+// @import "bootstrap/type";
+// @import "bootstrap/code";
+// @import "bootstrap/forms";
+// // @import "bootstrap/tables";
 
-// // Components: common
-@import "bootstrap/sprites";
-@import "bootstrap/dropdowns";
-@import "bootstrap/wells";
-@import "bootstrap/component-animations";
-@import "bootstrap/close";
+// // // Components: common
+// @import "bootstrap/sprites";
+// @import "bootstrap/dropdowns";
+// @import "bootstrap/wells";
+// @import "bootstrap/component-animations";
+// @import "bootstrap/close";
 
-// // Components: Buttons & Alerts
-@import "bootstrap/buttons";
-@import "bootstrap/button-groups";
-@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
+// // // Components: Buttons & Alerts
+// @import "bootstrap/buttons";
+// @import "bootstrap/button-groups";
+// @import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
 
-// // Components: Nav
-@import "bootstrap/navs";
-// @import "bootstrap/navbar";
-// @import "bootstrap/breadcrumbs";
-@import "bootstrap/pagination";
-// @import "bootstrap/pager";
+// // // Components: Nav
+// @import "bootstrap/navs";
+// // @import "bootstrap/navbar";
+// // @import "bootstrap/breadcrumbs";
+// @import "bootstrap/pagination";
+// // @import "bootstrap/pager";
 
-// // Components: Popovers
-@import "bootstrap/modals";
-// @import "bootstrap/tooltip";
-// @import "bootstrap/popovers";
+// // // Components: Popovers
+// @import "bootstrap/modals";
+// // @import "bootstrap/tooltip";
+// // @import "bootstrap/popovers";
 
-// // Components: Misc
-// @import "bootstrap/thumbnails";
-// @import "bootstrap/media";
-@import "bootstrap/labels-badges";
-// @import "bootstrap/progress-bars";
-// @import "bootstrap/accordion";
-@import "bootstrap/carousel";
-// @import "bootstrap/hero-unit";
+// // // Components: Misc
+// // @import "bootstrap/thumbnails";
+// // @import "bootstrap/media";
+// @import "bootstrap/labels-badges";
+// // @import "bootstrap/progress-bars";
+// // @import "bootstrap/accordion";
+// @import "bootstrap/carousel";
+// // @import "bootstrap/hero-unit";
 
-// Utility classes
-@import "bootstrap/utilities"; // Has to be last to override when necessary
+// // Utility classes
+// @import "bootstrap/utilities"; // Has to be last to override when necessary
 
-// // Then bootstrap itself
-// @import "bootstrap";
+// Then bootstrap itself
+@import "bootstrap";
 
-// // Responsive styles go here in case you want them
-// @import "bootstrap-responsive";
+// Responsive styles go here in case you want them
+@import "bootstrap-responsive";
+
+// @import 'font-awesome'; // SASS style
+@import "font-awesome"; //SCSS style
 
 // Whatever application styles you have go last
 @import "page";
 @import "comment";
 
 body{
-  font-family: 'Tauri', sans-serif !important;
+  // font-family: 'Tauri', sans-serif !important;
+  // font-family: 'Raleway Dots', cursive;
+  font-family: 'Questrial', sans-serif;
 }
 
+#footer.row-fluid > div{
+  padding-top: 30px;
 
+  * {
+    font-family: 'Codystar', sans-serif !important;
+    text-align:right;
+  }
+}
 
 li > a:hover, li > a:focus {
 text-decoration: none;
@@ -127,19 +144,14 @@ background-color: black;
 
 #logo{
   font-family: 'Codystar', sans-serif !important;
-  text-align:left;
+
+  // text-align:left;
 }
 
 #headshot{
   width: 380px;
   // height: 210 px;
   height: auto;
-}
-
-#scroll_to_top{
-  float: left;
-  margin-left:10px;
-  margin-top:10px;
 }
 
 #top_of_page{
@@ -248,6 +260,7 @@ span.label{
 #sticky_navigation {
 
   width: 100%;
+
   // float: left;
   // margin: 0 0 0 0;
   // padding: 0;
@@ -262,35 +275,44 @@ span.label{
     text-align: center; 
   }
 
-  .row-fluid {
-  
-    span{display: none;}
+  .row-fluid{
+    height:25px;
 
-    .socialite { 
-      display: block; 
-      position: relative; 
-      margin-top: 6px;
-      height: 25px; 
-      width: 50px; 
-      background: url(image_path('custom-default.png')) 0 0 no-repeat; 
+    &.lightbar{
+      height:2px;
     }
-
-    .socialite-loaded { background: none; }
-
-    .twitter-share { background-position: 0 0 60px -45px; }
-    .googleplus-one { background-position: 0 -45px; }
-    .facebook-like { background-position: 0 -90px; }
-    .linkedin-share { background-position: 0 -135px; }
-    .pinterest-pinit { background-position: 0 -175px; }
-
   }
+  // .row-fluid {
+  
+  //   span{display: none;}
+
+  //   .socialite { 
+  //     display: block; 
+  //     position: relative; 
+  //     margin-top: 6px;
+  //     height: 25px; 
+  //     width: 50px; 
+  //     background: url(image_path('custom-default.png')) 0 0 no-repeat; 
+  //   }
+
+  //   .socialite-loaded { background: none; }
+
+  //   .twitter-share { background-position: 0 0 60px -45px; }
+  //   .googleplus-one { background-position: 0 -45px; }
+  //   .facebook-like { background-position: 0 -90px; }
+  //   .linkedin-share { background-position: 0 -135px; }
+  //   .pinterest-pinit { background-position: 0 -175px; }
+
+  // }
 }
 
 .stuck{
   position: fixed;
+  height:27px;
   top: 0; opacity: 0.5;
   &:hover{ opacity: 1;}
   padding-right: 20px;
+  z-index: 1;
 }
 
 #footer h1{

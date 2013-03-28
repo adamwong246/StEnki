@@ -23,72 +23,108 @@ html dir="ltr" lang="en-US"
 
     .container-fluid
       .row-fluid
-        
-
-        #myCarousel.carousel.slide.span3
-          ol.carousel-indicators
-            / li.active data-slide-to="0" data-target="#myCarousel"
-            / li data-slide-to="1" data-target="#myCarousel"
-            / li data-slide-to="2" data-target="#myCarousel"
-          .carousel-inner
-            .item.active
-              = image_tag "carousel_pics/edited/spam.JPG", class: 'carousel_pic'
-            .item
-              = image_tag "carousel_pics/edited/bike.JPG", class: 'carousel_pic'
-            .item
-              = image_tag "carousel_pics/edited/love.JPG", class: 'carousel_pic'
-            .item
-              = image_tag "carousel_pics/edited/alaska.png", class: 'carousel_pic'
-            .item
-              = image_tag "carousel_pics/edited/beach.JPG", class: 'carousel_pic'
-            .item
-              = image_tag "carousel_pics/feather.JPG", class: 'carousel_pic'
-          / a.left.carousel-control data-slide="prev" href="#myCarousel"
-          / a.right.carousel-control data-slide="next" href="#myCarousel"
-        #logo.span1
+        #logo.span3
           a href="/"
-            h1
-              | i
-            h1
-              | failed
-            h1
-              | the
-            h1
-              | turing
-            h1
-              | test
-
+            h1 i failed the turing test
+        
       #sticky_navigation
         .lightbar.row-fluid
+        
         .row-fluid
-          
-          a#scroll_to_top href="#"
-            i.icon-circle-arrow-up.icon-white 
+          .span1.center_content
+            .row-fluid
+              .span6.center_content
+                a href="/"
+                  i.icon-home
+              .span6.center_content              
+                a#scroll_to_top href="#"
+                  i.icon-circle-arrow-up 
 
-          .span3.center_content
-            h4.blog_color_important
-              = link_to "blog", "/"
-          .span3.center_content
-            h4.lab_colors_important
-              = link_to "lab", :lab
-          .span3.center_content
-            h4.about_color_important
-              = link_to "about", :about
+          .span3.center_content.blog_color_important
+            = link_to "blog", "/"
+          .span3.center_content.lab_colors_important
+            = link_to "lab", :lab
+          .span3.center_content.about_color_important
+            = link_to "about", :about
 
-          .span2
-            #social.row-fluid
-              .span3
-                a.socialite.twitter-share data-count="horizontal" data-text="Socialite.js" data-url=current_url data-via="dbushell" href="http://twitter.com/share" rel="nofollow" target="_blank"
-                    span.vhidden Share on Twitter
-              .span3
-                a.socialite.googleplus-one data-href=current_url data-size="wide" href="https://plus.google.com/share?url=#{current_url}" rel="nofollow" target="_blank"
-                   span.vhidden Share on Google+
-              .span3
-                a.socialite.facebook-like data-href=current_url data-layout="button_count" data-send="false" data-show-faces="false" data-width="60" href="http://www.facebook.com/sharer.php?u=#{current_url}&t=Socialite.js" rel="nofollow" target="_blank"
-                    span.vhidden Share on Facebook
-              .span3
-                a.socialite.linkedin-share data-counter="right" data-url=current_url href="http://www.linkedin.com/shareArticle?mini=true&url=#{current_url}&title=Socialite.js" rel="nofollow" target="_blank"
-                    span.vhidden Share on LinkedIn
+          .span1
+            / .container style="width: auto;"
+            a.brand href="#"
+            ul.nav role="navigation"
+              li.dropdown
+                a#drop1.dropdown-toggle data-toggle="dropdown" href="#" role="button"
+                  | share                    
+                ul.dropdown-menu aria-labelledby="drop1" role="menu"
+                  li role="presentation"
+                    a href="http://www.facebook.com/sharer.php?u=#{current_url}"
+                      i.icon-facebook-sign
+                  li role="presentation"
+                    a href="http://twitter.com/share?text=An%20Awesome%20Link&url=#{current_url}" role="menuitem" tabindex="-1" 
+                      i.icon-twitter-sign
+
+                  li role="presentation"
+                    a href="https://plus.google.com/share?url=#{current_url}" role="menuitem" tabindex="-1"
+                      i.icon-google-plus-sign
+
+          .span1
+            .container style="width: auto;"
+              a.brand href="#"
+              ul.nav role="navigation"
+                li.dropdown
+                  a#drop1.dropdown-toggle data-toggle="dropdown" href="#" role="button"
+                    | contact                    
+                  ul.dropdown-menu aria-labelledby="drop1" role="menu"
+                    li role="presentation"
+                      a href="https://www.facebook.com/adamwong246" role="menuitem" tabindex="-1"
+                        i.icon-facebook
+                    li role="presentation"
+                      a href="https://twitter.com/adamwong246" role="menuitem" tabindex="-1"
+                        i.icon-twitter
+                    li role="presentation"
+                      a href="//plus.google.com/1042026564007" role="menuitem" tabindex="-1"
+                        i.icon-google-plus
+                    li role="presentation"
+                      a href="https://github.com/adamwong246" role="menuitem" tabindex="-1"
+                        i.icon-github
+                    li role="presentation"
+                      a href="www.linkedin.com/pub/adam-wong/1b/442/463/" role="menuitem" tabindex="-1"
+                        i.icon-linkedin
+                    li role="presentation"
+                      a href="mailto:adamwong246@gmail.com" role="menuitem" tabindex="-1"
+                        i.icon-envelope
+
+              /   li.dropdown
+              /     a#drop2.dropdown-toggle data-toggle="dropdown" href="#" role="button"
+              /       | Dropdown 2
+              /       b.caret
+              /     ul.dropdown-menu aria-labelledby="drop2" role="menu"
+              /       li role="presentation"
+              /         a href="#" role="menuitem" tabindex="-1"
+              /       li role="presentation"
+              /         a href="#" role="menuitem" tabindex="-1"
+              /       li role="presentation"
+              /         a href="#" role="menuitem" tabindex="-1"
+              /       li.divider role="presentation"
+              /       li role="presentation"
+              /         a href="#" role="menuitem" tabindex="-1"
+              / ul.nav.pull-right
+              /   li#fat-menu.dropdown
+              /     a#drop3.dropdown-toggle data-toggle="dropdown" href="#" role="button"
+              /       | Dropdown 3
+              /       b.caret
+              /     ul.dropdown-menu aria-labelledby="drop3" role="menu"
+              /       li role="presentation"
+              /         a href="#" role="menuitem" tabindex="-1"
+              /       li role="presentation"
+              /         a href="#" role="menuitem" tabindex="-1"
+              /       li role="presentation"
+              /         a href="#" role="menuitem" tabindex="-1"
+              /       li.divider role="presentation"
+              /       li role="presentation"
+              /         a href="#" role="menuitem" tabindex="-1""-1" href="#" Separated link
+             
+            
+
         .lightbar.row-fluid
       
       #top_of_page.row-fluid
@@ -96,17 +132,16 @@ html dir="ltr" lang="en-US"
             = yield :secondary_left          
 
         .span7
-          = yield 
+          = yield
+        .span2
+          = image_tag "your_ad_here.jpg" 
 
       .lightbar.row-fluid
       
-      .row-fuid
-        .span4.offset10 
-          h1 Adam Wong 2012
+      #footer.row-fluid
+        .span12
+          h1 Adam Wong 2013
+          h1: a href="mailto:adamwong246@gmail.com" adamwong246@gmail.com
           h1: a href="https://github.com/adamwong246/StEnki" source
-        .span3
-          = image_tag "sig.resized.jpg", :class =>'sig'
-
-      
 
 #footnotes_holder

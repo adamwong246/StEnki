@@ -2,6 +2,8 @@ source "http://rubygems.org"
 
 gem 'debugger'
 
+gem 'font-awesome-sass-rails'
+
 gem "thin", "~> 1.4.1"
 gem 'dalli', '~>1.0.5' # memcaching on heroku
 gem 'slim'
@@ -11,8 +13,8 @@ gem "htmlentities" # A module for encoding and decoding (X)HTML entities.
 gem 'rails_admin'#, :git => 'git@github.com:sferik/rails_admin.git' #:path =>'~/PersonalProgramming/rails_admin'
 gem "rails_admin_nestable"#, git: "git://github.com/dalpo/rails_admin_nestable.git" #:path =>'~/PersonalProgramming/rails_admin_nestable'#git: "git://github.com/dalpo/rails_admin_nestable.git"
 # gem 'rails_admin_toggleable'
-gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
-# gem "rails_admin_import", :path => "~/Programming/rails_admin_import"
+# gem "rails_admin_import", :git => "git://github.com/adamwong246/rails_admin_import.git"
+gem "rails_admin_import", :path => "~/Programming/rails_admin_import"
 
 gem "paper_trail"
 gem 'ancestry'

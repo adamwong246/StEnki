@@ -5,112 +5,108 @@
     li
       h4 Everything you need know about Adam Wong and StEnki
 
-.well
-  #about_me.row-fluid
-    .span8
-      h4
-        | About me
-      p
-        | This is the personal blog of Adam Wong, RoR developer <i>par excellence.</i>
 
-      p
-        | When I'm not coding, I practice muy thai kickboxing and brazillian jiu jitsu. I have two dogs, a cat, burning love for Ubuntu and a wonderful boyfriend. I live in Portland, Oregon. 
+#about_me.row-fluid.well
+  .span8
+    h3 About me
+    h5: a href="mailto:adamwong246@gmail.com" adamwong246@gmail.com
+    p This is the personal blog of Adam Wong, RoR developer <i>par excellence.</i>
 
+    p When I'm not coding, I practice muy thai kickboxing and brazillian jiu jitsu. I have two dogs, a cat, burning love for Ubuntu and a wonderful boyfriend. I live in Portland, Oregon. 
 
-      = link_to "Perhaps you'd like to see my résumé?", 'https://docs.google.com/document/d/1I1-ggWF3eYrVbSYdA5EwPBlVIrHvoWPdDujyIjvtEsA/pub'
+    p I'm always looking for new opportunities. Are you looking for a really good Rails dev and a sorta-pretty good designer? Oh yeah, did I mention I've got Android experience? If you are looking for a passionate and driven code head, I'm your man. 
 
-      h4
-        | My work
-      p
-        | I worked on this really cool website, 
-        = link_to "spaceport.io", 'http://spaceport.io/'
-      p
-        | I'm always working on some rail_admin plugins
-      p= link_to "Rails_admin_import can import data from an upload csv file or an rss feed", 'https://github.com/adamwong246/rails_admin_import'
+    = link_to "Perhaps you'd like to see my résumé?", 'https://docs.google.com/document/d/1I1-ggWF3eYrVbSYdA5EwPBlVIrHvoWPdDujyIjvtEsA/pub'
 
+  .span4
+    
+    #myCarousel.carousel.slide
+      ol.carousel-indicators
+        / li.active data-slide-to="0" data-target="#myCarousel"
+        / li data-slide-to="1" data-target="#myCarousel"
+        / li data-slide-to="2" data-target="#myCarousel"
+      .carousel-inner
+        .item.active
+          = image_tag "carousel_pics/edited/spam.JPG", class: 'carousel_pic'
+        .item
+          = image_tag "carousel_pics/edited/bike.JPG", class: 'carousel_pic'
+        .item
+          = image_tag "carousel_pics/edited/love.JPG", class: 'carousel_pic'
+        .item
+          = image_tag "carousel_pics/edited/alaska.png", class: 'carousel_pic'
+        .item
+          = image_tag "carousel_pics/edited/beach.JPG", class: 'carousel_pic'
+        .item
+          = image_tag "carousel_pics/feather.JPG", class: 'carousel_pic'
+      / a.left.carousel-control data-slide="prev" href="#myCarousel"
+      / a.right.carousel-control data-slide="next" href="#myCarousel"
 
+    
+.row-fluid.well
+  .span8
+    h3 My work
+    p
+      | I worked on this really cool website, 
+      = link_to "spaceport.io", 'http://spaceport.io/'
+    p
+      | I'm always working on some rail_admin plugins. This is my current open source work.
+    p= link_to "Rails_admin_import can import data from an upload csv file or an rss feed", 'https://github.com/adamwong246/rails_admin_import'
+  
+  .span4
+    iframe#github_badge frameBorder="0" src="http://githubbadge.appspot.com/badge/adamwong246?s=1&a=0" style="border: 0;height: 142px;width: 200px;overflow: hidden;"
 
-    .span4
-      iframe#github_badge frameBorder="0" src="http://githubbadge.appspot.com/badge/adamwong246?s=1&a=0" style="border: 0;height: 142px;width: 200px;overflow: hidden;"
-
-      a href="http://stackoverflow.com/users/614612/adamwong246"
-        img alt="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" height="58" src="http://stackoverflow.com/users/flair/614612.png" title="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" width="208"
+    a href="http://stackoverflow.com/users/614612/adamwong246"
+      img alt="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" height="58" src="http://stackoverflow.com/users/flair/614612.png" title="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" width="208"
         
-      / a href="http://stackexchange.com/users/304854"
-      /   img alt="profile for adamwong246 on Stack Exchange, a network of free, community-driven Q&A sites" height="58" src="http://stackexchange.com/users/flair/304854.png" title="profile for adamwong246 on Stack Exchange, a network of free, community-driven Q&A sites" width="208"
+.row-fluid.well
+  .span12
+    h3 About StEnki
+    p
+      span.label.label-warning Warning
 
-  hr
+      u StEnki is a work in progress. Things will break, please don't abuse StEnki, etc.
 
-  h4
-    | About StEnki
+      span.label.label-warning Warning
 
-  p
-    span.label.label-warning
-      | Warning
+    p StEnki is a Ruby on Rails blog engine. Forked from Enki, it features many differences and a cornucopia of gems. It is not made to run on older browsers.
 
-    u
-      | StEnki is a work in progress. Things will break, please don't abuse StEnki, etc.
+    ul
+      li
+        = link_to "Rails_admin", rails_admin_path 
+        |  instead of a custom admin section.
+      li CanCan and Devise
+      li Bootstrap
+      li Reddit-style tree comments
+      li Synchronization with Tumblr via RSS 
+      li Some nifty rails_admin plugins that I should promote as seperate repos.
 
-    span.label.label-warning
-      | Warning
+    h4 To do list
+    ul
+      li Lock down Cancan permissions
+      li Write some content!
+      li Oh so many tests to write...
 
-  p 
-    | StEnki is a Ruby on Rails blog engine. Forked from Enki, it features many differences and a cornucopia of gems. It is not made to run on older browsers.
-
-  ul
-    li
-      = link_to "Rails_admin", rails_admin_path 
-      |  instead of a custom admin section.
-    li
-      | CanCan and Devise
-    li
-      | Bootstrap
-    li
-      | Reddit-style tree comments
-    li
-      | Synchronization with Tumblr via RSS 
-    li
-      | Some nifty rails_admin plugins that I should promote as seperate repos.
-
-  h3
-    | To do list
-  ul
-    li
-      | Lock down Cancan permissions
-    li
-      | Write some content!
-    li
-      | Oh so many tests to write...
+    h4 FAQ
+    ul
+      li
+        h5 Why is StEnki?
+        p Because I wanted to learn more about rails and the many gems. Also, I need a place to jot down ideas.
+      li
+        h5 For whom is StEnki?
+        p RoR hackers who want to make a blog the hard way. 
+      li
+        h5 I found a bug.
+        = link_to "https://github.com/adamwong246/StEnki/issues"
+      li
+        h5 I am bored already.
+        p 
+          | Why don't you 
+          = link_to "login", rails_admin_path 
+          |  as a guest user? You'll have read access to the backend administration area, as well an admin toolbar at the bottom every page.
 
 
-  hr
-
-  h4
-    | FAQ
-  ul
-    li
-      h5
-        | Why is StEnki?
-      | Because I wanted to learn more about rails and the many gems. Also, I need a place to jot down ideas.
-    li
-      h5
-        | For whom is StEnki?
-      | RoR hackers who want to make a blog the hard way. 
-    li
-      h5
-        | I found a bug.
-      = link_to "https://github.com/adamwong246/StEnki/issues"
-    li
-      h5
-        | I'm bored already.
-      | Why don't you 
-      = link_to "login", rails_admin_path 
-      |  as a guest user? You'll have read access to the backend administration area, as well an admin toolbar at the bottom every page.
-
-  hr
-
-  h4
-    | Links
-  ul 
-    li = link_to "Github repo", "https://github.com/adamwong246/StEnki"
-    li = link_to "Pivotal tracker", "https://www.pivotaltracker.com/projects/656611/overview"
+    h4
+      | Links
+    ul 
+      li = link_to "Github repo", "https://github.com/adamwong246/StEnki"
+      li = link_to "Pivotal tracker", "https://www.pivotaltracker.com/projects/656611/overview"
