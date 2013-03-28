@@ -19,6 +19,7 @@
 # = require common
 # = require waypoints
 # = require waypoints-sticky
+# = require jquery.profanityfilter.min.js
 # = require comment
 
 # For editning object 'in place'
@@ -29,6 +30,9 @@
 # $ ->
 #   $("#social2 > li").one "mouseenter", ->
 #     Socialite.load $(this)[0]
+
+$ -> 
+  $(document).profanityFilter customSwears: ["fuck"]
 
 # add zen mode to every form
 $ -> 
