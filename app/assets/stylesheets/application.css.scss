@@ -31,6 +31,12 @@ $wellBackground:        #222  ;
 $paginationBackground:                $bodyBackground;
 $paginationBorder:                    #ddd;
 $paginationActiveBackground:          $wellBackground;
+$dropdownBackground:            $wellBackground;
+$dropdownLinkColor:             orange;
+$dropdownLinkColorHover:        $wellBackground;
+$dropdownLinkColorActive:       violet;
+$dropdownLinkBackgroundActive:  pink;
+$dropdownLinkBackgroundHover:   orange;
 
 // Form states and alerts
 // -------------------------
@@ -257,6 +263,12 @@ span.label{
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03ffff', endColorstr='#ffff00',GradientType=1 ); /* IE6-9 */
 }
 
+  .center_content{
+    // border:1px solid blue;
+    margin: 0 auto; 
+    text-align: center; 
+  }
+  
 #sticky_navigation {
 
   width: 100%;
@@ -269,19 +281,39 @@ span.label{
    
   // border:1px solid red;
 
-  .center_content{
-    // border:1px solid blue;
-    margin: 0 auto; 
-    text-align: center; 
-  }
+
 
   .row-fluid{
-    height:25px;
+    // height:25px;
 
     &.lightbar{
       height:2px;
     }
   }
+
+  ul{
+    // margin-top:5px;
+    margin-bottom:0px;
+
+    li{
+      display: inline;
+list-style-type: none;
+padding-right: 20px;
+    }
+  }
+
+
+
+  .span1, .span2, .span3, .span4, .span5, .span6{
+    margin-top:8px;
+    .span1, .span2, .span3, .span4, .span5, .span6{margin-top:0px;}
+  }
+
+  // * {
+  //   padding: 0px !important;
+  //   margin: 0px !important
+  // }
+
   // .row-fluid {
   
   //   span{display: none;}
@@ -308,7 +340,7 @@ span.label{
 
 .stuck{
   position: fixed;
-  height:27px;
+  // height:27px;
   top: 0; opacity: 0.5;
   &:hover{ opacity: 1;}
   padding-right: 20px;

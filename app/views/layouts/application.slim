@@ -46,53 +46,43 @@ html dir="ltr" lang="en-US"
             = link_to "lab", :lab
           .span3.center_content.about_color_important
             = link_to "about", :about
+                 
+          / like
+          .span2
+            .row-fluid
+              .span3
+                a href="http://www.facebook.com/sharer.php?u=#{current_url}"
+                  i.icon-facebook-sign
+              .span3
+                a 
+                  i.icon-twitter-sign
 
-          .span1
-            / .container style="width: auto;"
-            a.brand href="#"
-            ul.nav role="navigation"
-              li.dropdown
-                a#drop1.dropdown-toggle data-toggle="dropdown" href="#" role="button"
-                  | share                    
-                ul.dropdown-menu aria-labelledby="drop1" role="menu"
-                  li role="presentation"
-                    a href="http://www.facebook.com/sharer.php?u=#{current_url}"
-                      i.icon-facebook-sign
-                  li role="presentation"
-                    a href="http://twitter.com/share?text=An%20Awesome%20Link&url=#{current_url}" role="menuitem" tabindex="-1" 
-                      i.icon-twitter-sign
+              .span3 
+                a 
+                  i.icon-google-plus-sign
 
-                  li role="presentation"
-                    a href="https://plus.google.com/share?url=#{current_url}" role="menuitem" tabindex="-1"
-                      i.icon-google-plus-sign
-
-          .span1
-            .container style="width: auto;"
-              a.brand href="#"
-              ul.nav role="navigation"
-                li.dropdown
-                  a#drop1.dropdown-toggle data-toggle="dropdown" href="#" role="button"
-                    | contact                    
-                  ul.dropdown-menu aria-labelledby="drop1" role="menu"
-                    li role="presentation"
-                      a href="https://www.facebook.com/adamwong246" role="menuitem" tabindex="-1"
-                        i.icon-facebook
-                    li role="presentation"
-                      a href="https://twitter.com/adamwong246" role="menuitem" tabindex="-1"
-                        i.icon-twitter
-                    li role="presentation"
-                      a href="//plus.google.com/1042026564007" role="menuitem" tabindex="-1"
-                        i.icon-google-plus
-                    li role="presentation"
-                      a href="https://github.com/adamwong246" role="menuitem" tabindex="-1"
-                        i.icon-github
-                    li role="presentation"
-                      a href="www.linkedin.com/pub/adam-wong/1b/442/463/" role="menuitem" tabindex="-1"
-                        i.icon-linkedin
-                    li role="presentation"
-                      a href="mailto:adamwong246@gmail.com" role="menuitem" tabindex="-1"
-                        i.icon-envelope
-
+          / contact
+          / .span1.center_content
+          /   .row-fluid
+          /     .span2     
+          /       a href="https://www.facebook.com/adamwong246" role="menuitem" tabindex="-1"
+          /         i.icon-facebook
+          /     .span2
+          /       a href="https://twitter.com/adamwong246" role="menuitem" tabindex="-1"
+          /         i.icon-twitter
+          /     .span2
+          /       a href="//plus.google.com/1042026564007" role="menuitem" tabindex="-1"
+          /         i.icon-google-plus
+          /     .span2
+          /       a href="https://github.com/adamwong246" role="menuitem" tabindex="-1"
+          /         i.icon-github
+          /     .span2
+          /       a href="www.linkedin.com/pub/adam-wong/1b/442/463/" role="menuitem" tabindex="-1"
+          /         i.icon-linkedin
+          /     .span2
+          /       a href="mailto:adamwong246@gmail.com" role="menuitem" tabindex="-1"
+          /         i.icon-envelope
+              
               /   li.dropdown
               /     a#drop2.dropdown-toggle data-toggle="dropdown" href="#" role="button"
               /       | Dropdown 2
