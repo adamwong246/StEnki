@@ -1,5 +1,6 @@
-PATH
-  remote: ~/Programming/rails_admin_import
+GIT
+  remote: git://github.com/adamwong246/rails_admin_import.git
+  revision: 1c2c899c66532d6b786405eb0a365e4e885fe86d
   specs:
     rails_admin_import (0.2.1)
 
