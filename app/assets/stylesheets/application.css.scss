@@ -121,12 +121,29 @@ $baseLineHeight:        24px;
 // Responsive styles go here in case you want them
 @import "bootstrap-responsive";
 
+@import "compass/css3";
+
 // @import 'font-awesome'; // SASS style
 @import "font-awesome"; //SCSS style
 
 // Whatever application styles you have go last
 @import "page";
 @import "comment";
+
+
+#for_hire{
+  
+  // @include scale(0.5);
+  // @include rotate(-10deg);
+
+  position: absolute;
+  top: -50px;
+  right:-80px;
+  
+  @include transform(scale(0.5) rotate(10deg));
+
+   
+}
 
 body{
   // font-family: 'Tauri', sans-serif !important;

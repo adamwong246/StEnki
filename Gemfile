@@ -64,6 +64,7 @@ gem 'coffee-rails', "~> 3.2.1"
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'bootstrap-sass'
+  gem 'compass-rails'
   # gem 'therubyracer' #heroku says unnesecary but I need it for less to work
   # gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'

@@ -26,6 +26,10 @@ html dir="ltr" lang="en-US"
         #logo.span3
           a href="/"
             h1 i failed the turing test
+        .offset6.span2
+          a href="/about"
+            = image_tag "for-hire.png", id: 'for_hire'
+        
         
       #sticky_navigation
         .lightbar.row-fluid
@@ -123,8 +127,9 @@ html dir="ltr" lang="en-US"
 
         .span7
           = yield
-        .span2
-          = image_tag "your_ad_here.jpg" 
+        .span2          
+          = image_tag "your_ad_here.jpg"           
+          
 
       .lightbar.row-fluid
       
