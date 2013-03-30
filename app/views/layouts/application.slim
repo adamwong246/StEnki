@@ -32,42 +32,40 @@ html dir="ltr" lang="en-US"
             = image_tag "for-hire.png", id: 'for_hire'
         
         
-      #sticky_navigation
-        .lightbar.row-fluid
-        
-        .row-fluid
-          .span1.center_content
-            .row-fluid
-              .span6.center_content
+      .navbar#sticky_navigation
+        .navbar-inner
+          .container-fluid
+            button.btn.btn-navbar data-target=".nav-collapse" data-toggle="collapse" type="button"
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+
+            / a.brand href="./index.html"
+            /   | Brand
+
+            
+            ul.nav
+              li
                 a href="/"
                   i.icon-home
-              .span6.center_content              
+              li
                 a#scroll_to_top href="#"
                   i.icon-circle-arrow-up 
 
-          .span3.center_content.blog_color_important
-            = link_to "blog", "/"
-          .span3.center_content.lab_colors_important
-            = link_to "lab", :lab
-          .span3.center_content.about_color_important
-            = link_to "about", :about
-                 
-          / like
-          .span2.center_content
-            .row-fluid
-              .span3.center_content
+            .nav-collapse.collapse
+              ul.nav                
+                li
+                  = link_to "blog", "/"
+                li
+                  = link_to "lab", :lab
+                li
+                  = link_to "about", :about
+
+            ul.nav.pull-right
+              li
                 a href="http://www.facebook.com/sharer.php?u=#{current_url}"
                   i.icon-facebook-sign
-              .span3.center_content
-                a 
-                  i.icon-twitter-sign
-
-              .span3.center_content 
-                a 
-                  i.icon-google-plus-sign
-
-        .lightbar.row-fluid
-      
+                
       #top_of_page.row-fluid
         #secondary_yeld.span3
             = yield :secondary_left          
