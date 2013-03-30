@@ -38,6 +38,8 @@ StEnki::Application.configure do
   # todo: add to gemfile later
   # ActiveSupport::Dependencies.autoload_paths << "~/Programming/rails_admin_import"
 
+  config.serve_static_assets = true
+
 
 end
 

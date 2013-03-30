@@ -11,6 +11,8 @@ StEnki::Application.routes.draw do
   match "/about"           => "pages#show", :id => 'files/about',       :as => 'about',       :theme_color => :about
   match "/lab"             => "pages#show", :id => 'files/lab',         :as => 'lab',          :theme_color => :lab
   match "/lab/sampler"     => "pages#show", :id => 'files/lab/sampler', :as => 'html_sampler', :theme_color => :lab
+  # match "/lab/stenki_analysis"     => "pages#show", :id => 'files/lab/stenki_analysis/index.html', :as => 'html_sampler', :theme_color => :lab
+  # match "/lab/sampler"     => "pages#show", :id => 'files/lab/sampler', :as => 'html_sampler', :theme_color => :lab
 
   match "/pages" => "pages#index"
   match "/pages/:id" => "high_voltage/pages#show#:id"

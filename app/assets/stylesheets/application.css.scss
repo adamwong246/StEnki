@@ -294,6 +294,10 @@ span.label{
 
   width: 100%;
 
+  i {
+    font-size: 24px;
+  }
+
   // float: left;
   // margin: 0 0 0 0;
   // padding: 0;
@@ -318,8 +322,8 @@ span.label{
 
     li{
       display: inline;
-list-style-type: none;
-padding-right: 20px;
+      list-style-type: none;
+      padding-right: 20px;
     }
   }
 
