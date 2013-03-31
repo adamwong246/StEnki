@@ -11,12 +11,13 @@
  */
 
 // my colors
-$blog_color:  #4395FF;
-$lab_color:   #B611FF;
-$about_color: #F921B9;
-$light_blog_color: lighten($blog_color, 20%);
-$light_lab_color: lighten($lab_color, 20%);
-$light_about_color: lighten($about_color, 20%);
+$blog_color:  lighten(desaturate(cyan,    10), 10);//#4395FF;
+$lab_color:   lighten(desaturate(magenta, 10), 10);//#B611FF;
+$about_color: lighten(desaturate(yellow,  10), 10);//#F921B9;
+
+$light_blog_color:  darken(desaturate($blog_color,   10), 10);//#4395FF;
+$light_lab_color:   darken(desaturate($lab_color,    10), 10);//#B611FF;
+$light_about_color: darken(desaturate($about_color,  10), 10);//#F921B9;
 
 @import url("http://fonts.googleapis.com/css?family=Tauri");
 @import url("http://fonts.googleapis.com/css?family=Codystar");
@@ -60,61 +61,6 @@ $baseBorderRadius: 0;
 // $baseFontSize: 18px;
 // $baseLineHeight: 28px;
 
-
-// // Core variables and mixins
-// @import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
-// @import "bootstrap/mixins";
-
-// // CSS Reset
-// @import "bootstrap/reset";
-
-// // Grid system and page structure
-// @import "bootstrap/scaffolding";
-// @import "bootstrap/grid";
-// @import "bootstrap/layouts";
-
-// // // Base CSS
-// @import "bootstrap/type";
-// @import "bootstrap/code";
-// @import "bootstrap/forms";
-// // @import "bootstrap/tables";
-
-// // // Components: common
-// @import "bootstrap/sprites";
-// @import "bootstrap/dropdowns";
-// @import "bootstrap/wells";
-// @import "bootstrap/component-animations";
-// @import "bootstrap/close";
-
-// // // Components: Buttons & Alerts
-// @import "bootstrap/buttons";
-// @import "bootstrap/button-groups";
-// @import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons
-
-// // // Components: Nav
-// @import "bootstrap/navs";
-// // @import "bootstrap/navbar";
-// // @import "bootstrap/breadcrumbs";
-// @import "bootstrap/pagination";
-// // @import "bootstrap/pager";
-
-// // // Components: Popovers
-// @import "bootstrap/modals";
-// // @import "bootstrap/tooltip";
-// // @import "bootstrap/popovers";
-
-// // // Components: Misc
-// // @import "bootstrap/thumbnails";
-// // @import "bootstrap/media";
-// @import "bootstrap/labels-badges";
-// // @import "bootstrap/progress-bars";
-// // @import "bootstrap/accordion";
-// @import "bootstrap/carousel";
-// // @import "bootstrap/hero-unit";
-
-// // Utility classes
-// @import "bootstrap/utilities"; // Has to be last to override when necessary
-
 // Then bootstrap itself
 @import "bootstrap";
 
@@ -130,24 +76,61 @@ $baseBorderRadius: 0;
 @import "page";
 @import "comment";
 
+@mixin themer($color) {
+
+  color: lightgray;
+  // color: lighten(desaturate($color,    10), 10);
+
+  a {
+    color: lighten(desaturate($color,    30), 30);
+  }
+
+  a:hover{
+    background-color: darken(desaturate($color,    30), 30) !important;
+    text-decoration: none;
+  }
+
+  #logo * {
+    font-family: 'Codystar', sans-serif !important;
+    color: $color;
+  }
+
+  #secondary_yeld h1,#secondary_yeld  h2,#secondary_yeld  h3,#secondary_yeld  h4,#secondary_yeld  h5,#secondary_yeld  h6{
+    color: lighten(desaturate($color,    10), 10);
+  }
+
+  hr{
+    border-top: 1px solid lighten(desaturate($color,    10), 10);
+    border-bottom: 1px solid lighten(desaturate($color,    10), 10);
+  }
+
+  .pagination ul li a{
+    border: 1px solid lighten(desaturate($color,    10), 10);
+  }
+
+  * {stroke: $color;}
+
+}
+
+.blog_colors{
+  @include themer(cyan);
+}
+.lab_colors{
+  @include themer(magenta);
+}
+.about_colors{
+  @include themer(yellow);
+}
 
 #for_hire{
-  
-  // @include scale(0.5);
-  // @include rotate(-10deg);
-
   position: absolute;
   top: -50px;
   right:-80px;
   
   @include transform(scale(0.5) rotate(10deg));
-
-   
 }
 
 body{
-  // font-family: 'Tauri', sans-serif !important;
-  // font-family: 'Raleway Dots', cursive;
   font-family: 'Questrial', sans-serif;
 }
 
@@ -159,16 +142,12 @@ body{
   }
 }
 
-li > a:hover, li > a:focus {
-text-decoration: none;
-background-color: black;
-}
+// li > a:hover, li > a:focus {
+// text-decoration: none;
+// background-color: black;
+// }
 
-#logo{
-  font-family: 'Codystar', sans-serif !important;
 
-  // text-align:left;
-}
 
 #headshot{
   width: 380px;
@@ -181,104 +160,32 @@ background-color: black;
 }
 
 
-.blog_colors{
-  color: $blog_color;
-
-  a {
-    color: lighten($blog_color, 20%);
-  }
-
-  hr{
-    border-top: 1px solid $blog_color;
-    border-bottom: 1px solid $blog_color;
-  }
-
-  .pagination ul li a{
-    border: 1px solid $blog_color;
-  }
-
-  * {stroke: $blog_color;}
-}
-
-.blog_color_important{
-  color: $blog_color !important;
-
-  a {
-    color: lighten($blog_color, 20%) !important;
-  }
-  hr{
-    border-top: 1px solid $blog_color !important;
-    border-bottom: 1px solid $blog_color !important;
-  }
-}
-
-.lab_colors{
-  color: $lab_color;
-
-  a {
-    color: lighten($lab_color, 20%);
-  }
-  hr{
-    border-top: 1px solid $lab_color !important;
-    border-bottom: 1px solid $lab_color !important;
-  }
-  * {stroke: $lab_color;}
-}
-.lab_colors_important{
-  color: $lab_color !important;
-
-  a {
-    color: lighten($lab_color, 20%) !important;
-  }
-  hr{
-    border-top: 1px solid $lab_color !important;
-    border-bottom: 1px solid $lab_color !important;
-  }
-}
-.about_colors{
-  color: $about_color;
-
-  a {
-    color: lighten($about_color, 20%);
-  }
-  hr{
-    border-top: 1px solid $about_color;
-    border-bottom: 1px solid $about_color;
-  }
-  * {stroke: $about_color;}
-}
-.about_color_important{
-  color: $about_color !important;
-
-  a {
-    color: lighten($about_color, 20%) !important;
-  }
-  hr {
-    border-top: 1px solid $about_color !important;
-    border-bottom: 1px solid $about_color !important;
-  }
-}
 
 
 
-// #home{
-//   text-align:right
-// }
 
 span.label{
   margin-right: 10px;
   margin-left: 10px;
 }
 
-i {
-  font-size: 24px;
-}
 
 .navbar .btn-navbar{
   // float: none;
 }
 
 #sticky_navigation.navbar > .navbar-inner{
+
+  // -webkit-background-clip: text, border; color: transparent
+  * {
+    background-color: transparent;
+  }
+
+  li a {
+    @include background-clip(text);
+    color: transparent;
+  }
+
   padding-left:0px; 
   padding-right:0px;
   padding-top: 3px;
@@ -303,9 +210,7 @@ i {
   }
 }
 
-.nav-collapse .nav > li{
-  float:right;
-}
+
   // height: 2px;
 
   // background: #03ffff !important; /* Old browsers */
@@ -328,9 +233,9 @@ i {
 
   &:hover{ opacity: 1;}
 
-  nav-collapse.in.collapse{
-
-  }
+  .nav-collapse .nav > li{
+  float:right;
+}
 
 }
 
