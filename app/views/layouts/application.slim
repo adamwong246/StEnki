@@ -35,33 +35,44 @@ html dir="ltr" lang="en-US"
       .navbar#sticky_navigation
         .navbar-inner
           .container-fluid
-            button.btn.btn-navbar data-target=".nav-collapse" data-toggle="collapse" type="button"
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
+            / button.btn.btn-navbar data-target=".nav-collapse" data-toggle="collapse" type="button"
+            /   span.icon-bar
+            /   span.icon-bar
+            /   span.icon-bar
 
-            / a.brand href="./index.html"
-            /   | Brand
+            
 
             
             ul.nav
-              li
-                a href="/"
-                  .icon-home
-              li
-                a#scroll_to_top href="#"
-                  .icon-circle-arrow-up 
+              / li
+              /   a href="/"
+              /     .icon-home              
+              / li
+              /   a#scroll_to_top href="#"
+              /     .icon-circle-arrow-up 
+              / li.divider-vertical
+              li= link_to "", :blog,  class: "icon-book"
+              li= link_to "", :lab,   class: "icon-beaker" 
+              li= link_to "", :about, class: "icon-question-sign"
 
-            .nav-collapse.collapse
-              ul.nav                
-                li= link_to "", :blog,  class: "icon-book"
-                li= link_to "", :lab,   class: "icon-beaker" 
-                li= link_to "", :about, class: "icon-question-sign"
+              / li.dropdown
+              /   a.dropdown-toggle data-toggle="dropdown" href="#"
+              /     | share
+              /     b.caret
+              /   ul.dropdown-menu
+              /     li= link_to "", "facebook", class: "icon-facebook"
+              /     li= link_to "", "facebook", class: "icon-twitter"
+              /     li= link_to "", "facebook", class: "icon-facebook"
+              /     li.divider
+              /     li
 
+              / <form class="navbar-search pull-right" action="">
+              /   <input type="text" class="search-query span2" placeholder="Search">
+              / </form>
             ul.nav.pull-right
-              li
-                a href="http://www.facebook.com/sharer.php?u=#{current_url}"
-                  .icon-facebook-sign
+              li= link_to "", facebook_like_url_for_this_page, class: "icon-facebook"
+              li= link_to "", "facebook", class: "icon-twitter"
+              li= link_to "", "facebook", class: "icon-facebook"
                 
       #top_of_page.row-fluid
         #secondary_yeld.span3

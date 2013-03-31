@@ -10,11 +10,11 @@ private
     begin
       case (StEnki::Application.routes.recognize_path request.path)[:theme_color]
       when :about
-        @highlight_color = "about_colors"
+        @highlight_color = "about"
       when :lab
-        @highlight_color = "lab_colors"
+        @highlight_color = "lab"
       when :blog
-        @highlight_color = "blog_colors"
+        @highlight_color = "blog"
       end
     rescue
       # do nothing

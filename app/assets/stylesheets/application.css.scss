@@ -34,7 +34,7 @@ $paginationBorder:                    #ddd;
 $paginationActiveBackground:          $wellBackground;
 $dropdownBackground:            $wellBackground;
 $dropdownLinkColor:             orange;
-$dropdownLinkColorHover:        $wellBackground;
+$dropdownLinkColorHover:        red;
 $dropdownLinkColorActive:       violet;
 $dropdownLinkBackgroundActive:  pink;
 $dropdownLinkBackgroundHover:   orange;
@@ -76,10 +76,23 @@ $baseBorderRadius: 0;
 @import "page";
 @import "comment";
 
+
+.icon-book{
+  color: cyan !important;
+}
+.icon-beaker{
+  color: magenta !important;
+}
+.icon-question-sign{
+  color: yellow !important;
+}
+
+
 @mixin themer($color) {
 
   color: lightgray;
   // color: lighten(desaturate($color,    10), 10);
+  .brand {color: $color;}
 
   a {
     color: lighten(desaturate($color,    30), 30);
@@ -110,15 +123,19 @@ $baseBorderRadius: 0;
 
   * {stroke: $color;}
 
+  
+  background-color: darken(desaturate($color,    40), 45) !important;
+  
+
 }
 
-.blog_colors{
+body.blog{
   @include themer(cyan);
 }
-.lab_colors{
+body.lab{
   @include themer(magenta);
 }
-.about_colors{
+body.about{
   @include themer(yellow);
 }
 
@@ -132,6 +149,10 @@ $baseBorderRadius: 0;
 
 body{
   font-family: 'Questrial', sans-serif;
+}
+
+.navbar .nav > li > a {
+  text-shadow: none !important;
 }
 
 #footer.row-fluid > div{
@@ -168,19 +189,19 @@ span.label{
 #sticky_navigation.navbar > .navbar-inner{
 
   // -webkit-background-clip: text, border; color: transparent
-  * {
-    background-color: transparent;
-  }
+  // * {
+  //   background-color: transparent;
+  // }
 
-  li a {
-    @include background-clip(text);
-    color: transparent;
-  }
+  // li a {
+  //   @include background-clip(text);
+  //   color: transparent;
+  // }
 
   padding-left:0px; 
   padding-right:0px;
-  padding-top: 3px;
-  padding-bottom: 3px;
+  padding-top: 6px;
+  // padding-bottom: 3px;
   border: none;
   background: #03ffff !important; /* Old browsers */
   background: -moz-linear-gradient(left, #03ffff 0%, #ff00ff 50%, #ffff00 100%) !important; /* FF3.6+ */
@@ -224,9 +245,9 @@ span.label{
 
   &:hover{ opacity: 1;}
 
-  .nav-collapse .nav > li{
-  float:right;
-}
+  // .nav-collapse .nav > li{
+  // float:right;
+// }
 
 }
 

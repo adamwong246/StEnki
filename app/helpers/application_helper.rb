@@ -1,14 +1,18 @@
 module ApplicationHelper
-  
-  DEFAULT_THEME = "application_bootstrap_terminal.css"
-  
-  def get_all_themes
-    StEnki::Application::ALL_THEMES
-  end
 
-  def get_theme(theme)
-    get_all_themes[theme.to_sym]
+  def facebook_like_url_for_this_page
+    "http://www.facebook.com/sharer.php?u=#{current_url}"
   end
+  
+  # DEFAULT_THEME = "application_bootstrap_terminal.css"
+  
+  # def get_all_themes
+  #   StEnki::Application::ALL_THEMES
+  # end
+
+  # def get_theme(theme)
+  #   get_all_themes[theme.to_sym]
+  # end
 
   def get_theme_stylesheet_link
 
