@@ -3,6 +3,14 @@ module ApplicationHelper
   def facebook_like_url_for_current_page
     "http://www.facebook.com/sharer.php?u=#{current_url}"
   end
+
+  def google_plus_like_url_for_current_page
+    "https://plus.google.com/share?url=#{current_url}"
+  end
+
+  def twitter_share_url_for_current_page
+    "http://www.twitter.com/share?url=#{current_url}"
+  end
   
   # DEFAULT_THEME = "application_bootstrap_terminal.css"
   
