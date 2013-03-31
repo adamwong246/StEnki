@@ -54,12 +54,9 @@ html dir="ltr" lang="en-US"
 
             .nav-collapse.collapse
               ul.nav                
-                li
-                  = link_to "blog", "/"
-                li
-                  = link_to "lab", :lab
-                li
-                  = link_to "about", :about
+                li= link_to "", :blog,  class: "icon-book"
+                li= link_to "", :lab,   class: "icon-beaker" 
+                li= link_to "", :about, class: "icon-question-sign"
 
             ul.nav.pull-right
               li
