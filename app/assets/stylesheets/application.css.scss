@@ -38,6 +38,8 @@ $dropdownLinkColorHover:        red;
 $dropdownLinkColorActive:       violet;
 $dropdownLinkBackgroundActive:  pink;
 $dropdownLinkBackgroundHover:   orange;
+// $navbarBackground:green;
+// $navbarBackgroundHighlight:yellow;
 
 // Form states and alerts
 // -------------------------
@@ -58,8 +60,8 @@ $infoBackground:          #d9edf7 !default;
 $infoBorder:              darken(adjust-hue($infoBackground, -10), 7%) !default;
 
 $baseBorderRadius: 0;
-// $baseFontSize: 18px;
-// $baseLineHeight: 28px;
+$baseFontSize: 16px;
+$baseLineHeight: 26px;
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -98,7 +100,10 @@ $baseBorderRadius: 0;
     color: lighten(desaturate($color,    30), 30);
   }
 
-  a:hover{
+// div[class*="icon"] {
+//   font-size: 24px;
+// }
+  a:hover, a:hover > [class*="span"]{
     background-color: darken(desaturate($color,    30), 30) !important;
     text-decoration: none;
   }
@@ -109,7 +114,7 @@ $baseBorderRadius: 0;
   }
 
   #secondary_yeld h1,#secondary_yeld  h2,#secondary_yeld  h3,#secondary_yeld  h4,#secondary_yeld  h5,#secondary_yeld  h6{
-    color: lighten(desaturate($color,    10), 10);
+    color: lighten(desaturate($color,    5), 5);
   }
 
   hr{
@@ -124,7 +129,7 @@ $baseBorderRadius: 0;
   * {stroke: $color;}
 
   
-  background-color: darken(desaturate($color,    40), 45) !important;
+  background-color: darken(desaturate($color,    45), 45) !important;
   
 
 }
@@ -171,7 +176,9 @@ body{
   padding-top:20px;
 }
 
-
+.navbar .nav > li > a:hover{
+  background-color: transparent !important;
+}
 
 
 
@@ -186,42 +193,55 @@ span.label{
   // float: none;
 }
 
-#sticky_navigation.navbar > .navbar-inner{
 
-  // -webkit-background-clip: text, border; color: transparent
-  // * {
-  //   background-color: transparent;
-  // }
+.sticky-wrapper{
+  // & * {background-color:blue !important;}
 
-  // li a {
-  //   @include background-clip(text);
-  //   color: transparent;
-  // }
+  #sticky_navigation.navbar { 
+    // border-top: white 1px solid;
+      .navbar-inner{
 
-  padding-left:0px; 
-  padding-right:0px;
-  padding-top: 6px;
-  // padding-bottom: 3px;
-  border: none;
-  background: #03ffff !important; /* Old browsers */
-  background: -moz-linear-gradient(left, #03ffff 0%, #ff00ff 50%, #ffff00 100%) !important; /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#03ffff), color-stop(50%,#ff00ff), color-stop(100%,#ffff00)) !important; /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%) !important; /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%) !important; /* Opera 11.10+ */
-  background: -ms-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%) !important; /* IE10+ */
-  background: linear-gradient(to right, #03ffff 0%,#ff00ff 50%,#ffff00 100%) !important; /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03ffff', endColorstr='#ffff00',GradientType=1 ) !important; /* IE6-9 */
+      // -webkit-background-clip: text, border; color: transparent
+      // * {
+      //   background-color: transparent;
+      // }
 
-  > .container-fluid{
-    background-color:$wellBackground;
+      // li a {
+      //   @include background-clip(text);
+      //   color: transparent;
+      // }
 
-    button{
-      margin-top:7px;
-      margin-bottom:7px;
+      border: none;
+      padding-left:0px; 
+      padding-right:0px;
+
+      // padding-top: 1px;
+      // // padding-bottom: 3px;
+      // border-top: red 1px solid;
+      // border-top: red 5px solid !important;
+
+      background: #03ffff !important; /* Old browsers */
+      background: -moz-linear-gradient(left, #03ffff 0%, #ff00ff 50%, #ffff00 100%) !important; /* FF3.6+ */
+      background: -webkit-gradient(linear, left top, right top, color-stop(0%,#03ffff), color-stop(50%,#ff00ff), color-stop(100%,#ffff00)) !important; /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%) !important; /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%) !important; /* Opera 11.10+ */
+      background: -ms-linear-gradient(left, #03ffff 0%,#ff00ff 50%,#ffff00 100%) !important; /* IE10+ */
+      background: linear-gradient(to right, #03ffff 0%,#ff00ff 50%,#ffff00 100%) !important; /* W3C */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03ffff', endColorstr='#ffff00',GradientType=1 ) !important; /* IE6-9 */
+
+      > .container-fluid{
+
+        background-color: $wellBackground;
+        
+
+        // button{
+        //   margin-top:7px;
+        //   margin-bottom:7px;
+        // }
+      }
     }
   }
 }
-
 
   // height: 2px;
 
@@ -261,17 +281,27 @@ span.label{
   text-align:right;
 }
 
-#wrapper {
- 
-    width:100%; 
-    margin:0 auto;
 
-    
+.nav{
+  .icon-facebook:hover{
+    color: #3B5998 !important;
+  }
+  .icon-twitter:hover{
+    color: #4099FF !important;
+  }
+  .icon-google-plus:hover{
+    color: #db5a3c !important;
+  }
 }
 
-#signature.span2{
-  width:100%; height:400%;
-}
+// #wrapper {
+//     width:100%; 
+//     margin:0 auto;
+// }
+
+// #signature.span2{
+//   width:100%; height:400%;
+// }
 
 svg{
   background: transparent;
@@ -280,10 +310,7 @@ svg{
   width: 100%;
 }
 
-#signature *{
-  stroke: white;
 
-}
 
 .modal-backdrop {
   // background-color: black ;

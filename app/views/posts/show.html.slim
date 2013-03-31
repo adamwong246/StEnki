@@ -1,7 +1,7 @@
 - content_for(:secondary_left) do
   ul.sidebar-nav.nav.nav_list
     li
-      h1= link_to(@post.title, post_path(@post))
+      h2= link_to(@post.title, post_path(@post))
     li
       h4= format_post_date(@post.published_at)
 

@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def facebook_like_url_for_this_page
+  def facebook_like_url_for_current_page
     "http://www.facebook.com/sharer.php?u=#{current_url}"
   end
   

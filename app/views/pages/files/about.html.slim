@@ -7,88 +7,103 @@
 
 
 #about_me.row-fluid.well
-  .span8
-    h3 About me
-    
+  .span12
+    .row-fluid
+      .span12
+        h3 About me
+        hr
+    .row-fluid
+      .span8
 
-    p This is the personal blog of Adam Wong, RoR developer <i>par excellence.</i>
+        
 
-    p When I'm not coding, I practice muay thai kickboxing. I have two dogs, a cat, burning love for Ubuntu and a wonderful boyfriend. I live in Portland, Oregon. 
+        p This is the personal blog of Adam Wong, RoR developer <i>par excellence.</i>
 
-    p I'm always looking for new opportunities. Are you looking for a really good Rails dev and a sorta-pretty good designer? Oh yeah, did I mention I've got Android experience? If you are looking for a passionate and driven code head, I'm your man. I eat regular expressions for breakfast and 
+        p When I'm not coding, I practice muay thai kickboxing. I have two dogs, a cat, burning love for Ubuntu and a wonderful boyfriend. I live in Portland, Oregon. 
 
-    = link_to "Perhaps you'd like to see my résumé?", 'https://docs.google.com/document/d/1I1-ggWF3eYrVbSYdA5EwPBlVIrHvoWPdDujyIjvtEsA/pub'
+        p I'm always looking for new opportunities. Are you looking for a really good Rails dev and a sorta-pretty good designer? Oh yeah, did I mention I've got Android experience? If you are looking for a passionate and driven code head, I'm your man. 
 
-  .span4
-    
-    #myCarousel.carousel.slide
-      ol.carousel-indicators
-        / li.active data-slide-to="0" data-target="#myCarousel"
-        / li data-slide-to="1" data-target="#myCarousel"
-        / li data-slide-to="2" data-target="#myCarousel"
-      .carousel-inner
-        .item.active
-          = image_tag "carousel_pics/edited/spam.JPG", class: 'carousel_pic'
-        .item
-          = image_tag "carousel_pics/edited/bike.JPG", class: 'carousel_pic'
-        .item
-          = image_tag "carousel_pics/edited/love.JPG", class: 'carousel_pic'
-        .item
-          = image_tag "carousel_pics/edited/alaska.png", class: 'carousel_pic'
-        .item
-          = image_tag "carousel_pics/edited/beach.JPG", class: 'carousel_pic'
-        .item
-          = image_tag "carousel_pics/feather.JPG", class: 'carousel_pic'
-      / a.left.carousel-control data-slide="prev" href="#myCarousel"
-      / a.right.carousel-control data-slide="next" href="#myCarousel"
+        = link_to "Perhaps you'd like to see my résumé?", 'https://docs.google.com/document/d/1I1-ggWF3eYrVbSYdA5EwPBlVIrHvoWPdDujyIjvtEsA/pub'
+
+      .span4
+        
+        #myCarousel.carousel.slide
+          ol.carousel-indicators
+            / li.active data-slide-to="0" data-target="#myCarousel"
+            / li data-slide-to="1" data-target="#myCarousel"
+            / li data-slide-to="2" data-target="#myCarousel"
+          .carousel-inner
+            .item.active
+              = image_tag "carousel_pics/edited/spam.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "carousel_pics/edited/bike.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "carousel_pics/edited/love.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "carousel_pics/edited/alaska.png", class: 'carousel_pic'
+            .item
+              = image_tag "carousel_pics/edited/beach.JPG", class: 'carousel_pic'
+            .item
+              = image_tag "carousel_pics/feather.JPG", class: 'carousel_pic'
+          / a.left.carousel-control data-slide="prev" href="#myCarousel"
+          / a.right.carousel-control data-slide="next" href="#myCarousel"
 
 .row-fluid.well
   .span12
     h3 Contacts
+    hr
     .row-fluid
-      .span1.center_content  
-        a href="https://www.facebook.com/adamwong246" role="menuitem" tabindex="-1"
-          .icon-facebook
-      .span1.center_content 
-        a href="https://twitter.com/adamwong246" role="menuitem" tabindex="-1"
-          .icon-twitter
-      .span1.center_content 
-        a href="//plus.google.com/1042026564007" role="menuitem" tabindex="-1"
-          .icon-google-plus
-      .span1.center_content 
-        a href="https://github.com/adamwong246" role="menuitem" tabindex="-1"
-          .icon-github
-      .span1.center_content 
-        a href="www.linkedin.com/pub/adam-wong/1b/442/463/" role="menuitem" tabindex="-1"
-          .icon-linkedin
-      .span1.center_content
-        a href="mailto:adamwong246@gmail.com" role="menuitem" tabindex="-1"
-          span
-            .icon-envelope
-      .span6 
+      .span7.center_content
         a href="mailto:adamwong246@gmail.com" adamwong246@gmail.com
+      a href="https://www.facebook.com/adamwong246" role="menuitem" tabindex="-1" 
+        .span1.center_content
+          .icon-facebook
+      a href="https://twitter.com/adamwong246" role="menuitem" tabindex="-1"
+        .span1.center_content
+          .icon-twitter
+      a href="//plus.google.com/1042026564007" role="menuitem" tabindex="-1"
+        .span1.center_content
+          .icon-google-plus
+      a href="https://github.com/adamwong246" role="menuitem" tabindex="-1"
+        .span1.center_content
+          .icon-github
+      a href="www.linkedin.com/pub/adam-wong/1b/442/463/" role="menuitem" tabindex="-1"
+        .span1.center_content
+          .icon-linkedin
+      / .span1.center_content
+      /   a href="mailto:adamwong246@gmail.com" role="menuitem" tabindex="-1"
+      /     span
+      /       .icon-envelope
+      
 
 .row-fluid.well
-  .span8
-    h3 My work
-    p
-      | I worked on this really cool website, 
-      = link_to "spaceport.io", 'http://spaceport.io/'
+  .span12
+    .row-fluid
+      .span12
+        h3 My work
+        hr
+    .row-fluid
+      .span8
+        
+        p
+          | I worked on this really cool website, 
+          = link_to "spaceport.io", 'http://spaceport.io/'
 
-    p= link_to "Rails_admin_import can import data from an upload csv file or an rss feed", 'https://github.com/adamwong246/rails_admin_import'
+        p= link_to "Rails_admin_import can import data from an upload csv file or an rss feed", 'https://github.com/adamwong246/rails_admin_import'
 
-    = link_to "StEnki", "https://github.com/adamwong246/StEnki"
+        = link_to "StEnki", "https://github.com/adamwong246/StEnki"
 
-  
-  .span4.center_content
-    iframe#github_badge frameBorder="0" src="http://githubbadge.appspot.com/badge/adamwong246?s=1&a=0" style="border: 0;height: 142px;width: 200px;overflow: hidden;"
+      
+      .span4.center_content
+        iframe#github_badge frameBorder="0" src="http://githubbadge.appspot.com/badge/adamwong246?s=1&a=0" style="border: 0;height: 142px;width: 200px;overflow: hidden;"
 
-    a href="http://stackoverflow.com/users/614612/adamwong246"
-      img alt="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" height="58" src="http://stackoverflow.com/users/flair/614612.png" title="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" width="208"
+        a href="http://stackoverflow.com/users/614612/adamwong246"
+          img alt="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" height="58" src="http://stackoverflow.com/users/flair/614612.png" title="profile for adamwong246 at Stack Overflow, Q&A for professional and enthusiast programmers" width="208"
         
 .row-fluid.well
   .span12
-    h3 About StEnk
+    h3 About StEnki
+    hr
     
     li = link_to "https://github.com/adamwong246/StEnki", "https://github.com/adamwong246/StEnki"
 
