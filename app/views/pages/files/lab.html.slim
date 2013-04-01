@@ -5,21 +5,21 @@
     li
       h4 This is where all my little experiments live. 
 
-.well
-  .user_links
+    / .user_links
     - if current_user
-      | You are currentlly signed in as #{current_user.identify}
-
-      ul
-        li
-          = link_to "My profile", user_path(current_user)                         
-        li
-          = link_to "Sign out", destroy_user_session_path, :method => :delete
-        li
-          = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
+      | You are currentlly signed in as #{current_user.identify}      
+      li
+        = link_to "My profile", user_path(current_user)                         
+      li
+        = link_to "Sign out", destroy_user_session_path, :method => :delete
+      li
+        = link_to "rails_admin", rails_admin_path, :'data-no-turbolink' => true
 
     - else
       = link_to "Sign in", user_session_path
+
+.well
+  
   .other
     p= link_to "Flash tester", :flash_test
     p= link_to "Archive", :posts_archive

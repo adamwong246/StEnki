@@ -23,8 +23,8 @@
 # = require comment
 
 # For editning object 'in place'
-# $ ->
-#   $('.best_in_place').best_in_place()
+$ ->
+  $('.best_in_place').best_in_place()
 
 # Load the socialite button when you mouseover of it
 # $ ->
@@ -81,7 +81,7 @@ $ ->
   ), 100
   
 $ ->
-  $('#sticky_navigation').waypoint('sticky')
+  # $('#sticky_navigation').waypoint('sticky')
   # $('#secondary_yeld').waypoint('sticky')
 
 

@@ -109,7 +109,6 @@ $baseLineHeight: 26px;
   }
 
   #logo * {
-    font-family: 'Codystar', sans-serif !important;
     color: $color;
   }
 
@@ -129,7 +128,7 @@ $baseLineHeight: 26px;
   * {stroke: $color;}
 
   
-  background-color: darken(desaturate($color,    45), 45) !important;
+  background-color: darken(desaturate($color,    50), 45) !important;
   
 
 }
@@ -144,20 +143,14 @@ body.about{
   @include themer(yellow);
 }
 
-#for_hire{
-  position: absolute;
-  top: -50px;
-  right:-80px;
-  
-  @include transform(scale(0.5) rotate(10deg));
-}
-
 body{
   font-family: 'Questrial', sans-serif;
+  background: url(image_path('half-tone-008.svg')) repeat;
+  background-size: 100% ;
 }
 
-.navbar .nav > li > a {
-  text-shadow: none !important;
+#logo * {
+  font-family: 'Codystar', sans-serif !important;
 }
 
 #footer.row-fluid > div{
@@ -167,6 +160,22 @@ body{
     text-align:right;
   }
 }
+
+#for_hire{
+  position: absolute;
+  top: -50px;
+  right:-80px;
+  
+  @include transform(scale(0.5) rotate(10deg));
+}
+
+
+
+.navbar .nav > li > a {
+  text-shadow: none !important;
+}
+
+
 
 // div[class*="icon"] {
 //   font-size: 24px;
@@ -194,10 +203,11 @@ span.label{
 }
 
 
-.sticky-wrapper{
+div{
   // & * {background-color:blue !important;}
 
-  #sticky_navigation.navbar { 
+  #sticky_navigation.navbar {
+    margin-bottom: 0px; 
     // border-top: white 1px solid;
       .navbar-inner{
 

@@ -1,8 +1,11 @@
+- content_for(:secondary_left) do
+  
+  h1 User profile
+  h4= @user.identify
+  = link_to "Edit", edit_user_path(@user)
+
 .well
-  .title_and_sub_title
-    h2 User profile
-    h4= @user.identify
-    = link_to "Edit", edit_user_path(@user)
+  
 
     -for attribute in @user.attributes.keys
       p

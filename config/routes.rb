@@ -6,7 +6,7 @@ StEnki::Application.routes.draw do
 
   devise_for :users
 
-  resources :users, :except =>['index', 'create', 'new', 'destroy']
+  resources :users, :except =>['index', 'create', 'new', 'destroy'], :theme_color => :lab
 
   match "/about"           => "pages#show", :id => 'files/about',       :as => 'about',       :theme_color => :about
   match "/lab"             => "pages#show", :id => 'files/lab',         :as => 'lab',          :theme_color => :lab
