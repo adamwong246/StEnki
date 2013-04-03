@@ -22,67 +22,72 @@
 # = require jquery.profanityfilter.min.js
 # = require comment
 
-# For editning object 'in place'
+
+# start carousel
 $ ->
-  $('.best_in_place').best_in_place()
+  $('.carousel').carousel()
+
+# makes the menu bar stick
+$ ->
+  $('#sticky_navigation').waypoint('sticky')
+
+# Launches the modal window containing flash messages.
+$ ->
+  $('#modal-flash').modal
+      keyboard: false
+
+
+# For editning object 'in place'
+# $ ->
+#   $('.best_in_place').best_in_place()
 
 # Load the socialite button when you mouseover of it
 # $ ->
 #   $("#social2 > li").one "mouseenter", ->
 #     Socialite.load $(this)[0]
 
-$ -> 
-  $(document).profanityFilter customSwears: ["fuck"]
+# $ -> 
+#   $(document).profanityFilter customSwears: ["fuck"]
 
 # add zen mode to every form
-$ -> 
-  $("form").addClass("zen-mode")
-
-# start carousel
-$ ->
-  $('.carousel').carousel()
+# $ -> 
+#   $("form").addClass("zen-mode")
   
 # scroll to top button
-$ -> 
-  $("a#scroll_to_top").click -> 
-    $("html, body").animate({ scrollTop: 0 }, "slow")
-    return false
+# $ -> 
+#   $("a#scroll_to_top").click -> 
+#     $("html, body").animate({ scrollTop: 0 }, "slow")
+#     return false
 
     
 
     # $(this).children(".socialite").css
     #   "height": 30
 
-# Launches the modal window containing flash messages.
-$(window).load ->
-    $('#modal-flash').modal
-        keyboard: false
 
-(($) ->  
-  # VERTICALLY ALIGN FUNCTION
-  $.fn.vAlign = ->
-    @each (i) ->
-      ah = $(this).height()
-      ph = $(this).parent().height()
-      mh = Math.ceil((ph - ah) / 2)
-      $(this).css "margin-top", mh
+# (($) ->  
+#   # VERTICALLY ALIGN FUNCTION
+#   $.fn.vAlign = ->
+#     @each (i) ->
+#       ah = $(this).height()
+#       ph = $(this).parent().height()
+#       mh = Math.ceil((ph - ah) / 2)
+#       $(this).css "margin-top", mh
 
-) $
+# ) $
 
-$ -> 
-  # side bar
-  setTimeout (->
-    $(".bs-docs-sidenav").affix offset:
-      top: ->
-        (if $window.width() <= 980 then 290 else 210)
+# $ -> 
+#   # side bar
+#   setTimeout (->
+#     $(".bs-docs-sidenav").affix offset:
+#       top: ->
+#         (if $window.width() <= 980 then 290 else 210)
 
-      bottom: 270
+#       bottom: 270
 
-  ), 100
+#   ), 100
   
-$ ->
-  # $('#sticky_navigation').waypoint('sticky')
-  # $('#secondary_yeld').waypoint('sticky')
+
 
 
 # # sticky navigation bar

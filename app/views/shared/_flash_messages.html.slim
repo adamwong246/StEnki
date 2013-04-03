@@ -9,7 +9,7 @@
     .modal-body
       / =flash.inspect
       - flash.reject {|type, message| type == :title}.each do |type, message|
-        div.alert-message.fade.in data-alert="alert" class=twitterized_type(type) 
+        div.alert-message.fade.in data-alert="alert" class=type
           p             
             = message 
       

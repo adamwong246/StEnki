@@ -43,20 +43,20 @@ module ApplicationHelper
   end
 
   # translates flash message types to bootstrap css
-  def twitterized_type(type)
-    case type
-      when :alert
-        "alert-block"
-      when :error
-        "alert-error"
-      when :notice
-        "alert-info"
-      when :success
-        "alert-success"
-      else
-        type.to_s
-    end
-  end
+  # def twitterized_type(type)
+  #   case type
+  #     when :alert
+  #       "alert-block"
+  #     when :error
+  #       "alert-error"
+  #     when :notice
+  #       "alert-info"
+  #     when :success
+  #       "alert-success"
+  #     else
+  #       type.to_s
+  #   end
+  # end
 
   def current_url
     "#{request.protocol}#{request.host_with_port}#{request.fullpath}"

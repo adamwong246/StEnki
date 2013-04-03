@@ -3,7 +3,7 @@ source "http://rubygems.org"
 gem 'debugger'
 
 gem 'font-awesome-sass-rails'
-
+gem 'curl'
 gem "thin", "~> 1.4.1"
 gem 'dalli', '~>1.0.5' # memcaching on heroku
 gem 'slim'

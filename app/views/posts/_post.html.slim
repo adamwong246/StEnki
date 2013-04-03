@@ -2,15 +2,15 @@
   - short = false 
 
 - if title
-  .title_and_sub_title
-    h3
-      = link_to(post.title, post_path(post))
-    h5 
-      = format_post_date(post.published_at)
+  / .title_and_sub_title
+  h3
+    = link_to(post.title, post_path(post))
+  h5 
+    = format_post_date(post.published_at)
 
-    - if current_user
-      = link_to "Admin", "/admin/post/#{post.id}"
-    / hr
+  - if current_user
+    = link_to "Admin", "/admin/post/#{post.id}"
+  / hr
 
 .entrybody
   - if short

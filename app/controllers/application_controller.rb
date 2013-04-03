@@ -13,7 +13,7 @@ private
         @highlight_color = "about"
       when :lab
         @highlight_color = "lab"
-      when :blog
+      else :blog
         @highlight_color = "blog"
       end
     rescue
@@ -45,13 +45,13 @@ private
 
   # check_authorization :unless => :devise_controller? # Lock down every controller. Every action must be authorized through cancan
 
-  rescue_from CanCan::AccessDenied do |exception|
-    flash[:title] = "Access denied."
-    flash[:notice] = "You have insuffecient priveleges to #{exception.action} #{exception.subject}"
-    flash[:error] = exception.message
+  # rescue_from CanCan::AccessDenied do |exception|
+  #   flash[:title] = "Access denied."
+  #   flash[:notice] = "You have insuffecient priveleges to #{exception.action} #{exception.subject}"
+  #   flash[:error] = exception.message
 
-    redirect_to main_app.blog_path
-  end
+  #   redirect_to main_app.blog_path
+  # end
 
 
 end
