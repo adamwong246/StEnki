@@ -8,6 +8,11 @@ class PostsController < ApplicationController
     @posts_grouped_by_months = Post.find_grouped_by_month(15)
   end
 
+  before_filter :set_theme
+  def set_theme
+    @theme = :blog
+  end
+
   def archive
     @months = Post.find_grouped_by_month
 

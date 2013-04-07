@@ -10,26 +10,27 @@
 #  WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 #  GO AFTER THE REQUIRES BELOW.
 # 
+# = require angular
+# = require angular-resource
+# = require angular-bootstrap
 # = require jquery
 # = require jquery_ujs
 # = require jquery-ui
 # = require jquery.turbolinks
 # = require turbolinks
-# = require bootstrap
 # = require common
 # = require waypoints
 # = require waypoints-sticky
 # = require jquery.profanityfilter.min.js
-# = require comment
-
+# = require_tree .
 
 # start carousel
 $ ->
   $('.carousel').carousel()
 
 # makes the menu bar stick
-$ ->
-  $('#sticky_navigation').waypoint('sticky')
+# $ ->
+#   $('#sticky_navigation').waypoint('sticky')
 
 # Launches the modal window containing flash messages.
 $ ->

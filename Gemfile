@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 gem 'debugger'
 
+gem "angularjs-rails"
 gem 'font-awesome-sass-rails'
 gem 'curl'
 gem "thin", "~> 1.4.1"
@@ -68,6 +69,7 @@ group :assets do
   # gem 'therubyracer' #heroku says unnesecary but I need it for less to work
   # gem 'coffee-rails', "~> 3.2.1"
   gem 'uglifier'
+
 end
 
 platforms :ruby do
